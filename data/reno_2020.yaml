@@ -1,0 +1,42 @@
+- experiment: RENO
+  type: reactor
+  dataset: 2900 days, Aug. 2011 - Feb. 2020
+  reference:
+      date: 2020.06
+      arxiv: ''
+      citation: ''
+      conf: Neutrino2020
+      talk: https://indico.fnal.gov/event/43209/contributions/187886/attachments/130339/158753/Neutrino2020YooRENO.pdf
+  target: nGd
+  result:
+      amplitude_reactor:
+          precision: 4
+          mode: double
+          value: 0.0892
+          uncertainty:
+              stat: 0.0044
+              syst: 0.0045
+      splitting: 
+          precision: 2
+          mode: ee
+          value: 2.74
+          uncertainty:
+              stat: 0.10
+              syst: 0.06
+- experiment: RENO
+  type: reactor
+  target: nH
+  dataset: 1500 days
+  reference:
+      arxiv: ''
+      citation: ''
+      conf: Neutrino2020
+  result:
+      amplitude_reactor:
+          precision: 4
+          mode: double
+          value: 0.086
+          uncertainty:
+              stat: 0.008
+              syst: 0.0014
+

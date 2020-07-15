@@ -1,0 +1,27 @@
+- experiment: MINOS
+  type: accelerator
+  dataset: ''
+  reference:
+      date: 2020.06
+      arxiv: hep-ex/2006.15208
+      citation: Adamson:2020ypy
+      conf: Neutrino2020
+      talk: https://indico.fnal.gov/event/43209/contributions/187840/attachments/130740/159597/NOvA-Oscilations-NEUTRINO2020.pdf
+  result:
+      splitting: 
+          precision: 2
+          mode: '32'
+          results:
+              - ordering: NO
+                octant: UO
+                value: 2.40
+                uncertainty:
+                    left:  0.09
+                    right: 0.08
+              - ordering: IO
+                octant: UO
+                value: 2.45
+                syst:
+                    left:  0.08
+                    right: 0.07
+
