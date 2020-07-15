@@ -1,11 +1,11 @@
-- experiment: MINOS
+- experiment: NOvA
   type: accelerator
   dataset: ''
   reference:
       latest: True
       date: 2020.06
-      arxiv: hep-ex/2006.15208
-      citation: Adamson:2020ypy
+      arxiv: ''
+      citation: ''
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187840/attachments/130740/159597/NOvA-Oscilations-NEUTRINO2020.pdf
   result:
@@ -15,14 +15,10 @@
           results:
               - ordering: NO
                 octant: UO
-                value: 2.40
-                uncertainty:
-                    left:  0.09
-                    right: 0.08
+                value: 2.41
+                uncertainty: 0.07
               - ordering: IO
                 octant: UO
-                value: 2.45
-                syst:
-                    left:  0.08
-                    right: 0.07
-
+                value: 2.44674
+                uncertainty:
+                    interval: [2.39, 2.51]
