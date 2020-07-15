@@ -23,5 +23,5 @@
           mode: single
           value: 0.0244
           uncertainty:
-              inverval: [0.0223, 0.0308]
+              interval: [0.0223, 0.0308]
 
