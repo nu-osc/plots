@@ -33,6 +33,10 @@ def collect(data):
 
     return ret
 
+def merge_leftright(unc):
+    left, right = unc['left'], unc['right']
+    return 0.5*(left+right)
+
 def get_uncertainty(val, unc):
     if isinstance(unc, float):
         return val-unc, val+unc, unc, unc
@@ -70,6 +74,11 @@ def get_uncertainty(val, unc):
     except KeyError:
         pass
     else:
+        if isinstance(stat, dict) and isinstance(syst, dict):
+            stat, syst = merge_leftright(stat), merge_leftright(syst)
+        if not isinstance(stat, float) or not isinstance(syst, float):
+            raise Exception(f'Invalid stat/syst uncertainties: {stat!s}, {syst!s}')
+
         unc = (stat**2 + syst**2)**0.5
         return val-unc, val+unc, unc, unc
 
