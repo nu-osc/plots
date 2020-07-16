@@ -3,6 +3,7 @@
 import yaml
 from tabulate import tabulate
 import numpy as np
+from pylib.converters import convert
 
 def main(args):
     data = collect(args.inputs)
@@ -25,10 +26,10 @@ def filter(word):
 def collect(data):
     ret = []
     for entry in data:
-        if isinstance(entry, list):
-            for entry in entry:
-                collect_entry(entry, ret)
-        else:
+        if not isinstance(entry, list):
+            entry = [entry]
+
+        for entry in entry:
             collect_entry(entry, ret)
 
     return ret
@@ -39,10 +40,10 @@ def merge_leftright(unc):
 
 def get_uncertainty(val, unc):
     if isinstance(unc, float):
-        return val-unc, val+unc, unc, unc
+        return val-unc, val+unc
     elif isinstance(unc, (list, tuple)):
         left, right = unc
-        return val-left, val+right, left, right
+        return val-left, val+right
     elif not isinstance(unc, dict):
         raise Exception('Invalid uncertainty: '+str(unc))
 
@@ -51,23 +52,21 @@ def get_uncertainty(val, unc):
     except KeyError:
         pass
     else:
-        return val-left, val+right, left, right
+        return val-left, val+right
 
     try:
         left, right = unc['left'], unc['right']
     except KeyError:
         pass
     else:
-        return val-left, val+right, left, right
+        return val-left, val+right
 
     try:
-        val_left, var_right = unc['interval']
+        val_left, val_right = unc['interval']
     except KeyError:
         pass
     else:
-        left = val - val_left
-        right = val_right - val
-        return val_left, val_right, left, right
+        return val_left, val_right
 
     try:
         stat, syst = unc['stat'], unc['syst']
@@ -80,53 +79,55 @@ def get_uncertainty(val, unc):
             raise Exception(f'Invalid stat/syst uncertainties: {stat!s}, {syst!s}')
 
         unc = (stat**2 + syst**2)**0.5
-        return val-unc, val+unc, unc, unc
+        return val-unc, val+unc
 
     print('Not supported uncertainty: '+str(unc))
 
-def collect_result(var, entry, target):
-    res = entry.get('result', {}).get(var, {})
-    if not res:
-        return False
-
-    val = res['value']
-    val_left, val_right, unc_left, unc_right = get_uncertainty(val, res['uncertainty'])
-    span = val_right - val_left
-
-    precision = res['precision']
-
-    s_val   = f'{val:.{precision}f}'
-    s_left  = f'{unc_left:.{precision}f}'
-    s_right = f'{unc_right:.{precision}f}'
-
-    target.append(s_val)
-    target.append(s_left)
-    target.append(s_right)
-    target.append(span)
-
-    if s_left==s_right:
-        target.append(f'${s_val}\\pm{s_left}$')
-    else:
-        target.append(f'${s_val}^{{+{s_right}}}_{{-{s_left}}}$')
-
-    return True
-
-def collect_entry(entry, target):
-    ret = [entry['experiment']]
-
-    if entry.get('type')=='reactor':
-        ret.append(entry['target'])
-    else:
-        ret.append('')
-
-    if not collect_result('amplitude13', entry, ret):
+def collect_result(var, entry):
+    results = entry.get('result', {}).get(var, {})
+    if not results:
         return
 
-    ref = entry.get('reference', {})
-    ret.append(ref.get('arxiv', ''))
-    ret.append(ref.get('conf'))
+    if not isinstance(results, list):
+        results = [results]
 
-    target.append(ret)
+    for res in results:
+        mode = res['mode']
+
+        val = res['value']
+        val_left, val_right = get_uncertainty(val, res['uncertainty'])
+        val_left, val, val_right = convert(var, mode, val_left, val, val_right)
+        unc_left = val - val_left
+        unc_right = val_right - val
+
+        span = val_right - val_left
+
+        precision = res['precision']
+
+        s_val   = f'{val:.{precision}f}'
+        s_left  = f'{unc_left:.{precision}f}'
+        s_right = f'{unc_right:.{precision}f}'
+
+        target = [s_val, s_left, s_right, span]
+
+        if s_left==s_right:
+            target.append(f'${s_val}\\pm{s_left}$')
+        else:
+            target.append(f'${s_val}^{{+{s_right}}}_{{-{s_left}}}$')
+
+        yield target
+
+def collect_entry(entry, target):
+    before = [entry['experiment']]
+    if entry.get('type')=='reactor':
+        before.append(entry['target'])
+    else:
+        before.append('')
+    ref = entry.get('reference', {})
+    after = [ref.get('arxiv', ''), ref.get('conf')]
+
+    for res in collect_result('amplitude13', entry):
+        target.append(before+res+after)
 
 def load(filename):
     with open(filename, 'r') as f:

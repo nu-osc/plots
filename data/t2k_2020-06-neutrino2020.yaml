@@ -20,7 +20,7 @@ result:
             uncertainty:
                 interval: [2.408, 2.548]
             notes: bayessian?
-    amplitude_reactor:
+    amplitude13:
         precision: 4
         mode: single
         value: 0.0244
