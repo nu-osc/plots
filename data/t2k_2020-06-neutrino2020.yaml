@@ -1,14 +1,14 @@
 - experiment: T2K
   type: accelerator
-  dataset: Run1-10
+  dataset: 19.7e20 POT ν, 16.3e20 POT ν-bar
   reference:
-      date: 2020.06
+      date: '2020.06'
       latest: True
       arxiv: ''
       citation: ''
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
-      slides: [29, 47, 48]
+      slides: [11, 29, 47, 48]
   result:
       splitting_large: 
           precision: 2
