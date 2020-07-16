@@ -8,8 +8,9 @@
       citation: ''
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
+      slides: [29, 47, 48]
   result:
-      splitting: 
+      splitting_large: 
           precision: 2
           mode: '32'
           results:
@@ -18,6 +19,7 @@
               value: 2.49
               uncertainty:
                   interval: [2.408, 2.548]
+              notes: bayessian?
       amplitude_reactor:
           precision: 4
           mode: single

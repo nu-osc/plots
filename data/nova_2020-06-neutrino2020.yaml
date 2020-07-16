@@ -1,6 +1,6 @@
 - experiment: NOvA
   type: accelerator
-  dataset: ''
+  dataset: '13.6e20 POT ν, 12.5e20 POT ν-bar'
   reference:
       latest: True
       date: 2020.06
@@ -8,8 +8,9 @@
       citation: ''
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187840/attachments/130740/159597/NOvA-Oscilations-NEUTRINO2020.pdf
+      slides: [24, 26] 
   result:
-      splitting: 
+      splitting_large: 
           precision: 2
           mode: '32'
           results:
@@ -22,3 +23,4 @@
                 value: 2.44674
                 uncertainty:
                     interval: [2.39, 2.51]
+                notes: private communication

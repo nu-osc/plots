@@ -8,16 +8,17 @@
       citation: ''
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187886/attachments/130339/158753/Neutrino2020YooRENO.pdf
+      slides: 13
   target: nGd
   result:
-      amplitude_reactor:
+      amplitude13:
           precision: 4
           mode: double
           value: 0.0892
           uncertainty:
               stat: 0.0044
               syst: 0.0045
-      splitting: 
+      splitting_large: 
           precision: 2
           mode: ee
           value: 2.74
@@ -33,8 +34,10 @@
       arxiv: ''
       citation: ''
       conf: Neutrino2020
+      talk: https://indico.fnal.gov/event/43209/contributions/187886/attachments/130339/158753/Neutrino2020YooRENO.pdf
+      slides: 17
   result:
-      amplitude_reactor:
+      amplitude13:
           precision: 4
           mode: double
           value: 0.086

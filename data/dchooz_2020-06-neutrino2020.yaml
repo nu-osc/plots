@@ -9,8 +9,9 @@
       citation: ''
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187822/attachments/129095/158797/DoubleChooz_Neutrino2020_thiago_vFinal.pdf
+      slides: [20, 21]
   result:
-      amplitude_reactor:
+      amplitude13:
           mode: double
           precision: 3
           value: 0.102

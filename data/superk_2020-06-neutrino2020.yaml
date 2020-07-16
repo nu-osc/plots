@@ -1,27 +1,54 @@
-- experiment: T2K
-  type: accelerator
-  dataset: Run1-10
+- experiment: SuperK
+  type: atmospheric
+  dataset: '364.8 kton-years'
   reference:
       date: 2020.06
       latest: True
       arxiv: ''
       citation: ''
       conf: Neutrino2020
-      talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
+      talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
+      slides: 27
   result:
-      splitting: 
+      splitting_large: 
           precision: 2
           mode: '32'
           results:
-              ordering: NO
-              octant: UO
-              value: 2.49
-              uncertainty:
-                  interval: [2.408, 2.548]
-      amplitude_reactor:
-          precision: 4
+              - ordering: NO
+                value: 2.40
+                uncertainty:
+                    left: 0.12
+                    right: 0.11
+              - ordering: IO
+                value: 2.40
+                uncertainty:
+                    left: 0.32
+                    right: 0.09
+      deltaCP: 
+          precision: 2
+          mode: radians
+          results:
+              - ordering: NO
+                value: 4.36
+                uncertainty:
+                    left: 1.39
+                    right: 0.88
+              - ordering: IO
+                value: 4.54
+                uncertainty:
+                    left: 1.32
+                    right: 0.88
+      amplitude23: 
+          precision: 2
           mode: single
-          value: 0.0244
-          uncertainty:
-              interval: [0.0223, 0.0308]
-
+          results:
+              - ordering: NO
+                value: 0.44
+                uncertainty:
+                    left: 0.05
+                    right: 0.02
+              - ordering: IO
+                value: 0.45
+                uncertainty:
+                    left: 0.09
+                    right: 0.03
