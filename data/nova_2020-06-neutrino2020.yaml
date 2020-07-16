@@ -31,8 +31,9 @@ result:
             - ordering: NO
               value: 2.576
               uncertainty:
-                  interval: [0, 3.42]
-                  interval: [5.69, 6.28]
+                  interval: 
+                      - [0, 3.42]
+                      - [5.69, 6.28]
               notes: two intervals
             - ordering: IO
               value: 4.775
