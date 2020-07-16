@@ -1,0 +1,27 @@
+- experiment: T2K
+  type: accelerator
+  dataset: Run1-10
+  reference:
+      date: 2020.06
+      latest: True
+      arxiv: ''
+      citation: ''
+      conf: Neutrino2020
+      talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
+  result:
+      splitting: 
+          precision: 2
+          mode: '32'
+          results:
+              ordering: NO
+              octant: UO
+              value: 2.49
+              uncertainty:
+                  interval: [2.408, 2.548]
+      amplitude_reactor:
+          precision: 4
+          mode: single
+          value: 0.0244
+          uncertainty:
+              interval: [0.0223, 0.0308]
+
