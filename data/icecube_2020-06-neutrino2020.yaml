@@ -1,0 +1,35 @@
+experiment: IceCube
+type: atmospheric
+dataset: 1022 days
+reference:
+    date: '2020.06'
+    latest: True
+    arxiv: hep-ex/1707.07081
+    citation: Aartsen:2017nmd
+    conf: Neutrino2018
+    talk: https://zenodo.org/record/1286852
+    slides: 12
+result:
+    splitting_large: 
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: NO
+              value: 2.31
+              uncertainty:
+                  left: 0.13
+                  right: 0.11
+        results:
+            - ordering: IO
+              value: 2.32
+              uncertainty:
+                  left: 0.13
+                  right: 0.11
+    amplitude23: 
+        precision: 2
+        mode: single
+        results:
+            - value: 0.51
+              uncertainty:
+                  left: 0.09
+                  right: 0.07

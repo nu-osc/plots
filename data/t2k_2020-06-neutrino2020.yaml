@@ -1,29 +1,29 @@
-- experiment: T2K
-  type: accelerator
-  dataset: 19.7e20 POT ν, 16.3e20 POT ν-bar
-  reference:
-      date: '2020.06'
-      latest: True
-      arxiv: ''
-      citation: ''
-      conf: Neutrino2020
-      talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
-      slides: [11, 29, 47, 48]
-  result:
-      splitting_large: 
-          precision: 2
-          mode: '32'
-          results:
-              ordering: NO
-              octant: UO
-              value: 2.49
-              uncertainty:
-                  interval: [2.408, 2.548]
-              notes: bayessian?
-      amplitude_reactor:
-          precision: 4
-          mode: single
-          value: 0.0244
-          uncertainty:
-              interval: [0.0223, 0.0308]
+experiment: T2K
+type: accelerator
+dataset: 19.7e20 POT ν, 16.3e20 POT ν-bar
+reference:
+    date: '2020.06'
+    latest: True
+    arxiv:
+    citation:
+    conf: Neutrino2020
+    talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
+    slides: [11, 29, 47, 48]
+result:
+    splitting_large: 
+        precision: 2
+        mode: '32'
+        results:
+            ordering: NO
+            octant: UO
+            value: 2.49
+            uncertainty:
+                interval: [2.408, 2.548]
+            notes: bayessian?
+    amplitude_reactor:
+        precision: 4
+        mode: single
+        value: 0.0244
+        uncertainty:
+            interval: [0.0223, 0.0308]
 

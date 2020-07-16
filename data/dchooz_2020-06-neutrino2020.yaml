@@ -1,21 +1,21 @@
-- experiment: Double CHOOZ
-  type: reactor
-  target: n(H,C,Gd)
-  dataset: ''
-  reference:
-      latest: True
-      date: '2020.06'
-      arxiv: ''
-      citation: ''
-      conf: Neutrino2020
-      talk: https://indico.fnal.gov/event/43209/contributions/187822/attachments/129095/158797/DoubleChooz_Neutrino2020_thiago_vFinal.pdf
-      slides: [20, 21]
-  result:
-      amplitude13:
-          mode: double
-          precision: 3
-          value: 0.102
-          uncertainty:
-              stat: 0.004
-              syst: 0.011
+experiment: Double CHOOZ
+type: reactor
+target: n(H,C,Gd)
+dataset:
+reference:
+    latest: True
+    date: '2020.06'
+    arxiv:
+    citation:
+    conf: Neutrino2020
+    talk: https://indico.fnal.gov/event/43209/contributions/187822/attachments/129095/158797/DoubleChooz_Neutrino2020_thiago_vFinal.pdf
+    slides: [20, 21]
+result:
+    amplitude13:
+        mode: double
+        precision: 3
+        value: 0.102
+        uncertainty:
+            stat: 0.004
+            syst: 0.011
 
