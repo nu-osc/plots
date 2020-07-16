@@ -24,3 +24,32 @@ result:
               uncertainty:
                   interval: [2.39, 2.51]
               notes: private communication
+    deltaCP:
+        precision: 4
+        mode: radians
+        results:
+            - ordering: NO
+              value: 2.576
+              uncertainty:
+                  interval: [0, 3.42]
+                  interval: [5.69, 6.28]
+              notes: two intervals
+            - ordering: IO
+              value: 4.775
+              uncertainty:
+                  interval: [3.958, 5.435]
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: NO
+              value: 0.57
+              uncertainty:
+                  left: 0.04
+                  right: 0.03
+            - ordering: IO
+              value: 0.56
+              uncertainty:
+                  left: 0.03
+                  right: 0.03
+

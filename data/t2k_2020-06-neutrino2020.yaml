@@ -26,4 +26,32 @@ result:
         value: 0.0244
         uncertainty:
             interval: [0.0223, 0.0308]
-
+    deltaCP:
+        precision: 2
+        mode: radians
+        results:
+            - ordering: NO
+              value: 4.316
+              uncertainty:
+                  left: 3.738
+                  right: 5.246
+            - ordering: IO
+              value: 4.833
+              uncertainty:
+                  left: 4.483
+                  right: 5.183
+              notes: IH is approximate
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: NO
+              value: 0.546
+              uncertainty:
+                  interval: [0.5, 0.57]
+              notes: plot and table are inconsistent on the slide 29
+            - ordering: IO
+              value: 0.546
+              uncertainty:
+                  interval: [0.5, 0.57]
+              notes: plot and table are inconsistent on the slide 29
