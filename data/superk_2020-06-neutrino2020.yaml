@@ -15,7 +15,8 @@ result:
         mode: '32'
         results:
             - ordering: NO
-              value: 2.40 uncertainty:
+              value: 2.40 
+              uncertainty:
                   left: 0.12
                   right: 0.11
             - ordering: IO
