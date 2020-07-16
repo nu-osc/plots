@@ -8,9 +8,19 @@ def main(args):
     data = collect(args.inputs)
 
     data = sorted(data, key=lambda x: x[5])
+    data = map(filter, data)
 
     header = [ 'experiment', 'comment', 'value', 'left', 'right', 'span', 'tex', 'arxiv', 'conf' ]
     print(tabulate(data, header))
+
+def filter(word):
+    if isinstance(word, (tuple, list)):
+        return map(filter, word)
+
+    if isinstance(word, str) and ' ' in word:
+        return f'{{{word}}}'
+
+    return word
 
 def collect(data):
     ret = []
