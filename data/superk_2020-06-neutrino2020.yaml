@@ -67,3 +67,7 @@ result:
         value: 0.306
         uncertainty: 0.014
         notes: joint SK+SNO
+    hie:
+        precision: 2
+        value: 1.79
+        notes: from the table as delta chi2
