@@ -1,0 +1,18 @@
+- experiment: Daya Bay
+  type: reactor
+  dataset: 621 days
+  reference:
+      latest: True
+      date: '2016.07'
+      arxiv: hep-ex/1603.03549
+      citation: An:2016bvr
+      conf: Neutrino2016
+      talk: https://cdn.eventsforce.net/files/ef-q5vmtsq56tk6/website/948/09.20___2_.pdf
+      slides: 18
+  target: nH
+  result:
+      amplitude13:
+          precision: 3
+          mode: double
+          value: 0.071
+          uncertainty: 0.011

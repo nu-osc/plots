@@ -1,0 +1,32 @@
+- experiment: Daya Bay
+  type: reactor
+  dataset: 1958 days
+  reference:
+      latest: True
+      date: '2018.06'
+      arxiv: hep-ex/1809.02261
+      citation: Adey:2018zwh
+      conf: Neutrino2018
+      talk: http://doi.org/10.5281/zenodo.1288292
+      slides: 16
+  target: nGd
+  result:
+      amplitude13:
+          precision: 4
+          mode: double
+          value: 0.0856
+          uncertainty: 0.0029
+      splitting_large: 
+          precision: 3
+          mode: '32'
+          results:
+              - ordering: NO
+                value: 2.471
+                uncertainty:
+                    left: 0.070
+                    right: 0.068
+              - ordering: IO
+                value: 2.575
+                uncertainty:
+                    left: 0.070
+                    right: 0.068
