@@ -5,6 +5,8 @@ reference:
     latest: True
     date: '2020.06'
     arxiv: hep-ex/2006.15208
+    inspire: https://inspirehep.net/literature/1803577
+    doi:
     citation: Adamson:2020ypy
     conf: Neutrino2020
     talk: https://indico.fnal.gov/event/43209/contributions/187840/attachments/130740/159597/NOvA-Oscilations-NEUTRINO2020.pdf

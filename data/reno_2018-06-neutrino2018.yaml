@@ -5,6 +5,8 @@ dataset: 1500 days?
 reference:
     latest: True
     arxiv:
+    inspire:
+    doi:
     citation:
     conf: Neutrino2018
     talk: http://doi.org/10.5281/zenodo.1286847

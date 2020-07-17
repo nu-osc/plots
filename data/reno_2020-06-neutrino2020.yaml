@@ -5,6 +5,8 @@
       latest: True
       date: '2020.06'
       arxiv:
+      inspire:
+      doi:
       citation:
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187886/attachments/130339/158753/Neutrino2020YooRENO.pdf

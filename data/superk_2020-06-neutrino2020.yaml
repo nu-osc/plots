@@ -5,10 +5,12 @@ reference:
     date: '2020.06'
     latest: True
     arxiv:
+    inspire:
+    doi:
     citation:
     conf: Neutrino2020
     talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
-    slides: 27
+    slides: 23, 27
 result:
     splitting_large: 
         precision: 2
@@ -52,3 +54,16 @@ result:
               uncertainty:
                   left: 0.09
                   right: 0.03
+    splitting_small:
+        precision: 2
+        mode: '12'
+        value: 6.11
+        uncertainty:
+            left: 0.68
+            right: 1.21
+        notes: joint SK+SNO
+    amplitude12:
+        precision: 2
+        value: 0.306
+        uncertainty: 0.014
+        notes: joint SK+SNO

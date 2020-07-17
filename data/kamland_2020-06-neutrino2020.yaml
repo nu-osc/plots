@@ -1,0 +1,30 @@
+experiment: Kamland
+type: reactor
+dataset: ?
+reference:
+    date: '2020.06'
+    latest: True
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
+    slides: 23
+result:
+    splitting_small:
+        precision: 2
+        mode: '12'
+        value: 7.54
+        uncertainty:
+            left: 0.18
+            right: 0.19
+        notes: unclear source
+    amplitude12:
+        precision: 2
+        value: 0.316
+        uncertainty:
+            left: 0.026
+            right: 0.034
+        notes: unclear source
+
