@@ -1,0 +1,28 @@
+experiment: Kamland+SK+SNO
+type: reactor+atmospheric+solar
+dataset: ?
+reference:
+    date: '2020.06'
+    latest: True
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
+    slides: 23
+result:
+    splitting_small:
+        precision: 2
+        mode: '12'
+        value: 7.51
+        uncertainty:
+            left: 0.18
+            right: 0.19
+    amplitude12:
+        precision: 2
+        value: 0.306
+        uncertainty:
+            left: 0.012
+            right: 0.013
+
