@@ -5,6 +5,8 @@
       latest: True
       date: '2016.07'
       arxiv: hep-ex/1603.03549
+      inspire: https://inspirehep.net/literature/1427291
+      doi: https://doi.org/10.1103/PhysRevD.93.072011
       citation: An:2016bvr
       conf: Neutrino2016
       talk: https://cdn.eventsforce.net/files/ef-q5vmtsq56tk6/website/948/09.20___2_.pdf

@@ -5,6 +5,8 @@
       latest: True
       date: '2018.06'
       arxiv: hep-ex/1809.02261
+      inspire: https://inspirehep.net/literature/1693245
+      doi: https://doi.org/10.1103/PhysRevLett.121.241805
       citation: Adey:2018zwh
       conf: Neutrino2018
       talk: http://doi.org/10.5281/zenodo.1288292
