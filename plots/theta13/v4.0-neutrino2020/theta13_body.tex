@@ -88,13 +88,8 @@
   every head row/.style = {before row=\BeforeFirstRow, after row=\AfterFirstRow},%
   every last row/.style = {after row=[8ex]\AfterLastRow},%
   % Set header name%
-  columns/year/.style = {string type,column name={},column type=c},%
   columns/name/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
-  columns/mname/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
-  columns/namecite/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
-  columns/multname/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
   columns/notes/.style = {string type,column name=\NameNotes{},column type=l},%
-  columns/statistics/.style = {string type,column name=Stats,column type=r},%
   columns/error/.style = {%
     column name = {\xtoplabel},%
     assign cell content/.code = {% use \multirow for Z column:%
@@ -108,81 +103,8 @@
   },%
   % Format numbers and titles%
   columns/mean/.style   = {column name = Mean, fixed, precision=3, fixed zerofill, dec sep align},%
-  columns/ci/.style     = {string type, column name = Error},%
   columns/result/.style = {string type, column name = \translate{Value}, column type=l},%
-  columns/dresult/.style = {string type, column name = \translate{Value}, column type=l},%
   columns/cite/.style   = {string type, column name = {}, column type=r},%
   columns/cmode/.style  = {string type, column name = cmode, column type=l},%
-  create on use/ci/.style={%
-    create col/assign/.code={\edef\value{%
-      \pm\noexpand\pgfmathprintnumber[fixed,precision=3,fixed zerofill]{\thisrow{error}}}%
-      \pgfkeyslet{/pgfplots/table/create col/next content}\value%
-    }%
-  },%
-  create on use/result/.style={%
-    create col/assign/.code={%
-      \pgfmathsetmacro{\asymerr}{\thisrow{left}>0}%
-      \ifnum\asymerr=1%
-      \edef\value{%
-        $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{mean}}%
-        ^{+\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{right}}}%
-         _{-\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{left}}}$%
-      }%
-      \else%
-      \edef\value{%
-        $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{mean}}%
-        {\symerrstyle\pm\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{terror}}}$%
-      }%
-      \fi%
-      \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
-    }%
-  },%
-  create on use/dresult/.style={%
-    create col/assign/.code={%
-      \pgfmathsetmacro{\symerr}{\thisrow{drawleft}==\thisrow{drawright}}%
-      \ifnum\symerr=1%
-        \edef\value{%
-          $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawmean}}%
-          {\symerrstyle\pm\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawright}}}$%
-        }%
-      \else%
-        \edef\value{%
-          $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawmean}}%
-          ^{+\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawright}}}%
-           _{-\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawleft}}}$%
-        }%
-      \fi%
-      \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
-    }%
-  },%
-  create on use/mname/.style={%
-    create col/assign/.code={%
-      \pgfkeyslet{/pgfplots/table/create col/next content}{}%
-    }%
-  },%
-  create on use/multname/.style={%
-    create col/assign/.code={%
-      \pgfmathsetmacro{\nrepeat}{\thisrow{repeat}}%
-      \ifnum\nrepeat=0%
-        \edef\value{}%
-      \else%
-        \ifnum\nrepeat=1%
-          \edef\value{\thisrow{name} \thisrow{cite}}%
-          \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
-        \else%
-          %\edef\value{{\multirow{\nrepeat}{*}{\thisrow{name}}}}%
-          \edef\value{\thisrow{name}}%
-          \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
-        \fi%
-      \fi%
-      \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
-    }%
-  },%
-  create on use/cmode/.style={%
-    create col/assign/.code={%
-      \edef\value{\thisrow{mode}}%
-      \pgfkeyslet{/pgfplots/table/create col/next content}\value%
-    }%
-  },%
 ]{\data}%
 \endgroup%
