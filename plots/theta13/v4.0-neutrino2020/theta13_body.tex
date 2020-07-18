@@ -1,0 +1,188 @@
+\begingroup%
+%
+% Define additional horizontal lines commands
+%
+\providecommand\BeforeFirstRow{\toprule}%
+\providecommand\AfterFirstRow{\midrule}%
+\providecommand\AfterLastRow{\bottomrule}%
+\providecommand\MarkExp{none}%
+\providecommand\ComparisonColumns{name,notes,error,result}%
+\providecommand*{\lhline}{\arrayrulecolor{black!15}\cline{2-6}\arrayrulecolor{black}}%
+\providecommand*{\lcline}[1]{\arrayrulecolor{black!15}\cline{#1}\arrayrulecolor{black}}%
+%\providecommand*\datafile{theta13.dat}%
+\providecommand*\marksize{1.5pt}%
+\providecommand*\clinewidth{0.5pt}%
+\providecommand*\capsize{1.5pt}%
+\providecommand*\plotwidth{9.5cm}%
+\providecommand*\xlabel{$\sin^2 2\theta_{13}$}%
+\providecommand*\xtoplabel{}%
+\providecommand*\NameNotes{}%
+\providecommand*\symerrstyle{\scriptstyle}%
+\providecommand*\precision{3}%
+\providecommand*\plotaverage{}%
+\providecommand\ScatterClasses{%
+    dayabay={dayabay},%
+    reactor={reactor},%
+    reactor_rate={reactor_rate}, reactor_shape={reactor_shape},%
+    reactor_nh_rate={reactor_nh_rate}, reactor_nh_shape={reactor_nh_shape},%
+    dayabay={dayabay},%
+    dayabay_rate={dayabay_rate}, dayabay_shape={dayabay_shape},%
+    dayabay_nh_rate={dayabay_nh_rate}, dayabay_nh_shape={dayabay_nh_shape},%
+    acc={acc},acc_nh={acc_nh}, acc_ih={acc_ih},%
+    global={global}, global_nh={global_nh}, global_ih={global_ih}%
+}%
+%
+% Input
+%
+\pgfplotstableread{\datafile}\data%
+%
+% Define the command for the plot
+%
+\newcommand{\errplot}{%
+  \begin{tikzpicture}[trim axis left,trim axis right]%
+    \begin{axis}[%
+        y=-\baselineskip,%
+        y post scale=1.00,%
+        %xmin=0.0,%
+        scale only axis,%
+        width             = \plotwidth,%
+        enlarge y limits  = {abs=0.5},%
+        axis y line       = none,%
+        axis x line*      = bottom,%
+        grid              = major,%
+        xlabel            = {\xlabel},%
+        x tick label style={/pgf/number format/fixed},%
+      ]%
+      \addplot+[scatter,%
+                scatter src=explicit symbolic,%
+                point meta=explicit symbolic,%
+                only marks,%
+                mark size=\marksize,%
+                scatter/classes/.expand once=\ScatterClasses,%
+                error bars/.cd,x dir=both,x explicit,%
+                error mark={|},%
+                error mark options={mark size=\capsize,line width=\clinewidth},%
+               ]%
+         table [x=value,%
+                y expr=\coordindex,%
+                x error minus expr=\thisrow{left},%
+                x error plus expr=\thisrow{right},%
+                %meta=class%
+              ]{\data};%
+              \plotaverage%
+    \end{axis}%
+  \end{tikzpicture}%
+}%
+%
+%
+% Get number of rows in datafile
+%
+\pgfplotstablegetrowsof{\data}%
+\let\numberofrows=\pgfplotsretval%
+%
+%
+% Print the table
+%
+\pgfplotstabletypeset[columns/.expand once=\ComparisonColumns,%
+  % Booktabs rules%
+  every head row/.style = {before row=\BeforeFirstRow, after row=\AfterFirstRow},%
+  every last row/.style = {after row=[8ex]\AfterLastRow},%
+  % Set header name%
+  columns/year/.style = {string type,column name={},column type=c},%
+  columns/name/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
+  columns/mname/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
+  columns/namecite/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
+  columns/multname/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
+  columns/notes/.style = {string type,column name=\NameNotes{},column type=l},%
+  columns/statistics/.style = {string type,column name=Stats,column type=r},%
+  columns/error/.style = {%
+    column name = {\xtoplabel},%
+    assign cell content/.code = {% use \multirow for Z column:%
+      \ifnum\pgfplotstablerow=0%
+      \pgfkeyssetvalue{/pgfplots/table/@cell content}%
+      {\multirow{\numberofrows}{\plotwidth}{\errplot}}%
+      \else%
+      \pgfkeyssetvalue{/pgfplots/table/@cell content}{}%
+      \fi%
+    }%
+  },%
+  % Format numbers and titles%
+  columns/mean/.style   = {column name = Mean, fixed, precision=3, fixed zerofill, dec sep align},%
+  columns/ci/.style     = {string type, column name = Error},%
+  columns/result/.style = {string type, column name = \translate{Value}, column type=l},%
+  columns/dresult/.style = {string type, column name = \translate{Value}, column type=l},%
+  columns/cite/.style   = {string type, column name = {}, column type=r},%
+  columns/cmode/.style  = {string type, column name = cmode, column type=l},%
+  create on use/ci/.style={%
+    create col/assign/.code={\edef\value{%
+      \pm\noexpand\pgfmathprintnumber[fixed,precision=3,fixed zerofill]{\thisrow{error}}}%
+      \pgfkeyslet{/pgfplots/table/create col/next content}\value%
+    }%
+  },%
+  create on use/result/.style={%
+    create col/assign/.code={%
+      \pgfmathsetmacro{\asymerr}{\thisrow{left}>0}%
+      \ifnum\asymerr=1%
+      \edef\value{%
+        $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{mean}}%
+        ^{+\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{right}}}%
+         _{-\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{left}}}$%
+      }%
+      \else%
+      \edef\value{%
+        $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{mean}}%
+        {\symerrstyle\pm\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{terror}}}$%
+      }%
+      \fi%
+      \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
+    }%
+  },%
+  create on use/dresult/.style={%
+    create col/assign/.code={%
+      \pgfmathsetmacro{\symerr}{\thisrow{drawleft}==\thisrow{drawright}}%
+      \ifnum\symerr=1%
+        \edef\value{%
+          $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawmean}}%
+          {\symerrstyle\pm\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawright}}}$%
+        }%
+      \else%
+        \edef\value{%
+          $\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawmean}}%
+          ^{+\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawright}}}%
+           _{-\noexpand\pgfmathprintnumber[fixed,precision=\precision,fixed zerofill]{\thisrow{drawleft}}}$%
+        }%
+      \fi%
+      \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
+    }%
+  },%
+  create on use/mname/.style={%
+    create col/assign/.code={%
+      \pgfkeyslet{/pgfplots/table/create col/next content}{}%
+    }%
+  },%
+  create on use/multname/.style={%
+    create col/assign/.code={%
+      \pgfmathsetmacro{\nrepeat}{\thisrow{repeat}}%
+      \ifnum\nrepeat=0%
+        \edef\value{}%
+      \else%
+        \ifnum\nrepeat=1%
+          \edef\value{\thisrow{name} \thisrow{cite}}%
+          \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
+        \else%
+          %\edef\value{{\multirow{\nrepeat}{*}{\thisrow{name}}}}%
+          \edef\value{\thisrow{name}}%
+          \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
+        \fi%
+      \fi%
+      \pgfkeyslet{/pgfplots/table/create col/next content}{\value}%
+    }%
+  },%
+  create on use/cmode/.style={%
+    create col/assign/.code={%
+      \edef\value{\thisrow{mode}}%
+      \pgfkeyslet{/pgfplots/table/create col/next content}\value%
+    }%
+  },%
+]{\data}%
+\endgroup%

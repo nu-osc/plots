@@ -1,0 +1,40 @@
+\pgfplotsset{
+  /pgfplots/error bars/draw error bar/.code 2 args={%
+    \pgfkeysgetvalue{/pgfplots/error bars/error mark}%
+    {\pgfplotserrorbarsmark}%
+    \pgfkeysgetvalue{/pgfplots/error bars/error mark options}%
+    {\pgfplotserrorbarsmarkopts}%
+    \expandafter\draw\expandafter[\pgfplotspointmetatransformed] #1 -- #2 node[pos=1,sloped,allow upside down] {%
+        \expandafter\tikz\expandafter[\pgfplotserrorbarsmarkopts]{%
+          \expandafter\pgfuseplotmark\expandafter{\pgfplotserrorbarsmark}%
+        \pgfusepath{stroke}}%
+      };
+  }
+}
+
+\pgfdeclareplotmark{utriangle*}
+{%
+  \pgfpathmoveto{\pgfqpoint{0pt}{1.5\pgfplotmarksize}}
+  \pgfpathlineto{\pgfqpointpolar{-30}{\pgfplotmarksize}}
+  \pgfpathlineto{\pgfqpointpolar{-150}{\pgfplotmarksize}}
+  \pgfpathclose
+  \pgfusepathqfillstroke
+}
+
+\pgfdeclareplotmark{itriangle*}
+{%
+  \pgfpathmoveto{\pgfqpointpolar{-90}{1.5\pgfplotmarksize}}
+  \pgfpathlineto{\pgfqpointpolar{30}{\pgfplotmarksize}}
+  \pgfpathlineto{\pgfqpointpolar{150}{\pgfplotmarksize}}
+  \pgfpathclose
+  \pgfusepathqfillstroke
+}
+
+\pgfdeclareplotmark{owhite}
+{%
+  \pgfpathellipse{\pgfpointorigin}{\pgfqpoint{\pgfplotmarksize}{0sp}}{\pgfqpoint{0sp}{\pgfplotmarksize}}%
+  %\pgfusepathqstroke
+  \pgfsetfillcolor{white}
+  \pgfusepathqfillstroke
+}
+

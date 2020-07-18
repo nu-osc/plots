@@ -1,0 +1,69 @@
+\documentclass[border=10pt]{standalone}
+
+\input{header.tex}
+
+\begin{document}
+%
+\tikzset{%
+    common/.style={line width=\clinewidth},%
+    global/.style={common,black,mark=*},%
+    rrate/.style={common,mark=square*},%
+    rshape/.style={common,mark=*},%
+    reactor/.style={common,red},%
+    rnh/.style={common,dashed},%
+    reactor_rate/.style={reactor,rrate},%
+    reactor_shape/.style={reactor,rshape},%
+    reactor_nh_rate/.style={reactor,rrate,rnh},%
+    reactor_nh_shape/.style={reactor,rshape,rnh},%
+    dayabay/.style={common,blue},%
+    dayabay_nh/.style={dayabay,rrate,rnh},%
+    reno/.style={reactor},
+    reno_nh/.style={reactor},
+    doublechooz/.style={reactor},
+    acc/.style={common,black!30!green},
+    t2k/.style={acc}
+}%
+%
+%\providecommand\ComparisonColumns{year,name,notes,error,result,arxiv}%
+\providecommand\ComparisonColumns{name,notes,error,result}%
+\providecommand*\datafile{theta13.dat}%
+\providecommand\BeforeFirstRow{}%
+\providecommand\AfterLastRow{}%
+%\providecommand*\xlabel{}%
+%\providecommand*\xtoplabel{$\sin^2 2\theta_{13}$}%
+\providecommand*\plotwidth{7.0cm}%
+\providecommand*\clinewidth{1pt}%
+\providecommand*\capsize{2pt}%
+\providecommand*\symerrstyle{}%
+\providecommand*\precision{\thisrow{precision}}%
+\providecommand*\plotaverage{}%
+\providecommand*\ebarstyle{%
+  \tikzset{%
+      common/.style={line width=\clinewidth},%
+      global/.style={common,black,mark=*},%
+      rrate/.style={common,mark=*},%
+      rshape/.style={common,mark=*},%
+      reactor/.style={common,red},%
+      rnh/.style={common,dashed},%
+      reactor_rate/.style={reactor,rrate},%
+      reactor_shape/.style={reactor,rshape},%
+      reactor_nh_rate/.style={reactor,rrate,rnh},%
+      reactor_nh_shape/.style={reactor,rshape,rnh},%
+      dayabay/.style={common,blue},%
+      dayabay_rate/.style={dayabay,rrate},%
+      dayabay_shape/.style={dayabay,rshape},%
+      dayabay_nh_rate/.style={dayabay,rrate,rnh},%
+      dayabay_nh_shape/.style={dayabay,rshape,rnh},%
+      nh/.style={mark=*},%
+      ih/.style={mark=*},%
+      acc/.style={common,black!60!green},%
+      acc_nh/.style={acc,nh},%
+      acc_ih/.style={acc,ih},%
+      global_nh/.style={global,nh},%
+      global_ih/.style={global,ih}%
+  }%
+}%
+{\large%
+\input{theta13_body.tex}%
+}%
+\end{document}
