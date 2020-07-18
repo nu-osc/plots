@@ -1,6 +1,7 @@
 experiment: Kamland
 type: reactor
-dataset: ?
+dataset:
+target: ''
 reference:
     date: '2020.06'
     latest: True
@@ -14,7 +15,6 @@ reference:
 result:
     splitting_small:
         precision: 2
-        mode: '12'
         value: 7.54
         uncertainty:
             left: 0.18
@@ -22,6 +22,7 @@ result:
         notes: unclear source
     amplitude12:
         precision: 2
+        mode: single
         value: 0.316
         uncertainty:
             left: 0.026

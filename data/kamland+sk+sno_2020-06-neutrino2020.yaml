@@ -1,6 +1,6 @@
 experiment: Kamland+SK+SNO
 type: reactor+atmospheric+solar
-dataset: ?
+dataset:
 reference:
     date: '2020.06'
     latest: True
@@ -14,13 +14,13 @@ reference:
 result:
     splitting_small:
         precision: 2
-        mode: '12'
         value: 7.51
         uncertainty:
             left: 0.18
             right: 0.19
     amplitude12:
         precision: 2
+        mode: single
         value: 0.306
         uncertainty:
             left: 0.012

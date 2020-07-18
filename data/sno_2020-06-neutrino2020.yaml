@@ -1,6 +1,6 @@
 experiment: SNO
 type: solar
-dataset: ?
+dataset:
 reference:
     date: '2020.06'
     latest: True
@@ -14,10 +14,9 @@ reference:
 result:
     splitting_small:
         precision: 2
-        mode: '12'
         value: 5.6
         uncertainty:
-            left: -1.4
+            left: 1.4
             right: 1.9
         notes: unclear source
     amplitude12:
