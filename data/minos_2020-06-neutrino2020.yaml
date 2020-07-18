@@ -42,3 +42,6 @@ result:
               uncertainty:
                   left: 0.03
                   right: 0.07
+    hie:
+        precision: 2
+        value: 0.45

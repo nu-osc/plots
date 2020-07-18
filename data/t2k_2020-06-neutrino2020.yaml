@@ -57,3 +57,7 @@ result:
               uncertainty:
                   interval: [0.5, 0.57]
               notes: plot and table are inconsistent on the slide 29
+    hie:
+        precision: 2
+        value: 1.6
+        notes: approximate, no clear value in the talk
