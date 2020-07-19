@@ -6,7 +6,7 @@
 \providecommand\AfterFirstRow{\midrule}%
 \providecommand\AfterLastRow{\bottomrule}%
 \providecommand\MarkExp{none}%
-\providecommand\ComparisonColumns{name,notes,error,result}%
+\providecommand\ComparisonColumns{name,notes,value,result}%
 \providecommand*{\lhline}{\arrayrulecolor{black!15}\cline{2-6}\arrayrulecolor{black}}%
 \providecommand*{\lcline}[1]{\arrayrulecolor{black!15}\cline{#1}\arrayrulecolor{black}}%
 %\providecommand*\datafile{theta13.dat}%
@@ -20,17 +20,7 @@
 \providecommand*\symerrstyle{\scriptstyle}%
 \providecommand*\precision{3}%
 \providecommand*\plotaverage{}%
-\providecommand\ScatterClasses{%
-    dayabay={dayabay},%
-    reactor={reactor},%
-    reactor_rate={reactor_rate}, reactor_shape={reactor_shape},%
-    reactor_nh_rate={reactor_nh_rate}, reactor_nh_shape={reactor_nh_shape},%
-    dayabay={dayabay},%
-    dayabay_rate={dayabay_rate}, dayabay_shape={dayabay_shape},%
-    dayabay_nh_rate={dayabay_nh_rate}, dayabay_nh_shape={dayabay_nh_shape},%
-    acc={acc},acc_nh={acc_nh}, acc_ih={acc_ih},%
-    global={global}, global_nh={global_nh}, global_ih={global_ih}%
-}%
+\ebarstyle%
 %
 % Input
 %
@@ -67,7 +57,7 @@
                 y expr=\coordindex,%
                 x error minus expr=\thisrow{left},%
                 x error plus expr=\thisrow{right},%
-                %meta=class%
+                meta=style%
               ]{\data};%
               \plotaverage%
     \end{axis}%
@@ -90,7 +80,7 @@
   % Set header name%
   columns/name/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
   columns/notes/.style = {string type,column name=\NameNotes{},column type=l},%
-  columns/error/.style = {%
+  columns/value/.style = {%
     column name = {\xtoplabel},%
     assign cell content/.code = {% use \multirow for Z column:%
       \ifnum\pgfplotstablerow=0%
@@ -104,7 +94,5 @@
   % Format numbers and titles%
   columns/mean/.style   = {column name = Mean, fixed, precision=3, fixed zerofill, dec sep align},%
   columns/result/.style = {string type, column name = \translate{Value}, column type=l},%
-  columns/cite/.style   = {string type, column name = {}, column type=r},%
-  columns/cmode/.style  = {string type, column name = cmode, column type=l},%
 ]{\data}%
 \endgroup%
