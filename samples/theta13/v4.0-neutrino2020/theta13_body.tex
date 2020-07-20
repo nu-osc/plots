@@ -89,10 +89,9 @@
       \else%
       \pgfkeyssetvalue{/pgfplots/table/@cell content}{}%
       \fi%
-    }%
+    },%
+    column type={>{\hskip-20pt}l}
   },%
-  % Format numbers and titles%
-  columns/mean/.style   = {column name = Mean, fixed, precision=3, fixed zerofill, dec sep align},%
-  columns/result/.style = {string type, column name = \translate{Value}, column type=l},%
+  columns/result/.style = {string type, column name = \translate{Value}, column type={>{\hskip-10pt}l}},%
 ]{\data}%
 \endgroup%
