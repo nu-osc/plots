@@ -2,6 +2,6 @@ style        name            notes      value    left    right       span  resul
 dayabay_ngd  {Daya Bay}      nGd       0.0856  0.0029   0.0029  0.0058     $0.0856\pm0.0029$             hep-ex/1809.02261  Neutrino2018
 reno_ngd     RENO            nGd       0.0892  0.0063   0.0063  0.0125873  $0.0892\pm0.0063$             {}                 Neutrino2020
 reno_nh      RENO            nH        0.086   0.0081   0.0081  0.0162432  $0.0860\pm0.0081$             {}                 Neutrino2020
-dayabay_nh   {Daya Bay}      nH        0.071   0.011    0.011   0.022      $0.071\pm0.011$               hep-ex/1603.03549  Neutrino2016
-doublechooz  {Double CHOOZ}  {}        0.102   0.012    0.012   0.0234094  $0.102\pm0.012$               {}                 Neutrino2020
+dayabay_nh   {Daya Bay}      nH        0.071   0.011    0.011   0.022      $0.071\phantom{0}\pm0.011$    hep-ex/1603.03549  Neutrino2016
+doublechooz  {Double CHOOZ}  {}        0.102   0.012    0.012   0.0234094  $0.102\phantom{0}\pm0.012$    {}                 Neutrino2020
 t2k          T2K             {}        0.0952  0.008    0.0242  0.0321946  $0.0952^{+0.0242}_{-0.0080}$  {}                 Neutrino2020
