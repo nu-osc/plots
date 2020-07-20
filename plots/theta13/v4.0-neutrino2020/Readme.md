@@ -1,4 +1,4 @@
-# $`\sin^22\theta_{13}`$ measurements comparison, updated after Neutrino 2018
+# $`\sin^22\theta_{13}`$ measurements comparison, updated after Neutrino 2020
 
 - [Plotting scripts](samples/theta13/v4.0-neutrino2020)
 - [Data table](samples/theta13/v4.0-neutrino2020/theta13.dat)
