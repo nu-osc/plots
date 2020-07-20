@@ -6,33 +6,114 @@ import numpy as np
 from pylib.converters import convert
 
 def main(args):
-    data = collect(args.inputs)
+    var = 'amplitude13'
+    data = collect(args.inputs, var=var)
 
-    data = sorted(data, key=lambda x: x[5])
-    data = map(filter, data)
+    data = sorted(data, key=lambda item: item['span'])
+    data = postprocess(data, var)
+    data = list(map(filter_data, data))
 
-    header = [ 'experiment', 'comment', 'value', 'left', 'right', 'span', 'tex', 'arxiv', 'conf' ]
+    header = [ 'name', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    data = select_columns(data, header)
     print(tabulate(data, header, tablefmt='plain'))
 
-def filter(word):
-    if isinstance(word, (tuple, list)):
-        return map(filter, word)
+def postprocess(data, var):
+    postprocessor = postprocessors.get(var)
+    if not var:
+        return data
 
-    if isinstance(word, str) and ' ' in word:
-        return f'{{{word}}}'
+    return list(map(postprocessor, data))
 
-    return word
+def postprocess_amplitude13(entry):
+    if entry['name']=='Double CHOOZ':
+        entry['notes']=''
+    return entry
 
-def collect(data):
+postprocessors=dict(amplitude13=postprocess_amplitude13)
+
+def select_columns(data, columns):
+    return [list(datum[c] for c in columns) for datum in data]
+
+def filter_data(entry):
+    return dict(map(filter_entry, entry.items()))
+
+def filter_entry(args):
+    key, word = args
+
+    if word is None:
+        return key, '{}'
+
+    if not isinstance(word, str):
+        return key, word
+
+    if ' ' in word:
+        word=f'{{{word}}}'
+    elif not word:
+        word='{}'
+
+    return key, word
+
+def collect(data, var):
     ret = []
     for entry in data:
         if not isinstance(entry, list):
             entry = [entry]
 
         for entry in entry:
-            collect_entry(entry, ret)
+            collect_experiment(entry, ret, var=var)
 
     return ret
+
+def collect_experiment(entry, target, var):
+    before = { 'name': entry['experiment'] }
+
+    if entry.get('type')=='reactor':
+        before['notes'] = entry['target']
+    else:
+        before['notes'] = ''
+
+    ref = entry.get('reference', {})
+    after = { 'arxiv': ref.get('arxiv', ''), 'conf': ref.get('conf')}
+
+    for res in collect_result(var, entry):
+        item = dict(before)
+        item.update(res)
+        item.update(after)
+        target.append(item)
+
+def collect_result(var, experiment):
+    results = experiment.get('result', {}).get(var, {})
+    if not results:
+        return
+
+    if not isinstance(results, list):
+        results = [results]
+
+    for res in results:
+        mode = res['mode']
+
+        val = res['value']
+        val_left, val_right = get_uncertainty(val, res['uncertainty'])
+        val_left, val, val_right = convert(var, mode, val_left, val, val_right)
+        unc_left = val - val_left
+        unc_right = val_right - val
+
+        span = val_right - val_left
+
+        precision = res['precision']
+
+        s_val   = f'{val:.{precision}f}'
+        s_left  = f'{unc_left:.{precision}f}'
+        s_right = f'{unc_right:.{precision}f}'
+
+        target = {'value': s_val, 'left': s_left, 'right': s_right, 'span': span}
+
+        if s_left==s_right:
+            target['result']=f'${s_val}\\pm{s_left}$'
+        else:
+            target['result']=f'${s_val}^{{+{s_right}}}_{{-{s_left}}}$'
+
+        yield target
 
 def merge_leftright(unc):
     left, right = unc['left'], unc['right']
@@ -82,52 +163,6 @@ def get_uncertainty(val, unc):
         return val-unc, val+unc
 
     print('Not supported uncertainty: '+str(unc))
-
-def collect_result(var, entry):
-    results = entry.get('result', {}).get(var, {})
-    if not results:
-        return
-
-    if not isinstance(results, list):
-        results = [results]
-
-    for res in results:
-        mode = res['mode']
-
-        val = res['value']
-        val_left, val_right = get_uncertainty(val, res['uncertainty'])
-        val_left, val, val_right = convert(var, mode, val_left, val, val_right)
-        unc_left = val - val_left
-        unc_right = val_right - val
-
-        span = val_right - val_left
-
-        precision = res['precision']
-
-        s_val   = f'{val:.{precision}f}'
-        s_left  = f'{unc_left:.{precision}f}'
-        s_right = f'{unc_right:.{precision}f}'
-
-        target = [s_val, s_left, s_right, span]
-
-        if s_left==s_right:
-            target.append(f'${s_val}\\pm{s_left}$')
-        else:
-            target.append(f'${s_val}^{{+{s_right}}}_{{-{s_left}}}$')
-
-        yield target
-
-def collect_entry(entry, target):
-    before = [entry['experiment']]
-    if entry.get('type')=='reactor':
-        before.append(entry['target'])
-    else:
-        before.append('')
-    ref = entry.get('reference', {})
-    after = [ref.get('arxiv', ''), ref.get('conf')]
-
-    for res in collect_result('amplitude13', entry):
-        target.append(before+res+after)
 
 def load(filename):
     with open(filename, 'r') as f:
