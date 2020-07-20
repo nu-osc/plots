@@ -1,4 +1,5 @@
 \documentclass[border=10pt]{standalone}
+%\documentclass{article}
 
 \input{header.tex}
 
@@ -40,8 +41,9 @@
 }%
 {\large%
 \input{theta13_body.tex}%
-}%
-%\begin{tikzpicture}[overlay]
-  %\draw (current page.south east) node[above left] {test};
-%\end{tikzpicture}
+}
+\begin{tikzpicture}[overlay,black!25]
+  \draw (-157mm,-32mm) node[above right,font=\small] {v4.0b};
+  \draw (+4mm,-32mm)   node[rotate=90,above right,font=\footnotesize] {\url{git.jinr.ru/maxfl/neutrino-oscillations-comparison}};
+\end{tikzpicture}
 \end{document}
