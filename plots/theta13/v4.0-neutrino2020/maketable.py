@@ -13,9 +13,16 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'name', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
     data = select_columns(data, header)
-    print(tabulate(data, header, tablefmt='plain'))
+    result = tabulate(data, header, tablefmt='plain')
+
+    print(result)
+
+    if args.output:
+        with open(args.output, 'w') as f:
+            f.write(result)
+            print('Write output file:', args.output)
 
 def postprocess(data, var):
     postprocessor = postprocessors.get(var)
@@ -27,6 +34,11 @@ def postprocess(data, var):
 def postprocess_amplitude13(entry):
     if entry['name']=='Double CHOOZ':
         entry['notes']=''
+
+    slist = [ entry['name'].lower().replace(' ', '') ]
+    if entry['notes']:
+        slist.append(entry['notes'].lower())
+    entry['style']='_'.join(slist)
     return entry
 
 postprocessors=dict(amplitude13=postprocess_amplitude13)
