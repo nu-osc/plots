@@ -20,7 +20,7 @@
           uncertainty:
               stat: 0.0044
               syst: 0.0045
-      splitting_large: 
+      splitting_large:
           precision: 2
           mode: ee
           value: 2.74
@@ -45,5 +45,5 @@
           value: 0.086
           uncertainty:
               stat: 0.008
-              syst: 0.0014
+              syst: 0.014
 
