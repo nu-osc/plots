@@ -16,7 +16,7 @@ result:
         precision: 2
         mode: '32'
         results:
-            - ordering: NO
+            - ordering: 'NO'
               value: 2.40 
               uncertainty:
                   left: 0.12
@@ -30,7 +30,7 @@ result:
         precision: 2
         mode: radians
         results:
-            - ordering: NO
+            - ordering: 'NO'
               value: 4.36
               uncertainty:
                   left: 1.39
@@ -44,7 +44,7 @@ result:
         precision: 2
         mode: single
         results:
-            - ordering: NO
+            - ordering: 'NO'
               value: 0.44
               uncertainty:
                   left: 0.05
@@ -61,12 +61,12 @@ result:
         uncertainty:
             left: 0.68
             right: 1.21
-        notes: joint SK+SNO
+        notes: joint SK+S'NO'
     amplitude12:
         precision: 2
         value: 0.306
         uncertainty: 0.014
-        notes: joint SK+SNO
+        notes: joint SK+S'NO'
     hier:
         precision: 2
         value: 1.79

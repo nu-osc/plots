@@ -16,7 +16,7 @@ result:
         precision: 2
         mode: '32'
         results:
-            - ordering: NO
+            - ordering: 'NO'
               value: 2.31
               uncertainty:
                   left: 0.13

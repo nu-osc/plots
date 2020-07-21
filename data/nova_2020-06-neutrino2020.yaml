@@ -16,7 +16,7 @@ result:
         precision: 2
         mode: '32'
         results:
-            - ordering: NO
+            - ordering: 'NO'
               octant: UO
               value: 2.41
               uncertainty: 0.07
@@ -30,7 +30,7 @@ result:
         precision: 4
         mode: radians
         results:
-            - ordering: NO
+            - ordering: 'NO'
               value: 2.576
               uncertainty:
                   interval: 
@@ -45,7 +45,7 @@ result:
         precision: 2
         mode: single
         results:
-            - ordering: NO
+            - ordering: 'NO'
               value: 0.57
               uncertainty:
                   left: 0.04

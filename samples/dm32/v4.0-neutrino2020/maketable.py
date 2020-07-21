@@ -23,7 +23,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'notes', 'ordering', 'octant', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -148,6 +148,9 @@ def collect_result(var, experiment):
             target['result']=f'${s_val}\\pm{s_left}$'
         else:
             target['result']=f'${s_val}^{{+{s_right}}}_{{-{s_left}}}$'
+
+        target['ordering']=res.get('ordering')
+        target['octant']=res.get('octant')
 
         yield target
 
