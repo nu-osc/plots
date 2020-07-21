@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 
-"""Version v0.0.0"""
+"""Version v0.1.0:
+
+Changes in 0.1.0:
+    + Choose variable from command line: -v
+"""
+
+context = dict(
+
+        )
 
 import yaml
 from tabulate import tabulate
@@ -8,7 +16,7 @@ import numpy as np
 from pylib.converters import convert
 
 def main(args):
-    var = 'amplitude13'
+    var = args.variable
     data = collect(args.inputs, var=var)
 
     data = sorted(data, key=lambda item: item['span'])
@@ -43,7 +51,20 @@ def postprocess_amplitude13(entry):
     entry['style']='_'.join(slist)
     return entry
 
-postprocessors=dict(amplitude13=postprocess_amplitude13)
+def postprocess_splitting_large(entry):
+    if entry['name']=='Double CHOOZ':
+        entry['notes']=''
+
+    slist = [ entry['name'].lower().replace(' ', '') ]
+    if entry['notes']:
+        slist.append(entry['notes'].lower())
+    entry['style']='_'.join(slist)
+    return entry
+
+postprocessors=dict(
+        amplitude13=postprocess_amplitude13,
+        splitting_large=postprocess_splitting_large
+        )
 
 def select_columns(data, columns):
     return [list(datum[c] for c in columns) for datum in data]
@@ -96,25 +117,26 @@ def collect_experiment(entry, target, var):
         target.append(item)
 
 def collect_result(var, experiment):
-    results = experiment.get('result', {}).get(var, {})
-    if not results:
+    parameter = experiment.get('result', {}).get(var, {})
+    if not parameter:
         return
 
-    if not isinstance(results, list):
-        results = [results]
+    if 'results' in parameter:
+        results = parameter['results']
+    else:
+        results = [parameter]
 
     for res in results:
-        mode = res['mode']
+        mode = res.get('mode', parameter['mode'])
+        precision = res.get('precision', parameter['precision'])
 
         val = res['value']
         val_left, val_right = get_uncertainty(val, res['uncertainty'])
-        val_left, val, val_right = convert(var, mode, val_left, val, val_right)
+        val_left, val, val_right = convert(var, mode, val_left, val, val_right, context=context)
         unc_left = val - val_left
         unc_right = val_right - val
 
         span = val_right - val_left
-
-        precision = res['precision']
 
         s_val   = f'{val:.{precision}f}'
         s_left  = f'{unc_left:.{precision}f}'
@@ -184,8 +206,10 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
+    variables = [ 'amplitude13', 'splitting_large' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
+    parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')
     parser.add_argument('-o', '--output', help='file to write')
 
     main( parser.parse_args() )
