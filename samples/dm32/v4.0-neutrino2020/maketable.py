@@ -4,10 +4,12 @@
 
 Changes in 0.1.0:
     + Choose variable from command line: -v
+    + Choose ordering with: --nmo
 """
 
-context = dict(
-
+context = dict(#PDG 2020 values
+        dmSq21 = 7.53e-5,
+        sinSqTheta12 = 0.307
         )
 
 import yaml
@@ -16,7 +18,11 @@ import numpy as np
 from pylib.converters import convert
 
 def main(args):
+    global context
     var = args.variable
+    if args.ordering:
+        context['ordering']=args.ordering
+
     data = collect(args.inputs, var=var)
 
     data = sorted(data, key=lambda item: item['span'])
@@ -130,6 +136,13 @@ def collect_result(var, experiment):
         mode = res.get('mode', parameter['mode'])
         precision = res.get('precision', parameter['precision'])
 
+        if 'ordering' in context:
+            if 'ordering' in res:
+                if context['ordering']!=res['ordering']:
+                    continue
+            else:
+                res['ordering'] = context['ordering']
+
         val = res['value']
         val_left, val_right = get_uncertainty(val, res['uncertainty'])
         val_left, val, val_right = convert(var, mode, val_left, val, val_right, context=context)
@@ -213,6 +226,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')
+    parser.add_argument('--ordering', '--nmo', choices=('NO', 'IO'), help='ordering')
     parser.add_argument('-o', '--output', help='file to write')
 
-    main( parser.parse_args() )
+    main(parser.parse_args())

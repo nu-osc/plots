@@ -2,25 +2,31 @@
 
 all: place
 
-place: plots/theta13_v4-0.pdf plots/theta13_v4-0.png
+place: plots/dm32_NO_v4-0.pdf plots/dm32_NO_v4-0.png plots/dm32_IO_v4-0.pdf plots/dm32_IO_v4-0.png
 
-plots/theta13_v4-0.pdf plots/theta13_v4-0.png: theta13.pdf
-	cp theta13.pdf plots/theta13_v4-0.pdf
-	convert -density 300 plots/theta13_v4-0.pdf plots/theta13_v4-0.png
+plots/dm32_NO_v4-0.pdf plots/dm32_NO_v4-0.png: dm32_NO.pdf
+	cp dm32_NO.pdf plots/dm32_NO_v4-0.pdf
+	convert -density 300 plots/dm32_NO_v4-0.pdf plots/dm32_NO_v4-0.png
 
-theta13.pdf: theta13.dat theta13.tex
-	latexmk theta13.tex
+plots/dm32_IO_v4-0.pdf plots/dm32_IO_v4-0.png: dm32_IO.pdf
+	cp dm32_IO.pdf plots/dm32_IO_v4-0.pdf
+	convert -density 300 plots/dm32_IO_v4-0.pdf plots/dm32_IO_v4-0.png
 
-table: theta13.dat
+dm32_NO.pdf: dm32_NO.dat dm32_NO.tex
+	latexmk dm32_NO.tex
 
-theta13.dat:
-	./maketable.py -o theta13.dat \
-					  data/dayabay_2016-07-neutrino2016.yaml \
-					  data/dayabay_2018-06-neutrino2018.yaml \
-					  data/reno_2018-06-neutrino2018.yaml \
-					  data/reno_2020-06-neutrino2020.yaml \
-					  data/dchooz_2020-06-neutrino2020.yaml \
-					  data/t2k_2020-06-neutrino2020.yaml
+dm32_IO.pdf: dm32_IO.dat dm32_IO.tex
+	latexmk dm32_IO.tex
+
+table: dm32_NO.dat dm32_IO.dat
+
+dm32_NO.dat dm32_IO.dat:
+	./maketable.py -o dm32_NO.dat \
+		           --nmo NO \
+				   data/*.yaml
+	./maketable.py -o dm32_IO.dat \
+		           --nmo IO \
+				   data/*.yaml
 
 clean:
-	latexmk -C theta13.tex
+	latexmk -C dm32_NO.tex dm32_IO.tex
