@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Version v0.0.0"""
+
 import yaml
 from tabulate import tabulate
 import numpy as np
