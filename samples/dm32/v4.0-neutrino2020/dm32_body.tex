@@ -1,0 +1,99 @@
+\begingroup%
+%
+% Define additional horizontal lines commands
+%
+\providecommand\BeforeFirstRow{\toprule}%
+\providecommand\AfterFirstRow{\midrule}%
+\providecommand\AfterLastRow{\bottomrule}%
+\providecommand\MarkExp{none}%
+\providecommand\ComparisonColumns{name,notes,value,result}%
+\providecommand*{\lhline}{\arrayrulecolor{black!15}\cline{2-6}\arrayrulecolor{black}}%
+\providecommand*{\lcline}[1]{\arrayrulecolor{black!15}\cline{#1}\arrayrulecolor{black}}%
+%\providecommand*\datafile{theta13.dat}%
+\providecommand*\marksize{1.5pt}%
+\providecommand*\clinewidth{0.5pt}%
+\providecommand*\capsize{1.5pt}%
+\providecommand*\plotwidth{9.5cm}%
+\providecommand*\xlabel{x label}%
+\providecommand*\xtoplabel{}%
+\providecommand*\NameNotes{}%
+\providecommand*\symerrstyle{\scriptstyle}%
+\providecommand*\precision{3}%
+\providecommand*\plotaverage{}%
+\ebarstyle%
+%
+% Input
+%
+\pgfplotstableread{\datafile}\data%
+%
+% Define the command for the plot
+%
+\newcommand{\errplot}{%
+  \begin{tikzpicture}[trim axis left,trim axis right]%
+    \begin{axis}[%
+        y=-\baselineskip,%
+        y post scale=1.00,%
+        %xmin=0.0,%
+        scale only axis,%
+        width             = \plotwidth,%
+        enlarge y limits  = {abs=0.5},%
+        axis y line       = none,%
+        axis x line*      = bottom,%
+        grid              = major,%
+        xlabel            = {\xlabel},%
+        x tick label style={/pgf/number format/fixed},%
+      ]%
+      \addplot+[scatter,%
+                scatter src=explicit symbolic,%
+                point meta=explicit symbolic,%
+                only marks,%
+                mark size=\marksize,%
+                scatter/classes/.expand once=\ScatterClasses,%
+                error bars/.cd,x dir=both,x explicit,%
+                error mark={|},%
+                error mark options={mark size=\capsize,line width=\clinewidth},%
+               ]%
+         table [x=value,%
+                y expr=\coordindex,%
+                x error minus expr=\thisrow{left},%
+                x error plus expr=\thisrow{right},%
+                meta=style%
+              ]{\data};%
+              \plotaverage%
+    \end{axis}%
+  \end{tikzpicture}%
+}%
+%
+%
+% Get number of rows in datafile
+%
+\pgfplotstablegetrowsof{\data}%
+\let\numberofrows=\pgfplotsretval%
+%
+%
+% Print the table
+%
+\adjustbox{valign=b}{%
+\pgfplotstabletypeset[columns/.expand once=\ComparisonColumns,%
+  % Booktabs rules%
+  every head row/.style = {before row=\BeforeFirstRow, after row=\AfterFirstRow},%
+  every last row/.style = {after row=[8ex]\AfterLastRow},%
+  % Set header name%
+  columns/name/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
+  columns/notes/.style = {string type,column name=\NameNotes{},column type={>{\hskip-27pt}l}},%
+  columns/value/.style = {%
+    column name = {\xtoplabel},%
+    assign cell content/.code = {% use \multirow for Z column:%
+      \ifnum\pgfplotstablerow=0%
+      \pgfkeyssetvalue{/pgfplots/table/@cell content}%
+      {\multirow{\numberofrows}{\plotwidth}{\errplot}}%
+      \else%
+      \pgfkeyssetvalue{/pgfplots/table/@cell content}{}%
+      \fi%
+    },%
+    column type={>{\hskip-20pt}c}
+  },%
+  columns/result/.style = {string type, column name = \translate{Value}, column type={>{\hskip-10pt}l}},%
+]{\data}%
+}%
+\endgroup%

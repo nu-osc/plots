@@ -1,0 +1,49 @@
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{relsize}
+\usepackage{array}
+\usepackage{etoolbox}
+\usepackage{translator}
+\usepackage{siunitx}
+\usepackage{adjustbox}
+\usepackage[linewidth=1pt]{mdframed}
+\input{macro_pgf.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+
+\providetranslation{Experiment (title)}{Experiment}
+
+\renewcommand\baselinestretch{1.5}\normalsize
+\providecommand\arxiv[1]{[#1]}
+
+\makeatletter
+\setlength\arraycolsep{5\p@}
+\setlength\tabcolsep{6\p@}
+\setlength\arrayrulewidth{.4\p@}
+\setlength\doublerulesep{2\p@}
+\setlength\tabbingsep{\labelsep}
+\skip\@mpfootins = \skip\footins
+\setlength\fboxsep{3\p@}
+\setlength\fboxrule{.4\p@}
+\makeatother
+
+%\usepackage[
+    %backend=biber,
+    %style=gost-numeric,
+    %autolang=other,       % use langid field to wrap the entry in otherlanguage environment
+    %defernumbers=true,    % allow to calculate numbers on the second run
+    %sorting=none,
+    %doi=false,
+    %eprint=true,
+    %url=true,
+%]{biblatex}
+%\addbibresource{references.bib}
+
+%\usepackage{uri}
+\usepackage[unicode,hidelinks]{hyperref}
