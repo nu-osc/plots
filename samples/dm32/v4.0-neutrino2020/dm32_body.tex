@@ -20,6 +20,7 @@
 \providecommand*\symerrstyle{\scriptstyle}%
 \providecommand*\precision{3}%
 \providecommand*\plotaverage{}%
+\providecommand*\NotesOffset{\hskip-15pt}
 \ebarstyle%
 %
 % Input
@@ -80,7 +81,7 @@
   every last row/.style = {after row=[8ex]\AfterLastRow},%
   % Set header name%
   columns/name/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
-  columns/notes/.style = {string type,column name=\NameNotes{},column type={>{\hskip-15pt}l}},%
+  columns/notes/.style = {string type,column name=\NameNotes{},column type={>{\NotesOffset}l}},%
   columns/value/.style = {%
     column name = {\xtoplabel},%
     assign cell content/.code = {% use \multirow for Z column:%

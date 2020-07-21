@@ -21,7 +21,6 @@ result:
               uncertainty:
                   left: 0.13
                   right: 0.11
-        results:
             - ordering: IO
               value: 2.32
               uncertainty:
