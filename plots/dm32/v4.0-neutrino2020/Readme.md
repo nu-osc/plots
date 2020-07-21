@@ -8,7 +8,6 @@
     * [Daya Bay nGd](data/dayabay_2018-06-neutrino2018.yaml)
     * [RENO](data/reno_2020-06-neutrino2020.yaml)
     * [RENO nH](data/reno_2018-06-neutrino2018.yaml)
-    * [Double CHOOZ](data/dchooz_2020-06-neutrino2020.yaml)
     * [T2K](data/t2k_2020-06-neutrino2020.yaml)
     * [MINOS](data/minos_2020-06-neutrino2020.yaml)
     * [IceCube](data/icecube_2020-06-neutrino2020.yaml)
