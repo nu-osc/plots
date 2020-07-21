@@ -1,4 +1,4 @@
-\documentclass[border=10pt]{standalone}
+\documentclass[border=2pt]{standalone}
 %\documentclass{article}
 
 \input{header.tex}
@@ -43,8 +43,8 @@
 {\large%
 \input{theta13_body.tex}%
 }%
-\hspace{2mm}%
-\begin{tikzpicture}[overlay,black!25]
-  \draw node[rotate=90,right,font=\scriptsize] {\PlotVersion{} \PlotDate{}: \PlotURL};
+\hspace{4mm}%
+\begin{tikzpicture}[black!25,outer sep=0pt,inner sep=0pt]
+  \draw node[rotate=90,above right,font=\scriptsize] {\PlotVersion{} \PlotDate{}: \PlotURL};
 \end{tikzpicture}%
 \end{document}
