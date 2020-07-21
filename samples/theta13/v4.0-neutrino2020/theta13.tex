@@ -2,6 +2,7 @@
 %\documentclass{article}
 
 \input{header.tex}
+\input{meta.tex}
 
 \begin{document}
 \providecommand\ComparisonColumns{name,notes,value,result}%
@@ -42,7 +43,8 @@
 {\large%
 \input{theta13_body.tex}%
 }%
-\begin{tikzpicture}[overlay,black!20]
-  \draw (+4mm,-31mm)   node[rotate=90,above right,font=\scriptsize] {v4.0b 2020.06: \url{git.jinr.ru/nu/osc}};
+\hspace{2mm}%
+\begin{tikzpicture}[overlay,black!25]
+  \draw node[rotate=90,right,font=\scriptsize] {\PlotVersion{} \PlotDate{}: \PlotURL};
 \end{tikzpicture}%
 \end{document}

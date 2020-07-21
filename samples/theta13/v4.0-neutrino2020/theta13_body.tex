@@ -73,6 +73,7 @@
 %
 % Print the table
 %
+\adjustbox{valign=B}{%
 \pgfplotstabletypeset[columns/.expand once=\ComparisonColumns,%
   % Booktabs rules%
   every head row/.style = {before row=\BeforeFirstRow, after row=\AfterFirstRow},%
@@ -94,4 +95,5 @@
   },%
   columns/result/.style = {string type, column name = \translate{Value}, column type={>{\hskip-10pt}l}},%
 ]{\data}%
+}%
 \endgroup%
