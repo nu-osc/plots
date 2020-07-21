@@ -5,4 +5,5 @@ t2k          T2K         {}       NO          UO          2.49     0.08    0.06 
 minos        MINOS       {}       NO          UO          2.4      0.09    0.08   0.17      $2.40^{+0.08}_{-0.09}$     hep-ex/2006.15208  Neutrino2020
 superk       SuperK      {}       NO          {}          2.4      0.12    0.11   0.23      $2.40^{+0.11}_{-0.12}$     {}                 Neutrino2020
 reno_ngd     RENO        nGd      NO          {}          2.69     0.12    0.12   0.233238  $2.69\pm0.12$              {}                 Neutrino2020
+icecube      IceCube     {}       NO          {}          2.31     0.13    0.11   0.24      $2.31^{+0.11}_{-0.13}$     hep-ex/1707.07081  Neutrino2018
 reno_nh      RENO        nH       NO          {}          2.48     0.3     0.3    0.604152  $2.48\pm0.30$              {}                 Neutrino2018
