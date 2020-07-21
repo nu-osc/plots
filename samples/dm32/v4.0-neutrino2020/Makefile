@@ -21,10 +21,12 @@ dm32_IO.pdf: dm32_IO.dat dm32_IO.tex
 table: dm32_NO.dat dm32_IO.dat
 
 dm32_NO.dat dm32_IO.dat:
-	./maketable.py -o dm32_NO.dat \
+	./maketable.py -v splitting_large \
+	               -o dm32_NO.dat \
 		           --nmo NO \
 				   data/*.yaml
-	./maketable.py -o dm32_IO.dat \
+	./maketable.py -v splitting_large \
+		           -o dm32_IO.dat \
 		           --nmo IO \
 				   data/*.yaml
 
