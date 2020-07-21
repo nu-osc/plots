@@ -10,18 +10,20 @@
   \tikzset{%
     common/.style={line width=\clinewidth},%
     reactor/.style={common,red,mark color=red},%
+    acc/.style={common,black!30!green},
+    atm/.style={common,black!40!cyan},
     dayabay_ngd/.style={common,blue},%
     dayabay_nh/.style={dayabay},%
     dayabay/.style={common,blue},%
     reno_ngd/.style={reactor},
     reno_nh/.style={reactor},
     doublechooz/.style={reactor},
-    acc/.style={common,black!30!green},
     t2k/.style={acc},
     superk/.style={acc},
     t2k/.style={acc},
     minos/.style={acc},
-    nova/.style={acc}
+    nova/.style={acc},
+    icecube/.style={atm}
   }%
 }%
 \providecommand\ScatterClasses{%
@@ -32,6 +34,9 @@
     doublechooz={doublechooz},%
     acc={acc},%
     t2k={t2k},
-    nova={nova}
+    nova={nova},
+    minos={minos},
+    icecube={icecube},
+    superk={superk}
 }%
 
