@@ -9,7 +9,6 @@
 \providecommand\ComparisonColumns{name,notes,value,result}%
 \providecommand*{\lhline}{\arrayrulecolor{black!15}\cline{2-6}\arrayrulecolor{black}}%
 \providecommand*{\lcline}[1]{\arrayrulecolor{black!15}\cline{#1}\arrayrulecolor{black}}%
-%\providecommand*\datafile{theta13.dat}%
 \providecommand*\marksize{1.5pt}%
 \providecommand*\clinewidth{0.5pt}%
 \providecommand*\capsize{1.5pt}%
@@ -20,6 +19,9 @@
 \providecommand*\symerrstyle{\scriptstyle}%
 \providecommand*\precision{3}%
 \providecommand*\plotaverage{}%
+\providecommand*\NotesOffset{}
+\providecommand*\ValueOffset{}
+\providecommand*\ResultOffset{}
 \ebarstyle%
 %
 % Input
@@ -80,7 +82,7 @@
   every last row/.style = {after row=[8ex]\AfterLastRow},%
   % Set header name%
   columns/name/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
-  columns/notes/.style = {string type,column name=\NameNotes{},column type={>{\hskip-27pt}l}},%
+  columns/notes/.style = {string type,column name=\NameNotes{},column type={>{\NotesOffset}l}},%
   columns/value/.style = {%
     column name = {\xtoplabel},%
     assign cell content/.code = {% use \multirow for Z column:%
@@ -91,9 +93,9 @@
       \pgfkeyssetvalue{/pgfplots/table/@cell content}{}%
       \fi%
     },%
-    column type={>{\hskip-20pt}l}
+    column type={>{\ValueOffset}c}
   },%
-  columns/result/.style = {string type, column name = \translate{Value}, column type={>{\hskip-10pt}l}},%
+  columns/result/.style = {string type, column name = \translate{Value}, column type={>{\ResultOffset}l}},%
 ]{\data}%
 }%
 \endgroup%

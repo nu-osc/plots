@@ -9,7 +9,6 @@
 \providecommand\ComparisonColumns{name,notes,value,result}%
 \providecommand*{\lhline}{\arrayrulecolor{black!15}\cline{2-6}\arrayrulecolor{black}}%
 \providecommand*{\lcline}[1]{\arrayrulecolor{black!15}\cline{#1}\arrayrulecolor{black}}%
-%\providecommand*\datafile{theta13.dat}%
 \providecommand*\marksize{1.5pt}%
 \providecommand*\clinewidth{0.5pt}%
 \providecommand*\capsize{1.5pt}%
@@ -20,7 +19,9 @@
 \providecommand*\symerrstyle{\scriptstyle}%
 \providecommand*\precision{3}%
 \providecommand*\plotaverage{}%
-\providecommand*\NotesOffset{\hskip-15pt}
+\providecommand*\NotesOffset{}
+\providecommand*\ValueOffset{}
+\providecommand*\ResultOffset{}
 \ebarstyle%
 %
 % Input
@@ -92,9 +93,9 @@
       \pgfkeyssetvalue{/pgfplots/table/@cell content}{}%
       \fi%
     },%
-    column type={>{\hskip-15pt}c}
+    column type={>{\ValueOffset}c}
   },%
-  columns/result/.style = {string type, column name = \translate{Value}, column type={>{\hskip-10pt}l}},%
+  columns/result/.style = {string type, column name = \translate{Value}, column type={>{\ResultOffset}l}},%
 ]{\data}%
 }%
 \endgroup%

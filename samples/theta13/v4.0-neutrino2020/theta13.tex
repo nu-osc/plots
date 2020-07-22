@@ -6,21 +6,15 @@
 \input{styles.tex}
 
 \begin{document}
-\providecommand*\xlabel{$\sin^2 2\theta_{13}$}%
 \providecommand\ComparisonColumns{name,notes,value,result}%
 \providecommand*\datafile{theta13.dat}%
-\providecommand\BeforeFirstRow{}%
-\providecommand\AfterLastRow{}%
-%\providecommand*\xlabel{}%
-%\providecommand*\xtoplabel{$\sin^2 2\theta_{13}$}%
-\providecommand*\plotwidth{8.0cm}%
-\providecommand*\clinewidth{1pt}%
-\providecommand*\capsize{2pt}%
-\providecommand*\symerrstyle{}%
-\providecommand*\precision{\thisrow{precision}}%
-\providecommand*\plotaverage{}%
+\providecommand*\xlabel{$\sin^2 2\theta_{13}$}%
+\providecommand*\xtoplabel{}%
+\providecommand*\NotesOffset{\hskip-27pt}
+\providecommand*\ValueOffset{\hskip-20}
+\providecommand*\ResultOffset{\hskip-10pt}
 {\large%
-\input{theta13_body.tex}%
+\input{comparison_body.tex}%
 }%
 \hspace{4mm}%
 \begin{tikzpicture}[black!25,outer sep=0pt,inner sep=0pt]
