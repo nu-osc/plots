@@ -1,0 +1,12 @@
+\pgfplotstableset{
+  makebf/.style={postproc cell content/.style={@cell content=\textbf{##1}}},
+  highlight/.style={
+    every row 0 column 0/.style={makebf},
+    every row 2 column 0/.style={makebf},
+  },
+}
+\tikzset{%
+  dayabay_ngd/.style={common,blue},%
+  dayabay_nh/.style={common,blue},%
+}%
+
