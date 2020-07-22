@@ -51,7 +51,7 @@ def postprocess_amplitude13(entry):
     if entry['name']=='Double CHOOZ':
         entry['notes']=''
 
-    slist = [ entry['name'].lower().replace(' ', '') ]
+    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
     if entry['notes']:
         slist.append(entry['notes'].lower())
     entry['style']='_'.join(slist)
@@ -61,7 +61,7 @@ def postprocess_splitting_large(entry):
     if entry['name']=='Double CHOOZ':
         entry['notes']=''
 
-    slist = [ entry['name'].lower().replace(' ', '') ]
+    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
     if entry['notes']:
         slist.append(entry['notes'].lower())
     entry['style']='_'.join(slist)
@@ -171,6 +171,10 @@ def merge_leftright(unc):
     left, right = unc['left'], unc['right']
     return 0.5*(left+right)
 
+def merge_statsyst(stat, syst, leftright):
+    stat, syst = stat[leftright], syst[leftright]
+    return (stat**2 + syst**2)**0.5
+
 def get_uncertainty(val, unc):
     if isinstance(unc, float):
         return val-unc, val+unc
@@ -207,9 +211,9 @@ def get_uncertainty(val, unc):
         pass
     else:
         if isinstance(stat, dict) and isinstance(syst, dict):
-            stat, syst = merge_leftright(stat), merge_leftright(syst)
-        if not isinstance(stat, float) or not isinstance(syst, float):
-            raise Exception(f'Invalid stat/syst uncertainties: {stat!s}, {syst!s}')
+            left = merge_statsyst(stat, syst, 'left')
+            right = merge_statsyst(stat, syst, 'right')
+            return val-left, val+right
 
         unc = (stat**2 + syst**2)**0.5
         return val-unc, val+unc

@@ -1,8 +1,8 @@
-style        name        notes    ordering    octant      value    left    right      span  result                     arxiv              conf
-nova         NOvA        {}       IO          UO          2.45     0.06    0.06   0.12      $2.45\pm0.06$              {}                 Neutrino2020
-dayabay_ngd  {Daya Bay}  nGd      IO          {}          2.575    0.07    0.068  0.138     $2.575^{+0.068}_{-0.070}$  hep-ex/1809.02261  Neutrino2018
-minos        MINOS       {}       IO          UO          2.45     0.08    0.07   0.15      $2.45^{+0.07}_{-0.08}$     hep-ex/2006.15208  Neutrino2020
-reno_ngd     RENO        nGd      IO          {}          2.79     0.12    0.12   0.233238  $2.79\pm0.12$              {}                 Neutrino2020
-icecube      IceCube     {}       IO          {}          2.32     0.13    0.11   0.24      $2.32^{+0.11}_{-0.13}$     hep-ex/1707.07081  Neutrino2018
-superk       SuperK      {}       IO          {}          2.4      0.32    0.09   0.41      $2.40^{+0.09}_{-0.32}$     {}                 Neutrino2020
-reno_nh      RENO        nH       IO          {}          2.58     0.3     0.3    0.604152  $2.58\pm0.30$              {}                 Neutrino2018
+style            name              notes    ordering    octant      value    left    right      span  result                     arxiv              conf
+nova             NOvA              {}       IO          UO          2.45     0.06    0.06   0.12      $2.45\pm0.06$              {}                 Neutrino2020
+dayabay_ngd      {Daya Bay}        nGd      IO          {}          2.575    0.07    0.068  0.138     $2.575^{+0.068}_{-0.070}$  hep-ex/1809.02261  Neutrino2018
+minos            MINOS+            {}       IO          UO          2.45     0.08    0.07   0.15      $2.45^{+0.07}_{-0.08}$     hep-ex/2006.15208  Neutrino2020
+reno_ngd         RENO              nGd      IO          {}          2.79     0.12    0.12   0.233238  $2.79\pm0.12$              {}                 Neutrino2020
+icecube          IceCube           {}       IO          {}          2.32     0.13    0.11   0.24      $2.32^{+0.11}_{-0.13}$     hep-ex/1707.07081  Neutrino2018
+superkamiokande  Super-Kamiokande  {}       IO          {}          2.4      0.32    0.09   0.41      $2.40^{+0.09}_{-0.32}$     {}                 Neutrino2020
+reno_nh          RENO              nH       IO          {}          2.58     0.32    0.28   0.60427   $2.58^{+0.28}_{-0.32}$     {}                 Neutrino2018

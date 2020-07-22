@@ -20,7 +20,7 @@ dm32_IO.pdf: dm32_IO.dat dm32_IO.tex
 
 table: dm32_NO.dat dm32_IO.dat
 
-dm32_NO.dat dm32_IO.dat:
+dm32_NO.dat dm32_IO.dat: maketable.py
 	./maketable.py -v splitting_large \
 	               -o dm32_NO.dat \
 		           --nmo NO \
