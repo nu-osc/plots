@@ -1,4 +1,4 @@
-.PHONY: all place table
+.PHONY: all table debug clean clean-all
 .SUFFIXES: .tex .dat .pdf .png
 .PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v4-0.pdf
 
@@ -11,26 +11,31 @@ sources  = $(variable).tex $(variable)_dayabay.tex
 tex      = $(variable)_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
 targets  = $(sources:%.tex=plots/%_$(version).png)
 
-all: $(targets)
+all: $(targets) | plots
 
-plots/%.png: plots/%.pdf
+plots:
+	mkdir plots
+
+plots/%.png: plots/%.pdf | plots
 	convert -density 300 $< $@
 
-plots/%_v4-0.pdf: %.pdf
+plots/%_$(version).pdf: %.pdf | plots
 	cp -v $< $@
 
 %.pdf: %.tex $(table) $(tex)
-	latexmk $<
+	latexmk -g $<
 
-$(table): $(data)
-	./maketable.py -o $@ $^
+$(table): $(scripts) | $(data)
+	./maketable.py -o $@ $|
 
-debug: $(data)
+debug:
 	ipython --pdb -- \
-		./maketable.py -o $@ $^
+		./maketable.py -o $@ $(data)
+print-%:
+	@echo '$*=$($*)'
 
 clean:
 	latexmk -C $(sources)
 
-clean_all: clean
+clean-all: clean
 	rm plots/*.pdf plots/*.png
