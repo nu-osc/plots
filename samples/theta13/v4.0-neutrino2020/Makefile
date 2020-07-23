@@ -5,7 +5,7 @@
 scripts  = maketable.py pylib/*.py
 variable = theta13
 version  = v4-0
-data     = data/*.yaml
+data     = $(realpath $(wildcard data/*.yaml))
 table    = $(variable).dat
 sources  = $(variable).tex $(variable)_dayabay.tex
 tex      = $(variable)_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex

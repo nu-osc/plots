@@ -5,7 +5,7 @@
 scripts  = maketable.py pylib/*.py
 variable = deltaCP
 version  = v1-0
-data     = data/*.yaml
+data     = $(realpath $(wildcard data/*.yaml))
 table    = $(variable)_NO.dat $(variable)_IO.dat
 #sources  = $(variable)_NO.tex $(variable)_IO.tex
 #tex      = $(variable)_NO_common.tex $(variable)_IO_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
