@@ -26,7 +26,8 @@ $(table): $(data)
 	./maketable.py -o $@ $^
 
 debug: $(data)
-	ipython --pdb -- ./maketable.py -o $@ $^
+	ipython --pdb -- \
+		./maketable.py -o $@ $^
 
 clean:
 	latexmk -C $(sources)
