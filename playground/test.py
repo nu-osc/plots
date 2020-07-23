@@ -6,23 +6,22 @@ from math import cos,sin
 import pandas as pd
 from matplotlib.patches import Arc
 
-result = np.loadtxt("table.txt", delimiter=' ',dtype='|S10, f8, f8, f8')
+
+dtype1 = np.dtype([('exp', '|S10'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'),])
+result = np.loadtxt("../samples/deltaCP/v4.0-neutrino2020/deltaCP_NO.dat", delimiter=' ',dtype=dtype1, skiprows=1, usecols=(1, 5, 6, 7))
 #result = pd.read_csv("table.txt", sep=" ", header=None)
+#result=pd.read_table("../samples/deltaCP/v4.0-neutrino2020/deltaCP_NO.dat", sep=" ")
 print(result)
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='polar')
-arc = Arc((0.5, 0.5), 0.5, 0.5, theta1=0, theta2=90, transform=ax.transAxes)
-ax.add_patch(arc)
-#count=0
-#step = 0.1
-#for exp in result:
-#    for curve in [[[(float(exp[1])-float(exp[2]))*180 , (float(exp[1])+float(exp[3]))*180], [0.1+count*step, 0.1+count*step]]]:
-#        curve[0] = np.deg2rad(curve[0])
-#        x = np.linspace( curve[0][0], curve[0][1], 500)
-#        y = interp1d( curve[0], curve[1])(x)
-#        ax.plot(x, y, linewidth=7.0)
-#        #ax.set_yticks([])
-#        ax.text(np.deg2rad(float(exp[1])*180), (0.1+count*step), exp[0])
-#    count = count + 1
+count=0
+step = 0.2
+for exp in result:
+    ax.set_ylim(0,0.4)
+    arc = Arc((0.5, 0.5), 0.4+step*count, 0.4+step*count, theta1=(float(exp[1])-float(exp[2]))*180, theta2=(float(exp[1])+float(exp[3]))*180, transform=ax.transAxes, lw=8)
+    ax.add_patch(arc)
+    ax.set_yticks([])
+    ax.text(np.deg2rad(float(exp[1])*180), 0.4*(0.7+step*count), exp[0])
+    count = count + 1
 plt.show()
