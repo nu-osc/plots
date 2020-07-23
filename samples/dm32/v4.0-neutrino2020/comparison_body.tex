@@ -22,7 +22,6 @@
 \providecommand*\NotesOffset{}
 \providecommand*\ValueOffset{}
 \providecommand*\ResultOffset{}
-\ebarstyle%
 %
 % Input
 %
@@ -80,6 +79,7 @@
   % Booktabs rules%
   every head row/.style = {before row=\BeforeFirstRow, after row=\AfterFirstRow},%
   every last row/.style = {after row=[8ex]\AfterLastRow},%
+  highlight,
   % Set header name%
   columns/name/.style = {string type,column name=\translate{Experiment (title)},column type=l},%
   columns/notes/.style = {string type,column name=\NameNotes{},column type={>{\NotesOffset}l}},%

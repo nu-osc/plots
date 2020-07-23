@@ -6,29 +6,10 @@
 \providecommand*\symerrstyle{}%
 \providecommand*\precision{\thisrow{precision}}%
 \providecommand*\plotaverage{}%
-\providecommand*\ebarstyle{%
-  \tikzset{%
-    common/.style={line width=\clinewidth},%
-    reactor/.style={common,red,mark color=red},%
-    acc/.style={common,black!30!green},
-    atm/.style={common,black!40!cyan},
-    dayabay_ngd/.style={common,blue},%
-    dayabay_nh/.style={dayabay},%
-    dayabay/.style={common,blue},%
-    reno_ngd/.style={reactor},
-    reno_nh/.style={reactor},
-    doublechooz/.style={reactor},
-    t2k/.style={acc},
-    t2k/.style={acc},
-    minos/.style={acc},
-    nova/.style={acc},
-    superkamiokande/.style={atm},
-    icecube/.style={atm}
-  }%
-}%
 \providecommand\ScatterClasses{%
     reactor={reactor},%
     dayabay_ngd={dayabay_ngd},%
+    dayabay_nh={dayabay_nh},%
     reno_ngd={reno_ngd},%
     reno_nh={reno_nh},%
     doublechooz={doublechooz},%
@@ -39,4 +20,23 @@
     icecube={icecube},
     superkamiokande={superkamiokande}
 }%
+\tikzset{%
+  common/.style={line width=\clinewidth},%
+  reactor/.style={common,red,mark color=red},%
+  acc/.style={common,black!30!green},
+  atm/.style={common,black!40!cyan},
+  dayabay_ngd/.style={reactor},%
+  dayabay_nh/.style={dayabay},%
+  dayabay/.style={reactor},%
+  reno_ngd/.style={reactor},
+  reno_nh/.style={reactor},
+  doublechooz/.style={reactor},
+  t2k/.style={acc},
+  t2k/.style={acc},
+  minos/.style={acc},
+  nova/.style={acc},
+  superkamiokande/.style={atm},
+  icecube/.style={atm}
+}%
+\pgfplotstableset{highlight/.style={}}
 

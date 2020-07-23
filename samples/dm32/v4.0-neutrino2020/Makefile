@@ -6,9 +6,9 @@ scripts  = maketable.py pylib/*.py
 variable = dm32
 version  = v4-0
 data     = data/*.yaml
-table    = $(variable).dat
+table    = $(variable)_NO.dat $(variable)_IO.dat
 sources  = $(variable)_NO.tex $(variable)_IO.tex $(variable)_NO_dayabay.tex $(variable)_IO_dayabay.tex
-tex      = $(variable)_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
+tex      = $(variable)_NO_common.tex $(variable)_IO_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
 targets  = $(sources:%.tex=plots/%_$(version).png)
 
 all: $(targets)
@@ -41,8 +41,11 @@ debug: $(data)
 					   --nmo NO \
 					   $^
 
+print-%:
+	@echo '$*=$($*)'
+
 clean:
 	latexmk -C $(sources)
 
-clean_all: clean
+clean-all: clean
 	rm plots/*.pdf plots/*.png
