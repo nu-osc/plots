@@ -1,21 +1,31 @@
 .PHONY: all place table
+.SUFFIXES: .tex .dat .pdf .png
+.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v4-0.pdf
 
-all: place
+scripts  = maketable.py pylib/*.py
+variable = theta13
+version = v4-0
+data    = data/*.yaml
+table   = $(variable).dat
+sources = $(variable).tex $(variable)_dayabay.tex
+targets = $(sources:%.tex=plots/%_$(version).png)
 
-place: plots/theta13_v4-0.pdf plots/theta13_v4-0.png
+all: $(targets)
 
-plots/theta13_v4-0.pdf plots/theta13_v4-0.png: theta13.pdf
-	cp theta13.pdf plots/theta13_v4-0.pdf
-	convert -density 300 plots/theta13_v4-0.pdf plots/theta13_v4-0.png
+plots/%.png: plots/%.pdf
+	convert -density 300 $< $@
 
-theta13.pdf: theta13.dat theta13.tex
-	latexmk theta13.tex
+plots/%_v4-0.pdf: %.pdf
+	cp -v $< $@
 
-table: theta13.dat
+%.pdf: %.tex $(data)
+	latexmk $<
 
-theta13.dat:
-	./maketable.py -o theta13.dat \
-					  data/*.yaml 
+theta13.dat: $(scripts)
+	./maketable.py -o $@ $^
 
 clean:
-	latexmk -C theta13.tex
+	latexmk -C $(sources)
+
+clean_all: clean
+	rm plots/*.pdf plots/*.png
