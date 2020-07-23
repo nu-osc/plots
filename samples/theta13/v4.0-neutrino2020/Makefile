@@ -30,7 +30,7 @@ $(table): $(scripts) | $(data)
 
 debug:
 	ipython --pdb -- \
-		./maketable.py -o $@ $(data)
+		./maketable.py -o $(variable).dat $(data)
 print-%:
 	@echo '$*=$($*)'
 

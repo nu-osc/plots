@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
-"""Version v0.1.0:
+"""Version v0.2.0 (deltaCP):
+
+Changes in 0.2.0:
+    + add deltaCP
 
 Changes in 0.1.0:
     + Choose variable from command line: -v
@@ -42,7 +45,7 @@ def main(args):
 
 def postprocess(data, var):
     postprocessor = postprocessors.get(var)
-    if not var:
+    if not var or not postprocessor:
         return data
 
     return list(map(postprocessor, data))
@@ -67,9 +70,17 @@ def postprocess_splitting_large(entry):
     entry['style']='_'.join(slist)
     return entry
 
+def postprocess_deltaCP(entry):
+    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
+    if entry['notes']:
+        slist.append(entry['notes'].lower())
+    entry['style']='_'.join(slist)
+    return entry
+
 postprocessors=dict(
-        amplitude13=postprocess_amplitude13,
-        splitting_large=postprocess_splitting_large
+        amplitude13     = postprocess_amplitude13,
+        splitting_large = postprocess_splitting_large,
+        deltaCP         = postprocess_deltaCP
         )
 
 def select_columns(data, columns):
@@ -226,7 +237,7 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'amplitude13', 'splitting_large' ]
+    variables = [ 'amplitude13', 'splitting_large', 'deltaCP' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')

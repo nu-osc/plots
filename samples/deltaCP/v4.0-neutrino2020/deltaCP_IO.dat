@@ -1,0 +1,4 @@
+style            name              notes    ordering    octant      value    left    right    span  result                        arxiv    conf
+nova             NOvA              {}       IO          {}          4.775   0.817     0.66   1.477  $4.7750^{+0.6600}_{-0.8170}$  {}       Neutrino2020
+superkamiokande  Super-Kamiokande  {}       IO          {}          4.54    1.32      0.88   2.2    $4.54^{+0.88}_{-1.32}$        {}       Neutrino2020
+t2k              T2K               {}       IO          {}          4.83    4.48      5.18   9.666  $4.83^{+5.18}_{-4.48}$        {}       Neutrino2020

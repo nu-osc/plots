@@ -27,20 +27,20 @@ plots/%_$(version).pdf: %.pdf | plots
 
 %_NO.dat: $(scripts) | $(data)
 	./maketable.py -v splitting_large \
-	               -o dm32_NO.dat \
+	               -o $@ \
 		           --nmo NO \
 				   $|
 
 %_IO.dat: $(scripts) | $(data)
 	./maketable.py -v splitting_large \
-		           -o dm32_IO.dat \
+		           -o $@ \
 		           --nmo IO \
 				   $|
 
 debug:
 	ipython --pdb -- \
 		./maketable.py -v splitting_large \
-					   -o dm32_NO.dat \
+					   -o $(variable)_NO.dat \
 					   --nmo NO \
 					   $(data)
 

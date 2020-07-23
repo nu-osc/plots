@@ -22,26 +22,28 @@ plots/%.png: plots/%.pdf | plots
 plots/%_$(version).pdf: %.pdf | plots
 	cp -v $< $@
 
-%.pdf: %.tex $(table) $(tex)
+%.pdf: %.tex table $(tex)
 	#latexmk -g $<
 	echo Empty target: add a script to provide pdfs
 
+table: $(table)
+
 %_NO.dat: $(scripts) | $(data)
-	./maketable.py -v splitting_large \
-	               -o dm32_NO.dat \
+	./maketable.py -v $(variable) \
+	               -o $@ \
 		           --nmo NO \
 				   $|
 
 %_IO.dat: $(scripts) | $(data)
-	./maketable.py -v splitting_large \
-		           -o dm32_IO.dat \
+	./maketable.py -v $(variable) \
+		           -o $@ \
 		           --nmo IO \
 				   $|
 
 debug:
 	ipython --pdb -- \
-		./maketable.py -v splitting_large \
-					   -o dm32_NO.dat \
+		./maketable.py -v $(variable) \
+					   -o $(variable)_NO.dat \
 					   --nmo NO \
 					   $(data)
 

@@ -16,7 +16,8 @@ def splitting_large_ee(dmee, context):
 converters = dict(
         amplitude13=dict(single=amplitude_single_double, double=unity),
         amplitude23=dict(single=amplitude_single_double, double=unity),
-        splitting_large={'32': unity, 'ee': splitting_large_ee}
+        splitting_large={'32': unity, 'ee': splitting_large_ee},
+        deltaCP = dict(radians=unity)
         )
 
 def convert(var, mode, *vals, **kwargs):
