@@ -12,7 +12,7 @@ print(result)
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='polar')
-arc = Arc((0, 0), 1, 1)
+arc = Arc((0.5, 0.5), 0.5, 0.5, theta1=0, theta2=90, transform=ax.transAxes)
 ax.add_patch(arc)
 #count=0
 #step = 0.1
