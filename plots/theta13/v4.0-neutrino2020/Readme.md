@@ -2,7 +2,7 @@
 
 - Version: 4.0
 - [Plotting scripts](samples/theta13/v4.0-neutrino2020)
-- [Data table](samples/theta13/v4.0-neutrino2020/theta13.dat)
+- [Data table](theta13.dat)
 - References:
     - [Daya Bay nGd](data/dayabay_2018-06-neutrino2018.yaml)
     - [RENO](data/reno_2020-07-neutrino2020.yaml)

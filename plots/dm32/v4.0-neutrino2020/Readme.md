@@ -3,8 +3,8 @@
 - Version: 4.0
 - [Plotting scripts](samples/dm32/v4.0-neutrino2020)
 - Data tables:
-    * [NO table](samples/dm32/v4.0-neutrino2020/dm32_NO.dat)
-    * [IO table](samples/dm32/v4.0-neutrino2020/dm32_IO.dat)
+    * [NO table](dm32_NO.dat)
+    * [IO table](dm32_IO.dat)
 - References:
     * [Daya Bay nGd](data/dayabay_2018-06-neutrino2018.yaml)
     * [RENO](data/reno_2020-07-neutrino2020.yaml)
