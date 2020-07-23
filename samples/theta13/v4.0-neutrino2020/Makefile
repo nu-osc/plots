@@ -22,8 +22,11 @@ plots/%_v4-0.pdf: %.pdf
 %.pdf: %.tex $(table) $(tex)
 	latexmk $<
 
-$(table): $(scripts) $(data)
+$(table): $(data)
 	./maketable.py -o $@ $^
+
+debug: $(data)
+	ipython --pdb -- ./maketable.py -o $@ $^
 
 clean:
 	latexmk -C $(sources)
