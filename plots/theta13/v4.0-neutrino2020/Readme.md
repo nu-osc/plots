@@ -9,6 +9,9 @@
     - [Daya Bay nH](data/dayabay_2016-07-neutrino2016.yaml)
     - [Double CHOOZ](data/dchooz_2020-06-neutrino2020.yaml)
     - [T2K](data/t2k_2020-06-neutrino2020.yaml)
+- Cross checks by:
+    * Liudmila
+    * Beda
 
 ![θ₁₃](plots/theta13/v4.0-neutrino2020/theta13_v4-0.png)
 

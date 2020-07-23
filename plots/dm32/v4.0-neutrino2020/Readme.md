@@ -19,6 +19,9 @@
             + $`\sin^2\theta_{13} = 0.307`$
             + $`\Delta m^2_{21} = 7.53\cdot10^{-5}\text{ eV}^2`$
     * Asymmetric syst/stat errors conversion: quadratically sum left and right part of each (stat/syst) contribution independently
+- Cross checks by:
+    * Liudmila
+    * Beda
 
 ![Δm²₃₂ NO](plots/dm32/v4.0-neutrino2020/dm32_NO_v4-0.png)
 ![Δm²₃₂ IO](plots/dm32/v4.0-neutrino2020/dm32_IO_v4-0.png)
