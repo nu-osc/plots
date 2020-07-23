@@ -35,13 +35,11 @@ result:
             - ordering: 'NO'
               value: 4.316
               uncertainty:
-                  left: 3.738
-                  right: 5.246
+                  interval: [3.738, 5.246]
             - ordering: IO
               value: 4.833
-              uncertainty:
-                  left: 4.483
-                  right: 5.183
+              uncertainty: 
+                  interval: [4.483, 5.183]
               notes: IH is approximate
     amplitude23:
         precision: 2
