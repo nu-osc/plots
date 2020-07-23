@@ -4,11 +4,12 @@
 
 scripts  = maketable.py pylib/*.py
 variable = theta13
-version = v4-0
-data    = data/*.yaml
-table   = $(variable).dat
-sources = $(variable).tex $(variable)_dayabay.tex
-targets = $(sources:%.tex=plots/%_$(version).png)
+version  = v4-0
+data     = data/*.yaml
+table    = $(variable).dat
+sources  = $(variable).tex $(variable)_dayabay.tex
+tex      = $(variable)_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
+targets  = $(sources:%.tex=plots/%_$(version).png)
 
 all: $(targets)
 
@@ -18,10 +19,10 @@ plots/%.png: plots/%.pdf
 plots/%_v4-0.pdf: %.pdf
 	cp -v $< $@
 
-%.pdf: %.tex $(data)
+%.pdf: %.tex $(table) $(tex)
 	latexmk $<
 
-theta13.dat: $(scripts)
+$(table): $(scripts) $(data)
 	./maketable.py -o $@ $^
 
 clean:

@@ -1,0 +1,16 @@
+\begin{document}
+\providecommand\ComparisonColumns{name,notes,value,result}%
+\providecommand*\datafile{theta13.dat}%
+\providecommand*\xlabel{$\sin^2 2\theta_{13}$}%
+\providecommand*\xtoplabel{}%
+\providecommand*\NotesOffset{\hskip-27pt}%
+\providecommand*\ValueOffset{\hskip-20pt}%
+\providecommand*\ResultOffset{\hskip-10pt}%
+{\large%
+\input{comparison_body.tex}%
+}%
+\hspace{4mm}%
+\begin{tikzpicture}[black!25,outer sep=0pt,inner sep=0pt]
+  \draw node[rotate=90,above right,font=\scriptsize] {\PlotVersion{} \PlotDate{}: \PlotURL};
+\end{tikzpicture}%
+\end{document}
