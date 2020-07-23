@@ -3,7 +3,7 @@ type: accelerator
 dataset: 13.6e20 POT ν, 12.5e20 POT ν-bar
 reference:
     latest: True
-    date: '2020.06'
+    date: '2020.07'
     arxiv:
     inspire:
     doi:

@@ -2,7 +2,7 @@ experiment: Super-Kamiokande
 type: atmospheric
 dataset: 364.8 kt-years
 reference:
-    date: '2020.06'
+    date: '2020.07'
     latest: True
     arxiv:
     inspire:

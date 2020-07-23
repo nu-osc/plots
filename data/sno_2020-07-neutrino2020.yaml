@@ -2,7 +2,7 @@ experiment: SNO
 type: solar
 dataset:
 reference:
-    date: '2020.06'
+    date: '2020.07'
     latest: True
     arxiv: 1109.0763
     inspire: https://inspirehep.net/literature/926320

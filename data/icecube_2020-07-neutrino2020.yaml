@@ -2,7 +2,7 @@ experiment: IceCube
 type: atmospheric
 dataset: 1022 days
 reference:
-    date: '2020.06'
+    date: '2020.07'
     latest: True
     arxiv: hep-ex/1707.07081
     inspire: https://inspirehep.net/literature/1611292
