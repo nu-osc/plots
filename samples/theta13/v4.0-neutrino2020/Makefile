@@ -5,7 +5,7 @@
 scripts  = maketable.py pylib/*.py
 variable = theta13
 version  = v4-0
-data     = data/*.yaml
+data     = $(realpath $(wildcard data/*.yaml))
 table    = $(variable).dat
 sources  = $(variable).tex $(variable)_dayabay.tex
 tex      = $(variable)_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
@@ -25,8 +25,10 @@ plots/%_$(version).pdf: %.pdf | plots
 %.pdf: %.tex $(table) $(tex)
 	latexmk -g $<
 
-$(table): $(scripts) | $(data)
-	./maketable.py -o $@ $|
+table: $(table)
+
+$(table): $(data) $(scripts)
+	./maketable.py -o $@ $(filter %.yaml,$^)
 
 debug:
 	ipython --pdb -- \

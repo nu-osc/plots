@@ -5,7 +5,7 @@
 scripts  = maketable.py pylib/*.py
 variable = dm32
 version  = v4-0
-data     = data/*.yaml
+data     = $(realpath $(wildcard data/*.yaml))
 table    = $(variable)_NO.dat $(variable)_IO.dat
 sources  = $(variable)_NO.tex $(variable)_IO.tex $(variable)_NO_dayabay.tex $(variable)_IO_dayabay.tex
 tex      = $(variable)_NO_common.tex $(variable)_IO_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
@@ -25,17 +25,19 @@ plots/%_$(version).pdf: %.pdf | plots
 %.pdf: %.tex $(table) $(tex)
 	latexmk -g $<
 
-%_NO.dat: $(scripts) | $(data)
+table: $(table)
+
+%_NO.dat: $(scripts) $(data)
 	./maketable.py -v splitting_large \
 	               -o $@ \
 		           --nmo NO \
-				   $|
+				   $(filter %.yaml,$^)
 
-%_IO.dat: $(scripts) | $(data)
+%_IO.dat: $(scripts) $(data)
 	./maketable.py -v splitting_large \
 		           -o $@ \
 		           --nmo IO \
-				   $|
+				   $(filter %.yaml,$^)
 
 debug:
 	ipython --pdb -- \
