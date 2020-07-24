@@ -100,7 +100,7 @@ for tick, label, color, offset in zip(text_place, text_itself, text_color, text_
     ax.text(tick+offset, 0.25, label, color=color)
 
 tick = [ax.get_rmax(), ax.get_rmax()*0.98]
-for t in np.arange(0, np.pi*2, np.pi*0.125):
+for t in np.arange(0, np.pi*2, np.pi/12.0):
     ax.plot([t,t], tick, lw=0.72, color="k")
 
 #
