@@ -25,8 +25,10 @@ plots/%_$(version).pdf: %.pdf | plots
 %.pdf: %.tex $(table) $(tex)
 	latexmk -g $<
 
-$(table): $(scripts) | $(data)
-	./maketable.py -o $@ $|
+table: $(table)
+
+$(table): $(data) $(scripts)
+	./maketable.py -o $@ $(filter %.yaml,$^)
 
 debug:
 	ipython --pdb -- \

@@ -1,17 +1,19 @@
 .PHONY: all table debug clean clean-all
-.SUFFIXES: .tex .dat .pdf .png
+.SUFFIXES: .tex .dat .pdf .png .yaml
 .PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v4-0.pdf
 
 scripts  = maketable.py pylib/*.py
 variable = deltaCP
 version  = v1-0
-data     = $(realpath $(wildcard data/*.yaml))
+data     = $(shell realpath --relative-to . $(wildcard data/*.yaml))
 table    = $(variable)_NO.dat $(variable)_IO.dat
 #sources  = $(variable)_NO.tex $(variable)_IO.tex
 #tex      = $(variable)_NO_common.tex $(variable)_IO_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
 #targets  = $(sources:%.tex=plots/%_$(version).png)
 
-all: $(targets) | plots
+all: table
+
+#all: $(targets) | plots
 
 plots:
 	mkdir plots
@@ -22,23 +24,23 @@ plots/%.png: plots/%.pdf | plots
 plots/%_$(version).pdf: %.pdf | plots
 	cp -v $< $@
 
-%.pdf: %.tex table $(tex)
+%.pdf: %.tex $(table) $(tex)
 	#latexmk -g $<
 	echo Empty target: add a script to provide pdfs
 
 table: $(table)
 
-%_NO.dat: $(scripts) | $(data)
+%_NO.dat: $(scripts) $(data)
 	./maketable.py -v $(variable) \
 	               -o $@ \
 		           --nmo NO \
-				   $|
+				   $(filter %.yaml,$^)
 
-%_IO.dat: $(scripts) | $(data)
+%_IO.dat: $(scripts) $(data)
 	./maketable.py -v $(variable) \
 		           -o $@ \
 		           --nmo IO \
-				   $|
+				   $(filter %.yaml,$^)
 
 debug:
 	ipython --pdb -- \

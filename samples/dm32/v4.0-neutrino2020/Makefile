@@ -25,17 +25,19 @@ plots/%_$(version).pdf: %.pdf | plots
 %.pdf: %.tex $(table) $(tex)
 	latexmk -g $<
 
-%_NO.dat: $(scripts) | $(data)
+table: $(table)
+
+%_NO.dat: $(scripts) $(data)
 	./maketable.py -v splitting_large \
 	               -o $@ \
 		           --nmo NO \
-				   $|
+				   $(filter %.yaml,$^)
 
-%_IO.dat: $(scripts) | $(data)
+%_IO.dat: $(scripts) $(data)
 	./maketable.py -v splitting_large \
 		           -o $@ \
 		           --nmo IO \
-				   $|
+				   $(filter %.yaml,$^)
 
 debug:
 	ipython --pdb -- \
