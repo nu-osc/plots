@@ -9,16 +9,16 @@ from matplotlib.patches import Arc
 
 dtype1 = np.dtype([('exp', '|S20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'),])
 result = np.loadtxt("../samples/deltaCP/v4.0-neutrino2020/deltaCP_NO.dat",dtype=dtype1, skiprows=1, usecols=(1, 5, 6, 7))
-#result = pd.read_csv("table.txt", sep=" ", header=None)
-#result=pd.read_table("../samples/deltaCP/v4.0-neutrino2020/deltaCP_NO.dat", sep=" ")
 print(result)
 
 fig = plt.figure()
 prop_cycle = plt.rcParams['axes.prop_cycle']
 colors = prop_cycle.by_key()['color']
-plt.rcParams['grid.alpha'] = 0.2
+plt.rcParams['grid.alpha'] = 0.1
 plt.rcParams['grid.linewidth'] = 2
-plt.rcParams.update({'font.size': 12})
+plt.rc('text', usetex=True)
+plt.rcParams.update({'font.size': 14})
+plt.subplots_adjust(left=-0.1, right=0.9, top=0.9, bottom=0.1)
 ax = fig.add_subplot(111, projection='polar')
 colors = ['xkcd:warm purple', 'xkcd:azure', 'xkcd:green']
 offset = [1.03, 1.0, 0.96]
@@ -33,10 +33,13 @@ for exp in rev_arr:
     ax.set_yticks([])
     angle_ticks = [0, '$\pi/4$', '$\pi/2$', '3$\pi/4$', '$\pi$', '$5\pi/4$', '$3\pi/2$', '$7\pi/4$', '$2\pi$']
     ax.set_xticklabels(angle_ticks)
-    #ax.map(plt.plot, "theta", "r")
     ax.plot(float(cv), 0.2*(0.4+step*count), 'o', markersize=8, markerfacecolor='white', markeredgecolor=colors[count])
     ax.plot( (0, float(cv)), (0, 0.2), c=colors[count], label=name.decode('utf-8'))
     ax.text(float(cv)*offset[count], 0.25, str(round(cv/pi, 2))+"$\pi$", color=colors[count])
     count = count + 1
-ax.legend(bbox_to_anchor=(1.35, 1.17), bbox_transform=ax.transAxes)
+ax.legend(bbox_to_anchor=(1.0, 1.0))
+tick = [ax.get_rmax(),ax.get_rmax()*0.98]
+for t  in np.deg2rad(np.arange(0,360,15)):
+    ax.plot([t,t], tick, lw=0.72, color="k")
+plt.savefig('plot.png', dpi=300)
 plt.show()
