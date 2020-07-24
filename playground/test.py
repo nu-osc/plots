@@ -16,21 +16,26 @@ print(result)
 fig = plt.figure()
 prop_cycle = plt.rcParams['axes.prop_cycle']
 colors = prop_cycle.by_key()['color']
+plt.rcParams['grid.alpha'] = 0.2
+plt.rcParams['grid.linewidth'] = 2
 ax = fig.add_subplot(111, projection='polar')
-colors = ['xkcd:green', 'xkcd:azure', 'xkcd:green']
+colors = ['xkcd:warm purple', 'xkcd:azure', 'xkcd:green']
+offset = [1.03, 1.0, 0.96]
 count=0
 step = 0.2
 rev_arr = result[::-1]
 for exp in rev_arr:
     name, cv, left, right = exp
-    ax.set_ylim(0,0.4)
+    ax.set_ylim(0,0.2)
     arc = Arc((0.5, 0.5), 0.4+step*count, 0.4+step*count, theta1=(float(cv)-float(left))/pi*180, theta2=(float(cv)+float(right))/pi*180, transform=ax.transAxes, lw=4, color=colors[count])
     ax.add_patch(arc)
     ax.set_yticks([])
     angle_ticks = [0, '$\pi/4$', '$\pi/2$', '3$\pi/4$', '$\pi$', '$5\pi/4$', '$3\pi/2$', '$7\pi/4$', '$2\pi$']
     ax.set_xticklabels(angle_ticks)
     #ax.map(plt.plot, "theta", "r")
-    ax.text(float(cv), 0.4*(0.35+step*count), name.decode('utf-8'))
-    ax.plot(float(cv), 0.4*(0.4+step*count), 'o', markersize=8, markerfacecolor=colors[count], markeredgecolor='k')
+    ax.plot(float(cv), 0.2*(0.4+step*count), 'o', markersize=8, markerfacecolor=colors[count], markeredgecolor='k')
+    ax.plot( (0, float(cv)), (0, 0.2), c=colors[count], label=name.decode('utf-8'))
+    ax.text(float(cv)*offset[count], 0.25, str(round(cv/pi, 2))+"$\pi$", color=colors[count])
     count = count + 1
+ax.legend(bbox_to_anchor=(1.3, 1.15), bbox_transform=ax.transAxes)
 plt.show()
