@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 import numpy as np
 import pandas as pd
-from matplotlib.patches import Arc
+from matplotlib.patches import Arc, Rectangle
 import itertools as it
 
 #
@@ -38,16 +38,20 @@ ax.set_title('Normal Ordering', pad=15)
 
 angle_ticks        = list(np.arange(0.0, 2*np.pi, 0.25*np.pi))
 angle_tick_labels  = [0, '$\pi/4$', '$\pi/2$', '3$\pi/4$', '$\pi$', '$5\pi/4$', '$3\pi/2$', '$7\pi/4$']
-angle_tick_colors  = [None]*len(angle_ticks)
-angle_tick_offsets = [None]*len(angle_ticks)
+ax.set_xticklabels(angle_tick_labels)
+
+text_place = []
+text_itself = []
+text_color = []
+text_offset = []
 
 #
 # Some stuff
 #
-offsets = [0.0, -10, +10]
+offsets = [0.1, 0.0, -0.2]
 step = 0.2
 center = (0.5, 0.5)
-arcopts = dict(linewidth=18, alpha=0.9, transform=ax.transAxes, lw=10)
+arcopts = dict(alpha=0.9, transform=ax.transAxes, lw=10)
 markeropts = dict(markersize=8, markerfacecolor='white')
 lineopts = dict(alpha=0.5, lw=1)
 
@@ -68,8 +72,11 @@ for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
               color=color,
               **arcopts
               )
+    ang_dummy = Rectangle((0,0), 1, 1,
+                          color=color
+                         )
     ax.add_patch(arc)
-    styles.append(arc)
+    styles.append(ang_dummy)
     labels.append(name.decode('utf-8'))
 
     # Marker
@@ -79,25 +86,18 @@ for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
 
     # Text via extra ticks
     textvalue = cv/np.pi
-    angle_ticks.append(cv)
-    angle_tick_labels.append(f'{textvalue:.2f}$\pi$')
-    angle_tick_colors.append(color)
-    angle_tick_offsets.append(offsets[count])
+    text_place.append(cv)
+    text_itself.append(str(round(cv/np.pi, 2))+"$\pi$")
+    text_color.append(color)
+    text_offset.append(offsets[count])
 
 #
 # Finalize the plot
 #
 ax.legend(styles, labels, bbox_to_anchor=(1.0, 1.0), bbox_transform=fig.transFigure)
 
-ax.set_xticks(angle_ticks)
-ax.set_xticklabels(angle_tick_labels)
-
-for tick, label, color, offset in zip(ax.get_xticks(), ax.get_xticklabels(), angle_tick_colors, angle_tick_offsets):
-    if color:
-        label.set_c(color)
-
-    if offset:
-        label.set_position((offset, 0.0))
+for tick, label, color, offset in zip(text_place, text_itself, text_color, text_offset):
+    ax.text(tick+offset, 0.25, label, color=color)
 
 tick = [ax.get_rmax(), ax.get_rmax()*0.98]
 for t in np.arange(0, np.pi*2, np.pi*0.125):
