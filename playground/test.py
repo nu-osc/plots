@@ -72,7 +72,9 @@ for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
     ax.plot((0, cv), (0, step), color=color, label=name.decode('utf-8'), **lineopts)
 
     # Text
-    ax.text(cv*offset[count], 0.25, str(round(cv/np.pi, 2))+"$\pi$", color=color)
+    textvalue = cv/np.pi
+    text = f'{textvalue:.2f}$\pi$'
+    ax.text(cv*offset[count], 0.25, text, color=color)
 
 #
 # Finalize the plot
