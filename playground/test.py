@@ -13,7 +13,7 @@ import itertools as it
 plt.rc('text', usetex=True)
 plt.rcParams['grid.alpha'] = 0.1
 plt.rcParams['grid.linewidth'] = 2
-plt.rcParams.update({'font.size': 14})
+plt.rcParams.update({'font.size': 15})
 
 prop_cycle = plt.rcParams['axes.prop_cycle']
 colors = prop_cycle.by_key()['color']
@@ -44,9 +44,9 @@ ax.set_title('Normal Ordering', pad=15)
 offset = [1.03, 1.0, 0.96]
 step = 0.2
 center = (0.5, 0.5)
-arcopts = dict(linewidth=18, alpha=0.9, transform=ax.transAxes, lw=15)
+arcopts = dict(linewidth=18, alpha=0.9, transform=ax.transAxes, lw=10)
 markeropts = dict(markersize=8, markerfacecolor='white')
-lineopts = dict(alpha=0.5)
+lineopts = dict(alpha=0.5, lw=1)
 
 #
 # Iterate data
