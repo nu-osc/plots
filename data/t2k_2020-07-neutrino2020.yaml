@@ -33,13 +33,13 @@ result:
         mode: radians
         results:
             - ordering: 'NO'
-              value: 4.316
+              value: -1.967
               uncertainty:
-                  interval: [3.738, 5.246]
+                  interval: [-2.545, -1.037]
             - ordering: IO
-              value: 4.833
+              value: -1.45
               uncertainty: 
-                  interval: [4.483, 5.183]
+                  interval: [-1.8, -1.1]
               notes: IH is approximate
     amplitude23:
         precision: 2

@@ -28,18 +28,18 @@ result:
         notes: This is mix of dmsq32 and dmsq31 values!
     deltaCP: 
         precision: 2
-        mode: radians
+        mode: degrees
         results:
             - ordering: 'NO'
-              value: 3.857
+              value: 221
               uncertainty:
-                  left: 0.4887
-                  right: 0.6807
+                  left: 28
+                  right: 39
             - ordering: IO
-              value: 4.922
+              value: 282
               uncertainty:
-                  left: 0.436
-                  right: 0.4014
+                  left: 25
+                  right: 23
     amplitude23: 
         precision: 2
         mode: single
