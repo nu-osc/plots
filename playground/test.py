@@ -14,6 +14,9 @@ plt.rc('text', usetex=True)
 plt.rcParams['grid.alpha'] = 0.1
 plt.rcParams['grid.linewidth'] = 2
 plt.rcParams.update({'font.size': 15})
+fig_size = plt.rcParams["figure.figsize"]
+fig_size[1] = 10
+plt.rcParams["figure.figsize"] = fig_size
 
 prop_cycle = plt.rcParams['axes.prop_cycle']
 colors = prop_cycle.by_key()['color']
@@ -30,7 +33,7 @@ print(result)
 #
 # Figure
 fig = plt.figure()
-plt.subplots_adjust(left=-0.12, right=0.85, top=0.85, bottom=0.1)
+plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.3)
 ax = fig.add_subplot(111, projection='polar')
 ax.set_ylim(0,0.2)
 ax.set_yticks([])
@@ -77,7 +80,11 @@ for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
                          )
     ax.add_patch(arc)
     styles.append(ang_dummy)
-    labels.append(name.decode('utf-8'))
+    
+    cv_label = str(round(cv/np.pi, 2))
+    left_label = str(round((left)/np.pi, 2))
+    right_label = str(round((right)/np.pi, 2))
+    labels.append(name.decode('utf-8')+": $\delta_{CP} = $"+cv_label+"$^{+"+right_label+"}_{-"+left_label+"}\pi$")
 
     # Marker
     ax.plot(cv, step*r, 'o', markeredgecolor=color, **markeropts)
@@ -94,7 +101,7 @@ for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
 #
 # Finalize the plot
 #
-ax.legend(styles, labels, bbox_to_anchor=(1.0, 1.0), bbox_transform=fig.transFigure)
+ax.legend(styles, labels, bbox_to_anchor=(0.7, 0.25), bbox_transform=fig.transFigure)
 
 for tick, label, color, offset in zip(text_place, text_itself, text_color, text_offset):
     ax.text(tick+offset, 0.25, label, color=color)
