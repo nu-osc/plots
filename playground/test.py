@@ -14,19 +14,20 @@ plt.rc('text', usetex=True)
 plt.rcParams['grid.alpha'] = 0.1
 plt.rcParams['grid.linewidth'] = 2
 plt.rcParams.update({'font.size': 15})
+plt.rcParams.update({'legend.fontsize': 18})
 fig_size = plt.rcParams["figure.figsize"]
 fig_size[1] = 10
 plt.rcParams["figure.figsize"] = fig_size
 
 prop_cycle = plt.rcParams['axes.prop_cycle']
 colors = prop_cycle.by_key()['color']
-colors = ['xkcd:warm purple', 'xkcd:azure', 'xkcd:green']
+colors = {'nova' : 'xkcd:warm purple', 'superkamiokande' : 'xkcd:azure', 't2k' : 'xkcd:green'}
 
 #
 # Load
 #
-dtype1 = np.dtype([('exp', '|S20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'),])
-result = np.loadtxt("../samples/deltaCP/v4.0-neutrino2020/deltaCP_NO.dat",dtype=dtype1, skiprows=1, usecols=(1, 5, 6, 7))
+dtype1 = np.dtype([('id', '|S20'), ('exp', '|S20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'),])
+result = np.loadtxt("../samples/deltaCP/v4.0-neutrino2020/deltaCP_NO.dat",dtype=dtype1, skiprows=1, usecols=(0, 1, 5, 6, 7))
 rev_arr = result[::-1]
 print(result)
 
@@ -62,9 +63,9 @@ lineopts = dict(alpha=0.5, lw=1)
 # Iterate data
 #
 styles, labels = [], []
-for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
+for count, exp in enumerate(rev_arr):
     # Numbers
-    name, cv, left, right = exp
+    id, name, cv, left, right = exp
     theta1=np.degrees(cv-left)
     theta2=np.degrees(cv+right)
     r = 0.4+step*count
@@ -72,11 +73,11 @@ for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
     # Arc
     arc = Arc(center, r, r,
               theta1=theta1, theta2=theta2,
-              color=color,
+              color=colors[id.decode('utf-8')],
               **arcopts
               )
     ang_dummy = Rectangle((0,0), 1, 1,
-                          color=color
+                          color=colors[id.decode('utf-8')]
                          )
     ax.add_patch(arc)
     styles.append(ang_dummy)
@@ -84,18 +85,18 @@ for count, (exp, color) in enumerate(zip(rev_arr, it.cycle(colors))):
     cv_label = str(round(cv/np.pi, 2))
     left_label = str(round((left)/np.pi, 2))
     right_label = str(round((right)/np.pi, 2))
-    labels.append(name.decode('utf-8')+": $\delta_{CP} = $"+cv_label+"$^{+"+right_label+"}_{-"+left_label+"}\pi$")
+    labels.append("\parbox{6cm}{"+name.decode('utf-8')+":\hfill{}$\delta_{\scriptscriptstyle\mathrm{CP}} =  $"+cv_label+"$^{+"+right_label+"}_{-"+left_label+"} \pi$}")
 
     # Marker
-    ax.plot(cv, step*r, 'o', markeredgecolor=color, **markeropts)
+    ax.plot(cv, step*r, 'o', markeredgecolor=colors[id.decode('utf-8')], **markeropts)
     # Line
-    ax.plot((0, cv), (0, step), color=color, **lineopts)
+    ax.plot((0, cv), (0, step), color=colors[id.decode('utf-8')], **lineopts)
 
     # Text via extra ticks
     textvalue = cv/np.pi
     text_place.append(cv)
     text_itself.append(str(round(cv/np.pi, 2))+"$\pi$")
-    text_color.append(color)
+    text_color.append(colors[id.decode('utf-8')])
     text_offset.append(offsets[count])
 
 #
