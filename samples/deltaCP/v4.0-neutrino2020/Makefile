@@ -1,22 +1,18 @@
 .PHONY: all table debug clean clean-all
 .SUFFIXES: .tex .dat .pdf .png .yaml
-.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v4-0.pdf
+.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v1-0.pdf
 
 scripts  = maketable.py pylib/*.py
 variable = deltaCP
 version  = v1-0
 data     = $(shell realpath --relative-to . $(wildcard data/*.yaml))
 table    = $(variable)_NO.dat $(variable)_IO.dat
-#sources  = $(variable)_NO.tex $(variable)_IO.tex
-#tex      = $(variable)_NO_common.tex $(variable)_IO_common.tex comparison_body.tex styles*.tex meta.tex macro_pgf.tex header.tex
-#targets  = $(sources:%.tex=plots/%_$(version).png)
+targets  = $(table:%.dat=plots/%_$(version).png)
 
-all: table
-
-#all: $(targets) | plots
+all: $(targets) | plots
 
 plots:
-	mkdir plots
+	test -d plots || mkdir plots
 
 plots/%.png: plots/%.pdf | plots
 	convert -density 300 $< $@
@@ -24,9 +20,11 @@ plots/%.png: plots/%.pdf | plots
 plots/%_$(version).pdf: %.pdf | plots
 	cp -v $< $@
 
-%.pdf: %.tex $(table) $(tex)
-	#latexmk -g $<
-	echo Empty target: add a script to provide pdfs
+$(variable)_NO.pdf: $(variable)_NO.dat
+	./plot_deltacp.py $< --ordering NO -o $@
+
+$(variable)_IO.pdf: $(variable)_IO.dat
+	./plot_deltacp.py $< --ordering IO -o $@
 
 table: $(table)
 
