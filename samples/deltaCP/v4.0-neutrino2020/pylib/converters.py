@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import numpy as np
+
 unity = lambda val, **kwargs: val
 
 def amplitude_single_double(single2, **kwrgs):
@@ -13,11 +15,17 @@ def splitting_large_ee(dmee, context):
     dm32 = dmee - ordering * cosSqTheta12 * dmSq21
     return dm32
 
+def radians_to_pi(rad, **kwargs):
+    return rad/np.pi
+
+def degrees_to_pi(deg, **kwargs):
+    return np.radians(deg)/np.pi
+
 converters = dict(
         amplitude13=dict(single=amplitude_single_double, double=unity),
         amplitude23=dict(single=amplitude_single_double, double=unity),
         splitting_large={'32': unity, 'ee': splitting_large_ee},
-        deltaCP = dict(radians=unity)
+        deltaCP = dict(pi=unity, radians=radians_to_pi, degrees=degrees_to_pi)
         )
 
 def convert(var, mode, *vals, **kwargs):
