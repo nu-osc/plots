@@ -44,6 +44,11 @@ debug:
 					   -o $(variable)_NO.dat \
 					   --nmo NO \
 					   $(data)
+	ipython --pdb -- \
+		./maketable.py -v $(variable) \
+					   -o $(variable)_IO.dat \
+					   --nmo IO \
+					   $(data)
 
 print-%:
 	@echo '$*=$($*)'

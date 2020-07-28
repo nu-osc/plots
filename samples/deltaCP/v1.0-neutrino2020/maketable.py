@@ -71,7 +71,10 @@ def postprocess_splitting_large(entry):
     return entry
 
 def postprocess_deltaCP(entry):
-    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
+    name= entry['name'].lower()
+    for c in " -+,'":
+        name=name.replace(c,'')
+    slist = [name]
     if entry['notes']:
         slist.append(entry['notes'].lower())
     entry['style']='_'.join(slist)
@@ -99,7 +102,7 @@ def filter_entry(args):
         return key, word
 
     if ' ' in word:
-        word=f'{{{word}}}'
+        word = word.replace(' ', '_')
     elif not word:
         word='{}'
 

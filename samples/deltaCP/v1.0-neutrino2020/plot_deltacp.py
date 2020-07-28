@@ -11,6 +11,11 @@ titles = dict(
         NO = 'Normal Ordering',
         IO = 'Inverted Ordering'
         )
+colors = dict(
+        nova='xkcd:warm purple',
+        superkamiokande='xkcd:azure',
+        t2k='xkcd:green'
+        )
 
 def main(args):
     #
@@ -26,8 +31,6 @@ def main(args):
     plt.rcParams["figure.figsize"] = fig_size
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
-    colors = prop_cycle.by_key()['color']
-    colors = {'nova' : 'xkcd:warm purple', 'superkamiokande' : 'xkcd:azure', 't2k' : 'xkcd:green'}
 
     #
     # Load
@@ -77,43 +80,48 @@ def main(args):
     for count, exp in enumerate(rev_arr):
         # Numbers
         id, name, cv, left, right = exp
+        if cv<0.0:
+            cv = 2+cv
         theta1=np.degrees((cv-left)*np.pi)
         theta2=np.degrees((cv+right)*np.pi)
         cv_rad=cv*np.pi
         r = 0.4+step*count
+        color = colors.get(id, 'black')
 
         # Arc
         arc = Arc(center, r, r,
                   theta1=theta1, theta2=theta2,
-                  color=colors[id],
+                  color=color,
                   **arcopts
                   )
         ang_dummy = Rectangle((0,0), 1, 1,
-                              color=colors[id]
+                              color=color
                               )
         ax.add_patch(arc)
         styles.append(ang_dummy)
 
         deltacp = '\delta_{\scriptscriptstyle\mathrm{CP}}'
+        name = name.replace('_', ' ')
         label = f'\\parbox{{{legwidth}}}{{{name}\hfill{{}}${cv:.2f}^{{+{right:.2f}}}_{{-{left:.2f}}}$}}'
         labels.append(label)
 
         # Marker
-        ax.plot(cv_rad, step*r, 'o', markeredgecolor=colors[id], **markeropts)
+        ax.plot(cv_rad, step*r, 'o', markeredgecolor=color, **markeropts)
         # Line
-        ax.plot((0, cv_rad), (0, step), color=colors[id], **lineopts)
+        ax.plot((0, cv_rad), (0, step), color=color, **lineopts)
 
-        # Text via extra ticks
-        text_place.append(cv_rad)
-        text_itself.append(f'{cv:.2f}$\pi$')
-        text_color.append(colors[id])
-        text_offset.append(offsets[count])
+        if count<len(offsets):
+            # Text via extra ticks
+            text_place.append(cv_rad)
+            text_itself.append(f'{cv:.2f}$\pi$')
+            text_color.append(color)
+            text_offset.append(offsets[count])
 
     #
     # Finalize the plot
     #
     legend_title = f'\\parbox{{{legtitle_width}}}{{Experiment\hfill{{}}${deltacp}, \\pi$}}'
-    fig.legend(styles, labels, loc='lower center', title=legend_title)
+    fig.legend(reversed(styles), reversed(labels), loc='lower center', title=legend_title)
 
     for tick, label, color, offset in zip(text_place, text_itself, text_color, text_offset):
         ax.text(tick+offset, 0.220, label, color=color, ha='center', va='center')

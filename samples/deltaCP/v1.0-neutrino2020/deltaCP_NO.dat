@@ -1,4 +1,6 @@
-style            name              notes    ordering    octant      value    left    right      span  result                        arxiv    conf
-t2k              T2K               {}       NO          {}          -0.63    0.18     0.3   0.480011  $-0.63^{+0.30}_{-0.18}$       {}       Neutrino2020
-superkamiokande  Super-Kamiokande  {}       NO          {}           1.39    0.44     0.28  0.722563  $1.39^{+0.28}_{-0.44}$        {}       Neutrino2020
-nova             NOvA              {}       NO          {}           0.82    1        0.24  1.24      $0.8200^{+0.2400}_{-1.0000}$  {}       Neutrino2020
+style            name               notes    ordering    octant      value    left    right      span  result                        arxiv              conf
+foreroetal.20    Forero_et_al._'20  {}       NO          {}           1.2     0.14     0.23  0.37      $1.20^{+0.23}_{-0.14}$        hep-ex/2006.11237  {}
+nufit19          NuFIT_'19          {}       NO          {}           1.23    0.16     0.22  0.372222  $1.23^{+0.22}_{-0.16}$        {}                 {}
+t2k              T2K                {}       NO          {}          -0.63    0.18     0.3   0.480011  $-0.63^{+0.30}_{-0.18}$       {}                 Neutrino2020
+superkamiokande  Super-Kamiokande   {}       NO          {}           1.39    0.44     0.28  0.722563  $1.39^{+0.28}_{-0.44}$        {}                 Neutrino2020
+nova             NOvA               {}       NO          {}           0.82    1        0.24  1.24      $0.8200^{+0.2400}_{-1.0000}$  {}                 Neutrino2020
