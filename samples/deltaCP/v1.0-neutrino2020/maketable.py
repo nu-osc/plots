@@ -72,7 +72,7 @@ def postprocess_splitting_large(entry):
 
 def postprocess_deltaCP(entry):
     name= entry['name'].lower()
-    for c in " -+,'":
+    for c in " -+,'.":
         name=name.replace(c,'')
     slist = [name]
     if entry['notes']:
