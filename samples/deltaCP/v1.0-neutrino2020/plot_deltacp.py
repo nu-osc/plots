@@ -136,6 +136,11 @@ def main(args):
         ax.plot([t,t], tick, lw=0.72, color="k")
 
     #
+    # Draw tag
+    #
+    ax.text(0.95, 0.75, 'v4.0 2020.07: git.jinr.ru/nu/osc', rotation=90,color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
+
+    #
     # Save
     #
     for out in  args.output:
