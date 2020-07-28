@@ -14,7 +14,9 @@ titles = dict(
 colors = dict(
         nova='xkcd:warm purple',
         superkamiokande='xkcd:azure',
-        t2k='xkcd:green'
+        t2k='xkcd:green',
+        foreroetal20='xkcd:steel grey',
+        nufit19='xkcd:midnight'
         )
 
 def main(args):
@@ -26,9 +28,6 @@ def main(args):
     plt.rcParams['grid.linewidth'] = 2
     plt.rcParams.update({'font.size': 15})
     plt.rcParams.update({'legend.fontsize': 18})
-    fig_size = plt.rcParams["figure.figsize"]
-    fig_size[1] = 10
-    plt.rcParams["figure.figsize"] = fig_size
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
 
@@ -36,7 +35,6 @@ def main(args):
     # Load
     #
     dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'),])
-    #result = np.loadtxt("../samples/deltaCP/v4.0-neutrino2020/deltaCP_NO.dat",dtype=dtype1, skiprows=1, usecols=(0, 1, 5, 6, 7))
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=(0, 1, 5, 6, 7))
     rev_arr = result[::-1]
     print(result)
@@ -44,10 +42,11 @@ def main(args):
     #
     # Figure
     #
-    fig = plt.figure(figsize=(6,8))
-    plt.subplots_adjust(left=-0.05, right=1.05, top=0.90, bottom=0.30)
+    fig = plt.figure(figsize=(6,9))
+    plt.subplots_adjust(left=-0.05, right=1.05, top=0.90, bottom=0.35)
     ax = fig.add_subplot(111, projection='polar')
-    ax.set_ylim(0,0.2)
+    ymax=0.1
+    ax.set_ylim(0,ymax)
     ax.set_yticks([])
     ax.set_title(titles[args.ordering], pad=15)
 
@@ -60,12 +59,17 @@ def main(args):
     text_itself = []
     text_color = []
     text_offset = []
+    text_roffset = []
 
     #
     # Some stuff
     #
-    offsets = [0.1, 0.0, -0.2]
-    step = 0.2
+    offsets = [0.0, 0.0, -0.06, -0.05, -0.05]
+    roffsets = [0.0, 0.0, 0.0, 0.0, 0.0]
+    if args.ordering=='IO':
+        offsets = [-0.05, -0.05, 0.05, 0.05, 0.05]
+        roffsets = [0.0, 0.008, 0.0, 0.01, 0.005]
+    step = 0.12
     center = (0.5, 0.5)
     arcopts = dict(alpha=0.9, transform=ax.transAxes, lw=10)
     markeropts = dict(markersize=8, markerfacecolor='white')
@@ -106,7 +110,7 @@ def main(args):
         labels.append(label)
 
         # Marker
-        ax.plot(cv_rad, step*r, 'o', markeredgecolor=color, **markeropts)
+        ax.plot(cv_rad, r*ymax, 'o', markeredgecolor=color, **markeropts)
         # Line
         ax.plot((0, cv_rad), (0, step), color=color, **lineopts)
 
@@ -116,6 +120,7 @@ def main(args):
             text_itself.append(f'{cv:.2f}$\pi$')
             text_color.append(color)
             text_offset.append(offsets[count])
+            text_roffset.append(roffsets[count])
 
     #
     # Finalize the plot
@@ -123,8 +128,8 @@ def main(args):
     legend_title = f'\\parbox{{{legtitle_width}}}{{Experiment\hfill{{}}${deltacp}, \\pi$}}'
     fig.legend(reversed(styles), reversed(labels), loc='lower center', title=legend_title)
 
-    for tick, label, color, offset in zip(text_place, text_itself, text_color, text_offset):
-        ax.text(tick+offset, 0.220, label, color=color, ha='center', va='center')
+    for tick, label, color, offset, roffset in zip(text_place, text_itself, text_color, text_offset, text_roffset):
+        ax.text(tick+offset, ymax*1.1+roffset, label, color=color, ha='center', va='center')
 
     tick = [ax.get_rmax(), ax.get_rmax()*0.98]
     for t in np.arange(0, np.pi*2, np.pi/12.0):
@@ -144,7 +149,7 @@ def main(args):
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
-    parser.add_argument('input', help='file to load')
+    parser.add_argument('--input', help='file to load')
     parser.add_argument('--ordering',  choices=('NO', 'IO'), help='ordering')
     parser.add_argument('-o', '--output', nargs='+', default=(), help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='file to write')
