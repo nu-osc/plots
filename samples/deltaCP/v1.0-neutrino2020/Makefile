@@ -1,29 +1,27 @@
-.PHONY: all table debug clean clean-all
-.SUFFIXES: .tex .dat .pdf .png .yaml
-.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v1-0.pdf
-
-scripts  = maketable.py pylib/*.py
 variable = deltaCP
 version  = v1-0
+
+.PHONY: all table debug clean clean-all
+.SUFFIXES: .tex .dat .pdf .png .yaml
+.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_$(version).pdf
+
+scripts  = maketable.py pylib/*.py
 data     = $(shell realpath --relative-to . $(wildcard data/*.yaml))
-table    = $(variable)_NO.dat $(variable)_IO.dat
-targets  = $(table:%.dat=plots/%_$(version).png)
+table_NO   = $(variable)_NO.dat
+table_IO   = $(variable)_IO.dat
+targets_NO = $(table_NO:%.dat=plots/%_$(version).png) $(table_NO:%.dat=plots/%_$(version).pdf)
+targets_IO = $(table_IO:%.dat=plots/%_$(version).png) $(table_IO:%.dat=plots/%_$(version).pdf)
+targets    = $(targets_NO) $(targets_IO)
 
 all: $(targets) | plots
 
 plots:
 	test -d plots || mkdir plots
 
-plots/%.png: plots/%.pdf | plots
-	convert -density 300 $< $@
-
-plots/%_$(version).pdf: %.pdf | plots
-	cp -v $< $@
-
-$(variable)_NO.pdf: $(variable)_NO.dat
+$(targets_NO): $(table_NO) plot_deltacp.py
 	./plot_deltacp.py $< --ordering NO -o $@
 
-$(variable)_IO.pdf: $(variable)_IO.dat
+$(targets_IO): $(table_IO) plot_deltacp.py
 	./plot_deltacp.py $< --ordering IO -o $@
 
 table: $(table)
@@ -50,8 +48,5 @@ debug:
 print-%:
 	@echo '$*=$($*)'
 
-clean:
-	#latexmk -C $(sources)
-
-clean-all: clean
+clean-all:
 	rm plots/*.pdf plots/*.png

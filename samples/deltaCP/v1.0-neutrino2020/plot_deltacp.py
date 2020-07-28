@@ -41,8 +41,8 @@ def main(args):
     #
     # Figure
     #
-    fig = plt.figure()
-    plt.subplots_adjust(left=0.1, right=0.9, top=0.92, bottom=0.3)
+    fig = plt.figure(figsize=(6,8))
+    plt.subplots_adjust(left=-0.05, right=1.05, top=0.90, bottom=0.30)
     ax = fig.add_subplot(111, projection='polar')
     ax.set_ylim(0,0.2)
     ax.set_yticks([])
@@ -51,6 +51,7 @@ def main(args):
     angle_ticks        = list(np.arange(0.0, 2*np.pi, 0.25*np.pi))
     angle_tick_labels  = [0, '$\pi/4$', '$\pi/2$', '3$\pi/4$', '$\pi$', '$5\pi/4$', '$3\pi/2$', '$7\pi/4$']
     ax.set_xticklabels(angle_tick_labels)
+    ax.tick_params(axis='x', pad=7)
 
     text_place = []
     text_itself = []
@@ -66,6 +67,8 @@ def main(args):
     arcopts = dict(alpha=0.9, transform=ax.transAxes, lw=10)
     markeropts = dict(markersize=8, markerfacecolor='white')
     lineopts = dict(alpha=0.5, lw=1)
+    legwidth = '9cm'
+    legtitle_width = '10.7cm'
 
     #
     # Iterate data
@@ -74,8 +77,9 @@ def main(args):
     for count, exp in enumerate(rev_arr):
         # Numbers
         id, name, cv, left, right = exp
-        theta1=np.degrees(cv-left)
-        theta2=np.degrees(cv+right)
+        theta1=np.degrees((cv-left)*np.pi)
+        theta2=np.degrees((cv+right)*np.pi)
+        cv_rad=cv*np.pi
         r = 0.4+step*count
 
         # Arc
@@ -90,33 +94,29 @@ def main(args):
         ax.add_patch(arc)
         styles.append(ang_dummy)
 
-        cv_label = str(round(cv/np.pi, 2))
-        left_label = str(round((left)/np.pi, 2))
-        right_label = str(round((right)/np.pi, 2))
-
         deltacp = '\delta_{\scriptscriptstyle\mathrm{CP}}'
-        label = f'\\parbox{{9cm}}{{{name}\hfill{{}}${deltacp}={cv_label}^{{+{right_label}}}_{{-{left_label}}}\\pi$}}'
+        label = f'\\parbox{{{legwidth}}}{{{name}\hfill{{}}${cv:.2f}^{{+{right:.2f}}}_{{-{left:.2f}}}$}}'
         labels.append(label)
 
         # Marker
-        ax.plot(cv, step*r, 'o', markeredgecolor=colors[id], **markeropts)
+        ax.plot(cv_rad, step*r, 'o', markeredgecolor=colors[id], **markeropts)
         # Line
-        ax.plot((0, cv), (0, step), color=colors[id], **lineopts)
+        ax.plot((0, cv_rad), (0, step), color=colors[id], **lineopts)
 
         # Text via extra ticks
-        textvalue = cv/np.pi
-        text_place.append(cv)
-        text_itself.append(str(round(cv/np.pi, 2))+"$\pi$")
+        text_place.append(cv_rad)
+        text_itself.append(f'{cv:.2f}$\pi$')
         text_color.append(colors[id])
         text_offset.append(offsets[count])
 
     #
     # Finalize the plot
     #
-    fig.legend(styles, labels, loc='lower center')
+    legend_title = f'\\parbox{{{legtitle_width}}}{{Experiment\hfill{{}}${deltacp}, \\pi$}}'
+    fig.legend(styles, labels, loc='lower center', title=legend_title)
 
     for tick, label, color, offset in zip(text_place, text_itself, text_color, text_offset):
-        ax.text(tick+offset, 0.25, label, color=color)
+        ax.text(tick+offset, 0.220, label, color=color, ha='center', va='center')
 
     tick = [ax.get_rmax(), ax.get_rmax()*0.98]
     for t in np.arange(0, np.pi*2, np.pi/12.0):
@@ -125,8 +125,9 @@ def main(args):
     #
     # Save
     #
-    if args.output:
-        plt.savefig(args.output, dpi=300)
+    for out in  args.output:
+        plt.savefig(out, dpi=300)
+        print('Save output file:', out)
 
     if args.show:
         plt.show()
@@ -137,7 +138,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('input', help='file to load')
     parser.add_argument('--ordering',  choices=('NO', 'IO'), help='ordering')
-    parser.add_argument('-o', '--output', help='file to write')
+    parser.add_argument('-o', '--output', nargs='+', default=(), help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='file to write')
 
     main(parser.parse_args())
