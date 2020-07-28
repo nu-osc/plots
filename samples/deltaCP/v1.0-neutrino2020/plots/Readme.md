@@ -1,4 +1,4 @@
-# $`\delta_\matrhm{\sciptscriptsize CP}`$ measurements comparison, updated after Neutrino 2020
+# $`\delta_{\scriptscriptstyle\mathrm{CP}}`$ measurements comparison, updated after Neutrino 2020
 
 - Version: 1.0 beta
 - [Plotting scripts](samples/deltaCP/v1.0-neutrino2020)
