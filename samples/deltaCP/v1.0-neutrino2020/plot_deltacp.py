@@ -74,8 +74,8 @@ def main(args):
     arcopts = dict(alpha=0.9, transform=ax.transAxes, lw=10)
     markeropts = dict(markersize=8, markerfacecolor='white')
     lineopts = dict(alpha=0.5, lw=1)
-    legwidth = '9cm'
-    legtitle_width = '10.7cm'
+    legwidth = '12cm'
+    legtitle_width = '13.7cm'
 
     #
     # Iterate data
@@ -149,7 +149,7 @@ def main(args):
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
-    parser.add_argument('--input', help='file to load')
+    parser.add_argument('input', help='file to load')
     parser.add_argument('--ordering',  choices=('NO', 'IO'), help='ordering')
     parser.add_argument('-o', '--output', nargs='+', default=(), help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='file to write')
