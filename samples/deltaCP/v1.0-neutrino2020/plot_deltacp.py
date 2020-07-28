@@ -115,12 +115,13 @@ def main(args):
         ax.plot((0, cv_rad), (0, step), color=color, **lineopts)
 
         if count<len(offsets):
-            # Text via extra ticks
-            text_place.append(cv_rad)
-            text_itself.append(f'{cv:.2f}$\pi$')
-            text_color.append(color)
-            text_offset.append(offsets[count])
-            text_roffset.append(roffsets[count])
+            if args.ordering=='NO' or (id!='foreroetal20' and id!='nufit19'):
+                # Text via extra ticks
+                text_place.append(cv_rad)
+                text_itself.append(f'{cv:.2f}$\pi$')
+                text_color.append(color)
+                text_offset.append(offsets[count])
+                text_roffset.append(roffsets[count])
 
     #
     # Finalize the plot
