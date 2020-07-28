@@ -1,10 +1,12 @@
 variable = deltaCP
 version  = v1-0
+suffix   = neutrino2020
 
-.PHONY: all table debug clean clean-all
+.PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 .PRECIOUS: %.tex %.dat %.pdf %.png plots/%_$(version).pdf
 
+publishdir = ../../../plots/$(variable)/$(version)-$(suffix)
 scripts  = maketable.py pylib/*.py
 data     = $(shell realpath --relative-to . $(wildcard data/*.yaml))
 table_NO   = $(variable)_NO.dat
@@ -18,10 +20,10 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
-$(targets_NO): $(table_NO) plot_deltacp.py
+$(targets_NO): $(table_NO) plot_deltacp.py | plots
 	./plot_deltacp.py $< --ordering NO -o $@
 
-$(targets_IO): $(table_IO) plot_deltacp.py
+$(targets_IO): $(table_IO) plot_deltacp.py | plots
 	./plot_deltacp.py $< --ordering IO -o $@
 
 table: $(table)
@@ -55,3 +57,8 @@ print-%:
 
 clean-all:
 	rm plots/*.pdf plots/*.png
+
+publish: all
+	test -d $(publishdir) || mkdir -p $(publishdir)
+	cp plots/* $(publishdir)/
+	cp $(table_IO) $(table_NO) $(publishdir)/
