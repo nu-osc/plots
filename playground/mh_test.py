@@ -32,7 +32,7 @@ def main(args):
     filename = ''
     if args.input:
         filename = args.input
-    dtype1 = np.dtype([('id', '|U20'), ('exp', '|U20'), ('hie', 'f8'), ('prog', 'f8')])
+    dtype1 = np.dtype([('id', '|U20'), ('exp', '|U20'), ('hie', 'f8'), ('proj', 'f8')])
     result = np.loadtxt(filename, dtype=dtype1, usecols=(0, 1, 2, 3))
     print(result)
 
@@ -48,23 +48,38 @@ def main(args):
     text_itself = []
     text_color = []
     hie_values = []
-    hie_prog = []
+    hie_proj = []
+    order_id = []
         
     #
     # Iterate data
     #
     styles, labels = [], []
     for count, exp in enumerate(result):
-        id, name, hie, prog = exp
+        id, name, hie, proj = exp
         text_itself.append(name)
         text_color.append(colors[id])
         hie_values.append(hie)
-        plt.plot(hie, count+1, 'o', markeredgecolor=colors[id], markersize=8, markerfacecolor=colors[id])
-        plt.plot(prog, count+1, 'o', markeredgecolor=colors[id], markersize=8, markerfacecolor='white')
+        hie_proj.append(proj)
+        order_id.append(id)
+        #plt.plot(hie, count+1, 'o', markeredgecolor=colors[id], markersize=8, markerfacecolor=colors[id])
+        #plt.plot(prog, count+1, 'o', markeredgecolor=colors[id], markersize=8, markerfacecolor='white')
+        eb=plt.errorbar(proj, count+1, yerr=0.4, ls='--', color=colors[id])
+        eb[-1][0].set_linestyle('--')
         
     print(hie_values)
     y_axis = np.arange(1, 4, 1)
+    plt.barh(y_axis, hie_values)
+    barlist=plt.barh(y_axis, hie_values)
+    barlist[0].set_color(colors[order_id[0]])
+    barlist[1].set_color(colors[order_id[1]])
+    barlist[2].set_color(colors[order_id[2]])
+    
+    
     plt.yticks(y_axis, text_itself)
+    ax.set_xticklabels(['zero','two','four','six'])
+    plt.minorticks_on()
+    plt.grid()
     
     outfilename='plot.png'
     if args.output:
