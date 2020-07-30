@@ -24,8 +24,11 @@ def main(args):
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
-    colors = {'nova' : 'xkcd:warm purple', 't2ksk' : 'xkcd:azure', 't2k' : 'xkcd:green', 'icupgr' : 'grey', 'juno':'red', 'pingu' : 'blue', 'orca' : 'violet', 't2hk' : 'green', 'dune':'gold'}
+    colors = {'nova' : 'xkcd:hot magenta', 't2ksk' : 'xkcd:dark sky blue', 'icupgr' : 'xkcd:slate grey', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:dark grey blue', 'orca' : 'xkcd:teal', 't2hk' : 'xkcd:dark sky blue', 'dune':'xkcd:violet'}
+    
     fullnames = {'nova' : 'NOvA', 't2ksk' : 'T2K+SuperK', 'icupgr' : 'IceCube Upgrade', 'juno' : 'JUNO', 'pingu' : 'PINGU', 'orca': 'KM3NeT/ORCA', 't2hk' : 'T2HK', 'dune' : 'DUNE'}
+    
+    position = {'nova' : (2022, 3.25), 't2ksk' : (2020.25, 1.5), 'icupgr' : (2025, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.5), 'orca': (2027, 4), 't2hk' : (2034.5, 4), 'dune' : (2029, 8)}
 
 #
 # Load
@@ -35,7 +38,7 @@ def main(args):
     exps = []
     for exp in filenames:
         result = np.loadtxt('sens_data/'+exp+'.txt', dtype=dtype1, usecols=(0, 1, 2))
-        print(result)
+        #print(result)
         low = []
         high = []
         for line in result:
@@ -45,7 +48,7 @@ def main(args):
         this_exp = {'id': exp, 'low_values' : low, 'high_values' : high}
         exps.append(this_exp)
     
-    print(exps)
+    #print(exps)
 
 #
 # Figure
@@ -61,31 +64,18 @@ def main(args):
         size = len(revert_max) - 1
         color=colors[exp['id']]
         name=fullnames[exp['id']]
-        text_place_x=exp['low_values'][0][0]+(revert_max[0][0]-exp['low_values'][0][0])/4
-        text_place_y=revert_max[0][1] - 0.2
+        text_place_x=position[exp['id']][0]
+        text_place_y=position[exp['id']][1]
         poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=0.3)
         ax.add_patch(poly)
         ax.text(text_place_x, text_place_y, name, color=color)
         
-
-        
-    #print(hie_values)
-    #y_axis = np.arange(1, 4, 1)
-    #plt.barh(y_axis, hie_values)
-    #barlist=plt.barh(y_axis, hie_values)
-    #barlist[0].set_color(colors[order_id[0]])
-    #barlist[1].set_color(colors[order_id[1]])
-    #barlist[2].set_color(colors[order_id[2]])
-    #plt.yticks(y_axis, text_itself)
-    
-    #double_y = plt.twinx()
-    #double_y.set_ylim(0.5,3.5)
-    #double_y.tick_params(axis='y', direction='in', labelleft=True, labelright=False, pad= -25)
-    #double_y.set_yticks(y_axis)
-    #double_y.set_yticklabels(hie_values)
-    
-    #plt.minorticks_on()
+    plt.minorticks_on()
     plt.grid()
+    x_axis = np.arange(2020, 2042, 2)
+    #print(x_axis)
+    ax.set_xticks(x_axis)
+    ax.set_xticklabels(['2020', '2022', '2024', '2026', '2028', '2030', '2032', '2034', '2036', '2038', '2040'])
     
     outfilename='plot.png'
     if args.output:
