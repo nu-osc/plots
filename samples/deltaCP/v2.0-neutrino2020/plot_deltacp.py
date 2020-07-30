@@ -139,7 +139,7 @@ def main(args):
     #
     # Draw tag
     #
-    ax.text(0.97, 0.77, 'v1.0 2020.07: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
+    ax.text(0.97, 0.77, 'v2.0 2020.07: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
 
 
     #
