@@ -55,4 +55,5 @@ result:
     hier:
         precision: 2
         value: 1.0
+        proj: 5.0
 

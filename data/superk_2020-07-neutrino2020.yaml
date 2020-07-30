@@ -70,4 +70,5 @@ result:
     hier:
         precision: 2
         value: 1.79
+        proj: 2.0
         notes: from the table as delta chi2
