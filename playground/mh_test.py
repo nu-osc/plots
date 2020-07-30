@@ -74,10 +74,15 @@ def main(args):
     barlist[0].set_color(colors[order_id[0]])
     barlist[1].set_color(colors[order_id[1]])
     barlist[2].set_color(colors[order_id[2]])
-    
-    
     plt.yticks(y_axis, text_itself)
-    ax.set_xticklabels(['zero','two','four','six'])
+    
+    double_y = plt.twinx()
+    double_y.set_ylim(0.5,3.5)
+    double_y.tick_params(axis='y', direction='in', labelleft=True, labelright=False, pad= -25)
+    double_y.set_yticks(y_axis)
+    double_y.set_yticklabels(hie_values)
+    
+    
     plt.minorticks_on()
     plt.grid()
     
