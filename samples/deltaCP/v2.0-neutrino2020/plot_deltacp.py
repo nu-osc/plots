@@ -21,6 +21,17 @@ colors = dict(
 
 def main(args):
     #
+    # Arguments
+    #
+    if args.ordering=='auto':
+        if 'NO' in args.output[0]:
+            assert not 'IO' in args.output[0]
+            args.ordering='NO'
+        elif 'IO' in args.output[0]:
+            args.ordering='IO'
+        else:
+            raise Exception('Unable to determine ordering for: '+args.output[0])
+    #
     # RC params
     #
     plt.rc('text', usetex=True)
@@ -157,7 +168,7 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
     parser.add_argument('input', help='file to load')
-    parser.add_argument('--ordering',  choices=('NO', 'IO'), help='ordering')
+    parser.add_argument('--ordering', default='auto', choices=('auto', 'NO', 'IO'), help='ordering')
     parser.add_argument('-o', '--output', nargs='+', default=(), help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='file to write')
 
