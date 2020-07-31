@@ -1,6 +1,6 @@
 # $`\delta_{\scriptscriptstyle\mathrm{CP}}`$ measurements comparison, updated after Neutrino 2020
 
-- Version: 2.0 **beta**
+- Version: 2.0 ***beta***
 - [Plotting scripts](samples/deltaCP/v2.0-neutrino2020)
 - Data tables:
     * [NO table](deltaCP_NO_v2-0.dat)
