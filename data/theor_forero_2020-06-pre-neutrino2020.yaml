@@ -77,3 +77,4 @@ result:
     hier:
         precision: 2
         value: 3.0
+        proj: 0

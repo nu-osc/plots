@@ -86,4 +86,5 @@ result:
     hier:
         precision: 2
         value: 2.7
+        proj: 0
         note: SK is included
