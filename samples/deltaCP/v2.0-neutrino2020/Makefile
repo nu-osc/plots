@@ -9,10 +9,11 @@ suffix   = neutrino2020
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts  = maketable.py pylib/*.py
 data     = $(shell realpath $(wildcard data/*.yaml))
-table_NO   = $(variable)_NO.dat
-table_IO   = $(variable)_IO.dat
-targets_NO = $(table_NO:%.dat=plots/%_$(version).png) $(table_NO:%.dat=plots/%_$(version).pdf)
-targets_IO = $(table_IO:%.dat=plots/%_$(version).png) $(table_IO:%.dat=plots/%_$(version).pdf)
+table_NO   = $(variable)_NO_$(version).dat
+table_IO   = $(variable)_IO_$(version).dat
+tables     = $(table_NO) $(table_IO)
+targets_NO = $(table_NO:%.dat=plots/%.png) $(table_NO:%.dat=plots/%.pdf)
+targets_IO = $(table_IO:%.dat=plots/%.png) $(table_IO:%.dat=plots/%.pdf)
 targets    = $(targets_NO) $(targets_IO)
 
 all: $(targets) | plots
@@ -20,24 +21,16 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
-$(targets_NO): $(table_NO) plot_deltacp.py | plots
+$(targets): $(tables) plot_deltacp.py | plots
 	./plot_deltacp.py $< --ordering NO -o $@
+	cp $< plots/
 
-$(targets_IO): $(table_IO) plot_deltacp.py | plots
-	./plot_deltacp.py $< --ordering IO -o $@
+table: $(tables)
 
-table: $(table)
-
-%_NO.dat: $(scripts) $(data)
+$(tables): $(scripts) $(data)
 	./maketable.py -v $(variable) \
 	               -o $@ \
-		           --nmo NO \
-				   $(filter %.yaml,$^)
-
-%_IO.dat: $(scripts) $(data)
-	./maketable.py -v $(variable) \
-		           -o $@ \
-		           --nmo IO \
+		           --nmo $(findstring NO,$@)$(findstring IO,$@) \
 				   $(filter %.yaml,$^)
 
 debug:
