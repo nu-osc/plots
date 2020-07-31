@@ -3,29 +3,31 @@ type: theory
 reference:
     date: '2020.07'
     latest: True
-    arxiv: arXiv:2007.14792
+    arxiv: hep-ph/2007.14792
     inspire: https://inspirehep.net/literature/1809173
     doi:
-    citation: http://www.nu-fit.org/?q=node/228
+    citation: 1809173
+    url: http://www.nu-fit.org/?q=node/228
     conf:
     talk:
     slides:
 result:
     splitting_large: 
         precision: 2
-        mode: '32'
         results:
             - ordering: 'NO'
+              mode: '31'
               value: 2.517
               uncertainty:
                   left: 0.028
                   right: 0.026
             - ordering: IO
+              mode: '32'
               value: 2.498
               uncertainty:
                   left: 0.028
                   right: 0.028
-        notes: This is mix of dmsq32 and dmsq31 values!
+        notes: With SuperK data included
     deltaCP: 
         precision: 2
         mode: degrees

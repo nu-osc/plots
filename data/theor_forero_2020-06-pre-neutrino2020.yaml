@@ -6,24 +6,23 @@ reference:
     arxiv: hep-ex/2006.11237
     inspire:
     doi:
-    citation:
+    citation:deSalas:2020pgw
     conf:
     talk:
     slides:
 result:
     splitting_large: 
         precision: 2
-        mode: '32'
+        mode: '31'
         results:
             - ordering: 'NO'
               value: 2.56
               uncertainty:
-                  left: 0.2
-                  right: 0.22
+                  left: 0.4
+                  right: 0.03
             - ordering: IO
               value: 2.46
               uncertainty: 0.03
-        notes: This is dmsq31 values!
     deltaCP: 
         precision: 2
         mode: pi
