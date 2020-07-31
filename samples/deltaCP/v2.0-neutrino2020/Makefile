@@ -6,7 +6,7 @@ suffix   = neutrino2020
 .SUFFIXES: .tex .dat .pdf .png .yaml
 .PRECIOUS: %.tex %.dat %.pdf %.png plots/%_$(version).pdf
 
-publishdir = ../../../plots/$(variable)/$(version)-$(suffix)
+publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts  = maketable.py pylib/*.py
 data     = $(shell realpath $(wildcard data/*.yaml))
 table_NO   = $(variable)_NO.dat
