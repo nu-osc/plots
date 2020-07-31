@@ -2,6 +2,8 @@ variable = deltaCP
 version  = v2-0
 suffix   = neutrino2020
 
+SHELL=fish
+.ONESHELL:
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 .PRECIOUS: %.tex %.dat %.pdf %.png plots/$(variable)_%_$(version).pdf plots/$(variable)_%_$(version).png
@@ -19,18 +21,20 @@ targets    = $(targets_NO) $(targets_IO)
 all: $(targets) | plots
 
 plots:
-	test -d plots || mkdir plots
+	test -d plots; or mkdir plots
 
 plots/$(variable)_%_$(version).png plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat plot_deltacp.py | plots
-	./plot_deltacp.py $< --ordering $(findstring NO,$@)$(findstring IO,$@) -o $@
+	@set NMO (string split _ $@)[2]
+	./plot_deltacp.py $< --ordering $$NMO -o $@
 	cp $< plots/
 
 table: $(tables)
 
 $(tables): $(scripts) $(data)
+	@set NMO (string split _ $@)[2]
 	./maketable.py -v $(variable) \
 	               -o $@ \
-		           --nmo $(findstring NO,$@)$(findstring IO,$@) \
+		           --nmo $$NMO \
 				   $(filter %.yaml,$^)
 
 debug:
@@ -52,6 +56,6 @@ clean-all:
 	rm plots/*.pdf plots/*.png
 
 publish: all
-	test -d $(publishdir) || mkdir -p $(publishdir)
+	test -d $(publishdir); or mkdir -p $(publishdir)
 	cp plots/* $(publishdir)/
 	cp $(table_IO) $(table_NO) $(publishdir)/
