@@ -48,7 +48,7 @@ def main(args):
     dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'),])
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=(0, 1, 5, 6, 7))
     rev_arr = result[::-1]
-    print(result)
+    # print(result)
 
     #
     # Figure
