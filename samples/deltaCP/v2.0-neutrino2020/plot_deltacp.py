@@ -15,8 +15,8 @@ colors = dict(
         nova='xkcd:warm purple',
         superkamiokande='xkcd:azure',
         t2k='xkcd:green',
-        foreroetal20='xkcd:steel grey',
-        nufit19='xkcd:midnight'
+        foreroetal='xkcd:steel grey',
+        nufit50='xkcd:midnight'
         )
 
 def main(args):
@@ -115,7 +115,7 @@ def main(args):
         ax.plot((0, cv_rad), (0, step), color=color, **lineopts)
 
         if count<len(offsets):
-            if args.ordering=='NO' or (id!='foreroetal20' and id!='nufit19'):
+            if args.ordering=='NO' or (id!='foreroetal' and id!='nufit50'):
                 # Text via extra ticks
                 text_place.append(cv_rad)
                 text_itself.append(f'{cv:.2f}$\pi$')
