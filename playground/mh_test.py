@@ -42,7 +42,7 @@ def main(args):
     plt.title('Another hierarchy rejection', pad=15)
     plt.xlabel('Sigma')
     plt.subplots_adjust(left=0.25, right=0.9, top=0.9, bottom=0.15)
-    plt.xlim(0,6.0)
+    plt.xlim(0,7.0)
     plt.ylim(0.5,3.5)
     
     text_itself = []
@@ -50,7 +50,7 @@ def main(args):
     hie_values = []
     hie_proj = []
     order_id = []
-        
+    axis_text = []
     #
     # Iterate data
     #
@@ -62,6 +62,7 @@ def main(args):
         hie_values.append(hie)
         hie_proj.append(proj)
         order_id.append(id)
+        axis_text.append(str(hie) + ' of ' + str(proj))
         #plt.plot(hie, count+1, 'o', markeredgecolor=colors[id], markersize=8, markerfacecolor=colors[id])
         #plt.plot(prog, count+1, 'o', markeredgecolor=colors[id], markersize=8, markerfacecolor='white')
         eb=plt.errorbar(proj, count+1, yerr=0.4, ls='--', color=colors[id])
@@ -78,9 +79,9 @@ def main(args):
     
     double_y = plt.twinx()
     double_y.set_ylim(0.5,3.5)
-    double_y.tick_params(axis='y', direction='in', labelleft=True, labelright=False, pad= -25)
+    double_y.tick_params(axis='y', direction='out', labelleft=False, labelright=True, pad= -70)
     double_y.set_yticks(y_axis)
-    double_y.set_yticklabels(hie_values)
+    double_y.set_yticklabels(axis_text)
     
     
     plt.minorticks_on()
