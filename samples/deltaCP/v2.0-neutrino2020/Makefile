@@ -4,7 +4,7 @@ suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
-.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_$(version).pdf
+.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_$(version).pdf plots/%_$(version).png
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts  = maketable.py pylib/*.py

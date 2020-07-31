@@ -12,8 +12,8 @@
     * [NuFIT](data/theor_nufit_2020-07-post-neutrino2020.yaml)
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Previous version: [v1.0](plots/deltaCP/v1.0-neutrino2020). Updates:
-    * Global measurements based on Neutrino 2020 data 
-- Cross checks bu:
+    * NuFIT on Neutrino 2020 data 
+- Cross checks by:
     * @maxfl
 
 ![δ(CP) NO](deltaCP_NO_v2-0.png)
