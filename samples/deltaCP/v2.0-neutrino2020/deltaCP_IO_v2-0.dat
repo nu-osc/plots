@@ -1,6 +1,6 @@
 style            name              notes    ordering    octant      value    left    right      span  result                        arxiv              conf
 t2k              T2K               {}       IO          {}          -0.46    0.11     0.11  0.222817  $-0.46\pm0.11$                {}                 Neutrino2020
 foreroetal       Forero_et_al.     {}       IO          {}           1.54    0.13     0.13  0.26      $1.54\pm0.13$                 hep-ex/2006.11237  {}
-nufit50          NuFIT_5.0         {}       IO          {}           1.57    0.17     0.14  0.311111  $1.57^{+0.14}_{-0.17}$        arXiv:2007.14792   {}
+nufit50          NuFIT_5.0         {}       IO          {}           1.57    0.17     0.14  0.311111  $1.57^{+0.14}_{-0.17}$        hep-ph/2007.14792  {}
 nova             NOvA              {}       IO          {}           1.52    0.26     0.21  0.47      $1.5200^{+0.2100}_{-0.2600}$  {}                 Neutrino2020
 superkamiokande  Super-Kamiokande  {}       IO          {}           1.45    0.42     0.28  0.700282  $1.45^{+0.28}_{-0.42}$        {}                 Neutrino2020
