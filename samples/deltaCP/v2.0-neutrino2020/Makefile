@@ -32,7 +32,7 @@ table: $(tables)
 
 $(tables): $(scripts) $(data)
 	set NMO (string split _ $@)[2]
-	echo $$NMO
+	echo NMO for $@: $$NMO
 	./maketable.py -v $(variable) \
 	               -o $@ \
 		           --nmo $$NMO \
