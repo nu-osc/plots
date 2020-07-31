@@ -12,6 +12,7 @@
     * [NuFIT](data/theor_nufit_2019-07-pre-neutrino2020.yaml)
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 
-![δ(CP) NO](deltaCP_NO_v1-0.png)
-![δ(CP) IO](deltaCP_IO_v1-0.png)
+| Normal ordering                  | Inverted Ordering                |
+| ---                              | ---                              |
+| ![δ(CP) NO](deltaCP_NO_v1-0.png) | ![δ(CP) IO](deltaCP_IO_v1-0.png) |
 

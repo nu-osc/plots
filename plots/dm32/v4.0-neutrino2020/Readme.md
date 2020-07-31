@@ -23,6 +23,7 @@
     * @ldkolupaeva
     * Beda
 
-![Δm²₃₂ NO](plots/dm32/v4.0-neutrino2020/dm32_NO_v4-0.png)
-![Δm²₃₂ IO](plots/dm32/v4.0-neutrino2020/dm32_IO_v4-0.png)
+| Normal ordering                                            | Inverted Ordering                                          |
+| ---                                                        | ---                                                        |
+| ![Δm²₃₂ NO](plots/dm32/v4.0-neutrino2020/dm32_NO_v4-0.png) | ![Δm²₃₂ IO](plots/dm32/v4.0-neutrino2020/dm32_IO_v4-0.png) |
 
