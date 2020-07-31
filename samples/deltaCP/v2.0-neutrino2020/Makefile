@@ -27,10 +27,12 @@ define plot =
 endef
 
 plots/$(variable)_%_$(version).png: $(variable)_%_$(version).dat plot_deltacp.py | plots
-	$(plot)
+	./plot_deltacp.py $< -o $@
+	cp -v $< plots/
 
 plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat plot_deltacp.py | plots
-	$(plot)
+	./plot_deltacp.py $< -o $@
+	cp -v $< plots/
 
 table: $(tables)
 
