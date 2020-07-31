@@ -35,12 +35,12 @@ result:
             - ordering: 'NO'
               value: -1.967
               uncertainty:
-                  interval: [-2.545, -1.037]
+                  interval: [-2.66, -0.97]
             - ordering: IO
-              value: -1.45
+              value: -1.43
               uncertainty: 
-                  interval: [-1.8, -1.1]
-              notes: IH is approximate
+                  interval: [-2.0, -0.89]
+              notes: IH is Bayesian result, not official
     amplitude23:
         precision: 2
         mode: single
