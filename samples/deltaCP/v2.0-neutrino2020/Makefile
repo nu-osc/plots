@@ -21,8 +21,8 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
-$(targets): $(tables) plot_deltacp.py | plots
-	./plot_deltacp.py $< --ordering NO -o $@
+plots/$(variable)_%_$(version).png plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat plot_deltacp.py | plots
+	./plot_deltacp.py $< --ordering $(findstring NO,$@)$(findstring IO,$@) -o $@
 	cp $< plots/
 
 table: $(tables)
