@@ -43,7 +43,7 @@ def main(args):
     # Figure
     #
     fig = plt.figure(figsize=(6,9))
-    plt.subplots_adjust(left=-0.05, right=1.05, top=0.90, bottom=0.35)
+    plt.subplots_adjust(left=-0.05, right=1.05, top=0.90, bottom=0.37)
     ax = fig.add_subplot(111, projection='polar')
     ymax=0.1
     ax.set_ylim(0,ymax)
@@ -68,7 +68,7 @@ def main(args):
     roffsets = [0.0, 0.0, 0.0, 0.0, 0.0]
     if args.ordering=='IO':
         offsets = [-0.05, -0.05, 0.05, 0.05, 0.05]
-        roffsets = [0.0, 0.008, 0.0, 0.01, 0.005]
+        roffsets = [0.0, 0.01, 0.0, 0.012, 0.007]
     step = 0.12
     center = (0.5, 0.5)
     arcopts = dict(alpha=0.9, transform=ax.transAxes, lw=10)
@@ -130,7 +130,7 @@ def main(args):
     fig.legend(reversed(styles), reversed(labels), loc='lower center', title=legend_title)
 
     for tick, label, color, offset, roffset in zip(text_place, text_itself, text_color, text_offset, text_roffset):
-        ax.text(tick+offset, ymax*1.1+roffset, label, color=color, ha='center', va='center')
+        ax.text(tick+offset, ymax*1.15+roffset, label, color=color, ha='center', va='center')
 
     tick = [ax.get_rmax(), ax.get_rmax()*0.98]
     for t in np.arange(0, np.pi*2, np.pi/12.0):
