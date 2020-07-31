@@ -31,7 +31,8 @@ plots/$(variable)_%_$(version).png plots/$(variable)_%_$(version).pdf: $(variabl
 table: $(tables)
 
 $(tables): $(scripts) $(data)
-	@set NMO (string split _ $@)[2]
+	set NMO (string split _ $@)[2]
+	echo $$NMO
 	./maketable.py -v $(variable) \
 	               -o $@ \
 		           --nmo $$NMO \
