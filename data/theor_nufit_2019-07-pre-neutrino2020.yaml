@@ -83,5 +83,6 @@ result:
             right: 0.013
     hier:
         precision: 2
+        mode: sigma
         value: 3.22
         proj: 0

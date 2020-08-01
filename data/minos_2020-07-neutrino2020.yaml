@@ -44,5 +44,6 @@ result:
                   right: 0.07
     hier:
         precision: 2
+        mode: sigma
         value: 0.45
         proj: 0

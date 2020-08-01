@@ -69,6 +69,7 @@ result:
         notes: joint SK+S'NO'
     hier:
         precision: 2
+        mode: sigma
         value: 1.79
         proj: 3.5
         notes: from the table as delta chi2

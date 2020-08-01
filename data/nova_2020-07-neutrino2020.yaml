@@ -54,6 +54,7 @@ result:
                   right: 0.03
     hier:
         precision: 2
+        mode: sigma
         value: 1.0
         proj: 5.0
 

@@ -76,5 +76,6 @@ result:
         uncertainty: 0.016
     hier:
         precision: 2
+        mode: sigma
         value: 3.0
         proj: 0
