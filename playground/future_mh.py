@@ -60,9 +60,9 @@ def main(args):
 # Figure
     fig, ax = plt.subplots()
     plt.subplots_adjust(left=0.06, right=0.95, top=0.9, bottom=0.2)
-    plt.title('Future Mass Hierarchy sensitivity', pad=20)
+    plt.title('Future Neutrino mass ordering sensitivity', pad=20)
     ax.set_xlabel('Year')
-    ax.set_ylabel('Sensitivity ($\sigma$)')
+    ax.set_ylabel('Median sensitivity ($\sigma$)')
     ax.set_xlim(2020, 2040)
     ax.set_ylim(0, 10.2)
     plt.yticks([1.0, 3.0, 5.0, 7.0, 9.0])
@@ -91,7 +91,7 @@ def main(args):
         width=2
         if star != '':
              lstyle = '--'
-             alpha = 0.2
+             alpha = 0.1
              width=0
         poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
         ax.add_patch(poly)
