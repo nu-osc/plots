@@ -16,7 +16,7 @@ def main(args):
     plt.rc('text', usetex=True)
     plt.rcParams['grid.alpha'] = 0.1
     plt.rcParams['grid.linewidth'] = 2
-    plt.rcParams.update({'font.size': 20})
+    plt.rcParams.update({'font.size': 24})
     plt.rcParams.update({'legend.fontsize': 18})
     fig_size = plt.rcParams["figure.figsize"]
     fig_size[0] = 14
@@ -26,9 +26,9 @@ def main(args):
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
     
-    colors = {'nova' : 'xkcd:bubblegum', 't2ksk' : 'xkcd:green teal', 'icupgr' : 'xkcd:vibrant blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:milk chocolate', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 't2hkk' : 'xkcd:emerald green'}
+    colors = {'nova' : 'xkcd:bubblegum', 't2ksk' : 'xkcd:green teal', 'icupgr' : 'xkcd:clear blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:charcoal grey', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 't2hkk' : 'xkcd:emerald green'}
     
-    position = {'nova' : (2022.5, 3.5), 't2ksk' : (2021, 2), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 4.0), 'orca': (2027.5, 4.25), 't2hk' : (2034.5, 4.5), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
+    position = {'nova' : (2022.5, 3.5), 't2ksk' : (2020.75, 2), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027.5, 4.25), 't2hk' : (2034.75, 4.25), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
     
     marker_offset = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 't2hk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
 #
@@ -65,11 +65,11 @@ def main(args):
     ax.set_ylabel('Sensitivity ($\sigma$)')
     ax.set_xlim(2020, 2040)
     ax.set_ylim(0, 10.2)
-    plt.yticks([2.0, 4.0, 5.0, 6.0, 8.0, 10.0])
-    ax.set_yticks([1.0, 3.0, 5.0, 7.0, 9.0], minor=True)
+    plt.yticks([1.0, 3.0, 5.0, 7.0, 9.0])
+    ax.set_yticks([2.0, 4.0, 6.0, 8.0, 10.0], minor=True)
     
     text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
-    plt.plot([2020.0, 2040.0], [5.0, 5.0], ls='--', color='grey', alpha=0.5)
+    plt.plot([2020.0, 2040.0], [5.0, 5.0], ls='--', color='black', lw=1,  alpha=0.5)
     
     for count, exp in enumerate(exps):
     
@@ -86,23 +86,31 @@ def main(args):
         sens_year_start = exp['high_values'][0][0]
         sens_max_1year = exp['high_values'][0][1]
         
-        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=0.35, lw=2)
+        alpha=0.4
+        lstyle = '-'
+        width=2
+        if star != '':
+             lstyle = '--'
+             alpha = 0.2
+             width=0
+        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
         ax.add_patch(poly)
         if star != '':
-            poly.set_hatch('/')
+            poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=2, ls=lstyle)
+            ax.add_patch(poly_dub)
             
-        if exp['id'] == 'nova' or exp['id'] == 't2ksk':
+        if exp['id'] != 'orca' and exp['id'] != 'icupgr' and exp['id'] != 'juno' and exp['id'] != 'pingu':
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
-        ax.annotate('', xy=(start, 0), xycoords='data', xytext=(start, -1.5), textcoords='data', arrowprops=dict(facecolor=color, ec=color, width = 2, alpha=0.4), ha='center', size = 14)
+        ax.annotate('', xy=(start, 0), xycoords='data', xytext=(start, -1.5), textcoords='data', arrowprops=dict(facecolor=color, ec=color, width = 2, alpha=0.4), ha='center', size = 14, zorder=-10)
         marker_place_x = start+marker_offset[exp['id']]
         marker_place_y = sens_max_1year
-        ax.plot(marker_place_x, marker_place_y, 'o', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=0.7)
+        ax.plot(marker_place_x, marker_place_y, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=0.8)
         plt.plot([marker_place_x, sens_year_start], [marker_place_y, marker_place_y], ls='dotted', color=color)
         plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color)
         if exp['id'] == 't2hkk':
-            plt.text(start-0.4, -2-0.35, name, size = 17, color=color, fontweight='bold')
+            plt.text(start-0.4, -2-0.37, name, size = 20, color=color, fontweight='bold')
         else:
-            plt.text(start-0.4, -2-0.75*(start % 2), name, size = 17, color=color, fontweight='bold')
+            plt.text(start-0.4, -1.95-0.8*(start % 2), name, size = 20, color=color, fontweight='bold')
 
         
     plt.grid()
@@ -112,6 +120,9 @@ def main(args):
     ax.tick_params(top=True, right=True)
     ax.yaxis.grid(True, which='minor')
     
+    labels = ax.get_xticklabels()
+    for label in labels:
+        label.set_bbox(dict(fc='white', ec='white', alpha=0.2))
     
     outfilename='plot.png'
     if args.output:
