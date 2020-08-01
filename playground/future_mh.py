@@ -26,11 +26,9 @@ def main(args):
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
     
-    colors = {'nova' : 'xkcd:fuchsia', 't2ksk' : 'xkcd:blue green', 'icupgr' : 'xkcd:peacock blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:dark sky blue', 'orca' : 'xkcd:muddy brown', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'orange', 't2hkk' : 'xkcd:green',}
+    colors = {'nova' : 'xkcd:bubblegum', 't2ksk' : 'xkcd:green teal', 'icupgr' : 'xkcd:vibrant blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:milk chocolate', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 't2hkk' : 'xkcd:emerald green'}
     
     position = {'nova' : (2022.5, 3.5), 't2ksk' : (2021, 2), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 4.0), 'orca': (2027.5, 4.25), 't2hk' : (2034.5, 4.5), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
-    
-    text_position = {'nova' : (0, 0), 't2ksk' : (0, ), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 4.0), 'orca': (2027.5, 4.25), 't2hk' : (2034.5, 4.5), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
     
     marker_offset = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 't2hk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
 #
@@ -88,7 +86,7 @@ def main(args):
         sens_year_start = exp['high_values'][0][0]
         sens_max_1year = exp['high_values'][0][1]
         
-        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=0.3, lw=2)
+        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=0.35, lw=2)
         ax.add_patch(poly)
         if star != '':
             poly.set_hatch('/')
