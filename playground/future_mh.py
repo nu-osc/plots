@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.patches import Arc, Rectangle, Polygon
 import itertools as it
+import yaml
 
 def main(args):
 
@@ -27,33 +28,36 @@ def main(args):
     
     colors = {'nova' : 'xkcd:fuchsia', 't2ksk' : 'xkcd:blue green', 'icupgr' : 'xkcd:peacock blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:dark sky blue', 'orca' : 'xkcd:muddy brown', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'orange', 't2hkk' : 'xkcd:green',}
     
-    fullnames = {'nova' : 'NOvA', 't2ksk' : 'T2K+SuperK', 'icupgr' : 'IceCube Upgrade', 'juno' : 'JUNO', 'pingu' : 'PINGU$^{\star}$', 'orca': 'KM3NeT/ORCA', 't2hk' : 'T2HK', 'dune' : 'DUNE', 'ino' : 'ICAL @ INO$^{\star}$', 't2hkk' : 'T2HKK$^{\star}$'}
+    position = {'nova' : (2022.5, 3.5), 't2ksk' : (2021, 2), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 4.0), 'orca': (2027.5, 4.25), 't2hk' : (2034.5, 4.5), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
     
-    position = {'nova' : (2022.5, 3.5), 't2ksk' : (2020.25, 1.5), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 4.0), 'orca': (2027.5, 4.25), 't2hk' : (2034.5, 4.5), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
+    text_position = {'nova' : (0, 0), 't2ksk' : (0, ), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 4.0), 'orca': (2027.5, 4.25), 't2hk' : (2034.5, 4.5), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
     
-    starting_year = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 2023, 'juno' : 2022, 'pingu' : 2028, 'orca': 2024, 't2hk' : 2027, 'dune' : 2026, 'ino' : 2025, 't2hkk' : 2027}
-
+    marker_offset = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 't2hk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
 #
 # Load
 #
-    filenames = ['nova', 't2ksk', 'icupgr', 'dune', 'pingu', 'orca', 't2hk', 'juno', 'ino', 't2hkk']
-    dtype1 = np.dtype([('year', 'f8'), ('min', 'f8'), ('max', 'f8')])
+    filenames = ['nova', 't2ksk', 'icupgr', 'dune', 'pingu', 'orca', 't2hkk', 'juno', 'ino', 't2hk']
     exps = []
     for exp in filenames:
-        result = np.loadtxt('sens_data/'+exp+'.txt', dtype=dtype1, usecols=(0, 1, 2))
-        #print(result)
+        with open('yamls/'+exp+'.yaml', 'r') as f:
+            file = yaml.load(f)
+        #print(file)
+        points = file["sensitivity"]["mh"]["year"][0]
+        name = file["experiment"]
+        status = file["status"]
+        start = file["starting_year"]
         low = []
         high = []
-        for line in result:
-            year, min, max = line
-            year_ax=year+starting_year[exp]
+        for i in range(0, len(points)):
+            min = file["sensitivity"]["mh"]["low"][0][i]
+            max = file["sensitivity"]["mh"]["high"][0][i]
+            year_v = file["sensitivity"]["mh"]["year"][0][i]
+            year_ax=year_v+start
             low.append((year_ax, min))
             high.append((year_ax, max))
-        this_exp = {'id': exp, 'low_values' : low, 'high_values' : high}
+        this_exp = {'id': exp, 'name' : name, 'start' : start, 'status' : status, 'low_values' : low, 'high_values' : high}
         exps.append(this_exp)
     
-    #print(exps)
-
 #
 # Figure
     fig, ax = plt.subplots()
@@ -62,36 +66,54 @@ def main(args):
     ax.set_xlabel('Year')
     ax.set_ylabel('Sensitivity ($\sigma$)')
     ax.set_xlim(2020, 2040)
-    ax.set_ylim(0, 10.0)
-    plt.yticks([2.0, 4.0, 6.0, 8.0, 10.0])
-    text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
+    ax.set_ylim(0, 10.2)
+    plt.yticks([2.0, 4.0, 5.0, 6.0, 8.0, 10.0])
     ax.set_yticks([1.0, 3.0, 5.0, 7.0, 9.0], minor=True)
-
+    
+    text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
     plt.plot([2020.0, 2040.0], [5.0, 5.0], ls='--', color='grey', alpha=0.5)
     
     for count, exp in enumerate(exps):
+    
+        star = ''
+        if exp['status'] == 'not clear':
+            star = '$^\star$'
         revert_max = exp['high_values'][::-1]
         size = len(revert_max) - 1
         color=colors[exp['id']]
-        name=fullnames[exp['id']]
+        name=exp['name']+star
         text_place_x=position[exp['id']][0]
         text_place_y=position[exp['id']][1]
+        start = exp['start']
+        sens_year_start = exp['high_values'][0][0]
+        sens_max_1year = exp['high_values'][0][1]
+        
         poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=0.3, lw=2)
         ax.add_patch(poly)
-        if exp['id'] == 't2hkk' or exp['id'] == 'pingu' or exp['id'] == 'ino':
+        if star != '':
             poly.set_hatch('/')
-        ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
-        ax.annotate(name, xy=(starting_year[exp['id']], 0), xycoords='data', xytext=(starting_year[exp['id']], -0.7-count*0.23), textcoords='data', arrowprops=dict(facecolor=color, alpha=0.3), ha='center', size = 14)
+            
+        if exp['id'] == 'nova' or exp['id'] == 't2ksk':
+            ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
+        ax.annotate('', xy=(start, 0), xycoords='data', xytext=(start, -1.5), textcoords='data', arrowprops=dict(facecolor=color, ec=color, width = 2, alpha=0.4), ha='center', size = 14)
+        marker_place_x = start+marker_offset[exp['id']]
+        marker_place_y = sens_max_1year
+        ax.plot(marker_place_x, marker_place_y, 'o', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=0.7)
+        plt.plot([marker_place_x, sens_year_start], [marker_place_y, marker_place_y], ls='dotted', color=color)
+        plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color)
+        if exp['id'] == 't2hkk':
+            plt.text(start-0.4, -2-0.35, name, size = 17, color=color, fontweight='bold')
+        else:
+            plt.text(start-0.4, -2-0.75*(start % 2), name, size = 17, color=color, fontweight='bold')
 
         
-    #plt.minorticks_on()
     plt.grid()
     x_axis = np.arange(2020, 2042, 2)
-    #print(x_axis)
     ax.set_xticks(x_axis)
     ax.set_xticklabels(['\\textbf{2020}', '\\textbf{2022}', '\\textbf{2024}', '\\textbf{2026}', '\\textbf{2028}', '\\textbf{2030}', '\\textbf{2032}', '\\textbf{2034}', '\\textbf{2036}', '\\textbf{2038}', '\\textbf{2040}'])
     ax.tick_params(top=True, right=True)
     ax.yaxis.grid(True, which='minor')
+    
     
     outfilename='plot.png'
     if args.output:
