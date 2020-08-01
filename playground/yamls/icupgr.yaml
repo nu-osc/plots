@@ -1,0 +1,19 @@
+experiment: IceCube
+starting_year: 2023
+status: approved
+reference:
+    arxiv: hep-ex/1911.06745
+    inspire: https://inspirehep.net/literature/1765534
+    doi: https://doi.org/10.1103/PhysRevD.101.032006
+    citation:
+    conf:
+    talk:
+    page: 13
+sensitivity:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6]
+        low:
+            - [0.7, 0.9, 1.0, 1.08, 1.1, 1.12]
+        high:
+            - [1.6, 2.36, 2.7, 3.0, 3.4, 3.7]

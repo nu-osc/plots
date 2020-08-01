@@ -1,0 +1,20 @@
+experiment: ORCA
+starting_year: 2024
+status: approved
+note: sensitivity is taken from the poster
+reference:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf: Neutrino 2020
+    talk: https://nusoft.fnal.gov/nova/nu2020postersession/pdf/posterPDF-480.pdf
+    page:
+sensitivity:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        low:
+            - [1.8, 2.5, 2.9, 3.4, 3.8, 4.1, 4.5, 4.75, 4.85, 5.0]
+        high:
+            - [2.6, 3.5, 4.1, 4.6, 5.0, 5.4, 5.7, 6.1, 6.4, 6.6]
