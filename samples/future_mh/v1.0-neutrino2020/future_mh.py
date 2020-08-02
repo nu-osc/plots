@@ -90,9 +90,11 @@ def main(args):
         lstyle = '-'
         width=2
         if star != '':
-             lstyle = '--'
-             alpha = 0.1
-             width=0
+            lstyle = '--'
+            alpha = 0.1
+            width=0
+        if exp['id'] == 'juno':
+            alpha=0.5
         poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
         ax.add_patch(poly)
         if star != '':
@@ -125,6 +127,8 @@ def main(args):
     labels = ax.get_xticklabels()
     for label in labels:
         label.set_bbox(dict(fc='white', ec='white', alpha=0.2))
+        
+    ax.text(0.97, 0.55, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=17)
     
     outfilename='plot.png'
     if args.output:
