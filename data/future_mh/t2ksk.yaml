@@ -1,7 +1,7 @@
 experiment: T2K+SK
 starting_year: 0
 status: running
-note: sensitivity is taken from thesis for joint T2K+SK
+note: sensitivity is taken from thesis for joint T2K+SK (accel + atm)
 reference:
     arxiv:
     inspire:
@@ -15,6 +15,6 @@ sensitivity:
         year:
             - [2020, 2023, 2026]
         low:
-            - [0.25, 0.4, 0.5]
+            - [1.45, 1.8, 2.05]
         high:
-            - [2.65, 3.0, 3.35]
+            - [2.6, 3.0, 3.3]
