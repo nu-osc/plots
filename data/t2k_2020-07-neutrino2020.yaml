@@ -42,7 +42,7 @@ result:
                   interval: [-2.0, -0.89]
               notes: IH is Bayesian result, not official
     amplitude23:
-        precision: 2
+        precision: 3
         mode: single
         results:
             - ordering: 'NO'
