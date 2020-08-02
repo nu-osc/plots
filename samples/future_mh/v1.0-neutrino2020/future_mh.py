@@ -28,7 +28,7 @@ def main(args):
     
     colors = {'nova' : 'xkcd:bubblegum', 't2ksk' : 'xkcd:green teal', 'icupgr' : 'xkcd:clear blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:charcoal grey', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 't2hkk' : 'xkcd:emerald green'}
     
-    position = {'nova' : (2022.5, 3.5), 't2ksk' : (2020.75, 2), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027.5, 4.25), 't2hk' : (2034.75, 4.25), 'dune' : (2029, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
+    position = {'nova' : (2022.5, 3.5), 't2ksk' : (2020.5, 2.0), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027, 4.25), 't2hk' : (2034.5, 4.3), 'dune' : (2028.5, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
     
     marker_offset = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 't2hk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
 #
@@ -119,6 +119,8 @@ def main(args):
     ax.set_xticklabels(['\\textbf{2020}', '\\textbf{2022}', '\\textbf{2024}', '\\textbf{2026}', '\\textbf{2028}', '\\textbf{2030}', '\\textbf{2032}', '\\textbf{2034}', '\\textbf{2036}', '\\textbf{2038}', '\\textbf{2040}'])
     ax.tick_params(top=True, right=True)
     ax.yaxis.grid(True, which='minor')
+    ax.xaxis.labelpad = 10
+    ax.tick_params(axis='x', which='major', pad=15)
     
     labels = ax.get_xticklabels()
     for label in labels:
