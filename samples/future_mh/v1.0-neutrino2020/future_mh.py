@@ -69,7 +69,7 @@ def main(args):
     ax.set_yticks([2.0, 4.0, 6.0, 8.0, 10.0], minor=True)
     
     text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
-    plt.plot([2020.0, 2040.0], [5.0, 5.0], ls='--', color='black', lw=0.5,  alpha=0.5)
+    plt.plot([2020.0, 2040.0], [5.0, 5.0], ls='--', color='black', lw=1,  alpha=0.5)
     
     for count, exp in enumerate(exps):
     
@@ -130,7 +130,7 @@ def main(args):
         
     ax.text(0.97, 0.55, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=15)
     
-    outfilename='plots/future_nmo_plot.png'
+    outfilename='plots/future_nmo_plot.pdf'
     if args.output:
         outfilename = args.output
     plt.savefig(outfilename, dpi=300)
