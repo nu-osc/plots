@@ -31,7 +31,7 @@ def main(args):
 # Load
 #
 
-    filenames = ['minos_2020-07-neutrino2020', 'nova_2020-07-neutrino2020', 'superk_2020-07-neutrino2020', 't2k_2020-07-neutrino2020', 'theor_forero_2020-06-pre-neutrino2020', 'theor_nufit_2020-07-post-neutrino2020']
+    filenames = ['minos_2020-07-neutrino2020', 'nova_2020-07-neutrino2020', 't2k_2020-07-neutrino2020', 'superk_2020-07-neutrino2020', 'theor_nufit_2020-07-post-neutrino2020',  'theor_forero_2020-06-pre-neutrino2020']
     exps = []
     for exp in filenames:
         with open('data/'+exp+'.yaml', 'r') as f:
@@ -47,11 +47,11 @@ def main(args):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_title('Another hierarchy rejection', pad=15)
-    ax.set_xlabel('Sigma')
+    ax.set_xlabel('Standard deviations')
     plt.subplots_adjust(left=0.25, right=0.9, top=0.9, bottom=0.15)
     ax.set_xlim(0,7.0)
     ax.set_ylim(0.5,6.5)
-    plt.plot([5.0, 5.0], [0, 8.0], ls='--', color='grey', alpha=0.5)
+    plt.plot([5.0, 5.0], [0, 8.0], ls='--', dashes=(5, 5), color='grey', alpha=0.35)
     
     text_itself = []
     hie_values = []
@@ -59,9 +59,9 @@ def main(args):
     order_id = []
     axis_text_1 = []
     axis_text_2 = []
-    #
-    # Iterate data
-    #
+#
+# Iterate data
+#
     styles, labels = [], []
     for count, exp in enumerate(exps):
         text_itself.append(exp['name'])
@@ -76,7 +76,6 @@ def main(args):
         eb=plt.errorbar(exp['proj'], count+1, yerr=0.4, ls='--', color = colors[exp['id']])
         eb[-1][0].set_linestyle('--')
         
-    print(hie_values)
     y_axis = np.arange(1, 7, 1)
     plt.barh(y_axis, hie_values)
     barlist=plt.barh(y_axis, hie_values)
@@ -86,8 +85,10 @@ def main(args):
     barlist[3].set_color(colors[order_id[3]])
     barlist[4].set_color(colors[order_id[4]])
     barlist[5].set_color(colors[order_id[5]])
-    plt.yticks(y_axis, text_itself)
     ax.set_yticks([1.5, 2.5, 3.5, 4.5, 5.5, 6.5], minor=True)
+    ax.set_yticks(y_axis)
+    ax.set_yticklabels(text_itself, ha='left')
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False,  pad=120)
     
     double_y = ax.twinx()
     double_y.set_ylim(0.5,6.5)
@@ -104,8 +105,9 @@ def main(args):
     
     ax.yaxis.grid(True, which='minor')
     ax.tick_params(top=True)
+    ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5], minor=True)
     
-    outfilename='plot.png'
+    outfilename='plots/mh_exp_plot.pdf'
     if args.output:
         outfilename = args.output
     plt.savefig(outfilename, dpi=300)
@@ -115,7 +117,6 @@ def main(args):
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
-    parser.add_argument('--input', help='file to load')
     parser.add_argument('--output', help='file to write')
 
     main(parser.parse_args())
