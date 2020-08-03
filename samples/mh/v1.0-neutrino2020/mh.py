@@ -46,9 +46,9 @@ def main(args):
 # Figure
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.set_title('Another hierarchy rejection', pad=15)
+    ax.set_title('Inverted ordering rejection', pad=15)
     ax.set_xlabel('Standard deviations')
-    plt.subplots_adjust(left=0.25, right=0.9, top=0.9, bottom=0.15)
+    plt.subplots_adjust(left=0.25, right=0.87, top=0.9, bottom=0.15)
     ax.set_xlim(0,7.0)
     ax.set_ylim(0.5,6.5)
     plt.plot([5.0, 5.0], [0, 8.0], ls='--', dashes=(5, 5), color='grey', alpha=0.35)
@@ -92,9 +92,9 @@ def main(args):
     
     double_y = ax.twinx()
     double_y.set_ylim(0.5,6.5)
-    double_y.tick_params(axis='y', direction='in', labelleft=False, labelright=True, pad=-10)
+    double_y.tick_params(axis='y', direction='in', labelleft=False, labelright=True, pad=-40)
     double_y.set_yticks(y_axis)
-    double_y.set_yticklabels(axis_text_1, ha='right')
+    double_y.set_yticklabels(axis_text_1, ha='left')
     
     triple_y =  ax.twinx()
     triple_y.tick_params(axis='y', direction='out')
@@ -106,6 +106,8 @@ def main(args):
     ax.yaxis.grid(True, which='minor')
     ax.tick_params(top=True)
     ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5], minor=True)
+    
+    ax.text(0.97, 0.4, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
     
     outfilename='plots/mh_exp_plot.pdf'
     if args.output:
