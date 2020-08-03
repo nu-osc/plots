@@ -1,4 +1,4 @@
-# Neutrino mass order sensitivity for future experiments, updated after Neutrino 2020
+# Neutrino mass order sensitivity for future experiments, after Neutrino 2020
 
 - Version: 1.0
 - [Plotting scripts](samples/future_mh/v1.0-neutrino2020)
