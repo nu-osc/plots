@@ -89,9 +89,6 @@ def postprocess_deltaCP(entry):
     return entry
 
 def postprocess_amplitude23(entry):
-    if entry['name']=='Double CHOOZ':
-        entry['notes']=''
-
     slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
     if entry['notes']:
         slist.append(entry['notes'].lower())

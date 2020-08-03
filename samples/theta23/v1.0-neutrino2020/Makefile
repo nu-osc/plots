@@ -1,5 +1,5 @@
 variable = amplitude23
-version  = v2-0
+version  = v1-0
 suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
