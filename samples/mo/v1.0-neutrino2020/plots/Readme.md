@@ -1,7 +1,7 @@
 # Neutrino mass order measurements comparison, updated after Neutrino 2020
 
 - Version: 1.0
-- [Plotting scripts](samples/mh/v1.0-neutrino2020)
+- [Plotting scripts](samples/mo/v1.0-neutrino2020)
 - References:
     * [MINOS+](data/minos_2020-07-neutrino2020.yaml)
     * [T2K](data/t2k_2020-07-neutrino2020.yaml)
