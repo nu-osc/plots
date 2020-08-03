@@ -46,9 +46,9 @@ def main(args):
     ax = fig.add_subplot(111)
     ax.set_xlabel('$\sin^2 \\theta_{23}$')
     if args.nmo == 'NO':
-        plt.title('Normal mass order', pad=15)
+        plt.title('Normal mass ordering', pad=15)
     if args.nmo == 'IO':
-        plt.title('Inverted mass order', pad=15)
+        plt.title('Inverted mass ordering', pad=15)
     plt.subplots_adjust(left=0.25, right=0.8, top=0.9, bottom=0.15)
     ax.set_xlim(0.3,0.7)
     ax.set_ylim(0.5, 7.5)
