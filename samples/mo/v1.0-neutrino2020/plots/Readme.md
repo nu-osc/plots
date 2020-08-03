@@ -17,5 +17,5 @@
     * grey MO numbers on right axis are experiment maximal sensitivities
 
 
- ![MH](mh_exp_plot.png) 
+ ![MH](mo_exp_plot.png) 
 
