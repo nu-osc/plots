@@ -1,0 +1,8 @@
+style            name              notes    ordering    octant      value    left    right    span  result                     arxiv              conf
+nufit5.0         NuFIT_5.0         {}       IO          {}          0.575   0.019    0.016   0.035  $0.575^{+0.016}_{-0.019}$  hep-ph/2007.14792  {}
+foreroetal.      Forero_et_al.     {}       IO          {}          0.566   0.023    0.018   0.041  $0.566^{+0.018}_{-0.023}$  hep-ex/2006.11237  {}
+nova             NOvA              {}       IO          {}          0.56    0.03     0.03    0.06   $0.560\pm0.030$            {}                 Neutrino2020
+t2k              T2K               {}       IO          {}          0.546   0.046    0.024   0.07   $0.546^{+0.024}_{-0.046}$  {}                 Neutrino2020
+minos            MINOS+            {}       IO          {}          0.42    0.03     0.07    0.1    $0.420^{+0.070}_{-0.030}$  hep-ex/2006.15208  Neutrino2020
+superkamiokande  Super-Kamiokande  {}       IO          {}          0.45    0.09     0.03    0.12   $0.450^{+0.030}_{-0.090}$  {}                 Neutrino2020
+icecube          IceCube           {}       IO          {}          0.51    0.09     0.07    0.16   $0.510^{+0.070}_{-0.090}$  hep-ex/1707.07081  Neutrino2018
