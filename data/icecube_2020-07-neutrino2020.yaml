@@ -33,4 +33,5 @@ result:
         uncertainty:
             left: 0.09
             right: 0.07
+        note: no error bar for IH in paper, but BF is the same as in NH
 
