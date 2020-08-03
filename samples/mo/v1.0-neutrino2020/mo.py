@@ -51,7 +51,7 @@ def main(args):
     plt.subplots_adjust(left=0.25, right=0.87, top=0.9, bottom=0.15)
     ax.set_xlim(0,7.0)
     ax.set_ylim(0.5,6.5)
-    plt.plot([5.0, 5.0], [0, 8.0], ls='--', dashes=(5, 5), color='grey', alpha=0.35)
+    plt.plot([5.0, 5.0], [0, 8.0], ls='--', dashes=(5, 5), color='grey', alpha=0.35, lw=1)
     
     text_itself = []
     hie_values = []
@@ -109,7 +109,7 @@ def main(args):
     
     ax.text(0.97, 0.4, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
     
-    outfilename='plots/mo_exp_plot.pdf'
+    outfilename='plots/mo_exp_plot.png'
     if args.output:
         outfilename = args.output
     plt.savefig(outfilename, dpi=300)
