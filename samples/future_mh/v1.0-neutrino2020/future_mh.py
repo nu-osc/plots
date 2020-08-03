@@ -62,7 +62,7 @@ def main(args):
     plt.subplots_adjust(left=0.06, right=0.95, top=0.9, bottom=0.2)
     plt.title('Future Neutrino mass ordering sensitivity', pad=20)
     ax.set_xlabel('Year')
-    ax.set_ylabel('Median sensitivity ($\sigma$)')
+    ax.set_ylabel('Median sensitivity, $\sigma$')
     ax.set_xlim(2020, 2040)
     ax.set_ylim(0, 10.2)
     plt.yticks([1.0, 3.0, 5.0, 7.0, 9.0])
@@ -128,9 +128,9 @@ def main(args):
     for label in labels:
         label.set_bbox(dict(fc='white', ec='white', alpha=0.2))
         
-    ax.text(0.97, 0.55, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=17)
+    ax.text(0.97, 0.55, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=15)
     
-    outfilename='plot.png'
+    outfilename='plots/future_nmo_plot.pdf'
     if args.output:
         outfilename = args.output
     plt.savefig(outfilename, dpi=300)
