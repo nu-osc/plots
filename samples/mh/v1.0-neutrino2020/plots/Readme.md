@@ -1,4 +1,4 @@
-# Mass hierarchy measurements comparison, updated after Neutrino 2020
+# Neutrino mass order measurements comparison, updated after Neutrino 2020
 
 - Version: 1.0
 - [Plotting scripts](samples/mh/v1.0-neutrino2020)
@@ -14,6 +14,7 @@
 - Notes:
     * Forero et al. is pre-Neutrino version;
     * SuperK sigma is extracted as delta chi2 squared; official statement is 71.4-90.3% CLs disfavor for IH
+    * grey MO numbers on right axis are experiment maximal sensitivities
 
 
  ![MH](mh_exp_plot.png) 
