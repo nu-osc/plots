@@ -13,3 +13,5 @@
 | Neutrino 2020                  | [**v4.0**](plots/theta13/v4.0-neutrino2020) | [**v4.0**](plots/dm32/v4.0-neutrino2020) | [**v2.0**](plots/deltaCP/v2.0-neutrino2020/) |                        |                       |                     |                                             |
 | Neutrino 2020, outdated global |                                             |                                          | [v1.0](plots/deltaCP/v1.0-neutrino2020/)     |                        |                       |                     |                                             |
 | Neutrino 2020, *beta*          |                                             |                                          |                                              |                        |                       |                     |  [v1.0](samples/mo/v1.0-neutrino2020/plots/)|
+
+Future neutrino mass hierarchy sensitivity plot: [v1.0, beta](samples/future_mh/v1.0-neutrino2020/plots/)
