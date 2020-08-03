@@ -17,11 +17,9 @@ result:
         mode: '32'
         results:
             - ordering: 'NO'
-              octant: UO
               value: 2.41
               uncertainty: 0.07
             - ordering: IO
-              octant: UO
               value: 2.44674
               uncertainty:
                   interval: [2.39, 2.51]
@@ -43,15 +41,27 @@ result:
         mode: single
         results:
             - ordering: 'NO'
+              octant: UO
               value: 0.57
               uncertainty:
                   left: 0.04
                   right: 0.03
+            - ordering: 'NO'
+              octant: LO
+              value: 0.46
+              uncertainty:
+                 interval: [0.43, 0.49]
             - ordering: IO
+              octant: UO
               value: 0.56
               uncertainty:
                   left: 0.03
                   right: 0.03
+            - ordering: IO
+              octant: LO
+              value: 0.46
+              uncertainty:
+                interval: [0.43, 0.49]
     hier:
         precision: 2
         mode: sigma

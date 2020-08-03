@@ -17,7 +17,6 @@ result:
         mode: '32'
         results:
             - ordering: 'NO'
-              octant: UO
               value: 2.49
               uncertainty:
                   interval: [2.408, 2.548]

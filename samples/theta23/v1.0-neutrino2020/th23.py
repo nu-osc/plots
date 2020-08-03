@@ -36,10 +36,10 @@ def main(args):
     filename = 'amplitude23_NO.dat'
     if args.input:
         filename = args.input
-    dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'), ('latex', 'U30')])
-    result = np.loadtxt(filename, dtype=dtype1, skiprows=1, usecols=(0, 1, 5, 6, 7, 9))
+    dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('oct', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'), ('latex', 'U30')])
+    result = np.loadtxt(filename, dtype=dtype1, skiprows=1, usecols=(0, 1, 4, 5, 6, 7, 9))
     print(result)
-
+    rev_arr = result[::-1]
 #
 # Figure
     fig = plt.figure()
@@ -61,13 +61,21 @@ def main(args):
     # Iterate data
     #
     
-    for count, exp in enumerate(result):
-        id, name, cv, left, right, latex = exp
+    for count, exp in enumerate(rev_arr):
+        id, name, oct, cv, left, right, latex = exp
         name = name.replace('_', ' ')
-        exp_name.append(name)
-        latex_text.append(latex)
-        plt.errorbar(cv, count+1, xerr=np.array([[left, right]]).T, color=colors[id])
-        plt.plot(cv, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+        if name in exp_name:
+            counter=exp_name.index(name)
+            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id])
+            if oct != 'LO':
+                plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+        else:
+            exp_name.append(name)
+            latex_text.append(latex)
+            counter=exp_name.index(name)
+            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id])
+            if oct != 'LO':
+                plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
 
         
     y_axis = np.arange(1, 8, 1)
