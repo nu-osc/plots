@@ -14,7 +14,7 @@
 - Notes:
     * Forero et al. is pre-Neutrino version;
     * SuperK sigma is extracted as delta chi2 squared; official statement is 71.4-90.3% CLs disfavor for IH
-    * grey MO numbers on right axis are experiment maximal sensitivities
+    * grey MO numbers on right axis are experiment maximal sensitivities.  For T2K and SK 3.5 sigma is expected result of joint fit 
 
 
  ![MH](mo_exp_plot.png) 
