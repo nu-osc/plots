@@ -45,16 +45,10 @@ result:
         precision: 3
         mode: single
         results:
-            - ordering: 'NO'
-              value: 0.546
-              uncertainty:
-                  interval: [0.5, 0.57]
-              notes: plot and table are inconsistent on the slide 29
-            - ordering: IO
-              value: 0.546
-              uncertainty:
-                  interval: [0.5, 0.57]
-              notes: plot and table are inconsistent on the slide 29
+            value: 0.546
+            uncertainty:
+                interval: [0.5, 0.57]
+            notes: these values are profiled across both hierarchies, label NH or IH is not precisely correct
     hier:
         precision: 2
         mode: sigma
