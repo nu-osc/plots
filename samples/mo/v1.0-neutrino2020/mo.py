@@ -25,7 +25,7 @@ def main(args):
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
-    colors = {'minos_2020-07-neutrino2020' : 'green', 'nova_2020-07-neutrino2020' : 'green', 't2k_2020-07-neutrino2020' : 'green', 'superk_2020-07-neutrino2020' : 'xkcd:azure', 'theor_forero_2020-06-pre-neutrino2020' : 'grey', 'theor_nufit_2020-07-post-neutrino2020' : 'grey'}
+    colors = {'minos_2020-07-neutrino2020' : 'xkcd:green', 'nova_2020-07-neutrino2020' : 'xkcd:green', 't2k_2020-07-neutrino2020' : 'xkcd:green', 'superk_2020-07-neutrino2020' : 'xkcd:azure', 'theor_forero_2020-06-pre-neutrino2020' : 'xkcd:steel grey', 'theor_nufit_2020-07-post-neutrino2020' : 'xkcd:steel grey'}
 
 #
 # Load
@@ -109,7 +109,7 @@ def main(args):
     
     ax.text(0.97, 0.4, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
     
-    outfilename='plots/mo_exp_plot.png'
+    outfilename='plots/mo_exp_plot.pdf'
     if args.output:
         outfilename = args.output
     plt.savefig(outfilename, dpi=300)
