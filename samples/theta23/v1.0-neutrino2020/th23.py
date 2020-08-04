@@ -56,6 +56,7 @@ def main(args):
     
     exp_name = []
     latex_text = []
+    latex_lo_text = []
     
     #
     # Iterate data
@@ -66,19 +67,22 @@ def main(args):
         name = name.replace('_', ' ')
         if name in exp_name:
             counter=exp_name.index(name)
-            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id])
+            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+            latex_lo_text[counter] = latex
             if oct != 'LO':
                 plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
         else:
             exp_name.append(name)
             latex_text.append(latex)
             counter=exp_name.index(name)
-            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id])
+            latex_lo_text.append('')
+            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
             if oct != 'LO':
                 plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
 
         
     y_axis = np.arange(1, 8, 1)
+    y_axis_2 = np.arange(1.07, 8.07, 1)
     ax.set_yticks(y_axis)
     ax.set_yticklabels(exp_name, ha='left')
     ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False,  pad=120)
@@ -86,8 +90,18 @@ def main(args):
     double_y = ax.twinx()
     double_y.set_ylim(0.5,7.5)
     double_y.tick_params(axis='y', direction='out', labelleft=False, labelright=True, pad=5)
-    double_y.set_yticks(y_axis)
+    double_y.set_yticks(y_axis_2)
     double_y.set_yticklabels(latex_text, ha='left')
+    
+    triple_y =  ax.twinx()
+    triple_y.tick_params(axis='y', direction='in')
+    triple_y.set_ylim(0.5,7.5)
+    triple_y.tick_params(axis='y', direction='in', labelleft=True, labelright=False, pad=-4,  labelcolor='grey', labelsize=13)
+    triple_y.set_yticks(y_axis_2)
+    triple_y.set_yticklabels(latex_lo_text, ha='left')
+    labels = triple_y.get_yticklabels()
+    for label in labels:
+        label.set_bbox(dict(fc='white', ec='white'))
     
     ax.set_xticks([0.35, 0.45, 0.55, 0.65], minor=True)
     ax.xaxis.grid(True, which='minor')
@@ -95,6 +109,7 @@ def main(args):
     ax.tick_params(axis="x", which="minor", top=True)
     ax.tick_params(top=True, left = False)
     double_y.tick_params(right=False)
+    triple_y.tick_params(right=False)
     
     ax.text(0.975, 0.4, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
     
