@@ -25,19 +25,18 @@ def main(args):
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
-    
+
     colors = {'nova' : 'xkcd:bubblegum', 't2ksk' : 'xkcd:green teal', 'icupgr' : 'xkcd:clear blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:charcoal grey', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 't2hkk' : 'xkcd:emerald green'}
-    
+
     position = {'nova' : (2022.5, 3.5), 't2ksk' : (2020.5, 2.0), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027, 4.25), 't2hk' : (2034.5, 4.3), 'dune' : (2028.5, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
-    
+
     marker_offset = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 't2hk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
 #
 # Load
 #
-    filenames = ['nova', 't2ksk', 'icupgr', 'dune', 'pingu', 'orca', 't2hkk', 'juno', 'ino', 't2hk']
     exps = []
-    for exp in filenames:
-        with open('data/'+exp+'.yaml', 'r') as f:
+    for exp in args.inputs:
+        with open(exp, 'r') as f:
             file = yaml.load(f)
         #print(file)
         points = file["sensitivity"]["mh"]["year"][0]
@@ -53,9 +52,9 @@ def main(args):
             year_ax=year_v+start
             low.append((year_ax, min))
             high.append((year_ax, max))
-        this_exp = {'id': exp, 'name' : name, 'start' : start, 'status' : status, 'low_values' : low, 'high_values' : high}
+        this_exp = {'id': exp.rsplit('/',1)[-1].split('_',1)[0].replace('.yaml', ''), 'name' : name, 'start' : start, 'status' : status, 'low_values' : low, 'high_values' : high}
         exps.append(this_exp)
-    
+
 #
 # Figure
     fig, ax = plt.subplots()
@@ -67,12 +66,12 @@ def main(args):
     ax.set_ylim(0, 10.2)
     plt.yticks([1.0, 3.0, 5.0, 7.0, 9.0])
     ax.set_yticks([2.0, 4.0, 6.0, 8.0, 10.0], minor=True)
-    
+
     text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
     plt.plot([2020.0, 2040.0], [5.0, 5.0], ls='--', color='black', lw=1,  alpha=0.5)
-    
+
     for count, exp in enumerate(exps):
-    
+
         star = ''
         if exp['status'] == 'not clear':
             star = '$^\star$'
@@ -85,7 +84,7 @@ def main(args):
         start = exp['start']
         sens_year_start = exp['high_values'][0][0]
         sens_max_1year = exp['high_values'][0][1]
-        
+
         alpha=0.4
         lstyle = '-'
         width=2
@@ -100,7 +99,7 @@ def main(args):
         if star != '':
             poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=2, ls=lstyle)
             ax.add_patch(poly_dub)
-            
+
         if exp['id'] != 'orca' and exp['id'] != 'icupgr' and exp['id'] != 'juno' and exp['id'] != 'pingu':
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
         ax.annotate('', xy=(start, 0), xycoords='data', xytext=(start, -1.5), textcoords='data', arrowprops=dict(facecolor=color, ec=color, width = 2, alpha=0.4), ha='center', size = 14, zorder=-10)
@@ -114,7 +113,7 @@ def main(args):
         else:
             plt.text(start-0.4, -1.95-0.8*(start % 2), name, size = 20, color=color, fontweight='bold')
 
-        
+
     plt.grid()
     x_axis = np.arange(2020, 2042, 2)
     ax.set_xticks(x_axis)
@@ -123,24 +122,29 @@ def main(args):
     ax.yaxis.grid(True, which='minor')
     ax.xaxis.labelpad = 10
     ax.tick_params(axis='x', which='major', pad=15)
-    
+
     labels = ax.get_xticklabels()
     for label in labels:
         label.set_bbox(dict(fc='white', ec='white', alpha=0.2))
-        
+
     ax.text(0.97, 0.55, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=15)
-    
+
     outfilename='plots/future_nmo_plot.pdf'
     if args.output:
         outfilename = args.output
     plt.savefig(outfilename, dpi=300)
-    plt.show()
-    
+    print('Write output file', outfilename)
+
+    if args.show:
+        plt.show()
+
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
-    parser.add_argument('--output', help='file to write')
+    parser.add_argument('inputs', nargs='+', help='files to load')
+    parser.add_argument('-o', '--output', help='file to write')
+    parser.add_argument('-s', '--show', action='store_true', help='show')
 
     main(parser.parse_args())
 
