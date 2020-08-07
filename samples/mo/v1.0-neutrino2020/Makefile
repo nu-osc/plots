@@ -1,53 +1,26 @@
-variable = hier
-version  = v2-0
+variable = mo
+version  = v1-0
 suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
-.PRECIOUS: %.tex %.dat %.pdf %.png plots/$(variable)_%_$(version).pdf plots/$(variable)_%_$(version).png
+.PRECIOUS: %.tex %.dat %.pdf %.png plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts  = maketable.py pylib/*.py
 data     = $(shell realpath $(wildcard data/*.yaml))
-table_NO   = $(variable)_NO_$(version).dat
-tables     = $(table_NO)
-targets_NO = $(table_NO:%.dat=plots/%.png) $(table_NO:%.dat=plots/%.pdf)
-targets    = $(targets_NO) 
+targets  = plots/$(variable)_$(version).png plots/$(variable)_$(version).pdf
 
 all: $(targets) | plots
 
 plots:
 	test -d plots || mkdir plots
 
-define plot = 
-	./mh.py $< -o $@
-	cp -v $< plots/
-endef
+plots/$(variable)_$(version).png: $(data) mo.py | plots
+	./mo.py $(data) -o $@
 
-plots/$(variable)_%_$(version).png: $(variable)_%_$(version).dat mh.py | plots
-	./mh.py $< -o $@
-	cp -v $< plots/
-
-plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat mh.py | plots
-	./mh.py $< -o $@
-	cp -v $< plots/
-
-table: $(tables)
-
-$(tables): $(scripts) $(data)
-	./maketable.py -v $(variable) \
-	               -o $@ \
-				   $(filter %.yaml,$^)
-
-debug:
-	ipython --pdb -- \
-		./maketable.py -v $(variable) \
-					   -o $(variable)_NO.dat \
-					   $(data)
-	ipython --pdb -- \
-		./maketable.py -v $(variable) \
-					   -o $(variable)_IO.dat \
-					   $(data)
+plots/$(variable)_$(version).pdf: $(data) mo.py | plots
+	./mo.py $(data) -o $@
 
 print-%:
 	@echo '$*=$($*)'
