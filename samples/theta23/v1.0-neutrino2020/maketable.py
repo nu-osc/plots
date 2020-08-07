@@ -22,6 +22,8 @@ from pylib.converters import convert
 
 def main(args):
     global context
+    if args.variable.startswith('theta'):
+        args.variable = args.variable.replace('theta', 'amplitude')
     var = args.variable
     if args.ordering=='auto':
         if 'NO' in args.output:
@@ -256,7 +258,7 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'amplitude13', 'splitting_large', 'deltaCP', 'amplitude23' ]
+    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')

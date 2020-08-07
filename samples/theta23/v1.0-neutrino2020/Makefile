@@ -1,4 +1,4 @@
-variable = amplitude23
+variable = theta23
 version  = v1-0
 suffix   = neutrino2020
 
@@ -21,17 +21,17 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
-define plot = 
-	./plot_deltacp.py $< -o $@
-	cp -v $< plots/
-endef
+#define plot = 
+	#./theta23.py $< -o $@
+	#cp -v $< plots/
+#endef
 
-plots/$(variable)_%_$(version).png: $(variable)_%_$(version).dat plot_deltacp.py | plots
-	./plot_deltacp.py $< -o $@
+plots/$(variable)_%_$(version).png: $(variable)_%_$(version).dat theta23.py | plots
+	./theta23.py $< -o $@
 	cp -v $< plots/
 
-plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat plot_deltacp.py | plots
-	./plot_deltacp.py $< -o $@
+plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat theta23.py | plots
+	./theta23.py $< -o $@
 	cp -v $< plots/
 
 table: $(tables)

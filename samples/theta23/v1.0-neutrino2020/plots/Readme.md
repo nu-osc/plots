@@ -15,7 +15,7 @@
 - Notes:
 
 
-| Normal ordering                  | Inverted Ordering                |
-| ---                              | ---                              |
-| ![δ(CP) NO](th23_plot_NO.png) | ![δ(CP) IO](th23_plot_IO.png) |
+| Normal ordering                         | Inverted Ordering                  |
+| ---                                     | ---                                |
+| ![sin²θ₁₃ NO](theta23_plot_NO_v1-0.png) | ![sin²θ₁₃ IO](theta23_plot_IO_v1-0.png) |
 
