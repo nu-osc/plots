@@ -37,7 +37,7 @@ def main(args):
     exps = []
     for exp in args.inputs:
         with open(exp, 'r') as f:
-            file = yaml.load(f)
+            file = yaml.load(f, Loader=yaml.Loader)
         #print(file)
         points = file["sensitivity"]["mh"]["year"][0]
         name = file["experiment"]
