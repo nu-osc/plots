@@ -34,7 +34,7 @@ def main(args):
     exps = []
     for exp in args.inputs:
         with open(exp, 'r') as f:
-            file = yaml.load(f)
+            file = yaml.load(f, Loader=yaml.Loader)
         name = file["experiment"]
         hie = file["result"]["hier"]["value"]
         proj = file["result"]["hier"]["proj"]
@@ -48,9 +48,9 @@ def main(args):
     ax.set_title('Inverted ordering rejection', pad=15)
     ax.set_xlabel('Standard deviations')
     plt.subplots_adjust(left=0.25, right=0.87, top=0.9, bottom=0.15)
-    ax.set_xlim(0,7.0)
+    ax.set_xlim(0,6.0)
     ax.set_ylim(0.5,6.5)
-    plt.plot([5.0, 5.0], [0, 8.0], ls='--', dashes=(5, 5), color='grey', alpha=0.35, lw=1)
+    plt.plot([5.0, 5.0], [0, 8.0], ls='dotted', color='grey', alpha=0.35, lw=1)
 
     text_itself = []
     hie_values = []
@@ -61,8 +61,11 @@ def main(args):
 #
 # Iterate data
 #
+
+    exps_sorted = sorted(exps, key=lambda k: k['hie'])
+    
     styles, labels = [], []
-    for count, exp in enumerate(exps):
+    for count, exp in enumerate(exps_sorted):
         text_itself.append(exp['name'])
         hie_values.append(exp['hie'])
         hie_proj.append(exp['proj'])
@@ -104,7 +107,7 @@ def main(args):
 
     ax.yaxis.grid(True, which='minor')
     ax.tick_params(top=True)
-    ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5], minor=True)
+    ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5, 5.5], minor=True)
 
     ax.text(0.97, 0.4, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
 
