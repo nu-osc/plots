@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
-"""Version v0.2.0 (deltaCP):
+"""Version v0.3.0
+
+Changes in 0.3.0:
+    + add sin²θ₁₂
+    + add sin²θ₂₃
 
 Changes in 0.2.0:
     + add deltaCP
@@ -10,10 +14,7 @@ Changes in 0.1.0:
     + Choose ordering with: --nmo
 """
 
-context = dict(#PDG 2020 values
-        dmSq21 = 7.53e-5,
-        sinSqTheta12 = 0.307
-        )
+context = dict()
 
 import yaml
 from tabulate import tabulate
@@ -24,17 +25,18 @@ def main(args):
     global context
     if args.variable.startswith('theta'):
         args.variable = args.variable.replace('theta', 'amplitude')
-    var = args.variable
-    if args.ordering=='auto':
-        if 'NO' in args.output:
-            assert not 'IO' in args.output
-            args.ordering='NO'
-        elif 'IO' in args.output:
-            args.ordering='IO'
-        else:
-            raise Exception('Unable to determine ordering')
 
-    context['ordering']=args.ordering
+    var = args.variable
+    # if args.ordering=='auto':
+        # if 'NO' in args.output:
+            # assert not 'IO' in args.output
+            # args.ordering='NO'
+        # elif 'IO' in args.output:
+            # args.ordering='IO'
+        # else:
+            # raise Exception('Unable to determine ordering')
+
+    # context['ordering']=args.ordering
 
     data = collect(args.inputs, var=var)
 
@@ -42,7 +44,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'notes', 'ordering', 'octant', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -97,7 +99,15 @@ def postprocess_amplitude23(entry):
     entry['style']='_'.join(slist)
     return entry
 
+def postprocess_amplitude12(entry):
+    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
+    if entry['notes']:
+        slist.append(entry['notes'].lower())
+    entry['style']='_'.join(slist)
+    return entry
+
 postprocessors=dict(
+        amplitude12     = postprocess_amplitude12,
         amplitude13     = postprocess_amplitude13,
         splitting_large = postprocess_splitting_large,
         deltaCP         = postprocess_deltaCP,
@@ -177,7 +187,7 @@ def collect_result(var, experiment):
 
         val = res['value']
         val_left, val_right = get_uncertainty(val, res['uncertainty'])
-        #val_left, val, val_right = convert(var, mode, val_left, val, val_right)#, context=context)
+        val_left, val, val_right = convert(var, mode, val_left, val, val_right)
         unc_left = val - val_left
         unc_right = val_right - val
 
@@ -258,11 +268,11 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23' ]
+    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')
-    parser.add_argument('--ordering', '--nmo', default='auto', choices=('NO', 'IO', 'auto'), help='ordering')
+    # parser.add_argument('--ordering', '--nmo', default='auto', choices=('NO', 'IO', 'auto'), help='ordering')
     parser.add_argument('-o', '--output', default='', help='file to write')
 
     main(parser.parse_args())

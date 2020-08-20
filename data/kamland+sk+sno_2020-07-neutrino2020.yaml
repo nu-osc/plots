@@ -1,4 +1,4 @@
-experiment: Kamland+SK+SNO
+experiment: KamLAND+SK+SNO
 type: reactor+atmospheric+solar
 dataset:
 reference:

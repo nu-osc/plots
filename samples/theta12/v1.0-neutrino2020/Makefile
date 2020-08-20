@@ -4,18 +4,15 @@ suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
-.PRECIOUS: %.tex %.dat %.pdf %.png plots/$(variable)_%_$(version).pdf plots/$(variable)_%_$(version).png
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts    = maketable.py pylib/*.py
-script     = theta12.py
+script     = ./theta12.py
 data       = $(shell realpath $(wildcard data/*.yaml))
-table_NO   = $(variable)_NO_$(version).dat
-table_IO   = $(variable)_IO_$(version).dat
-tables     = $(table_NO) $(table_IO)
-targets_NO = $(table_NO:%.dat=plots/%.png) $(table_NO:%.dat=plots/%.pdf)
-targets_IO = $(table_IO:%.dat=plots/%.png) $(table_IO:%.dat=plots/%.pdf)
-targets    = $(targets_NO) $(targets_IO)
+tables     = $(variable)_$(version).dat
+targets    = $(tables:%.dat=plots/%.png) $(tables:%.dat=plots/%.pdf)
+
+.PRECIOUS: %.tex %.dat %.pdf %.png $(tables) $(targets)
 
 all: $(targets) | plots
 
@@ -27,11 +24,11 @@ plots:
 	#cp -v $< plots/
 #endef
 
-plots/$(variable)_%_$(version).png: $(variable)_%_$(version).dat $(script) | plots
+plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@
 	cp -v $< plots/
 
-plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat $(script) | plots
+plots/$(variable)_$(version).pdf: $(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@
 	cp -v $< plots/
 

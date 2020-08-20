@@ -7,16 +7,10 @@ import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 import itertools as it
 
-def main(args):
-    if args.nmo=='auto':
-        if 'NO' in args.output:
-            assert not 'IO' in args.output
-            args.nmo='NO'
-        elif 'IO' in args.output:
-            args.nmo='IO'
-        else:
-            raise Exception('Unable to determine ordering')
+from style import colors
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U20'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
 
+def main(args):
     #
     # RC params
     #
@@ -32,20 +26,11 @@ def main(args):
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
 
-    prop_cycle = plt.rcParams['axes.prop_cycle']
-    colors = prop_cycle.by_key()['color']
-    colors = {'nova' : 'xkcd:green', 't2k' : 'xkcd:green', 'minos' : 'xkcd:green',
-              'superkamiokande' : 'xkcd:azure', 'icecube' : 'xkcd:azure',
-              'nufit5.0' : 'xkcd:steel grey', 'foreroetal.' : 'xkcd:steel grey'}
-
     #
     # Load
     #
     filename = 'amplitude23_NO.dat'
-    if args.input:
-        filename = args.input
-    dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('oct', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'), ('latex', 'U30')])
-    result = np.loadtxt(filename, dtype=dtype1, skiprows=1, usecols=(0, 1, 4, 5, 6, 7, 9))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(8))
     print(result)
     rev_arr = result[::-1]
     #
@@ -54,10 +39,6 @@ def main(args):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_xlabel('$\sin^2 \\theta_{23}$')
-    if args.nmo == 'NO':
-        plt.title('Normal mass ordering', pad=15)
-    if args.nmo == 'IO':
-        plt.title('Inverted mass ordering', pad=15)
     plt.subplots_adjust(left=0.25, right=0.8, top=0.9, bottom=0.15)
     ax.set_xlim(0.3,0.7)
     ax.set_ylim(0.5, 7.5)
@@ -71,23 +52,20 @@ def main(args):
     # Iterate data
     #
     for count, exp in enumerate(rev_arr):
-        id, name, oct, cv, left, right, latex = exp
+        id, name, _, value, left, right, _, latex = exp
         name = name.replace('_', ' ')
         if name in exp_name:
             counter=exp_name.index(name)
-            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
             latex_lo_text[counter] = latex
-            if oct != 'LO':
-                plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+            plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
         else:
             exp_name.append(name)
             latex_text.append(latex)
             counter=exp_name.index(name)
             latex_lo_text.append('')
-            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
-            if oct != 'LO':
-                plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
-
+            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+            plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
 
     y_axis = np.arange(1, 8, 1)
     y_axis_2 = np.arange(1.07, 8.07, 1)
@@ -135,7 +113,6 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
     parser.add_argument('input', help='file to load')
-    parser.add_argument('--nmo', choices=('NO', 'IO', 'auto'), default='auto', help='ordering')
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
 
