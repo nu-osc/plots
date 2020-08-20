@@ -70,13 +70,13 @@ result:
                   right: 0.00065
     splitting_small:
         precision: 2
-        mode: '12'
         value: 7.39
         uncertainty:
             left: 0.20
             right: 0.21
     amplitude12:
         precision: 2
+        mode: single
         value: 0.310
         uncertainty:
             left: 0.012

@@ -56,7 +56,6 @@ result:
                   right: 0.03
     splitting_small:
         precision: 2
-        mode: '12'
         value: 6.11
         uncertainty:
             left: 0.68
@@ -64,6 +63,7 @@ result:
         notes: joint SK+SNO
     amplitude12:
         precision: 2
+        mode: single
         value: 0.306
         uncertainty: 0.014
         notes: joint SK+SNO
