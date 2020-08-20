@@ -61,12 +61,12 @@ result:
         uncertainty:
             left: 0.68
             right: 1.21
-        notes: joint SK+S'NO'
+        notes: joint SK+SNO
     amplitude12:
         precision: 2
         value: 0.306
         uncertainty: 0.014
-        notes: joint SK+S'NO'
+        notes: joint SK+SNO
     hier:
         precision: 2
         mode: sigma
