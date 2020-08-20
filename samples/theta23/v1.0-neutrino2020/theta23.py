@@ -17,9 +17,9 @@ def main(args):
         else:
             raise Exception('Unable to determine ordering')
 
-#
-# RC params
-#
+    #
+    # RC params
+    #
     plt.rc('text', usetex=True)
     plt.rcParams['grid.alpha'] = 0.1
     plt.rcParams['grid.linewidth'] = 2
@@ -38,9 +38,9 @@ def main(args):
               'superkamiokande' : 'xkcd:azure', 'icecube' : 'xkcd:azure',
               'nufit5.0' : 'xkcd:steel grey', 'foreroetal.' : 'xkcd:steel grey'}
 
-#
-# Load
-#
+    #
+    # Load
+    #
     filename = 'amplitude23_NO.dat'
     if args.input:
         filename = args.input
@@ -48,8 +48,9 @@ def main(args):
     result = np.loadtxt(filename, dtype=dtype1, skiprows=1, usecols=(0, 1, 4, 5, 6, 7, 9))
     print(result)
     rev_arr = result[::-1]
-#
-# Figure
+    #
+    # Figure
+    #
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_xlabel('$\sin^2 \\theta_{23}$')
@@ -69,7 +70,6 @@ def main(args):
     #
     # Iterate data
     #
-
     for count, exp in enumerate(rev_arr):
         id, name, oct, cv, left, right, latex = exp
         name = name.replace('_', ' ')
