@@ -4,11 +4,11 @@ suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
-.PRECIOUS: %.tex %.dat %.pdf %.png plots/$(variable)_%_$(version).pdf plots/$(variable)_%_$(version).png
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
-scripts  = maketable.py pylib/*.py
-data     = $(shell realpath $(wildcard data/*.yaml))
+scripts    = maketable.py pylib/*.py
+script     = ./$(variable).py
+data       = $(shell realpath $(wildcard data/*.yaml))
 table_NO   = $(variable)_NO_$(version).dat
 table_IO   = $(variable)_IO_$(version).dat
 tables     = $(table_NO) $(table_IO)
@@ -16,22 +16,24 @@ targets_NO = $(table_NO:%.dat=plots/%.png) $(table_NO:%.dat=plots/%.pdf)
 targets_IO = $(table_IO:%.dat=plots/%.png) $(table_IO:%.dat=plots/%.pdf)
 targets    = $(targets_NO) $(targets_IO)
 
+.PRECIOUS: %.tex %.dat %.pdf %.png $(tables) $(targets)
+
 all: $(targets) | plots
 
 plots:
 	test -d plots || mkdir plots
 
 #define plot = 
-	#./theta23.py $< -o $@
+	#$(script) $< -o $@
 	#cp -v $< plots/
 #endef
 
-plots/$(variable)_%_$(version).png: $(variable)_%_$(version).dat theta23.py | plots
-	./theta23.py $< -o $@
+plots/$(variable)_%_$(version).png: $(variable)_%_$(version).dat $(script) | plots
+	$(script) $< -o $@
 	cp -v $< plots/
 
-plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat theta23.py | plots
-	./theta23.py $< -o $@
+plots/$(variable)_%_$(version).pdf: $(variable)_%_$(version).dat $(script) | plots
+	$(script) $< -o $@
 	cp -v $< plots/
 
 table: $(tables)
@@ -41,15 +43,8 @@ $(tables): $(scripts) $(data)
 	               -o $@ \
 				   $(filter %.yaml,$^)
 
-debug:
-	ipython --pdb -- \
-		./maketable.py -v $(variable) \
-					   -o $(variable)_NO.dat \
-					   $(data)
-	ipython --pdb -- \
-		./maketable.py -v $(variable) \
-					   -o $(variable)_IO.dat \
-					   $(data)
+debug-plot:
+	ipython --pdb -- $(script) -s $(table_NO)
 
 print-%:
 	@echo '$*=$($*)'

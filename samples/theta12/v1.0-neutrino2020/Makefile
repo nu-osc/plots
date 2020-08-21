@@ -7,7 +7,7 @@ suffix   = neutrino2020
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts    = maketable.py pylib/*.py
-script     = ./theta12.py
+script     = ./$(variable).py
 data       = $(shell realpath $(wildcard data/*.yaml))
 tables     = $(variable)_$(version).dat
 targets    = $(tables:%.dat=plots/%.png) $(tables:%.dat=plots/%.pdf)
