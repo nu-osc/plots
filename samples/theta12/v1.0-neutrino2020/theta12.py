@@ -18,7 +18,7 @@ def main(args):
     plt.rc('text', usetex=True)
     plt.rcParams['grid.alpha'] = 0.1
     plt.rcParams['grid.linewidth'] = 2
-    plt.rcParams.update({'font.size': 15})
+    plt.rcParams.update({'font.size': 15, 'font.family': 'serif'})
     plt.rcParams.update({'legend.fontsize': 18})
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
