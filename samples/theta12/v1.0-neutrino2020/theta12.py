@@ -37,16 +37,17 @@ def main(args):
     fracbottom = 2.3
     fractop    = 0.5
     fracax     = 1.
-    figheight = (nitems+fractop+fracbottom+fracax)*singleheight
+    figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
+    axtop      = 1.0-fractop*singleheight/figheight
     fig = plt.figure(figsize=(8,figheight))
     ax = fig.add_subplot(111)
+    ax.minorticks_on()
     ax.set_xlabel(variable)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
     ax.set_xlim(lims)
-    ax.minorticks_on()
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.30, right=0.82, top=1.0-fractop*singleheight/figheight, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.30, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -80,7 +81,7 @@ def main(args):
     double_y.set_yticks(yticks)
     double_y.set_yticklabels(latex_text, ha='left')
 
-    ax.text(1.0, 0.5, reference, rotation=90, color='xkcd:greyish', transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     if args.output:
         plt.savefig(args.output, dpi=300)

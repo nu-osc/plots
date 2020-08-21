@@ -44,7 +44,7 @@ $(tables): $(scripts) $(data)
 				   $(filter %.yaml,$^)
 
 debug-plot:
-	ipython --pdb -- $(script) -s $(table_NO)
+	ipython --pdb -- $(script) -s $(table_NO) --nmo NO
 
 print-%:
 	@echo '$*=$($*)'

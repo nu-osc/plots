@@ -1,6 +1,6 @@
 # Neutrino mass order sensitivity for future experiments, after Neutrino 2020
 
-- Version: 1.0
+- Version: 1.0 **beta**
 - [Plotting scripts](samples/future_mo/v1.0-neutrino2020)
 - References:
     * [T2K+SK](data/future_mh/t2ksk.yaml)
