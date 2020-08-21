@@ -7,7 +7,7 @@ import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 import itertools as it
 
-from style import colors
+from style import colors, names
 from reference import reference, variable, lims
 dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U20'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
 
@@ -60,7 +60,7 @@ def main(args):
         plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
 
         name = name.replace('_', ' ')
-        exp_name.append(name)
+        exp_name.append(names.get(name, name))
         latex_text.append(latex)
 
     #

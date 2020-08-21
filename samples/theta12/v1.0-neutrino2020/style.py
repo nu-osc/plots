@@ -10,3 +10,6 @@ colors = {
 	'foreroetal.':     'xkcd:steel grey'
 	}
 
+names = {
+	'Super-Kamiokande': 'SuperK+SNO'
+	}
