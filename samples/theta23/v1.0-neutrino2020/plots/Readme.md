@@ -11,9 +11,7 @@
     * [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Cross checks by:
-
 - Notes:
-
 
 | Normal ordering                    | Inverted Ordering                  |
 | ---                                | ---                                |
