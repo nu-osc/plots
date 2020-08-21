@@ -39,15 +39,8 @@ $(tables): $(scripts) $(data)
 	               -o $@ \
 				   $(filter %.yaml,$^)
 
-debug:
-	ipython --pdb -- \
-		./maketable.py -v $(variable) \
-					   -o $(variable)_NO.dat \
-					   $(data)
-	ipython --pdb -- \
-		./maketable.py -v $(variable) \
-					   -o $(variable)_IO.dat \
-					   $(data)
+debug-plot:
+	ipython --pdb -- $(script) -s $(tables)
 
 print-%:
 	@echo '$*=$($*)'
