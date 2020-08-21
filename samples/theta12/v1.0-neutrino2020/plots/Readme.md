@@ -8,7 +8,5 @@
 - Cross checks by:
 - Notes:
 
-| Normal ordering               | 
-| ---                           | 
-| ![sin²2θ₁₂](theta12_v1-0.png) | 
+![sin²2θ₁₂](theta12_v1-0.png)
 

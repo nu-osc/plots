@@ -19,5 +19,5 @@
     * grey MO numbers on right axis are experiment maximal sensitivities.  For T2K and SK 3.5 sigma is expected result of joint fit 
 
 
- ![MO](mo_v1-0.png) 
+![MO](mo_v1-0.png) 
 

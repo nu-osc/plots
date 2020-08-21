@@ -23,5 +23,4 @@
     * sources for sensitivities vs years for all experiments are written in references
 
 
- ![MO](future_nmo_v1-0.png) 
-
+![MO](future_nmo_v1-0.png) 

@@ -8,7 +8,5 @@
 - Cross checks by:
 - Notes:
 
-| Normal ordering         | 
-| ---                     | 
-| ![Δm²₂₁](dm21_v1-0.png) | 
+![Δm²₂₁](dm21_v1-0.png)
 
