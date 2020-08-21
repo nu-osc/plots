@@ -1,3 +1,5 @@
+# :warning: This is a beta version of the plot. Use it at your own risk.
+
 # $`\Delta m^2_{21}`$ measurements comparison, after Neutrino 2020
 
 - Version: 1.0 **beta**
