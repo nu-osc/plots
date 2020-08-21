@@ -1,4 +1,4 @@
-# $`\sin^2 2\theta_{12}`$ measurements comparison, after Neutrino 2020
+# $`\sin^2 \theta_{12}`$ measurements comparison, after Neutrino 2020
 
 - Version: 1.0 **beta**
 - [Plotting scripts](samples/theta12/v1.0-neutrino2020)
