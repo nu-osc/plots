@@ -1,4 +1,4 @@
-# $`\Delta m^2_{32}`$ measurements comparison, updated after Neutrino 2020
+# $`|\Delta m^2_{32}|`$ measurements comparison, updated after Neutrino 2020
 
 - Version: 4.0
 - [Plotting scripts](samples/dm32/v4.0-neutrino2020)
@@ -13,8 +13,8 @@
     * [MINOS](data/minos_2020-07-neutrino2020.yaml)
     * [IceCube](data/icecube_2020-07-neutrino2020.yaml)
 - Conversions:
-    * Effective mass splitting $`\Delta m^2_\mathrm{ee}`$ conversion (RENO):
-        + $`\Delta m^2_{32} = \Delta m^2_\mathrm{ee} - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$
+    * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
+        + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{ee}| - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$, where $`\alpha`$ is +1/-1 for NO/IO.
         + PDG 2020 values:
             + $`\sin^2\theta_{13} = 0.307`$
             + $`\Delta m^2_{21} = 7.53\cdot10^{-5}\text{ eV}^2`$
