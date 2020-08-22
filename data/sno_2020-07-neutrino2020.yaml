@@ -20,7 +20,7 @@ result:
             right: 1.9
     amplitude12:
         precision: 3
-        mode: tanh
+        mode: tan
         value: 0.427
         uncertainty:
             left: 0.029
