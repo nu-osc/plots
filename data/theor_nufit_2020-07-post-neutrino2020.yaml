@@ -77,7 +77,7 @@ result:
             left: 0.20
             right: 0.21
     amplitude12:
-        precision: 2
+        precision: 3
         mode: single
         value: 0.304
         uncertainty:

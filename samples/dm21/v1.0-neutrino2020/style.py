@@ -4,7 +4,8 @@ colors = {
     'nova':            'xkcd:green',
     't2k':             'xkcd:green',
     'minos':           'xkcd:green',
-    'superkamiokande': 'xkcd:saffron',
+    'superksno':       'xkcd:saffron',
+    'sno':             'xkcd:saffron',
     'icecube':         'xkcd:azure',
     'nufit5.0':        'xkcd:steel grey',
     'foreroetal.':     'xkcd:steel grey'

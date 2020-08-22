@@ -20,7 +20,7 @@ result:
             right: 1.9
         notes: unclear source
     amplitude12:
-        precision: 2
+        precision: 3
         mode: single
         value: 0.299
         uncertainty:
