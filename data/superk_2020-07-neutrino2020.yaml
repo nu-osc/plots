@@ -62,7 +62,7 @@ result:
             right: 1.21
         notes: joint SK+SNO
     amplitude12:
-        precision: 2
+        precision: 3
         mode: single
         value: 0.306
         uncertainty: 0.014
