@@ -18,12 +18,10 @@ result:
         uncertainty:
             left: 1.4
             right: 1.9
-        notes: unclear source
     amplitude12:
         precision: 3
-        mode: single
-        value: 0.299
+        mode: tanh
+        value: 0.427
         uncertainty:
-            left: 0.020
-            right: 0.023
-        notes: unclear source
+            left: 0.029
+            right: 0.033
