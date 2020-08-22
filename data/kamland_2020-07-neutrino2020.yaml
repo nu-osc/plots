@@ -19,13 +19,13 @@ result:
         uncertainty:
             left: 0.18
             right: 0.19
-        notes: unclear source
+        notes: reanalysis made by SuperK with newer th13
     amplitude12:
-        precision: 2
+        precision: 3
         mode: single
         value: 0.316
         uncertainty:
             left: 0.026
             right: 0.034
-        notes: unclear source
+        notes: reanalysis made by SuperK with newer th13
 
