@@ -1,4 +1,4 @@
 style            name              notes      value    left    right    span  result                  arxiv    conf
-kamland          KamLAND           {}          7.54    0.18     0.19    0.37  $7.54^{+0.19}_{-0.18}$  {}       {}
 kamlandsksno     KamLAND+SK+SNO    {}          7.51    0.18     0.19    0.37  $7.51^{+0.19}_{-0.18}$  {}       {}
+kamland          KamLAND           {}          7.54    0.18     0.19    0.37  $7.54^{+0.19}_{-0.18}$  {}       {}
 superkamiokande  Super-Kamiokande  {}          6.11    0.68     1.21    1.89  $6.11^{+1.21}_{-0.68}$  {}       Neutrino2020
