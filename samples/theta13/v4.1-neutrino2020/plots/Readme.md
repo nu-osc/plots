@@ -7,7 +7,7 @@
     * Added global measurements
     * Switched to matplotlib plotting instead of latex
 - [Plotting scripts](samples/theta13/v4.1-neutrino2020)
-- [Data table](theta13.dat)
+- [Data table](theta13_v4-1.dat)
 - References:
     - [Daya Bay nGd](data/dayabay_2018-06-neutrino2018.yaml)
     - [RENO](data/reno_2020-07-neutrino2020.yaml)
