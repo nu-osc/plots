@@ -7,6 +7,7 @@
 | Neutrino 2020 | [v4.0](plots/theta13/v4.0-neutrino2020) | [v4.0](plots/dm32/v4.0-neutrino2020) | [v2.0](plots/deltaCP/v2.0-neutrino2020/) |
 
 All these plots may be downloaded as a single file [nuosc_comparison_2020-08-24.zip](archives/nuosc_comparison_2020-08-24.zip).
+Previous archives are located in [archives/](archives/).
 
 ## All plots
 
