@@ -37,11 +37,11 @@ plots:
 	test -d plots || mkdir plots
 
 plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) | plots
-	$(script) $< -o $@
+	$(script) $< -o $@ -e theor
 	cp -v $< plots/
 
 plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
-	$(script) $< -o $@ -e theor
+	$(script) $< -o $@
 	cp -v $< plots/
 
 table: $(tables)
