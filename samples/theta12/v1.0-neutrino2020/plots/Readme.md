@@ -16,7 +16,7 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
     * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
-        + $`\sin^2 \theta_{12}` = 1 - 1/(1+\tan^2 \theta_{12})`$.
+        + $`\sin^2 \theta_{12} = 1 - 1/(1+\tan^2 \theta_{12})`$.
 
 | Experiments only             | Including global                    |
 |------------------------------|-------------------------------------|
