@@ -1,8 +1,8 @@
 style        name           type         notes      value    left    right        span  result                        arxiv              conf
-nufit5.0     NuFIT_5.0      theory       {}        0.09    0        0       0.00477615  $0.09\pm0.00$                 hep-ph/2007.14792  {}
-nufit5.0     NuFIT_5.0      theory       {}        0.09    0        0       0.00477815  $0.09\pm0.00$                 hep-ph/2007.14792  {}
-foreroetal.  Forero_et_al.  theory       {}        0.09    0        0       0.00504346  $0.09\pm0.00$                 hep-ex/2006.11237  {}
-foreroetal.  Forero_et_al.  theory       {}        0.09    0        0       0.00508448  $0.09\pm0.00$                 hep-ex/2006.11237  {}
+nufit5.0     NuFIT_5.0      theory       {}        0.0875  0.0024   0.0024  0.00477615  $0.0875\pm0.0024$             hep-ph/2007.14792  {}
+nufit5.0     NuFIT_5.0      theory       {}        0.0868  0.0024   0.0024  0.00477815  $0.0868\pm0.0024$             hep-ph/2007.14792  {}
+foreroetal.  Forero_et_al.  theory       {}        0.088   0.0029   0.0021  0.00504346  $0.0880^{+0.0021}_{-0.0029}$  hep-ex/2006.11237  {}
+foreroetal.  Forero_et_al.  theory       {}        0.087   0.003    0.0021  0.00508448  $0.0870^{+0.0021}_{-0.0030}$  hep-ex/2006.11237  {}
 dayabay_ngd  Daya_Bay       reactor      nGd       0.0856  0.0029   0.0029  0.0058      $0.0856\pm0.0029$             hep-ex/1809.02261  Neutrino2018
 reno_ngd     RENO           reactor      nGd       0.0892  0.0063   0.0063  0.0125873   $0.0892\pm0.0063$             {}                 Neutrino2020
 dayabay_nh   Daya_Bay       reactor      nH        0.071   0.011    0.011   0.022       $0.071\pm0.011$               hep-ex/1603.03549  Neutrino2016
