@@ -57,8 +57,9 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    padleft = 90
-    plt.subplots_adjust(left=0.18, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    padleft = 110
+    namewidth = '38mm'
+    plt.subplots_adjust(left=0.22, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -67,7 +68,7 @@ def main(args):
     latex_text = []
     offset=0
     for count, exp in enumerate(result):
-        id, name, _, typ, value, left, right, _, latex = exp
+        id, name, typ, notes, value, left, right, _, latex = exp
 
         kwargs=dict()
         if dayabay and 'Daya_Bay' in name:
@@ -79,7 +80,9 @@ def main(args):
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
 
-        exp_name.append(names.get(name, name))
+        name = names.get(name, name)
+        name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}}}'
+        exp_name.append(name)
 
         latex=re.sub(r'\.(\d\d\d)\\pm', r'.\1{\\phantom{0}}\\pm', latex)
         if args.sym:

@@ -3,7 +3,7 @@ version  = v4-1
 suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
-.SUFFIXES: .tex .dat .pdf .png .yaml
+.SUFFIXES: .tex .dat .pdf .png .yaml 
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts    = *.py pylib/*.py
@@ -53,7 +53,7 @@ $(tables): $(scripts) $(data)
 				   $(filter %.yaml,$^)
 
 debug-plot:
-	ipython --pdb -- $(script) -s $(tables) -e theor
+	ipython --pdb -- $(script) -s $(tables) -e theor --dayabay
 
 print-%:
 	@echo '$*=$($*)'
