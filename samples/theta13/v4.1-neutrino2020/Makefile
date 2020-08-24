@@ -4,7 +4,6 @@ suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
-.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v4-0.pdf
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts    = *.py pylib/*.py
@@ -65,4 +64,3 @@ clean-all:
 publish: all
 	test -d $(publishdir) || mkdir -p $(publishdir)
 	cp plots/* $(publishdir)/
-	cp $(table_IO) $(table_NO) $(publishdir)/
