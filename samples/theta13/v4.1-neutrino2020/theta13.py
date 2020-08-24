@@ -71,7 +71,7 @@ def main(args):
         id, name, typ, notes, value, left, right, _, latex = exp
 
         kwargs=dict()
-        if dayabay and 'Daya_Bay' in name:
+        if args.dayabay and 'Daya_Bay' in name:
             kwargs['elinewidth'] = 2.0
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2, **kwargs)
         plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
