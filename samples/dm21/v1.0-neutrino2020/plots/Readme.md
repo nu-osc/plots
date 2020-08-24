@@ -16,5 +16,7 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
-![Δm²₂₁](dm21_v1-0.png)
+| Experiments only        | Including global               |
+|-------------------------|--------------------------------|
+| ![Δm²₂₁](dm21_v1-0.png) | ![Δm²₂₁](dm21_global_v1-0.png) |
 

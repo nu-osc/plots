@@ -47,7 +47,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -159,7 +159,7 @@ def collect(data, var):
     return ret
 
 def collect_experiment(entry, target, var):
-    before = { 'name': entry['experiment'] }
+    before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
 
     if entry.get('type')=='reactor':
         before['notes'] = entry['target']

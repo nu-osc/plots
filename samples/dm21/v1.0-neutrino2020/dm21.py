@@ -9,7 +9,7 @@ import itertools as it
 
 from style import colors, names
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U20'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
 
 def main(args):
     #
@@ -26,8 +26,10 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(8))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(9))
     result = result[::-1]
+    if args.exclude:
+        result = [res for res in result if args.exclude not in res['type']]
     nitems = len(result)
 
     #
@@ -55,8 +57,9 @@ def main(args):
     #
     exp_name = []
     latex_text = []
+    offset=0
     for count, exp in enumerate(result):
-        id, name, _, value, left, right, _, latex = exp
+        id, name, _, typ, value, left, right, _, latex = exp
 
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
         plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
@@ -97,6 +100,7 @@ if __name__ == '__main__':
     parser.add_argument('input', help='file to load')
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
+    parser.add_argument('-e', '--exclude', help='types mask to exclude (tested with contains)')
 
     main(parser.parse_args())
 
