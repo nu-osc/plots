@@ -19,7 +19,7 @@ colors = {
     'nova':            colors['acc'],
     't2k':             colors['acc'],
     'minos':           colors['acc'],
-    'superkamiokande': colors['solar'],
+    'superkamiokande': colors['atm'],
     'superksno':       colors['solar'],
     'sno':             colors['solar'],
     'icecube':         colors['atm'],
