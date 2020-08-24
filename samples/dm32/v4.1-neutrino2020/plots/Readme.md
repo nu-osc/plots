@@ -25,8 +25,8 @@
     * @ldkolupaeva
     * Beda
 
-|                  | Normal ordering                                | Inverted Ordering                          |
-|------------------|------------------------------------------------|--------------------------------------------|
-| Experiments only | ![\|Δm²₃₂\| NO](plots/dm32_NO_v4-1.png)        | ![Δm²₃₂ IO](plots/dm32_IO_v4-1.png)        |
-| Including global | ![\|Δm²₃₂\| NO](plots/dm32_NO_global_v4-1.png) | ![Δm²₃₂ IO](plots/dm32_IO_global_v4-1.png) |
+|                  | Normal ordering                          | Inverted Ordering                    |
+|------------------|------------------------------------------|--------------------------------------|
+| Experiments only | ![\|Δm²₃₂\| NO](dm32_NO_v4-1.png)        | ![Δm²₃₂ IO](dm32_IO_v4-1.png)        |
+| Including global | ![\|Δm²₃₂\| NO](dm32_NO_global_v4-1.png) | ![Δm²₃₂ IO](dm32_IO_global_v4-1.png) |
 
