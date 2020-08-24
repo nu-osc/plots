@@ -5,10 +5,10 @@ suffix   = neutrino2020
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 
-publishdir   = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
-scripts      = maketable.py pylib/*.py
-script       = ./$(variable).py
-data         = $(shell realpath $(wildcard data/*.yaml))
+publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
+scripts    = maketable.py pylib/*.py
+script     = ./$(variable).py
+data       = $(shell realpath $(wildcard data/*.yaml))
 
 #
 # Name combinations
@@ -35,11 +35,6 @@ all: $(targets) | plots
 
 plots:
 	test -d plots || mkdir plots
-
-#define plot =
-	#$(script) $< -o $@
-	#cp -v $< plots/
-#endef
 
 plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@

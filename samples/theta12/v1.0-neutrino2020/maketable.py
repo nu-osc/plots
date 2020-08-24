@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
-"""Version v0.3.0
+"""Version v0.4.0
+
+Changes in 0.4.0:
+    + add Δm²₂₁
 
 Changes in 0.3.0:
     + add sin²θ₁₂
@@ -44,7 +47,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'notes', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -106,12 +109,20 @@ def postprocess_amplitude12(entry):
     entry['style']='_'.join(slist)
     return entry
 
+def postprocess_splitting_small(entry):
+    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
+    if entry['notes']:
+        slist.append(entry['notes'].lower())
+    entry['style']='_'.join(slist)
+    return entry
+
 postprocessors=dict(
         amplitude12     = postprocess_amplitude12,
         amplitude13     = postprocess_amplitude13,
         splitting_large = postprocess_splitting_large,
         deltaCP         = postprocess_deltaCP,
-        amplitude23     = postprocess_amplitude23
+        amplitude23     = postprocess_amplitude23,
+        splitting_small = postprocess_splitting_small
         )
 
 def select_columns(data, columns):
@@ -148,7 +159,7 @@ def collect(data, var):
     return ret
 
 def collect_experiment(entry, target, var):
-    before = { 'name': entry['experiment'] }
+    before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
 
     if entry.get('type')=='reactor':
         before['notes'] = entry['target']
@@ -175,7 +186,7 @@ def collect_result(var, experiment):
         results = [parameter]
 
     for res in results:
-        mode = res.get('mode', parameter['mode'])
+        mode = res.get('mode', parameter.get('mode'))
         precision = res.get('precision', parameter['precision'])
 
         if 'ordering' in context:
@@ -187,7 +198,8 @@ def collect_result(var, experiment):
 
         val = res['value']
         val_left, val_right = get_uncertainty(val, res['uncertainty'])
-        val_left, val, val_right = convert(var, mode, val_left, val, val_right)
+        if mode:
+            val_left, val, val_right = convert(var, mode, val_left, val, val_right)
         unc_left = val - val_left
         unc_right = val_right - val
 
@@ -268,7 +280,7 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12' ]
+    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12', 'splitting_small' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')

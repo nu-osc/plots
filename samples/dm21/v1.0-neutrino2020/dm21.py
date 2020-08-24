@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 import itertools as it
+import re
 
 from style import colors, names
 from reference import reference, variable, lims
@@ -66,6 +67,10 @@ def main(args):
 
         name = name.replace('_', ' ')
         exp_name.append(names.get(name, name))
+
+        if args.sym:
+            latex=re.subn(r'(\\pm([0-9]\.)?[0-9]+)', r'{\\scriptstyle\1}', latex)[0]
+
         latex_text.append(latex)
 
     #
@@ -101,6 +106,8 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
     parser.add_argument('-e', '--exclude', help='types mask to exclude (tested with contains)')
+    parser.add_argument('--sym', default=True, action='store_true', help='make symmetric error smaller')
+    parser.add_argument('--no-sym', action='store_false', dest='sym', help='do not make make symmetric error smaller')
 
     main(parser.parse_args())
 
