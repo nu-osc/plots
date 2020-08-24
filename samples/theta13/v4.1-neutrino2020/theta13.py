@@ -57,7 +57,8 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.30, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    padleft = 90
+    plt.subplots_adjust(left=0.18, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -68,10 +69,16 @@ def main(args):
     for count, exp in enumerate(result):
         id, name, _, typ, value, left, right, _, latex = exp
 
-        plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+        kwargs=dict()
+        if dayabay and 'Daya_Bay' in name:
+            kwargs['elinewidth'] = 2.0
+        plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2, **kwargs)
         plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
 
         name = name.replace('_', ' ')
+        if args.dayabay:
+            name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
+
         exp_name.append(names.get(name, name))
 
         latex=re.sub(r'\.(\d\d\d)\\pm', r'.\1{\\phantom{0}}\\pm', latex)
@@ -87,7 +94,7 @@ def main(args):
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=150)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=padleft)
 
     # Right: values
     double_y = ax.twinx()
