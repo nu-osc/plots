@@ -17,6 +17,9 @@
     * [T2K](data/t2k_2020-07-neutrino2020.yaml)
     * [MINOS](data/minos_2020-07-neutrino2020.yaml)
     * [IceCube](data/icecube_2020-07-neutrino2020.yaml)
+    * [SuperK](data/superk_2020-07-neutrino2020.yaml)
+    * [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
+    * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{ee}| - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$, where $`\alpha`$ is +1/-1 for NO/IO.
