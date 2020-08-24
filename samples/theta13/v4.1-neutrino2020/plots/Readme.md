@@ -14,6 +14,8 @@
     - [Daya Bay nH](data/dayabay_2016-07-neutrino2016.yaml)
     - [Double CHOOZ](data/dchooz_2020-07-neutrino2020.yaml)
     - [T2K](data/t2k_2020-07-neutrino2020.yaml)
+    - [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
+    - [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Cross checks by:
     * @ldkolupaeva
     * Beda
