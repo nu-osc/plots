@@ -3,6 +3,9 @@
 # $`|\Delta m^2_{32}|`$ measurements comparison, updated after Neutrino 2020
 
 - Version: 4.1
+- Updates since v4.0:
+    * Added global measurements
+    * Switched to matplotlib plotting instead of latex
 - [Plotting scripts](samples/dm32/v4.1-neutrino2020)
 - Data tables:
     * [NO table](dm32_NO_v4-1.dat)
@@ -24,6 +27,8 @@
 - Cross checks by:
     * @ldkolupaeva
     * Beda
+- Notes:
+    * Forero et al. is pre-Neutrino fit
 
 |                  | Normal ordering                          | Inverted Ordering                    |
 |------------------|------------------------------------------|--------------------------------------|
