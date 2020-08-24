@@ -1,9 +1,10 @@
-variable = theta12
-version  = v1-0
+variable = theta13
+version  = v4-1
 suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
+.PRECIOUS: %.tex %.dat %.pdf %.png plots/%_v4-0.pdf
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
 scripts    = maketable.py pylib/*.py
@@ -15,7 +16,8 @@ data       = $(shell realpath $(wildcard data/*.yaml))
 #
 name         = $(variable)_$(version)
 name_global  = $(variable)_global_$(version)
-names        = $(name) $(name_global)
+name_dayabay = $(variable)_dayabay_$(version)
+names        = $(name) $(name_global) $(name_dayabay)
 # Extensions
 extensions   = pdf png
 
@@ -40,9 +42,11 @@ plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$
 	$(script) $< -o $@ -e theor
 	cp -v $< plots/
 
+plots/$(variable)_dayabay_$(version).pdf plots/$(variable)_dayabay_$(version).png: $(variable)_$(version).dat $(script) | plots
+	$(script) $< -o $@ -e theor --dayabay
+
 plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@
-	cp -v $< plots/
 
 $(tables): $(scripts) $(data)
 	./maketable.py -v $(variable) \

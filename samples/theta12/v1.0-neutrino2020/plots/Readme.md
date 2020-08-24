@@ -1,6 +1,6 @@
 # :warning: This is a beta version of the plot. Use it at your own risk.
 
-# $`\sin^2 \theta_{12}`$ measurement comparison, after Neutrino 2020
+# $`\sin^2 \theta_{12}`$ measurements comparison, after Neutrino 2020
 
 - Version: 1.0 **beta**
 - [Plotting scripts](samples/theta12/v1.0-neutrino2020)
@@ -16,7 +16,7 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
-| Experiments only              | Including global                     |
-|-------------------------------|--------------------------------------|
-| ![sin²2θ₁₂](theta12_v1-0.png) | ![sin²2θ₁₂](theta12_global_v1-0.png) |
+| Experiments only             | Including global                    |
+|------------------------------|-------------------------------------|
+| ![sin²θ₁₂](theta12_v1-0.png) | ![sin²θ₁₂](theta12_global_v1-0.png) |
 
