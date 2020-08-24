@@ -34,3 +34,8 @@ names = {
 def dayabay():
 	colors['dayabay_nh'] = 'xkcd:blue'
 	colors['dayabay_ngd'] = 'xkcd:blue'
+
+titles = dict(
+    NO='Normal mass ordering',
+    IO='Inverted mass ordering',
+    )

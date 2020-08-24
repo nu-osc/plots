@@ -8,7 +8,7 @@ from matplotlib.patches import Arc, Rectangle
 import itertools as it
 import re
 
-from style import colors, names, dayabay
+from style import colors, names, dayabay, titles
 from reference import reference, variable, lims
 dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'),  ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
 
@@ -39,12 +39,15 @@ def main(args):
         result = [res for res in result if args.exclude not in res['type']]
     nitems = len(result)
 
+    ordering = result[0]['ordering']
+    title = titles.get(ordering)
+
     #
     # Figure
     #
     singleheight = 0.3
     fracbottom = 2.3
-    fractop    = 0.5
+    fractop    = 1.2
     fracax     = 1.
     figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
     axtop      = 1.0-fractop*singleheight/figheight
@@ -53,6 +56,8 @@ def main(args):
     ax.minorticks_on()
     ax.set_xlabel(variable)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
+    if title:
+        ax.set_title(title)
     if lims:
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)

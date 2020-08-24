@@ -2,7 +2,7 @@ variable = dm32
 version  = v4-1
 suffix   = neutrino2020
 
-.PHONY: all table debug clean clean-all publish
+.PHONY: all table debug debug-plot clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 
 publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
@@ -81,6 +81,9 @@ $(table_io): $(scripts) $(data)
 		           -o $@ \
 		           --nmo IO \
 				   $(filter %.yaml,$^)
+
+debug-plot:
+	$(script) $(variable)_NO_$(version).dat -s --dayabay
 
 debug:
 	ipython --pdb -- \
