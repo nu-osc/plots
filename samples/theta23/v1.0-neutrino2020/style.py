@@ -11,6 +11,7 @@ colors = {
 	}
 
 names = {
+		'Super-Kamiokande': 'SuperK'
 	}
 
 titles = dict(

@@ -55,7 +55,8 @@ def main(args):
     ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.23, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    padleft=80
+    plt.subplots_adjust(left=0.16, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     plt.title(titles.get(args.nmo, '???'), pad=15)
     plt.plot([0.5, 0.5], [0.5, 7.5], ls='--', color='grey', alpha=0.5)
@@ -69,6 +70,7 @@ def main(args):
     for count, exp in enumerate(result):
         id, name, oct, cv, left, right, latex = exp
         name = name.replace('_', ' ')
+        name = names.get(name, name)
         if name in exp_name:
             counter=exp_name.index(name)
             plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
@@ -94,7 +96,7 @@ def main(args):
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False,  pad=120)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False,  pad=padleft)
 
     # Right: values
     double_y = ax.twinx()
