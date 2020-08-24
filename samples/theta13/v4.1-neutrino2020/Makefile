@@ -53,7 +53,7 @@ $(tables): $(scripts) $(data)
 				   $(filter %.yaml,$^)
 
 debug-plot:
-	ipython --pdb -- $(script) -s $(tables) -e theor --dayabay
+	ipython --pdb -- $(script) -s $(tables) --dayabay
 
 print-%:
 	@echo '$*=$($*)'

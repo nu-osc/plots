@@ -58,7 +58,6 @@ def main(args):
     #
     exp_name = []
     latex_text = []
-    offset=0
     for count, exp in enumerate(result):
         id, name, _, typ, value, left, right, _, latex = exp
 

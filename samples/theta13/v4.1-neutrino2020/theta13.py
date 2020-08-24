@@ -10,7 +10,7 @@ import re
 
 from style import colors, names, dayabay
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
 
 def main(args):
     #
@@ -33,11 +33,13 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(9))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
     result = result[::-1]
     if args.exclude:
-        result = [res for res in result if args.exclude not in res['type']]
-    nitems = len(result)
+        mask = [args.exclude not in res['type'] for res in result]
+        result = result[mask]
+    uniqnames = dict(zip(*np.unique(np.core.defchararray.add(result['exp'],result['notes']), return_counts=True)))
+    nitems = len(uniqnames)
 
     #
     # Figure
@@ -66,22 +68,51 @@ def main(args):
     #
     exp_name = []
     latex_text = []
+    duplicates = {}
+    occurances = {}
     offset=0
-    for count, exp in enumerate(result):
-        id, name, typ, notes, value, left, right, _, latex = exp
+    for i, exp in enumerate(result):
+        id, name, typ, notes, ordering, value, left, right, _, latex = exp
+        count=i-offset
 
-        kwargs=dict()
-        if args.dayabay and 'Daya_Bay' in name:
-            kwargs['elinewidth'] = 2.0
-        plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2, **kwargs)
-        plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+        uname = name+notes
+        try:
+            count=duplicates[uname]
+            duplicate=True
+            offset+=1
+            occurances[uname]+=1
+            occurance = occurances[uname]
+        except KeyError:
+            duplicates[uname]=count
+            duplicate=False
+            occurances[uname], occurance=0, 0
 
+        voffset = occurance/(uniqnames[uname]-1)-0.5 if uniqnames[uname]>1 else 0.0
+        vpos = count+1 + voffset*0.2
+
+        ekwargs=dict(capsize=2, color=colors[id])
+        pkwargs=dict(marker='o', color=colors[id])
         name = name.replace('_', ' ')
+        if args.dayabay and 'Daya Bay' in name:
+            ekwargs['elinewidth'] = 2.0
+        if ordering=='IO':
+            ekwargs['alpha'] = 0.4
+            pkwargs['alpha'] = 0.4
+            pkwargs['marker'] = '|'
+
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
 
+        elines = plt.errorbar(value, vpos, xerr=np.array([[left, right]]).T, **ekwargs)
+        plt.plot(value, vpos, **pkwargs)
+
+        if ordering=='IO':
+            elines[-1][0].set_linestyle('dashed')
+            continue
+
+
         name = names.get(name, name)
-        name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}}}'
+        name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}{ordering}}}'
         exp_name.append(name)
 
         latex=re.sub(r'\.(\d\d\d)\\pm', r'.\1{\\phantom{0}}\\pm', latex)
