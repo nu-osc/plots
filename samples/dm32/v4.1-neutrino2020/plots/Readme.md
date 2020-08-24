@@ -2,7 +2,7 @@
 
 # $`|\Delta m^2_{32}|`$ measurements comparison, updated after Neutrino 2020
 
-- Version: 4.0
+- Version: 4.1
 - [Plotting scripts](samples/dm32/v4.1-neutrino2020)
 - Data tables:
     * [NO table](dm32_NO_v4-1.dat)
