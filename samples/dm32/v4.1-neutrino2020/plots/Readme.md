@@ -26,6 +26,8 @@
         + PDG 2020 values:
             + $`\sin^2\theta_{13} = 0.307`$
             + $`\Delta m^2_{21} = 7.53\cdot10^{-5}\text{ eV}^2`$
+    *$`|\Delta m^2_\mathrm{31}|`$ to $`|\Delta m^2_\mathrm{32}|`$ conversion:
+        + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{31}| - \alpha |\Delta m^2_\mathrm{21}|, where $`\alpha`$ is +1/-1 for NO/IO.
     * Asymmetric syst/stat errors conversion: quadratically sum left and right part of each (stat/syst) contribution independently
 - Cross checks by:
     * @ldkolupaeva
