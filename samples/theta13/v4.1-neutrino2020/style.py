@@ -19,6 +19,7 @@ colors = {
     'nova':            colors['acc'],
     't2k':             colors['acc'],
     'minos':           colors['acc'],
+    'superkamiokande': colors['solar'],
     'superksno':       colors['solar'],
     'sno':             colors['solar'],
     'icecube':         colors['atm'],
@@ -26,9 +27,7 @@ colors = {
     'foreroetal.':     colors['global'],
 	}
 
-names = {
-	'Super-Kamiokande': 'SuperK+SNO'
-	}
+names = {}
 
 def dayabay():
 	colors['dayabay_nh'] = 'xkcd:blue'

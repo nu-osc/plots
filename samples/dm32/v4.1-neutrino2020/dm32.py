@@ -63,6 +63,7 @@ def main(args):
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
     padleft = 80
+    namewidth = '38mm'
     plt.subplots_adjust(left=0.18, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
@@ -84,7 +85,9 @@ def main(args):
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
 
-        exp_name.append(names.get(name, name))
+        name = names.get(name, name)
+        name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}}}'
+        exp_name.append(name)
 
         latex=re.sub(r'\.(\d\d\d)\\pm', r'.\1{\\phantom{0}}\\pm', latex)
         if args.sym:

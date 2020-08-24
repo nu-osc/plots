@@ -27,9 +27,7 @@ colors = {
     'foreroetal.':     colors['global'],
 	}
 
-names = {
-	'Super-Kamiokande': 'SuperK+SNO'
-	}
+names = {}
 
 def dayabay():
 	colors['dayabay_nh'] = 'xkcd:blue'
