@@ -16,5 +16,7 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
-![sin²2θ₁₂](theta12_v1-0.png)
+| Experiments only              | Including global                     |
+|-------------------------------|--------------------------------------|
+| ![sin²2θ₁₂](theta12_v1-0.png) | ![sin²2θ₁₂](theta12_global_v1-0.png) |
 
