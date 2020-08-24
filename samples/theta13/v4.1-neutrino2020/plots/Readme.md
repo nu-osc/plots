@@ -5,6 +5,7 @@
 - Version: 4.1 **beta**
 - Updates since v4.0:
     * Added global measurements
+    * Switched to matplotlib plotting instead of latex
 - [Plotting scripts](samples/theta13/v4.1-neutrino2020)
 - [Data table](theta13.dat)
 - References:
