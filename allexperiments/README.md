@@ -7,11 +7,11 @@
 
 ## Chronology
 
-<table>
+<table style="width:100%;text-align:left;background-color:gold;">
   <tr>
     <td>Experiment</td> <td>1998</td> <td>1999</td> <td>2000</td>
   </tr>
   <tr>
-    <td>Palo Verde</td> <td style="background-color:yellowgreen;color:white;"> t</td> <td>u</td> <td>u</td>
+    <td>Palo Verde</td> <td> t</td> <td>u</td> <td>u</td>
   </tr>
 </table>
