@@ -7,8 +7,7 @@
 
 ## Chronology
 
-```html
-<!DOCTYPE html>
+
 <html>
  <body>
   <table bgcolor="#ffcc00">
@@ -22,4 +21,3 @@
 
  </body>
 </html>
-```
