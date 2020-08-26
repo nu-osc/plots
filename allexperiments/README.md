@@ -7,7 +7,7 @@
 
 ## Chronology
 
-$`\color{color-code}{your-text-here}`$
+
 
 <table class="css3">
   <tr>
@@ -18,6 +18,8 @@ $`\color{color-code}{your-text-here}`$
   </tr>
 </table>
 
+<style>
 table.css3 tbody tr + tr td:nth-child(2) {
     background-color: red;
 }
+<style>
