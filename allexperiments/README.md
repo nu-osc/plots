@@ -7,7 +7,7 @@
 
 ## Chronology
 
-$\color{color-code}{your-text-here}$
+$`\color{color-code}{your-text-here}`$
 
 <table class="css3">
   <tr>
