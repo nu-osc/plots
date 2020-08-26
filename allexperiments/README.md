@@ -15,3 +15,7 @@
     <td>Palo Verde</td> <td> t</td> <td>u</td> <td>u</td>
   </tr>
 </table>
+
+table.css3 tbody tr + tr td:nth-child(2) {
+    background-color: red;
+}
