@@ -9,7 +9,7 @@
 
 
 
-<table class="css2">
+<table class="css3">
   <tr>
     <td>Experiment</td> <td>1998</td> <td>1999</td> <td>2000</td>
   </tr>
@@ -19,11 +19,7 @@
 </table>
 
 <style>
-table.css2 tbody tr + tr td + td {
-    background-color: tomato;
+table.css3 tbody tr + tr td:nth-child(2) {
+    background-color: red;
 }
-/* overwrite background again */
-table.css2 tbody tr + tr td + td + td { 
-    background-color: inherit;
-}
-<style>
+</style>
