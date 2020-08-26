@@ -7,7 +7,7 @@
 
 ## Chronology
 
-<table style="width:100%;text-align:left;background-color:gold;">
+<table class="css3">
   <tr>
     <td>Experiment</td> <td>1998</td> <td>1999</td> <td>2000</td>
   </tr>
