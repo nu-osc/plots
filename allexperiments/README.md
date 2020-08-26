@@ -20,7 +20,7 @@ ${test}=![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)
     <td colspan="4">
       Available
     </td>
-    <td rowspan="2">
+    <td olspan="4">
       Processes
     </td>
     <td colspan="4">
