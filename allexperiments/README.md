@@ -3,35 +3,34 @@
 ## Legend
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `reactor experiment`
-${test}=![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)
-
 
 
 ## Chronology
 
-| Experiment | 1998     | 
-| ------     |------    |
-| Palo Verde | {{test}} |
-
-
 
 <table>
   <tr>
-    <td colspan="4">
-      Available
+    <td>
+      Experiment
     </td>
-    <td olspan="4">
-      Processes
+    <td>
+      1998
     </td>
-    <td colspan="4">
-      Allocation
+    <td>
+      1999
     </td>
-    <td colspan="4">
-      Max
+    <td>
+      2000
     </td>
   </tr>
     <td>
-      0
+      Palo Verde
+    </td>
+    <td colspan="2">
+      u
+    </td>
+    <td>
+      u
     </td>
   </tr>
 </table>
