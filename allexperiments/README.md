@@ -26,7 +26,10 @@
     <td>
       Palo Verde
     </td>
-    <td colspan="2">
+    <td>
+      
+    </td>
+    <td>
       u
     </td>
     <td>
