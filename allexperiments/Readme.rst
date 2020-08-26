@@ -1,0 +1,4 @@
+RST example
+===========
+
+Some text
