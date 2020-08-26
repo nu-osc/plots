@@ -7,6 +7,8 @@
 
 ## Chronology
 
+$\color{color-code}{your-text-here}$
+
 <table class="css3">
   <tr>
     <td>Experiment</td> <td>1998</td> <td>1999</td> <td>2000</td>
