@@ -18,7 +18,7 @@ result:
             - ordering: 'NO'
               value: 2.56
               uncertainty:
-                  left: 0.4
+                  left: 0.04
                   right: 0.03
             - ordering: IO
               value: 2.46
@@ -50,7 +50,7 @@ result:
                   left: 0.023
                   right: 0.018
     amplitude13:
-        precision: 2
+        precision: 4
         mode: single
         results:
             - ordering: 'NO'
@@ -65,13 +65,13 @@ result:
                   right: 0.00056
     splitting_small:
         precision: 2
-        mode: '12'
         value: 7.50
         uncertainty:
-            left: 0.22
-            right: 0.20
+            left: 0.20
+            right: 0.22
     amplitude12:
-        precision: 2
+        precision: 3
+        mode: single
         value: 0.318
         uncertainty: 0.016
     hier:

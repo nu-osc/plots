@@ -57,7 +57,7 @@ result:
                   left: 0.019
                   right: 0.016
     amplitude13:
-        precision: 2
+        precision: 4
         mode: single
         results:
             - ordering: 'NO'
@@ -72,13 +72,13 @@ result:
                   right: 0.00063
     splitting_small:
         precision: 2
-        mode: '12'
         value: 7.42
         uncertainty:
             left: 0.20
             right: 0.21
     amplitude12:
-        precision: 2
+        precision: 3
+        mode: single
         value: 0.304
         uncertainty:
             left: 0.012

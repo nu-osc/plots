@@ -7,6 +7,9 @@ import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 import itertools as it
 
+from style import colors, names, titles
+from reference import reference, variable, lims
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('oct', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'), ('latex', 'U30')])
 def main(args):
     if args.nmo=='auto':
         if 'NO' in args.output:
@@ -17,62 +20,57 @@ def main(args):
         else:
             raise Exception('Unable to determine ordering')
 
-#
-# RC params
-#
+    #
+    # RC params
+    #
     plt.rc('text', usetex=True)
     plt.rcParams['grid.alpha'] = 0.1
     plt.rcParams['grid.linewidth'] = 2
-    plt.rcParams.update({'font.size': 15})
+    plt.rcParams.update({'font.size': 15, 'font.family': 'serif'})
     plt.rcParams.update({'legend.fontsize': 18})
-    fig_size = plt.rcParams['figure.figsize']
-    fig_size[0] = 8
-    fig_size[1] = 4
-    plt.rcParams['figure.figsize'] = fig_size
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
 
-    prop_cycle = plt.rcParams['axes.prop_cycle']
-    colors = prop_cycle.by_key()['color']
-    colors = {'nova' : 'xkcd:green', 't2k' : 'xkcd:green', 'minos' : 'xkcd:green',
-              'superkamiokande' : 'xkcd:azure', 'icecube' : 'xkcd:azure',
-              'nufit5.0' : 'xkcd:steel grey', 'foreroetal.' : 'xkcd:steel grey'}
+    #
+    # Load
+    #
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=(0, 1, 4, 5, 6, 7, 9))
+    result = result[::-1]
+    nitems = len(result)
 
-#
-# Load
-#
-    filename = 'amplitude23_NO.dat'
-    if args.input:
-        filename = args.input
-    dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('oct', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'), ('latex', 'U30')])
-    result = np.loadtxt(filename, dtype=dtype1, skiprows=1, usecols=(0, 1, 4, 5, 6, 7, 9))
-    print(result)
-    rev_arr = result[::-1]
-#
-# Figure
-    fig = plt.figure()
+    #
+    # Figure
+    #
+    singleheight = 0.25
+    fracbottom = 2.4
+    fractop    = 1.8
+    fracax     = 1.
+    figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
+    axtop      = 1.0-fractop*singleheight/figheight
+    fig = plt.figure(figsize=(8,figheight))
     ax = fig.add_subplot(111)
-    ax.set_xlabel('$\sin^2 \\theta_{23}$')
-    if args.nmo == 'NO':
-        plt.title('Normal mass ordering', pad=15)
-    if args.nmo == 'IO':
-        plt.title('Inverted mass ordering', pad=15)
-    plt.subplots_adjust(left=0.25, right=0.8, top=0.9, bottom=0.15)
-    ax.set_xlim(0.3,0.7)
-    ax.set_ylim(0.5, 7.5)
-    plt.plot([0.5, 0.5], [0.5, 7.5], ls='--', color='grey', alpha=0.5)
+    ax.minorticks_on()
+    ax.set_xlabel(variable)
+    ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5-1)
+    ax.set_xlim(lims)
+    ax.tick_params(axis='x', which='both', top=True)
+    ax.xaxis.grid(True)
+    padleft=80
+    plt.subplots_adjust(left=0.16, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
-    exp_name = []
-    latex_text = []
-    latex_lo_text = []
+    plt.title(titles.get(args.nmo, '???'), pad=15)
+    plt.plot([0.5, 0.5], [0.5, 7.5], ls='--', color='grey', alpha=0.5)
 
     #
     # Iterate data
     #
-
-    for count, exp in enumerate(rev_arr):
+    exp_name = []
+    latex_text = []
+    latex_lo_text = []
+    for count, exp in enumerate(result):
         id, name, oct, cv, left, right, latex = exp
         name = name.replace('_', ' ')
+        name = names.get(name, name)
         if name in exp_name:
             counter=exp_name.index(name)
             plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
@@ -88,48 +86,46 @@ def main(args):
             if oct != 'LO':
                 plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
 
+    #
+    # Setup ticks and labels
+    #
+    ticklabeloffset_right = 0.07
+    ticklabeloffset_left = 0.04
 
-    y_axis = np.arange(1, 8, 1)
-    y_axis_2 = np.arange(1.07, 8.07, 1)
-    ax.set_yticks(y_axis)
+    # Left: experiment names
+    yticks = np.arange(1, len(exp_name)+1)
+    ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False,  pad=120)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False,  pad=padleft)
 
+    # Right: values
     double_y = ax.twinx()
-    double_y.set_ylim(0.5,7.5)
-    double_y.tick_params(axis='y', direction='out', labelleft=False, labelright=True, pad=5)
-    double_y.set_yticks(y_axis_2)
+    double_y.set_ylim(ax.get_ylim())
+    double_y.set_yticks(yticks+ticklabeloffset_right)
     double_y.set_yticklabels(latex_text, ha='left')
 
+    # Left: extra values
     triple_y =  ax.twinx()
     triple_y.tick_params(axis='y', direction='in')
     triple_y.set_ylim(0.5,7.5)
-    triple_y.tick_params(axis='y', direction='in', labelleft=True, labelright=False, pad=-4,  labelcolor='grey', labelsize=13)
-    triple_y.set_yticks(y_axis_2)
-    triple_y.set_yticklabels(latex_lo_text, ha='left')
+    triple_y.set_yticks(yticks+ticklabeloffset_left)
+    triple_y.set_yticklabels(latex_lo_text, ha='left', va='center_baseline')
     labels = triple_y.get_yticklabels()
     for label in labels:
         label.set_bbox(dict(fc='white', ec='white'))
 
-    ax.set_xticks([0.35, 0.45, 0.55, 0.65], minor=True)
-    ax.xaxis.grid(True, which='minor')
-    ax.xaxis.grid(True)
-    ax.tick_params(axis="x", which="minor", top=True)
-    ax.tick_params(top=True, left = False)
-    double_y.tick_params(right=False)
-    triple_y.tick_params(right=False)
+    ax.tick_params(      axis='y', which='both', left=False, right=False)
+    double_y.tick_params(axis='y', which='both', left=False, right=False, direction='out', labelleft=False, labelright=True,  pad=5)
+    triple_y.tick_params(axis='y', which='both', left=False, right=False, direction='in',  labelleft=True,  labelright=False, pad=-4, labelcolor='grey', labelsize='small')
 
-    ax.text(0.975, 0.4, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
+    ax.text(1.0, axtop, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='top', fontsize='x-small')
 
-    outfilename='plot.png'
     if args.output:
-        outfilename = args.output
-    plt.savefig(outfilename, dpi=300)
-    print('Write output file', outfilename)
+        plt.savefig(args.output, dpi=300)
+        print('Write output file', args.output)
 
     if args.show:
         plt.show()
-
 
 if __name__ == '__main__':
     from argparse import ArgumentParser

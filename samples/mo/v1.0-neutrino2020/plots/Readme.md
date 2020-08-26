@@ -1,6 +1,8 @@
+# :warning: This is a beta version of the plot. Use it at your own risk.
+
 # Neutrino mass ordering measurements comparison, updated after Neutrino 2020
 
-- Version: 1.0
+- Version: 1.0 **beta**
 - [Plotting scripts](samples/mo/v1.0-neutrino2020)
 - References:
     * [MINOS+](data/minos_2020-07-neutrino2020.yaml)
@@ -17,5 +19,5 @@
     * grey MO numbers on right axis are experiment maximal sensitivities.  For T2K and SK 3.5 sigma is expected result of joint fit 
 
 
- ![MO](mo_v1-0.png) 
+![MO](mo_v1-0.png) 
 

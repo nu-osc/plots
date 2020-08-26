@@ -1,0 +1,26 @@
+experiment: SuperK+SNO
+type: solar
+dataset:
+reference:
+    date: '2020.07'
+    latest: True
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
+    slides: 23
+result:
+    splitting_small:
+        precision: 2
+        value: 6.11
+        uncertainty:
+            left: 0.68
+            right: 1.21
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.306
+        uncertainty: 0.014
+

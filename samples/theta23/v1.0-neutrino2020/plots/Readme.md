@@ -1,6 +1,8 @@
+# :warning: This is a beta version of the plot. Use it at your own risk.
+
 # $`\sin^2 \theta_{23}`$ measurements comparison, after Neutrino 2020
 
-- Version: 1.0
+- Version: 1.0 **beta**
 - [Plotting scripts](samples/theta23/v1.0-neutrino2020)
 - References:
     * [MINOS](data/minos_2020-07-neutrino2020.yaml)
@@ -11,9 +13,7 @@
     * [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Cross checks by:
-
 - Notes:
-
 
 | Normal ordering                    | Inverted Ordering                  |
 | ---                                | ---                                |

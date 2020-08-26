@@ -54,19 +54,6 @@ result:
               uncertainty:
                   left: 0.09
                   right: 0.03
-    splitting_small:
-        precision: 2
-        mode: '12'
-        value: 6.11
-        uncertainty:
-            left: 0.68
-            right: 1.21
-        notes: joint SK+S'NO'
-    amplitude12:
-        precision: 2
-        value: 0.306
-        uncertainty: 0.014
-        notes: joint SK+S'NO'
     hier:
         precision: 2
         mode: sigma

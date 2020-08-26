@@ -1,6 +1,8 @@
+# :warning: This is a beta version of the plot. Use it at your own risk.
+
 # Neutrino mass order sensitivity for future experiments, after Neutrino 2020
 
-- Version: 1.0
+- Version: 1.0 **beta**
 - [Plotting scripts](samples/future_mo/v1.0-neutrino2020)
 - References:
     * [T2K+SK](data/future_mh/t2ksk.yaml)
@@ -21,5 +23,4 @@
     * sources for sensitivities vs years for all experiments are written in references
 
 
- ![MO](future_nmo_v1-0.png) 
-
+![MO](future_nmo_v1-0.png) 
