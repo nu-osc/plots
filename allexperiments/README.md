@@ -20,13 +20,3 @@
 
  </body>
 </html>
-
-st.markdown("""
-<style>
-body {
-    color: #fff;
-    background-color: #111;
-    etc. 
-}
-</style>
-    """, unsafe_allow_html=True)
