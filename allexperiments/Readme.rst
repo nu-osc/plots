@@ -6,7 +6,7 @@ Some text
 +------------+------------+-----------+
 | Header 1   | Header 2   | Header 3  |
 +============+============+===========+
-| body row 1 | column 2   | column 3  |
+| :red:`body row 1` | column 2   | column 3  |
 +------------+------------+-----------+
 | body row 2 | Cells may span columns.|
 +------------+------------+-----------+
