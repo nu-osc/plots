@@ -13,6 +13,6 @@
     <td>Experiment</td> <td>1998</td> <td>1999</td> <td>2000</td>
   </tr>
   <tr>
-    <td>Palo Verde</td> <td style="background-color:#FF0000"> </td> <td>u</td> <td>u</td>
+    <td>Palo Verde</td> <td bgcolor="#ffcc00"> </td> <td>u</td> <td>u</td>
   </tr>
 </table>
