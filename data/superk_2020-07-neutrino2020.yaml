@@ -27,7 +27,7 @@ result:
                   left: 0.32
                   right: 0.09
     deltaCP: 
-        precision: 2
+        precision: 3
         mode: radians
         results:
             - ordering: 'NO'
@@ -47,13 +47,13 @@ result:
             - ordering: 'NO'
               value: 0.44
               uncertainty:
-                  left: 0.05
-                  right: 0.02
+                  left: 0.02
+                  right: 0.05
             - ordering: IO
               value: 0.45
               uncertainty:
-                  left: 0.09
-                  right: 0.03
+                  left: 0.03
+                  right: 0.09
     hier:
         precision: 2
         mode: sigma

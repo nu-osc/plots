@@ -24,7 +24,7 @@ result:
               value: 2.46
               uncertainty: 0.03
     deltaCP: 
-        precision: 2
+        precision: 3
         mode: pi
         results:
             - ordering: 'NO'
@@ -64,7 +64,7 @@ result:
                   left: 0.00076
                   right: 0.00056
     splitting_small:
-        precision: 2
+        precision: 3
         value: 7.50
         uncertainty:
             left: 0.20

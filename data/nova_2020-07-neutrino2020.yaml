@@ -20,12 +20,12 @@ result:
               value: 2.41
               uncertainty: 0.07
             - ordering: IO
-              value: 2.44674
+              value: 2.45
               uncertainty:
                   interval: [2.39, 2.51]
               notes: private communication
     deltaCP:
-        precision: 4
+        precision: 3
         mode: pi
         results:
             - ordering: 'NO'

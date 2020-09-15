@@ -28,7 +28,7 @@ result:
         uncertainty:
             interval: [0.0223, 0.0308]
     deltaCP:
-        precision: 2
+        precision: 3
         mode: radians
         results:
             - ordering: 'NO'

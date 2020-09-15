@@ -29,7 +29,7 @@ result:
                   right: 0.028
         notes: With SuperK data included
     deltaCP: 
-        precision: 2
+        precision: 3
         mode: degrees
         results:
             - ordering: 'NO'
@@ -71,7 +71,7 @@ result:
                   left: 0.00062
                   right: 0.00063
     splitting_small:
-        precision: 2
+        precision: 3
         value: 7.42
         uncertainty:
             left: 0.20
