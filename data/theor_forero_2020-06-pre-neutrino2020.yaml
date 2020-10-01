@@ -50,7 +50,7 @@ result:
                   left: 0.023
                   right: 0.018
     amplitude13:
-        precision: 4
+        precision: 5
         mode: single
         results:
             - ordering: 'NO'

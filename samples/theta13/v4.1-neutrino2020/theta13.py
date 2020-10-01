@@ -10,7 +10,7 @@ import re
 
 from style import colors, names, dayabay
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -40,6 +40,7 @@ def main(args):
         result = result[mask]
     uniqnames = dict(zip(*np.unique(np.core.defchararray.add(result['exp'],result['notes']), return_counts=True)))
     nitems = len(uniqnames)
+    digits_max = result['digits'].max()
 
     #
     # Figure
@@ -61,7 +62,8 @@ def main(args):
     ax.xaxis.grid(True)
     padleft = 110
     namewidth = '38mm'
-    plt.subplots_adjust(left=0.22, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    right = digits_max>4 and 0.80 or 0.82
+    plt.subplots_adjust(left=0.22, right=right, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -72,7 +74,7 @@ def main(args):
     occurances = {}
     offset=0
     for i, exp in enumerate(result):
-        id, name, typ, notes, ordering, value, left, right, _, latex = exp
+        id, name, typ, notes, ordering, digits, value, left, right, _ = exp
         count=i-offset
 
         uname = name+notes
@@ -110,15 +112,11 @@ def main(args):
             elines[-1][0].set_linestyle('dashed')
             continue
 
-
         name = names.get(name, name)
         name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}{ordering}}}'
         exp_name.append(name)
 
-        latex=re.sub(r'\.(\d\d\d)\\pm', r'.\1{\\phantom{0}}\\pm', latex)
-        if args.sym:
-            latex=re.subn(r'(\\pm([0-9]\.)?[0-9]+)', r'{\\scriptstyle\1}', latex)[0]
-
+        latex = format_latex(digits, value, left, right, digits_max)
         latex_text.append(latex)
 
     #
@@ -146,6 +144,24 @@ def main(args):
 
     if args.show:
         plt.show()
+
+def format_latex(digits, value, left, right, digits_max):
+    if digits<digits_max:
+        extra = '0'*(digits_max-digits)
+        extra = f'\\phantom{{{extra}}}'
+    else:
+        extra = ''
+
+    value = f'{value:.{digits}f}'
+    left = f'{left:.{digits}f}'
+    right = f'{right:.{digits}f}'
+    if left==right:
+        ret = f'${value}{extra}{{\\scriptstyle\\pm{left}}}$'
+    else:
+        ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
+
+    return ret
+
 
 if __name__ == '__main__':
     from argparse import ArgumentParser

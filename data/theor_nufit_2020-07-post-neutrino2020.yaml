@@ -6,7 +6,7 @@ reference:
     arxiv: hep-ph/2007.14792
     inspire: https://inspirehep.net/literature/1809173
     doi:
-    citation: 1809173
+    citation: Esteban:2020cvm
     url: http://www.nu-fit.org/?q=node/228
     conf:
     talk:
@@ -57,7 +57,7 @@ result:
                   left: 0.019
                   right: 0.016
     amplitude13:
-        precision: 4
+        precision: 5
         mode: single
         results:
             - ordering: 'NO'
