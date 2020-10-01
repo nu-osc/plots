@@ -1,6 +1,6 @@
-date        = 2020-10-01
+date        = 2020-08-24
 path        = ../plots
-theta13     = $(path)/theta13/v4.1-neutrino2020
+theta13     = $(path)/theta13/v4.0-neutrino2020
 #theta21    =
 #theta23    =
 dm32        = $(path)/dm32/v4.0-neutrino2020
