@@ -63,4 +63,4 @@ clean-all:
 
 publish: all
 	test -d $(publishdir) || mkdir -p $(publishdir)
-	cp plots/* $(publishdir)/
+	cp -v plots/* $(publishdir)/

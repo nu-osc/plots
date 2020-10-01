@@ -1,8 +1,6 @@
-# :warning: This is a beta version of the plot. Use it at your own risk.
-
 # $`\sin^22\theta_{13}`$ measurements comparison, updated after Neutrino 2020
 
-- Version: 4.1 **beta**
+- Version: 4.1
 - Updates since v4.0:
     * Added global measurements
     * Switched to matplotlib plotting instead of latex
@@ -18,10 +16,11 @@
     - [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Cross checks by:
     * @ldkolupaeva
-    * Beda
+    * Bedrich Roskovec
+    * @maxfl
 - Notes:
     * Forero et al. is pre-Neutrino fit
-    * dashed grey bar in theoretical entry means IH
+    * dashed grey bar in theoretical entry means IO
 
 | Experiments only              | Including global                     |
 |-------------------------------|--------------------------------------|
