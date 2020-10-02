@@ -19,7 +19,7 @@
           value: 0.0856
           uncertainty: 0.0029
       splitting_large: 
-          precision: 2
+          precision: 3
           mode: '32'
           results:
               - ordering: 'NO'

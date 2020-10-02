@@ -1,5 +1,3 @@
-# :warning: This is a beta version of the plot. Use it at your own risk.
-
 # $`|\Delta m^2_{32}|`$ measurements comparison, updated after Neutrino 2020
 
 - Version: 4.1
@@ -32,7 +30,8 @@
     * Asymmetric syst/stat errors conversion: quadratically sum left and right part of each (stat/syst) contribution independently
 - Cross checks by:
     * @ldkolupaeva
-    * Beda
+    * Bedrich Roskovec
+    * @maxfl
 - Notes:
     * Forero et al. is pre-Neutrino fit
 

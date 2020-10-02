@@ -13,7 +13,7 @@ reference:
     slides:
 result:
     splitting_large: 
-        precision: 2
+        precision: 3
         results:
             - ordering: 'NO'
               mode: '31'

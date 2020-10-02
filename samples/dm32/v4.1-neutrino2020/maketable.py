@@ -50,7 +50,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'notes', 'ordering', 'octant', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'notes', 'ordering', 'octant', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -213,11 +213,7 @@ def collect_result(var, experiment):
         s_right = f'{unc_right:.{precision}f}'
 
         target = {'value': s_val, 'left': s_left, 'right': s_right, 'span': span}
-
-        if s_left==s_right:
-            target['result']=f'${s_val}\\pm{s_left}$'
-        else:
-            target['result']=f'${s_val}^{{+{s_right}}}_{{-{s_left}}}$'
+        target['precision'] = precision
 
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')

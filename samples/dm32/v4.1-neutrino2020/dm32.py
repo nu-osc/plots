@@ -10,7 +10,7 @@ import re
 
 from style import colors, names, dayabay, titles
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'),  ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -36,8 +36,10 @@ def main(args):
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(11))
     result = result[::-1]
     if args.exclude:
-        result = [res for res in result if args.exclude not in res['type']]
+        mask   = [args.exclude not in res['type'] for res in result]
+        result = result[mask]
     nitems = len(result)
+    digits_max = result['digits'].max()
 
     ordering = result[0]['ordering']
     title = titles.get(ordering)
@@ -64,7 +66,7 @@ def main(args):
     ax.xaxis.grid(True)
     padleft = 75
     namewidth = '38mm'
-    plt.subplots_adjust(left=0.16, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.16, right=0.84, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -72,7 +74,7 @@ def main(args):
     exp_name = []
     latex_text = []
     for count, exp in enumerate(result):
-        id, name, typ, notes, ordering, _, value, left, right, _, latex = exp
+        id, name, typ, notes, ordering, _, digits, value, left, right, _ = exp
 
         kwargs=dict()
         if args.dayabay and 'Daya_Bay' in name:
@@ -88,10 +90,7 @@ def main(args):
         name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}}}'
         exp_name.append(name)
 
-        latex=re.sub(r'\.(\d\d\d)\\pm', r'.\1{\\phantom{0}}\\pm', latex)
-        if args.sym:
-            latex=re.subn(r'(\\pm([0-9]\.)?[0-9]+)', r'{\\scriptstyle\1}', latex)[0]
-
+        latex = format_latex(digits, value, left, right, digits_max)
         latex_text.append(latex)
 
     #
@@ -119,6 +118,24 @@ def main(args):
 
     if args.show:
         plt.show()
+
+def format_latex(digits, value, left, right, digits_max):
+    if digits<digits_max:
+        extra = '0'*(digits_max-digits)
+        extra = f'\\phantom{{{extra}}}'
+    else:
+        extra = ''
+
+    value = f'{value:.{digits}f}'
+    left = f'{left:.{digits}f}'
+    right = f'{right:.{digits}f}'
+    if left==right:
+        ret = f'${value}{extra}{{\\scriptstyle\\pm{left}}}$'
+    else:
+        ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
+
+    return ret
+
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
