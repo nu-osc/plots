@@ -99,4 +99,4 @@ clean-all: clean
 	rm plots/*.pdf plots/*.png
 publish: all
 	test -d $(publishdir) || mkdir -p $(publishdir)
-	cp plots/* $(publishdir)/
+	cp -v plots/* $(publishdir)/
