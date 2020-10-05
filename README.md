@@ -17,3 +17,7 @@ Previous archives are located in [archives/](archives/).
 | Neutrino 2020                  | [v4.0](plots/theta13/v4.0-neutrino2020)     | [v4.0](plots/dm32/v4.0-neutrino2020)           |                                              |                                                    |                                                    |                                                 |                                               |                                                      |
 | Neutrino 2020, outdated global |                                             |                                                | [v1.0](plots/deltaCP/v1.0-neutrino2020/)     |                                                    |                                                    |                                                 |                                               |                                                      |
 | Neutrino 2020, *beta*          |                                             |                                                |                                              | [*v1.0*](samples/theta23/v1.0-neutrino2020/plots/) | [*v1.0*](samples/theta12/v1.0-neutrino2020/plots/) | [*v1.0*](samples/dm21/v1.0-neutrino2020/plots/) | [*v1.0*](samples/mo/v1.0-neutrino2020/plots/) | [*v1.0*](samples/future_mo/v1.0-neutrino2020/plots/) |
+
+## Disclaimer
+
+Please, be sure to follow the references and check the numbers before using the plots. Contact us in case of any inconsistencies or comments.
