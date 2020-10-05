@@ -46,6 +46,7 @@ result:
               uncertainty:
                   left: 0.04
                   right: 0.03
+              notes: "The errors on the slides are swapped. Source: private communication."
             - ordering: 'NO'
               octant: LO
               value: 0.46
