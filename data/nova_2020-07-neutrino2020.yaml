@@ -37,31 +37,34 @@ result:
               uncertainty:
                   interval: [1.26, 1.73]
     amplitude23:
-        precision: 3
+        precision: 2
         mode: single
         results:
             - ordering: 'NO'
               octant: UO
               value: 0.57
               uncertainty:
-                  left: 0.04
-                  right: 0.03
+                  left: 0.03
+                  right: 0.04
             - ordering: 'NO'
               octant: LO
               value: 0.46
               uncertainty:
-                 interval: [0.43, 0.49]
+                  interval: [0.43, 0.49]
+              notes: private communication
             - ordering: IO
               octant: UO
               value: 0.56
               uncertainty:
                   left: 0.03
                   right: 0.03
+              notes: private communication
             - ordering: IO
               octant: LO
               value: 0.46
               uncertainty:
-                interval: [0.43, 0.49]
+                  interval: [0.43, 0.49]
+              notes: private communication
     hier:
         precision: 2
         mode: sigma

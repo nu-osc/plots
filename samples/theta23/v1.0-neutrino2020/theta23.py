@@ -72,16 +72,16 @@ def main(args):
         id, name, _, _, oct, digits, value, left, right, _ = exp
         name = name.replace('_', ' ')
 
-        latex = format_latex(digits, value, left, right, digits_max)
-
         name = names.get(name, name)
         if name in exp_name:
+            latex = format_latex(digits, value, left, right, digits_max, False)
             counter=exp_name.index(name)
             plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
             latex_lo_text[counter] = latex
             if oct != 'LO':
                 plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
         else:
+            latex = format_latex(digits, value, left, right, digits_max, True)
             exp_name.append(name)
             latex_text.append(latex)
             counter=exp_name.index(name)
@@ -131,8 +131,8 @@ def main(args):
     if args.show:
         plt.show()
 
-def format_latex(digits, value, left, right, digits_max):
-    if digits<digits_max:
+def format_latex(digits, value, left, right, digits_max, addspaces):
+    if addspaces and digits<digits_max:
         extra = '0'*(digits_max-digits)
         extra = f'\\phantom{{{extra}}}'
     else:
