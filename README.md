@@ -21,3 +21,7 @@ Previous archives are located in [archives/](archives/).
 ## Disclaimer
 
 Please, be sure to follow the references and check the numbers before using the plots. Contact us in case of any inconsistencies or comments.
+
+## Contacts:
+
+- @maxfl: gonchar[at]jinr.ru
