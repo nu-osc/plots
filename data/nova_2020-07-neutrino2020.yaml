@@ -44,8 +44,8 @@ result:
               octant: UO
               value: 0.57
               uncertainty:
-                  left: 0.03
-                  right: 0.04
+                  left: 0.04
+                  right: 0.03
             - ordering: 'NO'
               octant: LO
               value: 0.46
