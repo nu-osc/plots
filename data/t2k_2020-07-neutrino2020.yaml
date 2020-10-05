@@ -46,7 +46,7 @@ result:
         value: 0.546
         uncertainty:
             interval: [0.5, 0.57]
-        notes: these values are profiled across both hierarchies, label NH or IH is not precisely correct
+        notes: these values are profiled across both hierarchies, label NO or IO is not precisely correct
     hier:
         precision: 2
         mode: sigma
