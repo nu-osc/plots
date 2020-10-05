@@ -136,7 +136,6 @@ def format_latex(digits, value, left, right, digits_max):
 
     return ret
 
-
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()

@@ -24,6 +24,7 @@ def main(args):
     global context
     if args.variable.startswith('theta'):
         args.variable = args.variable.replace('theta', 'amplitude')
+
     var = args.variable
     if args.ordering=='auto':
         if 'NO' in args.output:
@@ -42,7 +43,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'notes', 'ordering', 'octant', 'value', 'left', 'right', 'span', 'result', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'notes', 'ordering', 'octant', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -97,11 +98,27 @@ def postprocess_amplitude23(entry):
     entry['style']='_'.join(slist)
     return entry
 
+def postprocess_amplitude12(entry):
+    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
+    if entry['notes']:
+        slist.append(entry['notes'].lower())
+    entry['style']='_'.join(slist)
+    return entry
+
+def postprocess_splitting_small(entry):
+    slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
+    if entry['notes']:
+        slist.append(entry['notes'].lower())
+    entry['style']='_'.join(slist)
+    return entry
+
 postprocessors=dict(
+        amplitude12     = postprocess_amplitude12,
         amplitude13     = postprocess_amplitude13,
         splitting_large = postprocess_splitting_large,
         deltaCP         = postprocess_deltaCP,
-        amplitude23     = postprocess_amplitude23
+        amplitude23     = postprocess_amplitude23,
+        splitting_small = postprocess_splitting_small
         )
 
 def select_columns(data, columns):
@@ -138,7 +155,7 @@ def collect(data, var):
     return ret
 
 def collect_experiment(entry, target, var):
-    before = { 'name': entry['experiment'] }
+    before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
 
     if entry.get('type')=='reactor':
         before['notes'] = entry['target']
@@ -165,7 +182,7 @@ def collect_result(var, experiment):
         results = [parameter]
 
     for res in results:
-        mode = res.get('mode', parameter['mode'])
+        mode = res.get('mode', parameter.get('mode'))
         precision = res.get('precision', parameter['precision'])
 
         if 'ordering' in context:
@@ -188,11 +205,7 @@ def collect_result(var, experiment):
         s_right = f'{unc_right:.{precision}f}'
 
         target = {'value': s_val, 'left': s_left, 'right': s_right, 'span': span}
-
-        if s_left==s_right:
-            target['result']=f'${s_val}\\pm{s_left}$'
-        else:
-            target['result']=f'${s_val}^{{+{s_right}}}_{{-{s_left}}}$'
+        target['precision'] = precision
 
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')

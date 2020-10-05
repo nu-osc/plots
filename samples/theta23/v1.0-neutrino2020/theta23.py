@@ -9,7 +9,7 @@ import itertools as it
 
 from style import colors, names, titles
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('oct', 'U20'), ('cv', 'f8'), ('left', 'f8'), ('right', 'f8'), ('latex', 'U30')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U30'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 def main(args):
     if args.nmo=='auto':
         if 'NO' in args.output:
@@ -34,9 +34,10 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=(0, 1, 4, 5, 6, 7, 9))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(11))
     result = result[::-1]
     nitems = len(result)
+    digits_max = result['digits'].max()
 
     #
     # Figure
@@ -56,7 +57,7 @@ def main(args):
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
     padleft=80
-    plt.subplots_adjust(left=0.16, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.16, right=0.84, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     plt.title(titles.get(args.nmo, '???'), pad=15)
     plt.plot([0.5, 0.5], [0.5, 7.5], ls='--', color='grey', alpha=0.5)
@@ -68,23 +69,26 @@ def main(args):
     latex_text = []
     latex_lo_text = []
     for count, exp in enumerate(result):
-        id, name, oct, cv, left, right, latex = exp
+        id, name, _, _, oct, digits, value, left, right, _ = exp
         name = name.replace('_', ' ')
+
+        latex = format_latex(digits, value, left, right, digits_max)
+
         name = names.get(name, name)
         if name in exp_name:
             counter=exp_name.index(name)
-            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
             latex_lo_text[counter] = latex
             if oct != 'LO':
-                plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+                plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
         else:
             exp_name.append(name)
             latex_text.append(latex)
             counter=exp_name.index(name)
             latex_lo_text.append('')
-            plt.errorbar(cv, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
             if oct != 'LO':
-                plt.plot(cv, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+                plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
 
     #
     # Setup ticks and labels
@@ -126,6 +130,23 @@ def main(args):
 
     if args.show:
         plt.show()
+
+def format_latex(digits, value, left, right, digits_max):
+    if digits<digits_max:
+        extra = '0'*(digits_max-digits)
+        extra = f'\\phantom{{{extra}}}'
+    else:
+        extra = ''
+
+    value = f'{value:.{digits}f}'
+    left = f'{left:.{digits}f}'
+    right = f'{right:.{digits}f}'
+    if left==right:
+        ret = f'${value}{extra}{{\\scriptstyle\\pm{left}}}$'
+    else:
+        ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
+
+    return ret
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
