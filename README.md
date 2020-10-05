@@ -25,3 +25,4 @@ Please, be sure to follow the references and check the numbers before using the 
 ## Contacts
 
 - @maxfl: gonchar at jinr dot ru
+- @ldkolupaeva: ldkolupaeva at yandex dot ru
