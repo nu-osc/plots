@@ -12,7 +12,7 @@
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Notes:
     * [T2K](data/t2k_2020-07-neutrino2020.yaml): Bayessian posterior, no particular ordering may be attributed to the number
-    * [NOvA](data/nova_2020-07-neutrino2020.yaml): NO uncertainty is used for the IO result
+    * [IceCube](data/icecube_2020-07-neutrino2020.yaml): NO uncertainty is used for the IO result
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
