@@ -19,5 +19,5 @@
 
 | Normal ordering                    | Inverted Ordering                  |
 | ---                                | ---                                |
-| ![sin²θ₁₃ NO](theta23_NO_v1-0.png) | ![sin²θ₁₃ IO](theta23_IO_v1-0.png) |
+| ![sin²θ₂₃ NO](theta23_NO_v1-0.png) | ![sin²θ₂₃ IO](theta23_IO_v1-0.png) |
 
