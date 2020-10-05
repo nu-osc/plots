@@ -69,8 +69,11 @@ def main(args):
     latex_text = []
     latex_lo_text = []
     for count, exp in enumerate(result):
-        id, name, _, _, oct, digits, value, left, right, _ = exp
+        id, name, note, _, oct, digits, value, left, right, _ = exp
         name = name.replace('_', ' ')
+        if note and note!='{}':
+            note = note.replace('_', ' ')
+            name = f'{name}, {{\\small{{}}{note}}}'
 
         name = names.get(name, name)
         if name in exp_name:

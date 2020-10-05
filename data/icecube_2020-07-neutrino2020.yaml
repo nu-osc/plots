@@ -27,11 +27,19 @@ result:
                   left: 0.13
                   right: 0.11
     amplitude23: 
-        precision: 3
+        precision: 2
         mode: single
-        value: 0.51
-        uncertainty:
-            left: 0.09
-            right: 0.07
-        note: no error bar for IH in paper, but BF is the same as in NH
+        results:
+            - ordering: 'NO'
+              value: 0.51
+              uncertainty:
+                  left: 0.09
+                  right: 0.07
+            - ordering: 'IO'
+              value: 0.51
+              uncertainty:
+                  left: 0.09
+                  right: 0.07
+              note: 'error from NO'
+              notes: no error bar for IH in paper, but BF is the same as in NH
 
