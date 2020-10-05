@@ -12,8 +12,12 @@
     * [NOvA](data/nova_2020-07-neutrino2020.yaml)
     * [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
-- Cross checks by:
 - Notes:
+    * [T2K](data/t2k_2020-07-neutrino2020.yaml): Bayessian posterior, no particular ordering may be attributed to the number
+    * [NOvA](data/nova_2020-07-neutrino2020.yaml): NO uncertainty is used for the IO result
+- Cross checks by:
+    * @ldkolupaeva
+    * @maxfl
 
 | Normal ordering                    | Inverted Ordering                  |
 | ---                                | ---                                |
