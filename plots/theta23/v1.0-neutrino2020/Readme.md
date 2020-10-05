@@ -1,8 +1,6 @@
-# :warning: This is a beta version of the plot. Use it at your own risk.
-
 # $`\sin^2 \theta_{23}`$ measurements comparison, after Neutrino 2020
 
-- Version: 1.0 **beta**
+- Version: 1.0
 - [Plotting scripts](samples/theta23/v1.0-neutrino2020)
 - References:
     * [MINOS](data/minos_2020-07-neutrino2020.yaml)
