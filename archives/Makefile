@@ -1,10 +1,10 @@
-date        = 2020-10-05
+date        = 2020-10-06
 path        = ../plots
 theta13     = $(path)/theta13/v4.1-neutrino2020
-#theta21    =
+theta21     = $(path)/theta12/v1.0-neutrino2020
 theta23     = $(path)/theta23/v1.0-neutrino2020
 dm32        = $(path)/dm32/v4.1-neutrino2020
-#dm21       =
+dm21        = $(path)/dm21/v1.0-neutrino2020
 deltaCP     = $(path)/deltaCP/v2.0-neutrino2020
 #nmo        =
 #nmo_future =
