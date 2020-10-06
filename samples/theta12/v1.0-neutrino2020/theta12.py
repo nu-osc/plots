@@ -69,7 +69,6 @@ def main(args):
         name = name.replace('_', ' ')
         exp_name.append(names.get(name, name))
 
-
         latex = format_latex(digits, value, left, right, digits_max)
         latex_text.append(latex)
 
@@ -115,7 +114,6 @@ def format_latex(digits, value, left, right, digits_max):
         ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
 
     return ret
-
 
 if __name__ == '__main__':
     from argparse import ArgumentParser

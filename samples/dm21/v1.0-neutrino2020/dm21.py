@@ -10,7 +10,7 @@ import re
 
 from style import colors, names
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'), ('result', 'U30')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -30,8 +30,10 @@ def main(args):
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(9))
     result = result[::-1]
     if args.exclude:
-        result = [res for res in result if args.exclude not in res['type']]
+        mask = [args.exclude not in res['type'] for res in result]
+        result = result[mask]
     nitems = len(result)
+    digits_max = result['digits'].max()
 
     #
     # Figure
@@ -51,7 +53,7 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.30, right=0.84, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.30, right=0.86, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -59,7 +61,7 @@ def main(args):
     exp_name = []
     latex_text = []
     for count, exp in enumerate(result):
-        id, name, _, typ, value, left, right, _, latex = exp
+        id, name, _, typ, digits, value, left, right, _ = exp
 
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
         plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
@@ -67,9 +69,7 @@ def main(args):
         name = name.replace('_', ' ')
         exp_name.append(names.get(name, name))
 
-        if args.sym:
-            latex=re.subn(r'(\\pm([0-9]\.)?[0-9]+)', r'{\\scriptstyle\1}', latex)[0]
-
+        latex = format_latex(digits, value, left, right, digits_max)
         latex_text.append(latex)
 
     #
@@ -98,6 +98,23 @@ def main(args):
     if args.show:
         plt.show()
 
+def format_latex(digits, value, left, right, digits_max):
+    if digits<digits_max:
+        extra = '0'*(digits_max-digits)
+        extra = f'\\phantom{{{extra}}}'
+    else:
+        extra = ''
+
+    value = f'{value:.{digits}f}'
+    left = f'{left:.{digits}f}'
+    right = f'{right:.{digits}f}'
+    if left==right:
+        ret = f'${value}{extra}{{\\scriptstyle\\pm{left}}}$'
+    else:
+        ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
+
+    return ret
+
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
@@ -105,8 +122,6 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
     parser.add_argument('-e', '--exclude', help='types mask to exclude (tested with contains)')
-    parser.add_argument('--sym', default=True, action='store_true', help='make symmetric error smaller')
-    parser.add_argument('--no-sym', action='store_false', dest='sym', help='do not make make symmetric error smaller')
 
     main(parser.parse_args())
 

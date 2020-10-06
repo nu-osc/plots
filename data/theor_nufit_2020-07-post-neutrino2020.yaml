@@ -71,7 +71,7 @@ result:
                   left: 0.00062
                   right: 0.00063
     splitting_small:
-        precision: 3
+        precision: 2
         value: 7.42
         uncertainty:
             left: 0.20
