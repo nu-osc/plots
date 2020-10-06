@@ -53,7 +53,7 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.30, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.30, right=0.84, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
