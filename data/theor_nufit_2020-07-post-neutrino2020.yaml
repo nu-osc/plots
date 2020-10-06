@@ -83,6 +83,7 @@ result:
         uncertainty:
             left: 0.012
             right: 0.012
+        notes: Using NO value. IO value is the same with slighly higher uncertainty.
     hier:
         precision: 2
         mode: sigma
