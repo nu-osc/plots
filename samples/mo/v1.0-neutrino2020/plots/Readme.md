@@ -1,5 +1,3 @@
-# :warning: This is a beta version of the plot. Use it at your own risk.
-
 # Neutrino mass ordering measurements comparison, updated after Neutrino 2020
 
 - Version: 1.0 **beta**
@@ -12,12 +10,15 @@
     * [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
 - Cross checks by:
-
+    * ldkolupaeva
+    * maxfl
 - Notes:
-    * Forero et al. is pre-Neutrino version;
-    * SuperK sigma is extracted as delta chi2 squared; official statement is 71.4-90.3% CLs disfavor for IH
-    * grey MO numbers on right axis are experiment maximal sensitivities.  For T2K and SK 3.5 sigma is expected result of joint fit 
+    * Forero et al. is pre-Neutrino version.
+    * NMO sensitivity:
+        + SuperK $`\sigma`$ is extracted as $`\sqrt{\Delta\chi^2}`$; official statement is 71.4-90.3% CLs disfavor for IH.
+        + T2K: ......
+    * Grey MO numbers on right axis are experiment maximal sensitivities. 
+        + For T2K and SK 3.5 $`\sigma`$ is expected result of a joint fit.
 
-
-![MO](mo_v1-0.png) 
+![NMO](mo_v1-0.png) 
 

@@ -67,7 +67,7 @@ result:
                   interval: [0.43, 0.49]
               notes: private communication
     hier:
-        precision: 2
+        precision: 1
         mode: sigma
         value: 1.0
         proj: 5.0

@@ -49,7 +49,7 @@ result:
         note: posterior
         notes: these values are profiled across both hierarchies, label NO or IO is not precisely correct
     hier:
-        precision: 2
+        precision: 1
         mode: sigma
         value: 1.6
         proj: 3.5

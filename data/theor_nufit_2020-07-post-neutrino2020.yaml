@@ -85,7 +85,7 @@ result:
             right: 0.012
         notes: Using NO value. IO value is the same with slighly higher uncertainty.
     hier:
-        precision: 2
+        precision: 1
         mode: sigma
         value: 2.7
         proj: 0

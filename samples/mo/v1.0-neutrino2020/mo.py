@@ -8,11 +8,13 @@ from matplotlib.patches import Arc, Rectangle
 import itertools as it
 import yaml
 
+reference =  'v1.0 2020.08: git.jinr.ru/nu/osc'
+
 def main(args):
 
-#
-# RC params
-#
+    #
+    # RC params
+    #
     plt.rc('text', usetex=True)
     plt.rcParams['grid.alpha'] = 0.1
     plt.rcParams['grid.linewidth'] = 2
@@ -27,9 +29,9 @@ def main(args):
     colors = prop_cycle.by_key()['color']
     colors = {'minos_2020-07-neutrino2020' : 'xkcd:green', 'nova_2020-07-neutrino2020' : 'xkcd:green', 't2k_2020-07-neutrino2020' : 'xkcd:green', 'superk_2020-07-neutrino2020' : 'xkcd:azure', 'theor_forero_2020-06-pre-neutrino2020' : 'xkcd:steel grey', 'theor_nufit_2020-07-post-neutrino2020' : 'xkcd:steel grey'}
 
-#
-# Load
-#
+    #
+    # Load
+    #
 
     exps = []
     for exp in args.inputs:
@@ -41,13 +43,13 @@ def main(args):
         this_exp = {'id': exp.rsplit('/',1)[-1].replace('.yaml',''), 'name' : name, 'hie' : hie, 'proj' : proj}
         exps.append(this_exp)
 
-#
-# Figure
+    #
+    # Figure
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.set_title('Inverted ordering rejection', pad=15)
+    ax.set_title('Inverted ordering rejection', pad=10)
     ax.set_xlabel('Standard deviations')
-    plt.subplots_adjust(left=0.25, right=0.87, top=0.9, bottom=0.15)
+    plt.subplots_adjust(left=0.24, right=0.91, top=0.9, bottom=0.15)
     ax.set_xlim(0,6.0)
     ax.set_ylim(0.5,6.5)
     plt.plot([5.0, 5.0], [0, 8.0], ls='dotted', color='grey', alpha=0.35, lw=1)
@@ -58,12 +60,12 @@ def main(args):
     order_id = []
     axis_text_1 = []
     axis_text_2 = []
-#
-# Iterate data
-#
 
+    #
+    # Iterate data
+    #
     exps_sorted = sorted(exps, key=lambda k: k['hie'])
-    
+
     styles, labels = [], []
     for count, exp in enumerate(exps_sorted):
         text_itself.append(exp['name'])
@@ -90,7 +92,7 @@ def main(args):
     ax.set_yticks([1.5, 2.5, 3.5, 4.5, 5.5, 6.5], minor=True)
     ax.set_yticks(y_axis)
     ax.set_yticklabels(text_itself, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False,  pad=120)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=120)
 
     double_y = ax.twinx()
     double_y.set_ylim(0.5,6.5)
@@ -101,15 +103,17 @@ def main(args):
     triple_y =  ax.twinx()
     triple_y.tick_params(axis='y', direction='out')
     triple_y.set_ylim(0.5,6.5)
-    triple_y.tick_params(axis='y', direction='out', labelleft=False, labelright=True, pad=10,  labelcolor='grey')
+    triple_y.tick_params(axis='y', direction='out', labelleft=False, labelright=True, pad=8)
     triple_y.set_yticks(y_axis)
     triple_y.set_yticklabels(axis_text_2)
+    for t in triple_y.get_yticklabels():
+        t.set_alpha(0.6)
 
-    ax.yaxis.grid(True, which='minor')
+    # ax.xaxis.grid(True, which='minor')
     ax.tick_params(top=True)
     ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5, 5.5], minor=True)
 
-    ax.text(0.97, 0.4, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=11)
+    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.25, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     outfilename='plots/mo_exp_plot.png'
     if args.output:
