@@ -16,11 +16,11 @@
     * [T2HKK](data/future_mh/t2hkk.yaml)
     * [PINGU](data/future_mh/pingu.yaml)
 - Cross checks by:
-
+    * @ldkolupaeva
 - Notes:
     * INO, T2HKK, PINGU status is unclear (marked with star in the plot), approximate starting years are taken
     * joint beam + atmospheric sensitivity is shown for T2HK and T2HKK here
     * sources for sensitivities vs years for all experiments are written in references
 
 
-![MO](future_nmo_v1-0.png) 
+![NMO sensitivity projection](future_nmo_v1-0.png) 

@@ -7,6 +7,9 @@ import pandas as pd
 from matplotlib.patches import Arc, Rectangle, Polygon
 import itertools as it
 import yaml
+import matplotlib.transforms as transforms
+
+reference =  'v1.0 2020.08: git.jinr.ru/nu/osc'
 
 def main(args):
 
@@ -59,12 +62,12 @@ def main(args):
 # Figure
     fig, ax = plt.subplots()
     plt.subplots_adjust(left=0.06, right=0.95, top=0.9, bottom=0.2)
-    plt.title('Future Neutrino mass ordering sensitivity', pad=20)
+    plt.title('Future neutrino mass ordering sensitivity', pad=20)
     ax.set_xlabel('Year')
     ax.set_ylabel('Median sensitivity, $\sigma$')
     ax.set_xlim(2020, 2040)
     ax.set_ylim(0, 10.2)
-    plt.yticks([1.0, 3.0, 5.0, 7.0, 9.0])
+    plt.yticks([0.0, 1.0, 3.0, 5.0, 7.0, 9.0])
     ax.set_yticks([2.0, 4.0, 6.0, 8.0, 10.0], minor=True)
 
     text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
@@ -102,16 +105,40 @@ def main(args):
 
         if exp['id'] != 'orca' and exp['id'] != 'icupgr' and exp['id'] != 'juno' and exp['id'] != 'pingu':
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
-        ax.annotate('', xy=(start, 0), xycoords='data', xytext=(start, -1.5), textcoords='data', arrowprops=dict(facecolor=color, ec=color, width = 2, alpha=0.4), ha='center', size = 14, zorder=-10)
         marker_place_x = start+marker_offset[exp['id']]
         marker_place_y = sens_max_1year
         ax.plot(marker_place_x, marker_place_y, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=0.8)
         plt.plot([marker_place_x, sens_year_start], [marker_place_y, marker_place_y], ls='dotted', color=color)
         plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color)
-        if exp['id'] == 't2hkk':
-            plt.text(start-0.4, -2-0.37, name, size = 20, color=color, fontweight='bold')
+
+        oddoffset = 0.95
+        fulloffset = 1.3
+        isodd = (start % 2)
+        arrowprops = dict(transform=ax.transData,
+                          facecolor=color, ec=color, alpha=0.4,
+                          zorder=-10,
+                          width=0.05,
+                          head_width=0.20,
+                          overhang=0.2,
+                          length_includes_head=True,
+                          clip_on=False)
+
+        textopts = dict(size = 20, color=color, fontweight='bold', ha='center')
+        expid = exp['id']
+        if 't2hk' in expid:
+            textopts1 = dict(textopts)
+            if expid=='t2hk':
+                textopts1['va'] = 'top'
+            else:
+                textopts1['va'] = 'bottom'
+            arrowoffset = fulloffset+oddoffset*0.5
+            plt.text(start, -fulloffset-oddoffset, name, **textopts1)
         else:
-            plt.text(start-0.4, -1.95-0.8*(start % 2), name, size = 20, color=color, fontweight='bold')
+            arrowoffset = fulloffset+oddoffset*0.75*isodd
+            va = isodd and 'center' or 'top'
+            plt.text(start, -fulloffset-oddoffset*isodd, name, va=va, **textopts)
+
+        plt.arrow(start, -arrowoffset+0.12, 0.0, arrowoffset-0.12*2, **arrowprops)
 
 
     plt.grid()
@@ -125,9 +152,9 @@ def main(args):
 
     labels = ax.get_xticklabels()
     for label in labels:
-        label.set_bbox(dict(fc='white', ec='white', alpha=0.2))
+        label.set_bbox(dict(fc='white', ec='white', alpha=0.5, pad=0.2))
 
-    ax.text(0.97, 0.55, 'v1.0 2020.08: git.jinr.ru/nu/osc', rotation=90, color='xkcd:greyish', transform=fig.transFigure, fontsize=15)
+    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.30, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     outfilename='plots/future_nmo_plot.pdf'
     if args.output:
