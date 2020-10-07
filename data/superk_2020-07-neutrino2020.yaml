@@ -59,4 +59,9 @@ result:
         mode: sigma
         value: 1.79
         proj: 3.5
-        notes: from the table as delta chi2
+        notes: |-\n
+             2020 IH rej value is taken as difference of IH and NH BF on slide 27,\n
+             MH proj value is SK+T2K (http://www-sk.icrr.u-tokyo.ac.jp/sk/_pdf/articles/2019/mjiang_dt.pdf);\n
+             \n
+             \n
+
