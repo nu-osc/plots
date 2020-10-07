@@ -21,6 +21,7 @@
     * INO, T2HKK, PINGU status is unclear (marked with star in the plot), approximate starting years are taken
     * joint beam + atmospheric sensitivity is shown for T2HK and T2HKK here
     * sources for sensitivities vs years for all experiments are written in references
+    * digitizer was used for extracting values from plots
 
 
 ![NMO sensitivity projection](future_nmo_v1-0.png) 
