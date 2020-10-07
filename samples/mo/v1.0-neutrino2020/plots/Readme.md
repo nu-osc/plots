@@ -16,7 +16,7 @@
     * Forero et al. is pre-Neutrino version.
     * NMO 2020 sensitivity:
         + SuperK $`\sigma`$ is extracted as $`\sqrt{\Delta\chi^2}`$; official statement is 71.4-90.3% CLs disfavor for IH.
-        + T2K $`\sigma`$ is extracted from  $`\sqrt{\Delta\chi^2}`$ for $`\delta_{CP}`$; official statement is >1$`\sigma`$.
+        + T2K $`\sigma`$ is extracted from  $`\sqrt{\Delta\chi^2}`$ plot for $`\delta_{CP}`$; official statement is >1$`\sigma`$.
     * Grey MO numbers on right axis are experiment maximal sensitivities. 
         + For T2K and SK 3.5 $`\sigma`$ is expected result of a joint fit.
 
