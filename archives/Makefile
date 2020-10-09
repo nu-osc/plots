@@ -1,4 +1,4 @@
-date        = 2020-10-06
+date        = 2020-10-09
 path        = ../plots
 theta13     = $(path)/theta13/v4.1-neutrino2020
 theta21     = $(path)/theta12/v1.0-neutrino2020
@@ -6,8 +6,8 @@ theta23     = $(path)/theta23/v1.0-neutrino2020
 dm32        = $(path)/dm32/v4.1-neutrino2020
 dm21        = $(path)/dm21/v1.0-neutrino2020
 deltaCP     = $(path)/deltaCP/v2.0-neutrino2020
-#nmo        =
-#nmo_future =
+nmo         = $(path)/mo/v1.0-neutrino2020
+nmo_future  = $(path)/future_nmo/v1.0-neutrino2020
 
 base    = nuosc_comparison_$(date)
 archive = $(base).zip
