@@ -159,11 +159,8 @@ def main(args):
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.30, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
-    outfilename='plots/future_nmo_plot.pdf'
-    if args.output:
-        outfilename = args.output
-    plt.savefig(outfilename, dpi=300)
-    print('Write output file', outfilename)
+    plt.savefig(args.output, dpi=300)
+    print('Write output file', args.output)
 
     if args.show:
         plt.show()
