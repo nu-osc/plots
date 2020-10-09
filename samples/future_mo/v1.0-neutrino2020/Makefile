@@ -30,5 +30,4 @@ clean-all:
 
 publish: all
 	test -d $(publishdir) || mkdir -p $(publishdir)
-	cp plots/* $(publishdir)/
-	cp $(table_IO) $(table_NO) $(publishdir)/
+	cp -v plots/* $(publishdir)/

@@ -13,9 +13,9 @@ reference =  'v1.0 2020.08: git.jinr.ru/nu/osc'
 
 def main(args):
 
-#
-# RC params
-#
+    #
+    # RC params
+    #
     plt.rc('text', usetex=True)
     plt.rcParams['grid.alpha'] = 0.1
     plt.rcParams['grid.linewidth'] = 2
@@ -34,9 +34,9 @@ def main(args):
     position = {'nova' : (2022.5, 3.5), 't2ksk' : (2020.5, 2.0), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027, 4.25), 't2hk' : (2034.5, 4.3), 'dune' : (2028.5, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
 
     marker_offset = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 't2hk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
-#
-# Load
-#
+    #
+    # Load
+    #
     exps = []
     for exp in args.inputs:
         with open(exp, 'r') as f:
@@ -58,8 +58,8 @@ def main(args):
         this_exp = {'id': exp.rsplit('/',1)[-1].split('_',1)[0].replace('.yaml', ''), 'name' : name, 'start' : start, 'status' : status, 'low_values' : low, 'high_values' : high}
         exps.append(this_exp)
 
-#
-# Figure
+    #
+    # Figure
     fig, ax = plt.subplots()
     plt.subplots_adjust(left=0.06, right=0.95, top=0.9, bottom=0.2)
     plt.title('Future neutrino mass ordering sensitivity', pad=20)
@@ -97,7 +97,7 @@ def main(args):
             width=0
         if exp['id'] == 'juno':
             alpha=0.5
-        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
+        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor='none', alpha=alpha, lw=width, ls=lstyle)
         ax.add_patch(poly)
         if star != '':
             poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=2, ls=lstyle)
@@ -107,9 +107,12 @@ def main(args):
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
         marker_place_x = start+marker_offset[exp['id']]
         marker_place_y = sens_max_1year
-        ax.plot(marker_place_x, marker_place_y, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=0.8)
-        plt.plot([marker_place_x, sens_year_start], [marker_place_y, marker_place_y], ls='dotted', color=color)
-        plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color)
+
+        alpha = 0.5
+        ax.plot(marker_place_x, marker_place_y, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=alpha)
+        plt.plot([marker_place_x, sens_year_start], [marker_place_y, marker_place_y], ls='dotted', color=color, alpha=alpha)
+        if args.arrows:
+            plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color, alpha=alpha)
 
         oddoffset = 0.95
         fulloffset = 1.3
@@ -172,6 +175,7 @@ if __name__ == '__main__':
     parser.add_argument('inputs', nargs='+', help='files to load')
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
+    parser.add_argument('-a', '--arrows', action='store_true', help='show arrows')
 
     main(parser.parse_args())
 
