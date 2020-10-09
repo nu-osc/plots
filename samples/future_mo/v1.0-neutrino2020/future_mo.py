@@ -61,7 +61,7 @@ def main(args):
     #
     # Figure
     fig, ax = plt.subplots()
-    plt.subplots_adjust(left=0.06, right=0.95, top=0.9, bottom=0.2)
+    plt.subplots_adjust(left=0.06, right=0.96, top=0.9, bottom=0.2)
     plt.title('Future neutrino mass ordering sensitivity', pad=20)
     ax.set_xlabel('Year')
     ax.set_ylabel('Median sensitivity, $\sigma$')
