@@ -3,7 +3,6 @@ type: accelerator
 dataset: 19.7e20 POT ν, 16.3e20 POT ν-bar
 reference:
     date: '2020.07'
-    latest: True
     arxiv:
     inspire:
     doi:
@@ -12,7 +11,7 @@ reference:
     talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
     slides: [11, 29, 47, 48]
 result:
-    splitting_large: 
+    splitting_large:
         precision: 2
         mode: '32'
         results:
@@ -37,7 +36,7 @@ result:
                   interval: [-2.66, -0.97]
             - ordering: IO
               value: -1.43
-              uncertainty: 
+              uncertainty:
                   interval: [-2.0, -0.89]
               notes: IH is Bayesian result, not official
     amplitude23:

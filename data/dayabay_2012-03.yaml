@@ -1,0 +1,19 @@
+- experiment: Daya Bay
+  type: reactor
+  dataset: 55 days
+  details: 55 days (6AD), rate-only analysis
+  reference:
+      date: '2012.03'
+      arxiv: hep-ex/1203.1669
+      inspire: https://inspirehep.net/literature/1093266
+      doi: https://doi.org/10.1103/PhysRevLett.108.171803
+      citation: An:2012eh
+  target: nGd
+  result:
+      amplitude13:
+          precision: 3
+          mode: double
+          value: 0.092
+          uncertainty:
+              stat: 0.016
+              syst: 0.005

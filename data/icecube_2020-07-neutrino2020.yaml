@@ -3,7 +3,6 @@ type: atmospheric
 dataset: 1022 days
 reference:
     date: '2020.07'
-    latest: True
     arxiv: hep-ex/1707.07081
     inspire: https://inspirehep.net/literature/1611292
     doi: https://doi.org/10.1103/PhysRevLett.120.071801
@@ -12,7 +11,7 @@ reference:
     talk: https://zenodo.org/record/1286852
     slides: 12
 result:
-    splitting_large: 
+    splitting_large:
         precision: 2
         mode: '32'
         results:
@@ -26,7 +25,7 @@ result:
               uncertainty:
                   left: 0.13
                   right: 0.11
-    amplitude23: 
+    amplitude23:
         precision: 2
         mode: single
         results:

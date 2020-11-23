@@ -2,7 +2,6 @@
   type: reactor
   dataset: 2900 days, Aug. 2011 - Feb. 2020
   reference:
-      latest: True
       date: '2020.07'
       arxiv:
       inspire:
@@ -32,7 +31,6 @@
   target: nH
   dataset: 1500 days
   reference:
-      latest: True
       arxiv:
       citation:
       conf: Neutrino2020

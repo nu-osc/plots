@@ -1,0 +1,28 @@
+- experiment: Daya Bay
+  type: reactor
+  dataset: 621 days
+  details: 217 days (6AD) + 404 days (8AD), rate+shape analysis
+  reference:
+      date: '2015.05'
+      arxiv: hep-ex/1505.03456
+      inspire: https://inspirehep.net/literature/1369999
+      doi: https://doi.org/10.1103/PhysRevLett.115.111802
+      citation: An:2015rpe
+      pages: 5
+  target: nGd
+  result:
+      amplitude13:
+          precision: 3
+          mode: double
+          value: 0.084
+          uncertainty: 0.005
+      splitting_large:
+          precision: 2
+          mode: '32'
+          results:
+              - ordering: 'NO'
+                value: 2.37
+                uncertainty: 0.11
+              - ordering: IO
+                value: 2.47
+                uncertainty: 0.11

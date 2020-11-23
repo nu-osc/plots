@@ -2,7 +2,6 @@ experiment: Forero et al.
 type: theory
 reference:
     date: '2020.06'
-    latest: True
     arxiv: hep-ex/2006.11237
     inspire:
     doi:
@@ -11,7 +10,7 @@ reference:
     talk:
     slides:
 result:
-    splitting_large: 
+    splitting_large:
         precision: 2
         mode: '31'
         results:
@@ -23,7 +22,7 @@ result:
             - ordering: IO
               value: 2.46
               uncertainty: 0.03
-    deltaCP: 
+    deltaCP:
         precision: 3
         mode: pi
         results:
@@ -35,7 +34,7 @@ result:
             - ordering: IO
               value: 1.54
               uncertainty: 0.13
-    amplitude23: 
+    amplitude23:
         precision: 3
         mode: single
         results:

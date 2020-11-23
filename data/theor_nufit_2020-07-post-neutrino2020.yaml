@@ -2,7 +2,6 @@ experiment: NuFIT 5.0
 type: theory
 reference:
     date: '2020.07'
-    latest: True
     arxiv: hep-ph/2007.14792
     inspire: https://inspirehep.net/literature/1809173
     doi:
@@ -12,7 +11,7 @@ reference:
     talk:
     slides:
 result:
-    splitting_large: 
+    splitting_large:
         precision: 3
         results:
             - ordering: 'NO'
@@ -28,7 +27,7 @@ result:
                   left: 0.028
                   right: 0.028
         notes: With SuperK data included
-    deltaCP: 
+    deltaCP:
         precision: 3
         mode: degrees
         results:
@@ -42,7 +41,7 @@ result:
               uncertainty:
                   left: 30
                   right: 26
-    amplitude23: 
+    amplitude23:
         precision: 3
         mode: single
         results:

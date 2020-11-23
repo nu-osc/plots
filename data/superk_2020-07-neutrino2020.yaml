@@ -3,7 +3,6 @@ type: atmospheric
 dataset: 364.8 kt-years
 reference:
     date: '2020.07'
-    latest: True
     arxiv:
     inspire:
     doi:
@@ -12,12 +11,12 @@ reference:
     talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
     slides: 23, 27
 result:
-    splitting_large: 
+    splitting_large:
         precision: 2
         mode: '32'
         results:
             - ordering: 'NO'
-              value: 2.40 
+              value: 2.40
               uncertainty:
                   left: 0.12
                   right: 0.11
@@ -26,7 +25,7 @@ result:
               uncertainty:
                   left: 0.32
                   right: 0.09
-    deltaCP: 
+    deltaCP:
         precision: 3
         mode: radians
         results:
@@ -40,7 +39,7 @@ result:
               uncertainty:
                   left: 1.32
                   right: 0.88
-    amplitude23: 
+    amplitude23:
         precision: 2
         mode: single
         results:

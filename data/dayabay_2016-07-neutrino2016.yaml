@@ -1,8 +1,8 @@
 - experiment: Daya Bay
   type: reactor
   dataset: 621 days
+  details: 217 days (6AD) + 404 days (8AD), rate-only analysis
   reference:
-      latest: True
       date: '2016.07'
       arxiv: hep-ex/1603.03549
       inspire: https://inspirehep.net/literature/1427291

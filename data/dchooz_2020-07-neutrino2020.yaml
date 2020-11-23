@@ -3,7 +3,6 @@ type: reactor
 target: n(H,C,Gd)
 dataset:
 reference:
-    latest: True
     date: '2020.07'
     arxiv:
     inspire:

@@ -3,7 +3,6 @@ type: solar
 dataset:
 reference:
     date: '2020.07'
-    latest: True
     arxiv:
     inspire:
     doi:

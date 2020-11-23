@@ -2,7 +2,6 @@ experiment: "NuFIT '19"
 type: theory
 reference:
     date: '2019.07'
-    latest: True
     arxiv:
     inspire:
     doi:
@@ -11,7 +10,7 @@ reference:
     talk:
     slides:
 result:
-    splitting_large: 
+    splitting_large:
         precision: 2
         mode: '32'
         results:
@@ -26,7 +25,7 @@ result:
                   left: 0.031
                   right: 0.030
         notes: This is mix of dmsq32 and dmsq31 values!
-    deltaCP: 
+    deltaCP:
         precision: 2
         mode: degrees
         results:
@@ -40,7 +39,7 @@ result:
               uncertainty:
                   left: 25
                   right: 23
-    amplitude23: 
+    amplitude23:
         precision: 2
         mode: single
         results:

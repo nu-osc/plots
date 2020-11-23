@@ -3,7 +3,6 @@ type: reactor
 target: nH
 dataset: 1500 days?
 reference:
-    latest: True
     arxiv:
     inspire:
     doi:
@@ -17,7 +16,7 @@ result:
         mode: 'ee'
         value: 2.53
         uncertainty:
-            stat: 
+            stat:
                 left: 0.28
                 right: 0.25
             syst:
