@@ -1,3 +1,0 @@
-nova NOvA 1.0 5.0
-t2k T2K 1.0 3.0
-superkamiokande SuperKamiokande 1.0 3.0
