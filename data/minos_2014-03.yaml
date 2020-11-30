@@ -1,0 +1,34 @@
+experiment: MINOS
+type: accelerator
+dataset: 10.71e20 POT ν, 3.36e20 POT ν-bar, 37.88 kt-years atm
+reference:
+    date: '2014.03'
+    arxiv: hep-ex/1403.0867
+    inspire: https://inspirehep.net/literature/1283612
+    doi: https://doi.org/10.1103/PhysRevLett.112.191801
+    citation: Adamson:2014vgd
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              octant: LO
+              value: 2.37
+              uncertainty:  0.09
+            - ordering: 'NO'
+              octant: UO
+              value: 2.35
+              uncertainty:  0.09
+            - ordering: 'IO'
+              octant: LO
+              value: 2.41
+              uncertainty:
+                left:  0.09
+                right: 0.12
+            - ordering: 'IO'
+              octant: UO
+              value: 2.41
+              uncertainty:
+                left:  0.09
+                right: 0.12

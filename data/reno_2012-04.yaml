@@ -1,0 +1,19 @@
+- experiment: RENO
+  type: reactor
+  dataset: 222 days
+  details: rate+only analysis
+  reference:
+      date: '2012.04'
+      arxiv: hep-ex/1204.0626
+      inspire: https://inspirehep.net/literature/1102875
+      doi: https://doi.org/10.1103/PhysRevLett.108.191802
+      citation: Ahn:2012nd
+  target: nGd
+  result:
+      amplitude13:
+          precision: 3
+          mode: double
+          value: 0.113
+          uncertainty:
+              stat: 0.013
+              syst: 0.019

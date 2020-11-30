@@ -1,0 +1,19 @@
+experiment: MINOS
+type: accelerator
+dataset: 3.36e20 POT ν, 37.88 kt-years atm
+reference:
+    date: '2013.04'
+    arxiv: hep-ex/1304.6335
+    inspire: https://inspirehep.net/literature/1229505
+    doi: https://doi.org/10.1103/PhysRevLett.110.251801
+    citation: Adamson:2013whj
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: False
+              value: 2.41
+              uncertainty:
+                left:  0.10
+                right: 0.09

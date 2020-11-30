@@ -1,0 +1,19 @@
+- experiment: Double CHOOZ
+  type: reactor
+  dataset: 101 days
+  details: 101 days FD only, rate-only analysis
+  reference:
+      date: '2011.12'
+      arxiv: hep-ex/1112.6353
+      inspire: https://inspirehep.net/literature/1082938
+      doi: https://doi.org/10.1103/PhysRevLett.108.131801
+      citation: Abe:2011fz
+  target: nGd
+  result:
+      amplitude13:
+          precision: 3
+          mode: double
+          value: 0.086
+          uncertainty:
+              stat: 0.041
+              syst: 0.030

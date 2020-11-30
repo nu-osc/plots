@@ -1,0 +1,19 @@
+experiment: MINOS
+type: accelerator
+dataset: 7.25e20 POT ν
+reference:
+    date: '2011.03'
+    arxiv: hep-ex/1103.0340
+    inspire: https://inspirehep.net/literature/891258
+    doi: https://doi.org/10.1103/PhysRevLett.106.181801
+    citation: Adamson:2011ig
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: False
+              value: 2.32
+              uncertainty:
+                  left:  0.08
+                  right: 0.12
