@@ -17,7 +17,6 @@ result:
               uncertainty:
                   interval: [2.28, 2.46]
             - ordering: 'IO'
-              octant: LO
               value: 2.41
               uncertainty:
                 interval: [2.32, 2.53]
