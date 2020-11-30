@@ -13,22 +13,11 @@ result:
         mode: '32'
         results:
             - ordering: 'NO'
-              octant: LO
               value: 2.37
-              uncertainty:  0.09
-            - ordering: 'NO'
-              octant: UO
-              value: 2.35
-              uncertainty:  0.09
+              uncertainty:
+                  interval: [2.28, 2.46]
             - ordering: 'IO'
               octant: LO
               value: 2.41
               uncertainty:
-                left:  0.09
-                right: 0.12
-            - ordering: 'IO'
-              octant: UO
-              value: 2.41
-              uncertainty:
-                left:  0.09
-                right: 0.12
+                interval: [2.32, 2.53]
