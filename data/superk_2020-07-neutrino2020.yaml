@@ -61,3 +61,7 @@ result:
         notes: |-
              2020 IH rej value is taken as difference of IH and NH BF on slide 27,
              MH proj value is SK+T2K (http://www-sk.icrr.u-tokyo.ac.jp/sk/_pdf/articles/2019/mjiang_dt.pdf)
+crosschecks:
+    - Bedrich Roskovec
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

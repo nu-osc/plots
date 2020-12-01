@@ -1,26 +1,29 @@
-- experiment: RENO
-  type: reactor
-  dataset: 2200 days
-  details: rate+shape analysis
-  reference:
-      date: '2018.06'
-      arxiv: hep-ex/1806.00248
-      inspire: https://inspirehep.net/literature/1676077
-      doi: https://doi.org/10.1103/PhysRevLett.121.201801
-      citation: Bak:2018ydk
-  target: nGd
-  result:
-      amplitude13:
-          precision: 4
-          mode: double
-          value: 0.0896
-          uncertainty:
-              stat: 0.0048
-              syst: 0.0047
-      splitting_large:
-          precision: 2
-          mode: ee
-          value: 2.68
-          uncertainty:
-              stat: 0.12
-              syst: 0.07
+experiment: RENO
+type: reactor
+dataset: 2200 days
+details: rate+shape analysis
+reference:
+    date: '2018.06'
+    arxiv: hep-ex/1806.00248
+    inspire: https://inspirehep.net/literature/1676077
+    doi: https://doi.org/10.1103/PhysRevLett.121.201801
+    citation: Bak:2018ydk
+target: nGd
+result:
+    amplitude13:
+        precision: 4
+        mode: double
+        value: 0.0896
+        uncertainty:
+            stat: 0.0048
+            syst: 0.0047
+    splitting_large:
+        precision: 2
+        mode: ee
+        value: 2.68
+        uncertainty:
+            stat: 0.12
+            syst: 0.07
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

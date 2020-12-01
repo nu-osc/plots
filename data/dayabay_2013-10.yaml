@@ -1,34 +1,37 @@
-- experiment: Daya Bay
-  type: reactor
-  dataset: 217 days
-  details: 217 days (6AD), rate+shape analysis
-  reference:
-      date: '2013.10'
-      arxiv: hep-ex/1310.6732
-      inspire: https://inspirehep.net/literature/1261972
-      doi: https://doi.org/10.1103/PhysRevLett.112.061801
-      citation: An:2013zwz
-      pages: 6
-  target: nGd
-  result:
-      amplitude13:
-          precision: 3
-          mode: double
-          value: 0.090
-          uncertainty:
-              left: 0.009
-              right: 0.008
-      splitting_large:
-          precision: 2
-          mode: '32'
-          results:
-              - ordering: 'NO'
-                value: 2.54
-                uncertainty:
-                    left: 0.20
-                    right: 0.19
-              - ordering: IO
-                value: 2.64
-                uncertainty:
-                    left: 0.20
-                    right: 0.19
+experiment: Daya Bay
+type: reactor
+dataset: 217 days
+details: 217 days (6AD), rate+shape analysis
+reference:
+    date: '2013.10'
+    arxiv: hep-ex/1310.6732
+    inspire: https://inspirehep.net/literature/1261972
+    doi: https://doi.org/10.1103/PhysRevLett.112.061801
+    citation: An:2013zwz
+    pages: 6
+target: nGd
+result:
+    amplitude13:
+        precision: 3
+        mode: double
+        value: 0.090
+        uncertainty:
+            left: 0.009
+            right: 0.008
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.54
+              uncertainty:
+                  left: 0.20
+                  right: 0.19
+            - ordering: IO
+              value: 2.64
+              uncertainty:
+                  left: 0.20
+                  right: 0.19
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

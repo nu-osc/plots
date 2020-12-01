@@ -15,3 +15,6 @@ result:
             - ordering: False
               value: 2.43
               uncertainty: 0.13
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

@@ -78,3 +78,6 @@ result:
         mode: sigma
         value: 3.0
         proj: 0
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

@@ -70,4 +70,7 @@ result:
         mode: sigma
         value: 1.0
         proj: 5.0
-
+crosschecks:
+    - Bedrich Roskovec
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

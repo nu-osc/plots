@@ -41,4 +41,7 @@ result:
                   right: 0.07
               note: 'error from NO'
               notes: no error bar for IH in paper, but BF is the same as in NH
-
+crosschecks:
+    - Bedrich Roskovec
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

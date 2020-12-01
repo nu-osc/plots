@@ -1,17 +1,20 @@
-- experiment: Daya Bay
-  type: reactor
-  dataset: 217 days
-  details: 217 days (6AD), rate-only analysis
-  reference:
-      date: '2014.06'
-      arxiv: hep-ex/1406.6468
-      inspire: https://inspirehep.net/literature/1303107
-      doi: https://doi.org/10.1103/PhysRevD.90.071101
-      citation: An:2014ehw
-  target: nH
-  result:
-      amplitude13:
-          precision: 3
-          mode: double
-          value: 0.089
-          uncertainty: 0.008
+experiment: Daya Bay
+type: reactor
+dataset: 217 days
+details: 217 days (6AD), rate-only analysis
+reference:
+    date: '2014.06'
+    arxiv: hep-ex/1406.6468
+    inspire: https://inspirehep.net/literature/1303107
+    doi: https://doi.org/10.1103/PhysRevD.90.071101
+    citation: An:2014ehw
+target: nH
+result:
+    amplitude13:
+        precision: 3
+        mode: double
+        value: 0.089
+        uncertainty: 0.008
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

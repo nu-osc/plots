@@ -1,34 +1,38 @@
-- experiment: Daya Bay
-  type: reactor
-  dataset: 1958 days
-  details: 217 days (6AD) + 1524 days (8AD) + 217 days (7AD), rate+shape analysis
-  reference:
-      date: '2018.06'
-      arxiv: hep-ex/1809.02261
-      inspire: https://inspirehep.net/literature/1693245
-      doi: https://doi.org/10.1103/PhysRevLett.121.241805
-      citation: Adey:2018zwh
-      conf: Neutrino2018
-      talk: http://doi.org/10.5281/zenodo.1288292
-      slides: 16
-  target: nGd
-  result:
-      amplitude13:
-          precision: 4
-          mode: double
-          value: 0.0856
-          uncertainty: 0.0029
-      splitting_large:
-          precision: 3
-          mode: '32'
-          results:
-              - ordering: 'NO'
-                value: 2.471
-                uncertainty:
-                    left: 0.070
-                    right: 0.068
-              - ordering: IO
-                value: 2.575
-                uncertainty:
-                    left: 0.070
-                    right: 0.068
+experiment: Daya Bay
+type: reactor
+dataset: 1958 days
+details: 217 days (6AD) + 1524 days (8AD) + 217 days (7AD), rate+shape analysis
+reference:
+    date: '2018.06'
+    arxiv: hep-ex/1809.02261
+    inspire: https://inspirehep.net/literature/1693245
+    doi: https://doi.org/10.1103/PhysRevLett.121.241805
+    citation: Adey:2018zwh
+    conf: Neutrino2018
+    talk: http://doi.org/10.5281/zenodo.1288292
+    slides: 16
+target: nGd
+result:
+    amplitude13:
+        precision: 4
+        mode: double
+        value: 0.0856
+        uncertainty: 0.0029
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.471
+              uncertainty:
+                  left: 0.070
+                  right: 0.068
+            - ordering: IO
+              value: 2.575
+              uncertainty:
+                  left: 0.070
+                  right: 0.068
+crosschecks:
+    - Bedrich Roskovec
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

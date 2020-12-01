@@ -27,4 +27,6 @@ result:
             left: 0.026
             right: 0.034
         notes: reanalysis made by SuperK with newer th13
-
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

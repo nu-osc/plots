@@ -1,32 +1,35 @@
-- experiment: Daya Bay
-  type: reactor
-  dataset: 1230 days
-  details: 217 days (6AD) + 1013 days (8AD), rate+shape analysis
-  reference:
-      date: '2016.10'
-      arxiv: hep-ex/1610.04802
-      inspire: https://inspirehep.net/literature/1492315
-      doi: https://doi.org/10.1103/PhysRevD.95.072006
-      citation: An:2016ses
-      pages: 43
-      conf: Neutrino2016
-      talk: https://cdn.eventsforce.net/files/ef-q5vmtsq56tk6/website/948/09.20___2_.pdf
-  target: nGd
-  result:
-      amplitude13:
-          precision: 4
-          mode: double
-          value: 0.0841
-          uncertainty: 0.0033
-          note: Using total uncertainty as it is a primary input, rather than stat/syst
-      splitting_large:
-          precision: 3
-          mode: '32'
-          results:
-              - ordering: 'NO'
-                value: 2.45
-                uncertainty: 0.08
-              - ordering: IO
-                value: 2.56
-                uncertainty: 0.08
-          note: Using total uncertainty as it is a primary input, rather than stat/syst
+experiment: Daya Bay
+type: reactor
+dataset: 1230 days
+details: 217 days (6AD) + 1013 days (8AD), rate+shape analysis
+reference:
+    date: '2016.10'
+    arxiv: hep-ex/1610.04802
+    inspire: https://inspirehep.net/literature/1492315
+    doi: https://doi.org/10.1103/PhysRevD.95.072006
+    citation: An:2016ses
+    pages: 43
+    conf: Neutrino2016
+    talk: https://cdn.eventsforce.net/files/ef-q5vmtsq56tk6/website/948/09.20___2_.pdf
+target: nGd
+result:
+    amplitude13:
+        precision: 4
+        mode: double
+        value: 0.0841
+        uncertainty: 0.0033
+        note: Using total uncertainty as it is a primary input, rather than stat/syst
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.45
+              uncertainty: 0.08
+            - ordering: IO
+              value: 2.56
+              uncertainty: 0.08
+        note: Using total uncertainty as it is a primary input, rather than stat/syst
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
