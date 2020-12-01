@@ -1,0 +1,23 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - 1.43 POT ν
+reference:
+    date: '2011-06'
+    arxiv: hep-ex/1106.2822
+    inspire: https://inspirehep.net/literature/913765
+    doi: https://doi.org/10.1103/PhysRevLett.107.041801
+    citation: Abe:2011sj
+result:
+    amplitude13:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              uncertainty:
+                  interval: [1.3, 5.6]
+            - ordering: 'IO'
+              uncertainty:
+                  interval: [1.5, 5.6]
+crosschecks:
+    - Maxim Gonchar

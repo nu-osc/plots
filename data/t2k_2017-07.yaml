@@ -11,6 +11,7 @@ reference:
         - https://doi.org/10.1103/PhysRevD.96.092006
         - https://doi.org/10.1103/PhysRevD.98.019902
     citation: Abe:2017vif
+    pages: [1, 39]
 result:
     amplitude23:
         precision: 2
@@ -37,5 +38,29 @@ result:
               value: 2.51
               mode: '31'
               uncertainty: 0.08
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.0271
+              uncertainty:
+                  interval: [0.0209, 0.0342]
+            - ordering: IO
+              value: 0.0299
+              uncertainty:
+                  interval: [0.0232, 0.0380]
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -1.791
+              uncertainty:
+                  interval: [-2.789, -0.764]
+            - ordering: IO
+              value: -1.382
+              uncertainty:
+                  interval: [-2.296, -0.524]
 crosschecks:
     - Maxim Gonchar

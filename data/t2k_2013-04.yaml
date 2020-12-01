@@ -14,7 +14,7 @@ result:
         mode: double
         value: 0.088
         uncertainty:
-            left:  0.049
-            right: 0.039
+            left:  0.039
+            right: 0.049
 crosschecks:
     - Maxim Gonchar
