@@ -1,0 +1,16 @@
+experiment: NOvA
+type: accelerator
+dataset: 6.05e20 POT ν
+reference:
+    date: '2017.03'
+    arxiv: arXiv:1703.03328
+    inspire: https://inspirehep.net/literature/1516801
+    doi: 10.1103/PhysRevLett.118.231801
+    citation:
+    conf:
+    talk:
+    slides:
+result:
+    note: "need private comunication for 1sigma intervals"
+crosschecks:
+    - Liudmila Kolupaeva

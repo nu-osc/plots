@@ -1,0 +1,44 @@
+experiment: NOvA
+type: accelerator
+dataset: 8.85e20 POT ν, 12.33e20 POT ν-bar
+reference:
+    date: '2019.06'
+    arxiv: arXiv:1906.04907
+    inspire: https://inspirehep.net/literature/1739571
+    doi: 10.1103/PhysRevLett.123.151803
+    citation:
+    conf:
+    talk:
+    slides:
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.48
+              uncertainty:
+                  left: 0.06
+                  right: 0.11
+              notes: "need private communication for IO interval"
+    deltaCP:
+        precision: 3
+        mode: pi
+        results:
+            - ordering: 'NO'
+              value: 0
+              uncertainty:
+              notes: "need private communication for interval and IO"
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: UO
+              value: 0.56
+              uncertainty:
+                  left: 0.03
+                  right: 0.04
+              notes: "need private communication for other"
+crosschecks:
+    - Liudmila Kolupaeva

@@ -1,0 +1,16 @@
+experiment: NOvA
+type: accelerator
+dataset: 2.74e20 POT ν
+reference:
+    date: '2016.01'
+    arxiv: arXiv:1601.05022
+    inspire: https://inspirehep.net/literature/1415951
+    doi: 0.1103/PhysRevLett.116.151806
+    citation:
+    conf:
+    talk:
+    slides:
+result:
+    note: "nue only, no strong statements, only on disfavor side"
+crosschecks:
+    - Liudmila Kolupaeva
