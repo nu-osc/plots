@@ -1,0 +1,40 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - 14.7e20 POT ν
+    - 7.6e20 POT ν-bar
+reference:
+    date: '2018.07'
+    arxiv: hep-ex/1807.07891
+    inspire: https://inspirehep.net/literature/1683307
+    doi: https://doi.org/10.1103/PhysRevLett.121.171802
+    citation: Abe:2018wpn
+result:
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.526
+              uncertainty:
+                  left: 0.036
+                  right: 0.032
+            - ordering: IO
+              value: 0.530
+              uncertainty:
+                  left: 0.034
+                  right: 0.030
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.463
+              uncertainty:
+                  left:  0.070
+                  right: 0.071
+            - ordering: IO
+              value: 2.432
+              uncertainty: 0.070
+crosschecks:
+    - Maxim Gonchar
