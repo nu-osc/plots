@@ -1,7 +1,6 @@
 experiment: T2K
 type: accelerator
-dataset:
-    - 4.01 POT ν-bar
+dataset: 4.01 POT ν-bar
 reference:
     date: '2015.12'
     arxiv: hep-ex/1512.02495
