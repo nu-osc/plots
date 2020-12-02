@@ -1,6 +1,7 @@
 experiment: NOvA
 type: accelerator
 dataset: 8.85e20 POT ν, 12.33e20 POT ν-bar
+channel: joint numudisap + nueapp
 reference:
     date: '2019.06'
     arxiv: arXiv:1906.04907
@@ -20,7 +21,11 @@ result:
               uncertainty:
                   left: 0.06
                   right: 0.11
-              notes: "need private communication for IO interval"
+            - ordering: IO
+              value: 2.54
+              uncertainty:
+                  interval: [2.44, 2.67]
+              notes: "private communication for IO"
     deltaCP:
         precision: 3
         mode: pi
@@ -28,7 +33,12 @@ result:
             - ordering: 'NO'
               value: 0
               uncertainty:
-              notes: "need private communication for interval and IO"
+                  interval: [-0.4, 1.31]
+            - ordering: IO
+              value: 1.48
+              uncertainty:
+                  interval: [1.06, 1.88]
+              notes: "private communication for interval and IO"
     amplitude23:
         precision: 2
         mode: single
@@ -39,6 +49,15 @@ result:
               uncertainty:
                   left: 0.03
                   right: 0.04
-              notes: "need private communication for other"
+            - ordering: 'NO'
+              octant: LO
+              value: 0.46
+              uncertainty:
+                  interval: [0.45, 0.476]
+            - ordering: IO
+              value: 0.56
+              uncertainty:
+                  interval: [0.425, 0.61]
+              notes: "private communication for all except NO UO"
 crosschecks:
     - Liudmila Kolupaeva

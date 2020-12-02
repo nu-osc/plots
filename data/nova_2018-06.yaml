@@ -18,8 +18,12 @@ result:
             - ordering: 'NO'
               value: 2.44
               uncertainty:
-                  interval: [2.237, 2.52]
-              notes: "need private communication for IO interval"
+                  interval: [2.37, 2.52]
+            - ordering: IO
+              value: 2.52
+              uncertainty:
+                  interval: [2.37, 2.67]
+              notes: "private communication for IO interval"
     deltaCP:
         precision: 3
         mode: pi
@@ -30,7 +34,9 @@ result:
                   interval: [0.91, 2.12]
             - ordering: IO
               value: 1.46
-              notes: "need private communication for IO interval"
+              uncertainty:
+                  interval: [0.91, 2.0]
+              notes: "private communication for IO interval"
     amplitude23:
         precision: 2
         mode: single
@@ -46,8 +52,9 @@ result:
               uncertainty:
                   interval: [0.43, 0.51]
             - ordering: IO
-              octant: UO
               value: 0.56
-              notes: "need private communication for IO interval"
+              uncertainty:
+                  interval: [0.43, 0.62]
+              notes: "private communication for IO interval"
 crosschecks:
     - Liudmila Kolupaeva

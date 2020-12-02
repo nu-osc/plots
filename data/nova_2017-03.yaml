@@ -1,6 +1,7 @@
 experiment: NOvA
 type: accelerator
 dataset: 6.05e20 POT ν
+channel: joint numudisap + nueapp
 reference:
     date: '2017.03'
     arxiv: arXiv:1703.03328
@@ -11,6 +12,6 @@ reference:
     talk:
     slides:
 result:
-    note: "need private comunication for 1sigma intervals"
+    note: "no strong statements on deltaCP"
 crosschecks:
     - Liudmila Kolupaeva

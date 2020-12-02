@@ -1,6 +1,7 @@
 experiment: NOvA
 type: accelerator
 dataset: 6.05e20 POT ν
+channel: numudisap
 reference:
     date: '2016.01'
     arxiv: arXiv:1601.05037
