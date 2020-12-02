@@ -3,6 +3,7 @@ type: accelerator
 dataset:
     - 14.9e20 POT ν
     - 16.4e20 POT ν-bar
+channel: numudisapp
 reference:
     date: '2020.08'
     arxiv: hep-ex/2008.07921
@@ -40,3 +41,4 @@ result:
                   right: 0.18
 crosschecks:
     - Maxim Gonchar
+    - Liudmila Kolupaeva

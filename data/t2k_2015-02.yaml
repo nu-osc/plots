@@ -2,6 +2,7 @@ experiment: T2K
 type: accelerator
 dataset:
     - 6.57e20 POT ν
+channel: joint nuumdisap + nueapp
 reference:
     date: '2015.02'
     arxiv: hep-ex/1502.01550
@@ -45,3 +46,4 @@ result:
               uncertainty: 0.11
 crosschecks:
     - Maxim Gonchar
+    - Liudmila Kolupaeva

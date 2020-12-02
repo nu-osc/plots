@@ -1,8 +1,9 @@
 experiment: T2K
 type: accelerator
 dataset:
-    - 5.8e20 POT ν
-    - 3.9e20 POT ν-bar
+    - 14.9e20 POT ν
+    - 16.4e20 POT ν-bar
+channel: joint numudisap and nueapp
 reference:
     date: '2019.10'
     arxiv: hep-ex/1910.03887
@@ -20,12 +21,13 @@ result:
         note: same for both NMO
     splitting_large:
         precision: 2
-        mode: '32'
         results:
             - ordering: 'NO'
+              mode: '32'
               value: 2.45
               uncertainty: 0.07
             - ordering: IO
+              mode: '31'
               value: 2.43
               uncertainty: 0.07
     deltaCP:
@@ -44,3 +46,4 @@ result:
                   right: 0.48
 crosschecks:
     - Maxim Gonchar
+    - Liudmila Kolupaeva

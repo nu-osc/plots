@@ -2,6 +2,7 @@ experiment: T2K
 type: accelerator
 dataset:
     - 6.57e20 POT ν
+channel: nueapp
 reference:
     date: '2013.11'
     arxiv: hep-ex/1311.4750
@@ -25,3 +26,4 @@ result:
                   right: 0.045
 crosschecks:
     - Maxim Gonchar
+    - Liudmila Kolupaeva

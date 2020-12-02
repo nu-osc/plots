@@ -3,6 +3,7 @@ type: accelerator
 dataset:
     - 14.7e20 POT ν
     - 7.6e20 POT ν-bar
+channel: numudisapp
 reference:
     date: '2018.07'
     arxiv: hep-ex/1807.07891
@@ -26,15 +27,17 @@ result:
                   right: 0.030
     splitting_large:
         precision: 3
-        mode: '32'
         results:
             - ordering: 'NO'
+              mode: '32'
               value: 2.463
               uncertainty:
                   left:  0.070
                   right: 0.071
             - ordering: IO
+              mode: '31'
               value: 2.432
               uncertainty: 0.070
 crosschecks:
     - Maxim Gonchar
+    - Liudmila Kolupaeva

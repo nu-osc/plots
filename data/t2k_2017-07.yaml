@@ -3,6 +3,7 @@ type: accelerator
 dataset:
     - 7.482e20 POT ν
     - 7.471e20 POT ν-bar
+channel: numudisap + nueapp
 reference:
     date: '2017.07'
     arxiv: hep-ex/1707.01048
@@ -14,30 +15,32 @@ reference:
     pages: [1, 39]
 result:
     amplitude23:
-        precision: 2
+        precision: 3
         mode: single
         results:
             - ordering: 'NO'
               value: 0.55
               uncertainty:
-                  left: 0.09
-                  right: 0.05
+                  interval: [0.465, 0.601]
             - ordering: IO
-              value: 0.55
+              value: 0.5525
               uncertainty:
-                  left: 0.08
-                  right: 0.05
+                  interval: [0.470, 0.601]
+        note: with reactor constraint
     splitting_large:
         precision: 2
         results:
             - ordering: 'NO'
               value: 2.54
               mode: '32'
-              uncertainty: 0.08
+              uncertainty:
+                  interval: [2.460, 2.621]
             - ordering: IO
               value: 2.51
-              mode: '31'
-              uncertainty: 0.08
+              mode: '32'
+              uncertainty:
+                  interval: [2.429, 2.588]
+        note: with reactor constraint
     amplitude13:
         precision: 4
         mode: single
@@ -50,17 +53,20 @@ result:
               value: 0.0299
               uncertainty:
                   interval: [0.0232, 0.0380]
+        note: w/o reactor constraint
     deltaCP:
         precision: 3
         mode: radians
         results:
             - ordering: 'NO'
-              value: -1.791
+              value: -1.728
               uncertainty:
-                  interval: [-2.789, -0.764]
+                  interval: [-2.538, -0.877]
             - ordering: IO
-              value: -1.382
+              value: -1.445
               uncertainty:
-                  interval: [-2.296, -0.524]
+                  interval: [-2.170, -0.768]
+        note: with reactor constraint
 crosschecks:
     - Maxim Gonchar
+    - Liudmila Kolupaeva
