@@ -1,7 +1,7 @@
-style      	name    	type   	notes  	ordering  	  precision	  value	  left	  right	     span	arxiv            	conf
-dayabay_ngd	Daya Bay	reactor	nGd    	          	          4	 0.0856	0.0029	 0.0029	0.0058   	hep-ex/1809.02261	Neutrino2018
-dayabay_ngd	Daya Bay	reactor	nGd    	          	          4	 0.0841	0.0033	 0.0033	0.0066   	hep-ex/1610.04802	Neutrino2016
-dayabay_ngd	Daya Bay	reactor	nGd    	          	          3	 0.084 	0.005 	 0.005 	0.01     	hep-ex/1505.03456
-dayabay_ngd	Daya Bay	reactor	nGd    	          	          3	 0.09  	0.009 	 0.008 	0.017    	hep-ex/1310.6732
-dayabay_ngd	Daya Bay	reactor	nGd    	          	          3	 0.089 	0.011 	 0.011 	0.0223607	hep-ex/1210.6327
-dayabay_ngd	Daya Bay	reactor	nGd    	          	          3	 0.092 	0.017 	 0.017 	0.0335261	hep-ex/1203.1669
+style      	date     	name    	type   	notes  	ordering  	  precision	  value	  left	  right	     span	arxiv            	conf
+dayabay_ngd	d.2012.03	Daya Bay	reactor	nGd    	          	          3	 0.092 	0.017 	 0.017 	0.0335261	hep-ex/1203.1669
+dayabay_ngd	d.2012.10	Daya Bay	reactor	nGd    	          	          3	 0.089 	0.011 	 0.011 	0.0223607	hep-ex/1210.6327
+dayabay_ngd	d.2013.10	Daya Bay	reactor	nGd    	          	          3	 0.09  	0.009 	 0.008 	0.017    	hep-ex/1310.6732
+dayabay_ngd	d.2015.05	Daya Bay	reactor	nGd    	          	          3	 0.084 	0.005 	 0.005 	0.01     	hep-ex/1505.03456
+dayabay_ngd	d.2016.10	Daya Bay	reactor	nGd    	          	          4	 0.0841	0.0033	 0.0033	0.0066   	hep-ex/1610.04802	Neutrino2016
+dayabay_ngd	d.2018.06	Daya Bay	reactor	nGd    	          	          4	 0.0856	0.0029	 0.0029	0.0058   	hep-ex/1809.02261	Neutrino2018

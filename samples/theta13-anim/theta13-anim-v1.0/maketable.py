@@ -45,11 +45,11 @@ def main(args):
 
     data = collect(args.inputs, var, args)
 
-    data = sorted(data, key=lambda item: item['span'])
+    data = sorted(data, key=lambda item: item['date'])
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'notes', 'ordering', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'date', 'name', 'type', 'notes', 'ordering', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='tsv')
 
@@ -157,7 +157,10 @@ def collect(data, var, args):
     return ret
 
 def collect_experiment(entry, target, var):
-    before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
+    before = { 'name': entry['experiment'],
+               'type': entry.get('type', ''),
+               'date': 'd.'+entry['reference']['date']
+              }
 
     if entry.get('type')=='reactor':
         before['notes'] = entry['target']
