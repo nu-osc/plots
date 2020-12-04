@@ -4,12 +4,9 @@ dataset: 8.85e20 POT ν, 6.9e20 POT ν-bar
 channel: joint numudisap + nueapp
 reference:
     date: '2018.06'
-    arxiv:
-    inspire:
-    doi:
-    citation:
     conf: Neutrino 2018
-    talk: https://nova-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=30249&filename=msanchez-neutrino18-web.pdf&version=1
+    talk: https://zenodo.org/record/1286758/files/msanchez-neutrino18-web%20%282%29.pdf?download=1
+    doi: http://doi.org/10.5281/zenodo.1286757
     slides: [32, 34]
 result:
     splitting_large:
@@ -34,8 +31,9 @@ result:
               value: 0.17
               uncertainty:
                   interval: [-0.35, 1.14]
+              notes: interval from private communication
             - ordering: IO
-              value: 01.48
+              value: 1.48
               uncertainty:
                   interval: [0.98, 1.95]
               notes: "private communication for interval and IO"
@@ -54,3 +52,4 @@ result:
               notes: "private communication for IO"
 crosschecks:
     - Liudmila Kolupaeva
+    - Maxim Gonchar

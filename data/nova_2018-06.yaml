@@ -49,7 +49,6 @@ result:
               uncertainty:
                   interval: [0.43, 0.51]
             - ordering: IO
-              octant: UO
               value: 0.56
               uncertainty:
                   interval: [0.43, 0.62]
