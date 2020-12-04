@@ -1,6 +1,7 @@
 experiment: MINOS
 type: accelerator
 dataset: 3.36e20 POT ν, 37.88 kt-years atm
+channel: numudisap
 reference:
     date: '2013.04'
     arxiv: hep-ex/1304.6335
