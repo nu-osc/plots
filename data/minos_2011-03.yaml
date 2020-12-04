@@ -1,6 +1,7 @@
 experiment: MINOS
 type: accelerator
 dataset: 7.25e20 POT ν
+channel: numudisap
 reference:
     date: '2011.03'
     arxiv: hep-ex/1103.0340
