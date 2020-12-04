@@ -42,7 +42,7 @@ result:
               octant: UO
               value: 0.56
               uncertainty:
-                  interval: [0.43, 0.51]
+                  interval: [0.52, 0.60]
             - ordering: 'NO'
               octant: LO
               value: 0.47
