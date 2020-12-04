@@ -17,7 +17,7 @@ result:
               uncertainty:
                   interval: [2.37, 2.52]
             - ordering: IO
-              value: 2.52
+              value: 2.51
               uncertainty:
                   interval: [2.37, 2.67]
               notes: "private communication for IO interval"
@@ -40,18 +40,20 @@ result:
         results:
             - ordering: 'NO'
               octant: UO
-              value: 0.53
+              value: 0.56
               uncertainty:
-                  interval: [0.52, 0.60]
+                  interval: [0.43, 0.51]
             - ordering: 'NO'
               octant: LO
               value: 0.47
               uncertainty:
                   interval: [0.43, 0.51]
             - ordering: IO
+              octant: UO
               value: 0.56
               uncertainty:
                   interval: [0.43, 0.62]
               notes: "private communication for IO interval"
 crosschecks:
     - Liudmila Kolupaeva
+    - Maxim Gonchar
