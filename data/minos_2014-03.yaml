@@ -1,6 +1,7 @@
 experiment: MINOS
 type: accelerator
 dataset: 10.71e20 POT ν, 3.36e20 POT ν-bar, 37.88 kt-years atm
+channel: joint numudisap + nueapp
 reference:
     date: '2014.03'
     arxiv: hep-ex/1403.0867
