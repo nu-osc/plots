@@ -4,9 +4,9 @@ dataset: 8.85e20 POT ν, 12.33e20 POT ν-bar
 channel: joint numudisap + nueapp
 reference:
     date: '2019.06'
-    arxiv: arXiv:1906.04907
+    arxiv: hep-ex/1906.04907
     inspire: https://inspirehep.net/literature/1739571
-    doi: 10.1103/PhysRevLett.123.151803
+    doi: https://doi.org/10.1103/PhysRevLett.123.151803
     citation:
     conf:
     talk:

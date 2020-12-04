@@ -4,13 +4,10 @@ dataset: 2.74e20 POT ν
 channel: numudisapp
 reference:
     date: '2016.01'
-    arxiv: arXiv:1601.05037
-    inspire: https://inspirehep.net/literature/1415951
-    doi: 10.1103/PhysRevD.93.051104
-    citation:
-    conf:
-    talk:
-    slides:
+    arxiv: hep-ex/1601.05037
+    inspire: https://inspirehep.net/literature/1415953
+    doi: https://doi.org/10.1103/PhysRevD.93.051104
+    citation: Adamson:2016xxw
 result:
     splitting_large:
         precision: 2
@@ -29,20 +26,25 @@ result:
         mode: single
         results:
             - ordering: 'NO'
+              octant: LO
               value: 0.43
               uncertainty:
                   interval: [0.38, 0.65]
             - ordering: 'NO'
+              octant: UO
               value: 0.60
               uncertainty:
                   interval: [0.38, 0.65]
             - ordering: IO
+              octant: LO
               value: 0.44
               uncertainty:
                   interval: [0.37, 0.64]
             - ordering: IO
+              octant: UO
               value: 0.59
               uncertainty:
                   interval: [0.37, 0.64]
 crosschecks:
     - Liudmila Kolupaeva
+    - Maxim Gonchar

@@ -9,7 +9,7 @@ reference:
     doi:
     citation:
     conf: Neutrino 2018
-    talk:https://nova-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=30249&filename=msanchez-neutrino18-web.pdf&version=1
+    talk: https://nova-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=30249&filename=msanchez-neutrino18-web.pdf&version=1
     slides: [32, 34]
 result:
     splitting_large:

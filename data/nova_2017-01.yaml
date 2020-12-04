@@ -3,14 +3,11 @@ type: accelerator
 dataset: 6.05e20 POT ν
 channel: numudisap
 reference:
-    date: '2016.01'
-    arxiv: arXiv:1601.05037
-    inspire: https://inspirehep.net/literature/1415951
-    doi: 10.1103/PhysRevD.93.051104
-    citation:
-    conf:
-    talk:
-    slides:
+    date: '2017.01'
+    arxiv: hep-ex/1701.05891
+    inspire: https://inspirehep.net/literature/1510066
+    doi: https://doi.org/10.1103/PhysRevLett.118.151802
+    citation: Adamson:2017qqn
 result:
     splitting_large:
         precision: 2
@@ -23,7 +20,7 @@ result:
               value: 2.72
               uncertainty: 0.11
     amplitude23:
-        precision: 2
+        precision: 3
         mode: single
         results:
             - ordering: 'NO'
@@ -52,3 +49,4 @@ result:
                   left: 0.030
 crosschecks:
     - Liudmila Kolupaeva
+    - Maxim Gonchar

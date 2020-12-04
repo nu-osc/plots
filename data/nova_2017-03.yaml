@@ -4,14 +4,12 @@ dataset: 6.05e20 POT ν
 channel: joint numudisap + nueapp
 reference:
     date: '2017.03'
-    arxiv: arXiv:1703.03328
+    arxiv: hep-ex/1703.03328
     inspire: https://inspirehep.net/literature/1516801
-    doi: 10.1103/PhysRevLett.118.231801
-    citation:
-    conf:
-    talk:
-    slides:
+    doi: https://doi.org/10.1103/PhysRevLett.118.231801
+    citation: Adamson:2017gxd
 result:
     note: "no strong statements on deltaCP"
 crosschecks:
     - Liudmila Kolupaeva
+    - Maxim Gonchar
