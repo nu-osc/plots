@@ -8,14 +8,22 @@ reference:
     inspire: https://inspirehep.net/literature/1226807
     doi: https://doi.org/10.1103/PhysRevD.88.032002
     citation: Abe:2013xua
+    pages: 34
 result:
     amplitude13:
         precision: 3
         mode: double
-        value: 0.088
-        uncertainty:
-            left:  0.039
-            right: 0.049
+        results:
+            - ordering: 'NO'
+              value: 0.088
+              uncertainty:
+                  left:  0.039
+                  right: 0.049
+            - ordering: IO
+              value: 0.108
+              uncertainty:
+                  left:  0.046
+                  right: 0.059
 crosschecks:
     - Maxim Gonchar
     - Liudmila Kolupaeva
