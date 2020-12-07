@@ -5,4 +5,3 @@ variable=r'$\sin^2 2\theta_{13}$'
 lims = None
 
 reference = f'v{version} {date}: {url}'
-

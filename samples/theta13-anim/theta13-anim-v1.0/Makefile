@@ -2,7 +2,7 @@ variable = theta13
 version  = v1-0
 suffix   = anim
 
-.PHONY: all table debug clean clean-all publish
+.PHONY: all tables debug clean clean-all publish
 .SUFFIXES: .dat .fig .yaml
 
 data-dayabay = $(shell realpath $(wildcard data/dayabay*.yaml))
@@ -15,9 +15,10 @@ data-all     = $(foreach n,$(data-list),$($(n)))
 
 tables       = $(foreach n,$(exp-list),$(variable)-$(n).dat)
 
-publishdir = ../../../plots/$(variable)-$(suffix)/$(subst -,.,$(version))
-scripts    = *.py pylib/*.py
-script     = ./$(variable)-$(suffix).py
+publishdir   = ../../../plots/$(variable)-$(suffix)/$(subst -,.,$(version))
+scripts      = *.py pylib/*.py
+script       = ./$(variable)-$(suffix).py
+script-table = maketable.py
 
 #
 # Name combinations
@@ -48,7 +49,7 @@ plots:
 	test -d plots || mkdir plots
 
 plots/$(variable)-anim_$(version).gif: $(tables) $(script) | plots
-	$(script) $(tables)
+	$(script) $(tables) -o $@
 
 #plots/$(variable)_dayabay_$(version).pdf plots/$(variable)_dayabay_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@ -e theor --dayabay
@@ -56,7 +57,7 @@ plots/$(variable)-anim_$(version).gif: $(tables) $(script) | plots
 #plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@
 
-theta13-%.dat: $(scripts) data/%_*.yaml
+theta13-%.dat: maketable.py data/%_*.yaml
 	ipython --pdb -- \
 	./maketable.py -v $(variable) \
 	               -o $@ \

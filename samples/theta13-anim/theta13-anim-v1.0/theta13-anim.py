@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
+import matplotlib as mpl
 from matplotlib import pyplot as plt
 from matplotlib import animation
 from matplotlib.animation import FuncAnimation
@@ -8,19 +9,7 @@ import itertools as it
 from scipy.interpolate import interp1d
 from typing import NamedTuple, types
 
-class Experiment(NamedTuple):
-    name: str
-    table: object
-    value: types.FunctionType
-    left:  types.FunctionType
-    right: types.FunctionType
-
-animdata = [ ('color', 'U10'),
-             ('gmonth', 'i'), ('gmonth_p', 'i'),
-             ('value_i', 'f'), ('left_i', 'f'), ('right_i', 'f'),
-             ('value_p', 'f'), ('left_p', 'f'), ('right_p', 'f'),
-             ('value_n', 'f'), ('left_n', 'f'), ('right_n', 'f'),
-           ]
+from style import *
 
 class Animator(object):
     _start = (2012, 1)
@@ -87,20 +76,17 @@ class Animator(object):
             s=slice(gmonth1-1,gmonth2)
             substorage = storage[s]
             substorage['gmonth_p'] = gmonth1
-            substorage['value_p'] = value1
-            substorage['left_p'] = left1
-            substorage['right_p'] = right1
-            substorage['value_n'] = value2
-            substorage['left_n'] = left2
-            substorage['right_n'] = right2
+            substorage['value'] = value1
+            substorage['left'] = left1
+            substorage['right'] = right1
+            substorage['precision'] = prec1
 
         interp_value = interp1d(amonth, datum['value'], kind='linear', bounds_error=False, fill_value=(0.0, value2))
         interp_left = interp1d(amonth, datum['left'], kind='linear', bounds_error=False, fill_value=(0.0, left2))
         interp_right = interp1d(amonth, datum['right'], kind='linear', bounds_error=False, fill_value=(0.0, right2))
 
-        storage['value_i'] = interp_value(storage['gmonth'])
-        storage['left_i'] = interp_left(storage['gmonth'])
-        storage['right_i'] = interp_right(storage['gmonth'])
+        print(name)
+        print(substorage)
 
         exp = Experiment(name, storage, interp_value, interp_left, interp_right)
         self._data[name]=exp
@@ -108,17 +94,30 @@ class Animator(object):
         # print(storage)
 
     def init_figure(self):
-        self._fig = plt.figure(figsize=(6, 3))
-        self._ax = plt.subplot(111, xlabel='', ylabel='', title='')
-        plt.subplots_adjust(left=0.3)
+        self._fig = plt.figure(figsize=(7, 2.5))
+        self._ax = plt.subplot(111, xlabel=xlabel, ylabel='', title='')
+        plt.subplots_adjust(left=0.3, right=0.8, bottom=0.25)
 
-        names = list(self._data.keys())
-        yticks = np.arange(1, len(names)+1)
+        self._yticks_left = list('{{{style}{name}}}'.format(style=texstyles.get(name,''), name=name) for name in self._data.keys())
+        yticks = np.arange(len(self._yticks_left))
         self._ax.set_yticks(yticks)
-        self._ax.set_yticklabels(names, ha='left')
+        self._ax.set_yticklabels(self._yticks_left, ha='left')
+        self._ax.tick_params(axis='y', length=0,
+                             labelleft=True, labelright=False,
+                             pad=110)
+
+        self._axr = self._ax.twinx()
+        self._yticks_right = ['']*len(self._yticks_left)
+        self._axr.set_yticks(yticks)
+        self._axr.set_yticklabels(self._yticks_right, ha='left')
+        self._axr.tick_params(axis='y', length=0,
+                              labelleft=False, labelright=True,
+                              # pad=110
+                              )
 
         self._ax.set_xlim(0.0, 0.2)
-        self._ax.set_ylim(-0.5, len(self._data)+1)
+        self._ax.set_ylim(len(self._data)-0.5, -0.5)
+        self._axr.set_ylim(len(self._data)-0.5, -0.5)
 
         if self._opts.output:
             self._moviewriter = animation.ImageMagickFileWriter(fps=self._fps)
@@ -145,20 +144,35 @@ class Animator(object):
         year, month = self.yearmonth(iframe+1)
         self._ax.set_title('{}.{}'.format(year, month))
 
+        xmax, xmin = self._ax.get_xlim()
         lst=[]
+        updatevalues=False
         for i, (name, exp) in enumerate(self._data.items()):
             data = exp.table[iframe]
             color=data['color']
-            if not data['value_p']:
+            if not data['value']:
                 continue
 
             value = exp.value(frame)
             left = exp.left(frame)
             right = exp.right(frame)
+            span = right+left
+            marker = span>0.015 and 'o' or '|'
+            style = styles.get(name, {})
             eb = self._ax.errorbar(value, i, None, [[left], [right]],
-                                   color=color, fmt='o')
-
+                                   fmt=marker, **style)
             lst.append(eb)
+
+            # xmin, xmax = min(value-left,xmin), max(value+right, xmax)
+
+            if data['gmonth']==data['gmonth_p']:
+                prec = data['precision']
+                tex = format_latex(prec, value, left, right, 4)
+                self._yticks_right[i] = tex
+                updatevalues=True
+
+        if updatevalues:
+            self._axr.set_yticklabels(self._yticks_right, ha='left')
 
         if self._moviewriter:
             self._moviewriter.grab_frame()
@@ -173,18 +187,37 @@ class Animator(object):
             self._moviewriter.finish()
             print('Write output file:', self._opts.output)
 
-plt.rc('text', usetex=True)
-plt.rc('grid', alpha=0.1, linewidth=2)
-plt.rc('font', size=15, family='serif')
-# plt.rc('legend', fontsize=18)
-plt.rc('axes', grid=True)
-plt.rc('axes.grid', axis='x')
-plt.rc('axes.spines', left=False, right=False)
-plt.rc('xtick.minor', visible=True)
-plt.rc('ytick', left=False, labelleft=True)
-plt.rc('errorbar', capsize=2)
+def format_latex(digits, value, left, right, digits_max):
+    if digits<digits_max:
+        extra = '0'*(digits_max-digits)
+        extra = f'\\phantom{{{extra}}}'
+    else:
+        extra = ''
 
-dtype = [
+    value = f'{value:.{digits}f}'
+    left = f'{left:.{digits}f}'
+    right = f'{right:.{digits}f}'
+    if left==right:
+        ret = f'${value}{extra}{{\\scriptstyle\\pm{left}}}$'
+    else:
+        ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
+
+    return ret
+
+class Experiment(NamedTuple):
+    name: str
+    table: object
+    value: types.FunctionType
+    left:  types.FunctionType
+    right: types.FunctionType
+
+animdata = [ ('color', 'U10'),
+             ('gmonth', 'i'), ('gmonth_p', 'i'),
+             ('value', 'f'), ('left', 'f'), ('right', 'f'),
+             ('precision', 'i')
+           ]
+
+input_dtype = [
           ('style', 'U20'), ('date', 'U20'), ('name', 'U20'), ('type', 'U20'),
           ('notes', 'U20'), ('ordering', 'U20'),
           ('precision', 'i'), ('value', 'f'),
@@ -194,11 +227,11 @@ dtype = [
 
 def rts(s):
     return s.rstrip().lstrip()
-converters = {i: rts for i,s in enumerate(dtype) if s[1][0]=='U'}
+converters = {i: rts for i,s in enumerate(input_dtype) if s[1][0]=='U'}
 
 def loader(fname):
-    return np.loadtxt(fname, dtype=dtype, delimiter='\t',
-                      converters=converters, skiprows=1, usecols=range(len(dtype)))
+    return np.loadtxt(fname, dtype=input_dtype, delimiter='\t',
+                      converters=converters, skiprows=1, usecols=range(len(input_dtype)))
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
