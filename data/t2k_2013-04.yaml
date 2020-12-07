@@ -3,7 +3,7 @@ type: accelerator
 dataset:
     - 3.01e20 POT ν
 reference:
-    date: '2013-04'
+    date: '2013.04'
     arxiv: hep-ex/1304.0841
     inspire: https://inspirehep.net/literature/1226807
     doi: https://doi.org/10.1103/PhysRevD.88.032002
