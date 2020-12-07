@@ -155,8 +155,8 @@ class Animator(object):
             value = exp.value(frame)
             left = exp.left(frame)
             right = exp.right(frame)
-            eb = self._ax.errorbar(value, 1, None, [[left], [right]],
-                                   color=color, fmt='|')
+            eb = self._ax.errorbar(value, i, None, [[left], [right]],
+                                   color=color, fmt='o')
 
             lst.append(eb)
 
