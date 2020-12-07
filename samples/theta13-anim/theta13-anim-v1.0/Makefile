@@ -28,7 +28,7 @@ name         = $(variable)-$(suffix)_$(version)
 #name_dayabay = $(variable)_dayabay_$(version)
 #names        = $(name) $(name_global) $(name_dayabay)
 names        = $(name)
-extensions   = gif
+extensions   = apng #gif
 
 #
 # Targets
@@ -48,8 +48,9 @@ tables: $(tables) $(data-all)
 plots:
 	test -d plots || mkdir plots
 
-plots/$(variable)-anim_$(version).gif: $(tables) $(script) | plots
-	$(script) $(tables) -o $@
+plots/$(variable)-anim_$(version).%: $(tables) $(script) | plots
+	ipython --pdb -- \
+		$(script) $(tables) -o $@
 
 #plots/$(variable)_dayabay_$(version).pdf plots/$(variable)_dayabay_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@ -e theor --dayabay

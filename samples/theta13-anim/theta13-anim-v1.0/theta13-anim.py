@@ -7,7 +7,7 @@ from matplotlib import animation
 from matplotlib.animation import FuncAnimation
 import itertools as it
 from scipy.interpolate import interp1d
-from typing import NamedTuple, types
+from typing import NamedTuple, List, types
 
 from style import *
 
@@ -54,8 +54,6 @@ class Animator(object):
         storage = np.zeros(self._nmonths, dtype=animdata)
         storage['gmonth']=np.arange(1, self._nmonths+1)
 
-        storage['color']='red'
-
         amonth = np.zeros(len(datum), dtype='i')
         prev = None
         for i, (dline1, dline2) in enumerate(it.zip_longest(datum, datum[1:])):
@@ -88,7 +86,7 @@ class Animator(object):
         print(name)
         print(substorage)
 
-        exp = Experiment(name, storage, interp_value, interp_left, interp_right)
+        exp = Experiment(name, [Measurement('', storage, interp_value, interp_left, interp_right)])
         self._data[name]=exp
 
         # print(storage)
@@ -125,6 +123,8 @@ class Animator(object):
         else:
             self._moviewriter = None
 
+        self._digitsmax=0
+
     def run(self):
         repeat = not bool(self._moviewriter)
 
@@ -144,32 +144,44 @@ class Animator(object):
         year, month = self.yearmonth(iframe+1)
         self._ax.set_title('{}.{}'.format(year, month))
 
+        digitsmax = max(d.measurement[0].table[iframe]['precision'] for d in self._data.values())
+        updateall=self._digitsmax!=digitsmax
+        self._digitsmax = digitsmax
+
         xmax, xmin = self._ax.get_xlim()
         lst=[]
         updatevalues=False
         for i, (name, exp) in enumerate(self._data.items()):
-            data = exp.table[iframe]
-            color=data['color']
-            if not data['value']:
-                continue
+            meass = exp.measurement
 
-            value = exp.value(frame)
-            left = exp.left(frame)
-            right = exp.right(frame)
-            span = right+left
-            marker = span>0.015 and 'o' or '|'
-            style = styles.get(name, {})
-            eb = self._ax.errorbar(value, i, None, [[left], [right]],
-                                   fmt=marker, **style)
-            lst.append(eb)
+            if len(meass)>1:
+                offsets = np.linspace(-1.0, 1.0, len(meass),dtype='d')*0.3
+            else:
+                offsets = [0.0]
 
-            # xmin, xmax = min(value-left,xmin), max(value+right, xmax)
+            for offset, meas in zip(offsets, meass):
+                data = exp.measurement[0].table[iframe]
+                if not data['value']:
+                    continue
 
-            if data['gmonth']==data['gmonth_p']:
-                prec = data['precision']
-                tex = format_latex(prec, value, left, right, 4)
-                self._yticks_right[i] = tex
-                updatevalues=True
+                meas = exp.measurement[0]
+                value = meas.value(frame)
+                left = meas.left(frame)
+                right = meas.right(frame)
+                span = right+left
+                marker = span>0.015 and 'o' or '|'
+                style = styles.get(name, {})
+                eb = self._ax.errorbar(value, i+offset, None, [[left], [right]],
+                                       fmt=marker, **style)
+                lst.append(eb)
+
+                # xmin, xmax = min(value-left,xmin), max(value+right, xmax)
+
+                if updateall or data['gmonth']==data['gmonth_p']:
+                    prec = data['precision']
+                    tex = format_latex(prec, value, left, right, digitsmax)
+                    self._yticks_right[i] = tex
+                    updatevalues=True
 
         if updatevalues:
             self._axr.set_yticklabels(self._yticks_right, ha='left')
@@ -204,14 +216,18 @@ def format_latex(digits, value, left, right, digits_max):
 
     return ret
 
-class Experiment(NamedTuple):
-    name: str
+class Measurement(NamedTuple):
+    type: str
     table: object
     value: types.FunctionType
     left:  types.FunctionType
     right: types.FunctionType
 
-animdata = [ ('color', 'U10'),
+class Experiment(NamedTuple):
+    name: str
+    measurement: List[Measurement]
+
+animdata = [
              ('gmonth', 'i'), ('gmonth_p', 'i'),
              ('value', 'f'), ('left', 'f'), ('right', 'f'),
              ('precision', 'i')
