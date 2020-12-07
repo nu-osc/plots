@@ -197,7 +197,11 @@ def collect_result(var, experiment):
             else:
                 res['ordering'] = context['ordering']
 
-        val = res['value']
+        try:
+            val = res['value']
+        except KeyError:
+            print('\033[31mNo value...\033[0m')
+            continue
         val_left, val_right = get_uncertainty(val, res['uncertainty'])
         if mode:
             val_left, val, val_right = convert(var, mode, val_left, val, val_right)

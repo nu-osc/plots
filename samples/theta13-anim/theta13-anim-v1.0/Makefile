@@ -9,7 +9,7 @@ data-dayabay = $(shell realpath $(wildcard data/dayabay*.yaml))
 data-dchooz  = $(shell realpath $(wildcard data/dchooz*.yaml))
 data-reno    = $(shell realpath $(wildcard data/reno*.yaml))
 data-t2k     = $(shell realpath $(wildcard data/t2k*.yaml))
-exp-list     = dayabay reno dchooz #data-t2k
+exp-list     = dayabay reno dchooz t2k
 data-list    = $(foreach n,$(exp-list),data-$(n))
 data-all     = $(foreach n,$(data-list),$($(n)))
 
