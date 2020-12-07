@@ -45,7 +45,7 @@ def main(args):
 
     data = collect(args.inputs, var, args)
 
-    data = sorted(data, key=lambda item: item['date'])
+    data = sorted(data, key=lambda item: str(1000-ord((item.get('ordering') or 'ZO')[0]))+item['date'])
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 

@@ -7,7 +7,7 @@ from matplotlib import animation
 from matplotlib.animation import FuncAnimation
 import itertools as it
 from scipy.interpolate import interp1d
-from typing import NamedTuple, List, types
+from typing import NamedTuple, Dict, types
 
 from style import *
 
@@ -50,27 +50,50 @@ class Animator(object):
 
     def init_datum(self, datum):
         name = datum[0]['name']
+        exp = self._data[name] = Experiment(name, {})
 
-        storage = np.zeros(self._nmonths, dtype=animdata)
-        storage['gmonth']=np.arange(1, self._nmonths+1)
+        storage = None
+        ordering1=''
+        value2, left2, right2 = None, None, None
+        def savestorage(name, ordering):
+            if storage is None:
+                return
+            interp_value = interp1d(amonth, datum['value'], kind='linear', bounds_error=False, fill_value=(0.0, value2))
+            interp_left = interp1d(amonth, datum['left'], kind='linear', bounds_error=False, fill_value=(0.0, left2))
+            interp_right = interp1d(amonth, datum['right'], kind='linear', bounds_error=False, fill_value=(0.0, right2))
+
+            print(name, ordering)
+            print(storage)
+            exp.measurement[ordering]=Measurement(ordering, storage, interp_value, interp_left, interp_right)
+
+        def newstorage(name, ordering):
+            storage = np.zeros(self._nmonths, dtype=animdata)
+            storage['gmonth']=np.arange(1, self._nmonths+1)
+
+            exp.measurement[ordering] = True
+
+            return storage
 
         amonth = np.zeros(len(datum), dtype='i')
         prev = None
         for i, (dline1, dline2) in enumerate(it.zip_longest(datum, datum[1:])):
-            _, date1, name, _, _, _, prec1, value1, left1, right1, _, _ = dline1
-
+            _, date1, name, _, _, ordering1, prec1, value1, left1, right1, _, _ = dline1
             year1, month1 = map(int, date1.split('.')[1:])
             gmonth1 = self.gmonth(year1, month1)
 
-            if dline2 is None:
-                gmonth2 = self._nmonths
-            else:
-                _, date2, name, _, _, _, prec2, value2, left2, right2, _, _ = dline2
+            if dline2 is not None:
+                _, date2, name, _, _, ordering2, prec2, value2, left2, right2, _, _ = dline2
                 year2, month2 = map(int, date2.split('.')[1:])
                 gmonth2 = self.gmonth(year2, month2)
 
-            amonth[i]=gmonth1
+            if dline2 is None or ordering1!=ordering2:
+                gmonth2 = self._nmonths
+                savestorage(name, ordering1)
 
+            if not ordering1 in exp.measurement:
+                storage = newstorage(name, ordering1)
+
+            amonth[i]=gmonth1
             s=slice(gmonth1-1,gmonth2)
             substorage = storage[s]
             substorage['gmonth_p'] = gmonth1
@@ -79,17 +102,7 @@ class Animator(object):
             substorage['right'] = right1
             substorage['precision'] = prec1
 
-        interp_value = interp1d(amonth, datum['value'], kind='linear', bounds_error=False, fill_value=(0.0, value2))
-        interp_left = interp1d(amonth, datum['left'], kind='linear', bounds_error=False, fill_value=(0.0, left2))
-        interp_right = interp1d(amonth, datum['right'], kind='linear', bounds_error=False, fill_value=(0.0, right2))
-
-        print(name)
-        print(substorage)
-
-        exp = Experiment(name, [Measurement('', storage, interp_value, interp_left, interp_right)])
-        self._data[name]=exp
-
-        # print(storage)
+        savestorage(name, ordering1)
 
     def init_figure(self):
         self._fig = plt.figure(figsize=(7, 2.5))
@@ -144,7 +157,7 @@ class Animator(object):
         year, month = self.yearmonth(iframe+1)
         self._ax.set_title('{}.{}'.format(year, month))
 
-        digitsmax = max(d.measurement[0].table[iframe]['precision'] for d in self._data.values())
+        digitsmax = max(next(iter(d.measurement.values())).table[iframe]['precision'] for d in self._data.values())
         updateall=self._digitsmax!=digitsmax
         self._digitsmax = digitsmax
 
@@ -156,20 +169,22 @@ class Animator(object):
 
             if len(meass)>1:
                 offsets = np.linspace(-1.0, 1.0, len(meass),dtype='d')*0.3
+                markers = { 'NO': '^', 'IO': 'v' }
             else:
                 offsets = [0.0]
+                markers = {}
 
-            for offset, meas in zip(offsets, meass):
-                data = exp.measurement[0].table[iframe]
+            for j, (offset, (ordering, meas)) in enumerate(zip(offsets, meass.items())):
+                data = meas.table[iframe]
                 if not data['value']:
                     continue
 
-                meas = exp.measurement[0]
                 value = meas.value(frame)
                 left = meas.left(frame)
                 right = meas.right(frame)
                 span = right+left
-                marker = span>0.015 and 'o' or '|'
+
+                marker = markers.get(meas.type, span>0.015 and 'o' or '|')
                 style = styles.get(name, {})
                 eb = self._ax.errorbar(value, i+offset, None, [[left], [right]],
                                        fmt=marker, **style)
@@ -177,7 +192,7 @@ class Animator(object):
 
                 # xmin, xmax = min(value-left,xmin), max(value+right, xmax)
 
-                if updateall or data['gmonth']==data['gmonth_p']:
+                if j==0 and (updateall or data['gmonth']==data['gmonth_p']):
                     prec = data['precision']
                     tex = format_latex(prec, value, left, right, digitsmax)
                     self._yticks_right[i] = tex
@@ -225,7 +240,7 @@ class Measurement(NamedTuple):
 
 class Experiment(NamedTuple):
     name: str
-    measurement: List[Measurement]
+    measurement: Dict[str, Measurement]
 
 animdata = [
              ('gmonth', 'i'), ('gmonth_p', 'i'),
