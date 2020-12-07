@@ -2,6 +2,7 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
+from matplotlib import animation
 from matplotlib.animation import FuncAnimation
 import itertools as it
 from scipy.interpolate import interp1d
@@ -24,8 +25,15 @@ animdata = [ ('color', 'U10'),
 class Animator(object):
     _start = (2012, 1)
     _end   = (2019, 12)
+    _fps   = 25
+    _interval = None
+    _step = None
     def __init__(self, opts):
         self._opts = opts
+
+        self._interval=1000/self._fps
+        self._framestep=self._interval/80
+        print('Step', self._framestep)
 
         self.previous = []
 
@@ -103,19 +111,32 @@ class Animator(object):
         self._fig = plt.figure(figsize=(6, 3))
         self._ax = plt.subplot(111, xlabel='', ylabel='', title='')
         plt.subplots_adjust(left=0.3)
-        self._ax.set_xlim(0.0, 0.2)
 
-    def run(self):
-        size = self._opts.inputs[0].size
-        self._ani=FuncAnimation(self._fig, self.update, init_func=self.init,
-                                frames=np.arange(1, self._nmonths+1, 0.1),
-                                interval=20)
-
-    def init(self, **kwargs):
         names = list(self._data.keys())
         yticks = np.arange(1, len(names)+1)
         self._ax.set_yticks(yticks)
         self._ax.set_yticklabels(names, ha='left')
+
+        self._ax.set_xlim(0.0, 0.2)
+        self._ax.set_ylim(-0.5, len(self._data)+1)
+
+        if self._opts.output:
+            self._moviewriter = animation.ImageMagickFileWriter(fps=self._fps)
+            self._moviewriter.setup(self._fig, self._opts.output, dpi=150)
+        else:
+            self._moviewriter = None
+
+    def run(self):
+        repeat = not bool(self._moviewriter)
+
+        size = self._opts.inputs[0].size
+        self._ani=FuncAnimation(self._fig, self.update, init_func=self.init,
+                                frames=np.arange(1, self._nmonths+1, self._framestep),
+                                repeat=repeat,
+                                interval=self._interval)
+
+    def init(self, **kwargs):
+        pass
 
     def update(self, frame, **kwargs):
         for a in self.previous: a.remove()
@@ -134,15 +155,23 @@ class Animator(object):
             value = exp.value(frame)
             left = exp.left(frame)
             right = exp.right(frame)
-            eb = self._ax.errorbar(value, 1, None, [[left], [right]], color=color)
+            eb = self._ax.errorbar(value, 1, None, [[left], [right]],
+                                   color=color, fmt='|')
 
             lst.append(eb)
+
+        if self._moviewriter:
+            self._moviewriter.grab_frame()
 
         self.previous = lst
         return lst
 
     def finalize(self):
         plt.show()
+
+        if self._moviewriter:
+            self._moviewriter.finish()
+            print('Write output file:', self._opts.output)
 
 plt.rc('text', usetex=True)
 plt.rc('grid', alpha=0.1, linewidth=2)
@@ -166,7 +195,6 @@ dtype = [
 def rts(s):
     return s.rstrip().lstrip()
 converters = {i: rts for i,s in enumerate(dtype) if s[1][0]=='U'}
-print(converters)
 
 def loader(fname):
     return np.loadtxt(fname, dtype=dtype, delimiter='\t',
@@ -176,5 +204,6 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=loader, help='input table')
+    parser.add_argument('-o', '--output', help='output file name')
 
     a = Animator(parser.parse_args())

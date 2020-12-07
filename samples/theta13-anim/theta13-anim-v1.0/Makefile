@@ -3,12 +3,21 @@ version  = v1-0
 suffix   = anim
 
 .PHONY: all table debug clean clean-all publish
-.SUFFIXES: .tex .dat .pdf .png .yaml
+.SUFFIXES: .dat .fig .yaml
+
+data-dayabay = $(shell realpath $(wildcard data/dayabay*.yaml))
+data-dchooz  = $(shell realpath $(wildcard data/dchooz*.yaml))
+data-reno    = $(shell realpath $(wildcard data/reno*.yaml))
+data-t2k     = $(shell realpath $(wildcard data/t2k*.yaml))
+exp-list     = dayabay reno dchooz #data-t2k
+data-list    = $(foreach n,$(exp-list),data-$(n))
+data-all     = $(foreach n,$(data-list),$($(n)))
+
+tables       = $(foreach n,$(exp-list),$(variable)-$(n).dat)
 
 publishdir = ../../../plots/$(variable)-$(suffix)/$(subst -,.,$(version))
 scripts    = *.py pylib/*.py
 script     = ./$(variable)-$(suffix).py
-data       = $(shell realpath $(wildcard data/*.yaml))
 
 #
 # Name combinations
@@ -18,13 +27,11 @@ name         = $(variable)-$(suffix)_$(version)
 #name_dayabay = $(variable)_dayabay_$(version)
 #names        = $(name) $(name_global) $(name_dayabay)
 names        = $(name)
-# Extensions
-extensions   = png
+extensions   = gif
 
 #
 # Targets
 #
-tables       = $(name).dat
 targets      = $(foreach n,$(names),$(foreach ext,$(extensions),plots/$(n).$(ext)))
 
 .PRECIOUS: $(tables) $(targets)
@@ -35,14 +42,13 @@ targets      = $(foreach n,$(names),$(foreach ext,$(extensions),plots/$(n).$(ext
 
 all: $(targets) | plots
 
-table: $(tables)
+tables: $(tables) $(data-all)
 
 plots:
 	test -d plots || mkdir plots
 
-#plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) | plots
-	#$(script) $< -o $@ -e theor
-	#cp -v $< plots/
+plots/$(variable)-anim_$(version).gif: $(tables) $(script) | plots
+	$(script) $(tables)
 
 #plots/$(variable)_dayabay_$(version).pdf plots/$(variable)_dayabay_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@ -e theor --dayabay
@@ -50,12 +56,11 @@ plots:
 #plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@
 
-$(tables): $(scripts) $(data)
+theta13-%.dat: $(scripts) data/%_*.yaml
 	ipython --pdb -- \
 	./maketable.py -v $(variable) \
 	               -o $@ \
-				   $(filter %.yaml,$^) \
-				   -e 'Daya Bay'
+				   $(filter %.yaml,$^)
 
 #debug-plot:
 	#ipython --pdb -- $(script) -s $(tables) --dayabay
