@@ -101,8 +101,8 @@ class Animator(object):
             mark=''
             if tp=='accelerator' and not ordering1:
                 mark=r'$2\nu$'
-            elif tp=='reactor':
-                mark=notes1
+            # elif tp=='reactor':
+                # mark=notes1
 
             if dline2 is not None:
                 _, date2, name2, _, _, ordering2, _, prec2, value2, left2, right2, _, _ = dline2

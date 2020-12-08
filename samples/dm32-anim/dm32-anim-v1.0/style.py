@@ -1,7 +1,7 @@
 import matplotlib as mpl
 mpl.rc_file('matplotlib.rc')
 
-version='0.1'
+version='1.0'
 url='git.jinr.ru/nu/osc'
 date='2020.12'
 reference = f'v{version} {date}: {url}'
@@ -9,9 +9,9 @@ reference = f'v{version} {date}: {url}'
 xlabel=r'$|\Delta m^2_{32}|$, $10^{-3}$ eV$^2$, NO'
 
 styles = {
-	'reactor':     { 'color': 'red' },
-	'accelerator': { 'color': 'green' },
-	}
+    'reactor':     { 'color': 'red' },
+    'accelerator': { 'color': 'green' },
+    }
 
 styles.update({
     'Daya Bay':     styles['reactor'],
@@ -30,5 +30,5 @@ styles.update({
 })
 
 texstyles = {
-	'Daya Bay': r'\bf{}'
-	}
+    'Daya Bay': r'\bf{}'
+    }
