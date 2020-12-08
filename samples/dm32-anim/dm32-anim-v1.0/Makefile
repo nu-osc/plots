@@ -1,4 +1,4 @@
-variable = theta13
+variable = dm32
 version  = v0-1
 suffix   = anim
 
@@ -6,10 +6,11 @@ suffix   = anim
 .SUFFIXES: .dat .fig .yaml
 
 data-dayabay = $(shell realpath $(wildcard data/dayabay*.yaml))
-data-dchooz  = $(shell realpath $(wildcard data/dchooz*.yaml))
 data-reno    = $(shell realpath $(wildcard data/reno*.yaml))
+data-minos   = $(shell realpath $(wildcard data/minos*.yaml))
 data-t2k     = $(shell realpath $(wildcard data/t2k*.yaml))
-exp-list     = dayabay reno dchooz t2k_NO t2k_IO
+data-nova    = $(shell realpath $(wildcard data/nova*.yaml))
+exp-list     = dayabay nova t2k minos reno
 data-list    = $(foreach n,$(exp-list),data-$(n))
 data-all     = $(foreach n,$(data-list),$($(n)))
 
@@ -58,9 +59,9 @@ $(targets) &: $(tables) $(script) | plots
 #plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@
 
-theta13-%.dat: maketable.py data/%_*.yaml
+plots/$(variable)-%-$(suffix)_$(version).dat: maketable.py data/%_*.yaml | plots
 	ipython --pdb -- \
-	./maketable.py -v $(variable) \
+	./maketable.py -v $(variable) --nmo NO \
 	               -o $@ \
 				   $(filter %.yaml,$^)
 

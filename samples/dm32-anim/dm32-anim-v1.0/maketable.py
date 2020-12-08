@@ -1,25 +1,9 @@
 #!/usr/bin/env python
 
-"""Version v0.5.0
-
-Changes in 0.5.0:
-
-Changes in 0.4.0:
-    + add Δm²₂₁
-
-Changes in 0.3.0:
-    + add sin²θ₁₂
-    + add sin²θ₂₃
-
-Changes in 0.2.0:
-    + add deltaCP
-
-Changes in 0.1.0:
-    + Choose variable from command line: -v
-    + Choose ordering with: --nmo
-"""
-
-context = dict()
+context = dict(#PDG 2020 values
+        dmSq21 = 7.53e-5,
+        sinSqTheta12 = 0.307
+        )
 
 import yaml
 from tabulate import tabulate
@@ -31,25 +15,29 @@ def main(args):
     if args.variable.startswith('theta'):
         args.variable = args.variable.replace('theta', 'amplitude')
 
+    if args.variable=='dm32':
+        args.variable='splitting_large'
+
     var = args.variable
     if args.ordering=='auto':
         if 'NO' in args.output:
             assert not 'IO' in args.output
-            args.ordering='NO'
             context['ordering']=args.ordering
         elif 'IO' in args.output:
-            args.ordering='IO'
             context['ordering']=args.ordering
         else:
             args.ordering=None
 
+    if args.ordering:
+        context['ordering']=args.ordering
+
     data = collect(args.inputs, var, args)
 
-    data = sorted(data, key=lambda item: str(1000-ord((item.get('ordering') or 'ZO')[0]))+item['date'])
+    data = sorted(data, key=lambda item: item['date'])
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'date', 'name', 'type', 'notes', 'ordering', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'date', 'name', 'type', 'notes', 'ordering', 'octant', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='tsv')
 
@@ -204,7 +192,7 @@ def collect_result(var, experiment):
             continue
         val_left, val_right = get_uncertainty(val, res['uncertainty'])
         if mode:
-            val_left, val, val_right = convert(var, mode, val_left, val, val_right)
+            val_left, val, val_right = convert(var, mode, val_left, val, val_right, context=context)
         unc_left = val - val_left
         unc_right = val_right - val
 
@@ -281,7 +269,7 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12', 'splitting_small' ]
+    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12', 'splitting_small', 'dm32' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')
