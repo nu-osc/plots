@@ -1,5 +1,5 @@
 variable = theta13
-version  = v1-0
+version  = v0-1
 suffix   = anim
 
 .PHONY: all tables debug clean clean-all publish
@@ -13,7 +13,7 @@ exp-list     = dayabay reno dchooz t2k_NO t2k_IO
 data-list    = $(foreach n,$(exp-list),data-$(n))
 data-all     = $(foreach n,$(data-list),$($(n)))
 
-tables       = $(foreach n,$(exp-list),$(variable)-$(n).dat)
+tables       = $(foreach n,$(exp-list),plots/$(variable)-$(n)-$(suffix)_$(version).dat)
 
 publishdir   = ../../../plots/$(variable)-$(suffix)/$(subst -,.,$(version))
 scripts      = *.py pylib/*.py
