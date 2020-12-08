@@ -48,7 +48,7 @@ tables: $(tables) $(data-all)
 plots:
 	test -d plots || mkdir plots
 
-$(targets) &: $(tables) $(script) | plots
+$(targets) &: $(tables) $(script) style.py | plots
 	ipython --pdb -- \
 		$(script) $(tables) -o $(targets)
 
@@ -58,7 +58,7 @@ $(targets) &: $(tables) $(script) | plots
 #plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@
 
-theta13-%.dat: maketable.py data/%_*.yaml
+plots/$(variable)-%-$(suffix)_$(version).dat: maketable.py data/%_*.yaml | plots
 	ipython --pdb -- \
 	./maketable.py -v $(variable) \
 	               -o $@ \

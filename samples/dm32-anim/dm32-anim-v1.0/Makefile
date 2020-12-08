@@ -49,7 +49,7 @@ tables: $(tables) $(data-all)
 plots:
 	test -d plots || mkdir plots
 
-$(targets) &: $(tables) $(script) | plots
+$(targets) &: $(tables) $(script) style.py | plots
 	ipython --pdb -- \
 		$(script) $(tables) -o $(targets)
 

@@ -19,6 +19,7 @@ class Animator(object):
     _interval  = None # for the animation
     _framestep = None # for the animation
     _xlim = (0.03, 0.22)
+    _xticks = None
     def __init__(self, opts):
         self._opts = opts
 
@@ -60,7 +61,7 @@ class Animator(object):
         exp = None
         storage = None
         amonth = None
-        ordering1=''
+        notes1=''
         value2, left2, right2 = None, None, None
         def savestorage(name):
             if storage is None:
@@ -83,7 +84,7 @@ class Animator(object):
             storage['gmonth']=np.arange(1, self._nmonths+1)
 
             if not name in self._data:
-                exp = self._data[name] = Experiment(name, {})
+                exp = self._data[name] = Experiment(name, notes1, {})
 
             exp.measurement[ordering] = True
 
@@ -92,9 +93,7 @@ class Animator(object):
 
         prev = None
         for i, (dline1, dline2) in enumerate(it.zip_longest(datum, datum[1:])):
-            _, date1, name, _, _, ordering1, prec1, value1, left1, right1, _, _ = dline1
-            if ordering1:
-                name+=f' {ordering1}'
+            _, date1, name, _, notes1, ordering1, _, prec1, value1, left1, right1, _, _ = dline1
             year1, month1 = map(int, date1.split('.')[1:])
             gmonth1 = self.gmonth(year1, month1)
 
@@ -135,8 +134,10 @@ class Animator(object):
         plt.subplots_adjust(left=0.22, right=0.82, bottom=0.25)
 
         self._yticks_left = ()
-        for name in self._data.keys():
+        for name, exp in self._data.items():
             name = '{{{style}{name}}}'.format(style=texstyles.get(name,''), name=name)
+            if exp.target:
+                name+=f' {exp.target}'
             # name = name.replace('NO', r'NO')
             name = name.replace('IO', r'\hspace{2.3mm}IO')
             self._yticks_left+=name,
@@ -157,9 +158,9 @@ class Animator(object):
                               # pad=110
                               )
 
-        xticks = np.arange(0.0, 0.23, 0.02)
-        self._ax.set_xticks(xticks)
-        self._ax.set_xticklabels(f'{x*100:.0f}' for x in xticks)
+        if self._xticks:
+            self._ax.set_xticks(self._xticks)
+            self._ax.set_xticklabels(f'{x*100:.0f}' for x in xticks)
         self._ax.set_xlim(*self._xlim)
         self._ax.set_ylim(len(self._data)-0.5, -0.5)
         self._axr.set_ylim(len(self._data)-0.5, -0.5)
@@ -223,7 +224,7 @@ class Animator(object):
 
                 # marker = markers.get(meas.type, span>0.015 and 'o' or '|')
                 marker='|'
-                style = styles.get(name, {})
+                style = styles.get(name, {'color': 'black'})
                 eb = self._ax.errorbar(value, i+offset, None, [[left], [right]],
                                        fmt=marker, **style)
                 lst.append(eb)
@@ -281,6 +282,7 @@ class Measurement(NamedTuple):
 
 class Experiment(NamedTuple):
     name: str
+    target: str
     measurement: Dict[str, Measurement]
 
 animdata = [ ('date', 'U10'),

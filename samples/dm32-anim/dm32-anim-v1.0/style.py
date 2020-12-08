@@ -6,7 +6,7 @@ url='git.jinr.ru/nu/osc'
 date='2020.12'
 reference = f'v{version} {date}: {url}'
 
-xlabel=r'$\sin^2 2\theta_{13}$, $10^{-2}$'
+xlabel=r'$|\Delta m^2_{32}|$ NO, $10^{-3}$ eV$^2$'
 
 styles = {
 	'reactor':     { 'color': 'red' },
@@ -18,6 +18,9 @@ styles.update({
     'RENO':         styles['reactor'],
     'Double CHOOZ': styles['reactor'],
     'T2K':          styles['accelerator'],
+    'NOvA':         styles['accelerator'],
+    'MINOS':        styles['accelerator'],
+    'MINOS+':       styles['accelerator'],
     'T2K NO':       styles['accelerator'],
     'T2K IO':       styles['accelerator'],
     })
