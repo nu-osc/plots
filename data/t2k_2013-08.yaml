@@ -4,7 +4,7 @@ dataset:
     - 3.01e20 POT ν
 channel: numudisap
 reference:
-    date: '2013.08'
+    date: '2013.11'
     arxiv: hep-ex/1311.4750
     inspire: https://inspirehep.net/literature/1246143
     doi: https://doi.org/10.1103/PhysRevLett.111.211803
