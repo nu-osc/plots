@@ -14,15 +14,22 @@ from style import *
 class Animator(object):
     _start = (2012, 1)
     _end   = (2019, 12)
-    _fps   = 25
-    _interval = None
-    _step = None
+    _mps   = 4        # months per second
+    _fps   = 10       # for a file
+    _interval  = None # for the animation
+    _framestep = None # for the animation
+    _xlim = (0.03, 0.18)
     def __init__(self, opts):
         self._opts = opts
 
         self._interval=1000/self._fps
-        self._framestep=self._interval/80
-        print('Step', self._framestep)
+        frames_per_month = self._fps//self._mps
+        self._framestep=self._mps/self._fps
+        print('FPS:', self._fps)
+        print('MPS:', self._mps)
+        print('Frames per month:', frames_per_month)
+        print('Interval: {} ms'.format(self._interval))
+        print('Frame step: {} months'.format(self._framestep))
 
         self.previous = []
 
@@ -49,19 +56,22 @@ class Animator(object):
             self.init_datum(datum)
 
     def init_datum(self, datum):
-        name = datum[0]['name']
-        exp = self._data[name] = Experiment(name, {})
-
+        exp = None
         storage = None
+        amonth = None
         ordering1=''
         value2, left2, right2 = None, None, None
-        def savestorage(name, ordering):
+        def savestorage(name):
             if storage is None:
                 return
-            interp_value = interp1d(amonth, datum['value'], kind='linear', bounds_error=False, fill_value=(0.0, value2))
-            interp_left = interp1d(amonth, datum['left'], kind='linear', bounds_error=False, fill_value=(0.0, left2))
-            interp_right = interp1d(amonth, datum['right'], kind='linear', bounds_error=False, fill_value=(0.0, right2))
+            lastline = storage[-1]
+            value2, left2, right2=lastline['value2'], lastline['left2'], lastline['right2']
+            kind = 'previous'
+            interp_value = interp1d(amonth, datum['value'], kind=kind, bounds_error=False, fill_value=(0.0, value2))
+            interp_left = interp1d(amonth, datum['left'], kind=kind, bounds_error=False, fill_value=(0.0, left2))
+            interp_right = interp1d(amonth, datum['right'], kind=kind, bounds_error=False, fill_value=(0.0, right2))
 
+            ordering=list(exp.measurement.keys())[-1]
             print(name, ordering)
             print(storage)
             exp.measurement[ordering]=Measurement(ordering, storage, interp_value, interp_left, interp_right)
@@ -70,28 +80,36 @@ class Animator(object):
             storage = np.zeros(self._nmonths, dtype=animdata)
             storage['gmonth']=np.arange(1, self._nmonths+1)
 
+            if not name in self._data:
+                exp = self._data[name] = Experiment(name, {})
+
             exp.measurement[ordering] = True
 
-            return storage
+            amonth = np.zeros(len(datum), dtype='i')
+            return exp, amonth, storage
 
-        amonth = np.zeros(len(datum), dtype='i')
         prev = None
+        ioffset=0
         for i, (dline1, dline2) in enumerate(it.zip_longest(datum, datum[1:])):
+            i-=ioffset
             _, date1, name, _, _, ordering1, prec1, value1, left1, right1, _, _ = dline1
+            if ordering1:
+                name+=f' {ordering1}'
             year1, month1 = map(int, date1.split('.')[1:])
             gmonth1 = self.gmonth(year1, month1)
 
             if dline2 is not None:
-                _, date2, name, _, _, ordering2, prec2, value2, left2, right2, _, _ = dline2
+                _, date2, name2, _, _, ordering2, prec2, value2, left2, right2, _, _ = dline2
                 year2, month2 = map(int, date2.split('.')[1:])
                 gmonth2 = self.gmonth(year2, month2)
 
             if dline2 is None or ordering1!=ordering2:
                 gmonth2 = self._nmonths
-                savestorage(name, ordering1)
 
-            if not ordering1 in exp.measurement:
-                storage = newstorage(name, ordering1)
+            if not exp or not ordering1 in exp.measurement:
+                savestorage(name)
+                ioffset=i+1
+                exp, amonth, storage = newstorage(name, ordering1)
 
             amonth[i]=gmonth1
             s=slice(gmonth1-1,gmonth2)
@@ -100,14 +118,19 @@ class Animator(object):
             substorage['value'] = value1
             substorage['left'] = left1
             substorage['right'] = right1
+            substorage['value2'] = value2
+            substorage['left2'] = left2
+            substorage['right2'] = right2
             substorage['precision'] = prec1
 
-        savestorage(name, ordering1)
+        savestorage(name)
+
+        print(list(self._data.keys()))
 
     def init_figure(self):
-        self._fig = plt.figure(figsize=(7, 2.5))
+        self._fig = plt.figure(figsize=(8, 2.5))
         self._ax = plt.subplot(111, xlabel=xlabel, ylabel='', title='')
-        plt.subplots_adjust(left=0.3, right=0.8, bottom=0.25)
+        plt.subplots_adjust(left=0.22, right=0.84, bottom=0.25)
 
         self._yticks_left = list('{{{style}{name}}}'.format(style=texstyles.get(name,''), name=name) for name in self._data.keys())
         yticks = np.arange(len(self._yticks_left))
@@ -126,20 +149,21 @@ class Animator(object):
                               # pad=110
                               )
 
-        self._ax.set_xlim(0.0, 0.2)
+        self._ax.set_xticks(np.arange(0.0, 0.21, 0.02))
+        self._ax.set_xlim(*self._xlim)
         self._ax.set_ylim(len(self._data)-0.5, -0.5)
         self._axr.set_ylim(len(self._data)-0.5, -0.5)
 
-        if self._opts.output:
-            self._moviewriter = animation.ImageMagickFileWriter(fps=self._fps)
-            self._moviewriter.setup(self._fig, self._opts.output, dpi=150)
-        else:
-            self._moviewriter = None
+        self._moviewriters = []
+        for ofile in self._opts.output:
+            mw = animation.ImageMagickFileWriter(fps=self._fps)
+            mw.setup(self._fig, ofile, dpi=150)
+            self._moviewriters.append(mw)
 
         self._digitsmax=0
 
     def run(self):
-        repeat = not bool(self._moviewriter)
+        repeat = not bool(self._moviewriters)
 
         size = self._opts.inputs[0].size
         self._ani=FuncAnimation(self._fig, self.update, init_func=self.init,
@@ -168,7 +192,7 @@ class Animator(object):
             meass = exp.measurement
 
             if len(meass)>1:
-                offsets = np.linspace(-1.0, 1.0, len(meass),dtype='d')*0.3
+                offsets = np.linspace(-1.0, 1.0, len(meass),dtype='d')*0.2
                 markers = { 'NO': '^', 'IO': 'v' }
             else:
                 offsets = [0.0]
@@ -184,7 +208,8 @@ class Animator(object):
                 right = meas.right(frame)
                 span = right+left
 
-                marker = markers.get(meas.type, span>0.015 and 'o' or '|')
+                # marker = markers.get(meas.type, span>0.015 and 'o' or '|')
+                marker='|'
                 style = styles.get(name, {})
                 eb = self._ax.errorbar(value, i+offset, None, [[left], [right]],
                                        fmt=marker, **style)
@@ -201,8 +226,8 @@ class Animator(object):
         if updatevalues:
             self._axr.set_yticklabels(self._yticks_right, ha='left')
 
-        if self._moviewriter:
-            self._moviewriter.grab_frame()
+        for mw in self._moviewriters:
+            mw.grab_frame()
 
         self.previous = lst
         return lst
@@ -210,11 +235,11 @@ class Animator(object):
     def finalize(self):
         plt.show()
 
-        if self._moviewriter:
-            self._moviewriter.finish()
-            print('Write output file:', self._opts.output)
+        for i, mw in enumerate(self._moviewriters):
+            mw.finish()
+            print('Write output file:', self._opts.output[i])
 
-def format_latex(digits, value, left, right, digits_max):
+def format_latex(digits, value, left, right, digits_max, suffix=''):
     if digits<digits_max:
         extra = '0'*(digits_max-digits)
         extra = f'\\phantom{{{extra}}}'
@@ -228,6 +253,9 @@ def format_latex(digits, value, left, right, digits_max):
         ret = f'${value}{extra}{{\\scriptstyle\\pm{left}}}$'
     else:
         ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
+
+    if suffix:
+        ret += f' ({suffix})'
 
     return ret
 
@@ -245,6 +273,7 @@ class Experiment(NamedTuple):
 animdata = [
              ('gmonth', 'i'), ('gmonth_p', 'i'),
              ('value', 'f'), ('left', 'f'), ('right', 'f'),
+             ('value2', 'f'), ('left2', 'f'), ('right2', 'f'),
              ('precision', 'i')
            ]
 
@@ -268,6 +297,7 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=loader, help='input table')
-    parser.add_argument('-o', '--output', help='output file name')
+    parser.add_argument('-o', '--output', nargs='+', default=[], help='output file name')
+    parser.add_argument('-s', '--show', action='store_true', help='show the animation')
 
     a = Animator(parser.parse_args())

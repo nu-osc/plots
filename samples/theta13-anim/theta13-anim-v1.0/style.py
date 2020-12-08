@@ -12,7 +12,9 @@ styles.update({
     'Daya Bay':     styles['reactor'],
     'RENO':         styles['reactor'],
     'Double CHOOZ': styles['reactor'],
-    'T2K':          styles['accelerator']
+    'T2K':          styles['accelerator'],
+    'T2K NO':       styles['accelerator'],
+    'T2K IO':       styles['accelerator'],
     })
 
 styles.update({

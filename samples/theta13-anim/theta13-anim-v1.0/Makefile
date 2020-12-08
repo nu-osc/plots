@@ -9,7 +9,7 @@ data-dayabay = $(shell realpath $(wildcard data/dayabay*.yaml))
 data-dchooz  = $(shell realpath $(wildcard data/dchooz*.yaml))
 data-reno    = $(shell realpath $(wildcard data/reno*.yaml))
 data-t2k     = $(shell realpath $(wildcard data/t2k*.yaml))
-exp-list     = dayabay reno dchooz t2k
+exp-list     = dayabay reno dchooz t2k_NO t2k_IO
 data-list    = $(foreach n,$(exp-list),data-$(n))
 data-all     = $(foreach n,$(data-list),$($(n)))
 
@@ -28,7 +28,7 @@ name         = $(variable)-$(suffix)_$(version)
 #name_dayabay = $(variable)_dayabay_$(version)
 #names        = $(name) $(name_global) $(name_dayabay)
 names        = $(name)
-extensions   = apng #gif
+extensions   = gif apng
 
 #
 # Targets
@@ -48,9 +48,9 @@ tables: $(tables) $(data-all)
 plots:
 	test -d plots || mkdir plots
 
-plots/$(variable)-anim_$(version).%: $(tables) $(script) | plots
+$(targets) &: $(tables) $(script) | plots
 	ipython --pdb -- \
-		$(script) $(tables) -o $@
+		$(script) $(tables) -o $(targets)
 
 #plots/$(variable)_dayabay_$(version).pdf plots/$(variable)_dayabay_$(version).png: $(variable)_$(version).dat $(script) | plots
 	#$(script) $< -o $@ -e theor --dayabay

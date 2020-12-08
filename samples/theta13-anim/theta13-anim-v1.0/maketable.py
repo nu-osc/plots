@@ -32,16 +32,16 @@ def main(args):
         args.variable = args.variable.replace('theta', 'amplitude')
 
     var = args.variable
-    # if args.ordering=='auto':
-        # if 'NO' in args.output:
-            # assert not 'IO' in args.output
-            # args.ordering='NO'
-        # elif 'IO' in args.output:
-            # args.ordering='IO'
-        # else:
-            # raise Exception('Unable to determine ordering')
-
-    # context['ordering']=args.ordering
+    if args.ordering=='auto':
+        if 'NO' in args.output:
+            assert not 'IO' in args.output
+            args.ordering='NO'
+            context['ordering']=args.ordering
+        elif 'IO' in args.output:
+            args.ordering='IO'
+            context['ordering']=args.ordering
+        else:
+            args.ordering=None
 
     data = collect(args.inputs, var, args)
 
@@ -285,7 +285,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')
-    # parser.add_argument('--ordering', '--nmo', default='auto', choices=('NO', 'IO', 'auto'), help='ordering')
+    parser.add_argument('--ordering', '--nmo', default='auto', choices=('NO', 'IO', 'auto'), help='ordering')
     parser.add_argument('-o', '--output', default='', help='file to write')
     parser.add_argument('-e', '--experiment', default='', help='Experiment to choose')
 
