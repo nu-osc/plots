@@ -68,9 +68,6 @@ def postprocess(data, var):
     return list(map(postprocessor, data))
 
 def postprocess_amplitude13(entry):
-    if entry['name']=='Double CHOOZ':
-        entry['notes']=''
-
     slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
     if entry['notes']:
         slist.append(entry['notes'].lower())
@@ -78,9 +75,6 @@ def postprocess_amplitude13(entry):
     return entry
 
 def postprocess_splitting_large(entry):
-    if entry['name']=='Double CHOOZ':
-        entry['notes']=''
-
     slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
     if entry['notes']:
         slist.append(entry['notes'].lower())

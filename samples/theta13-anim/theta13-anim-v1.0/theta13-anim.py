@@ -18,8 +18,8 @@ class Animator(object):
     _fps   = None     # for a file
     _interval  = None # for the animation
     _framestep = None # for the animation
-    _xlim = (0.03, 0.22)
-    _xticks = None
+    _xlim = (0.01, 0.22)
+    _xticks = np.arange(0.04, 0.21, 0.02)
     def __init__(self, opts):
         self._opts = opts
 
@@ -77,43 +77,50 @@ class Animator(object):
             print(name, ordering)
             print(storage[:10])
             print(storage[-10:])
-            exp.measurement[ordering]=Measurement(ordering, storage, interp_value, interp_left, interp_right)
+            exp.measurement['']=Measurement(ordering, storage, interp_value, interp_left, interp_right)
 
         def newstorage(name, ordering):
             storage = np.zeros(self._nmonths, dtype=animdata)
             storage['gmonth']=np.arange(1, self._nmonths+1)
 
+            exp1 = exp
             if not name in self._data:
-                exp = self._data[name] = Experiment(name, notes1, {})
+                exp1 = self._data[name] = Experiment(name, {})
 
-            exp.measurement[ordering] = True
+            exp1.measurement[''] = True
 
             amonth = np.zeros(len(datum), dtype='i')
-            return exp, amonth, storage
+            return exp1, amonth, storage
 
         prev = None
         for i, (dline1, dline2) in enumerate(it.zip_longest(datum, datum[1:])):
-            _, date1, name, _, notes1, ordering1, _, prec1, value1, left1, right1, _, _ = dline1
+            _, date1, name, _, notes1, ordering1, prec1, value1, left1, right1, _, _ = dline1
             year1, month1 = map(int, date1.split('.')[1:])
             gmonth1 = self.gmonth(year1, month1)
+            if ordering1:
+                name+=f' {ordering1}'
+
+            if '(' in notes1:
+                notes1=''
 
             if dline2 is not None:
                 _, date2, name2, _, _, ordering2, prec2, value2, left2, right2, _, _ = dline2
                 year2, month2 = map(int, date2.split('.')[1:])
                 gmonth2 = self.gmonth(year2, month2)
 
-            assert ordering1==ordering2
+            assert not ordering1 or ordering1==ordering2
 
             if dline2 is None:
                 gmonth2 = self._nmonths
 
-            if not exp or not ordering1 in exp.measurement:
+            if not exp:
                 savestorage(name)
                 exp, amonth, storage = newstorage(name, ordering1)
 
             amonth[i]=gmonth1
             s=slice(gmonth1-1,gmonth2)
             substorage = storage[s]
+            substorage['name'] = name
             substorage['date'] = date1.split('.', 1)[-1]
             substorage['gmonth_p'] = gmonth1
             substorage['value'] = value1
@@ -123,31 +130,41 @@ class Animator(object):
             substorage['left2'] = left2
             substorage['right2'] = right2
             substorage['precision'] = prec1
+            substorage['mark'] = notes1
 
         savestorage(name)
 
         print(list(self._data.keys()))
 
+    def set_name(self, i, name, extra):
+        newname = r'\makebox[37mm]{{{style}{name}\hspace*{{\fill}}}}'.format(style=texstyles.get(name,''), name=name)
+
+        if extra:
+            newname+=f'\\makebox[13mm]{{{extra}}}'
+
+        newname = newname.replace('IO', r'\hspace{2.3mm}IO')
+
+        if newname==self._yticks_left[i]:
+            return False
+
+        self._yticks_left[i] = newname
+        return True
+
     def init_figure(self):
         self._fig = plt.figure(figsize=(8, 2.5))
         self._ax = plt.subplot(111, xlabel=xlabel, ylabel='', title='')
-        plt.subplots_adjust(left=0.22, right=0.82, bottom=0.25)
+        plt.subplots_adjust(left=0.20, right=0.82, bottom=0.25)
 
-        self._yticks_left = ()
-        for name, exp in self._data.items():
-            name = '{{{style}{name}}}'.format(style=texstyles.get(name,''), name=name)
-            if exp.target:
-                name+=f' {exp.target}'
-            # name = name.replace('NO', r'NO')
-            name = name.replace('IO', r'\hspace{2.3mm}IO')
-            self._yticks_left+=name,
+        self._yticks_left = ['']*len(self._data)
+        for i, (name, exp) in enumerate(self._data.items()):
+            self.set_name(i, name, exp.measurement[''].table[-1]['mark'])
 
         yticks = np.arange(len(self._yticks_left))
         self._ax.set_yticks(yticks)
         self._ax.set_yticklabels(self._yticks_left, ha='left')
         self._ax.tick_params(axis='y', length=0,
                              labelleft=True, labelright=False,
-                             pad=110)
+                             pad=105)
 
         self._axr = self._ax.twinx()
         self._yticks_right = ['']*len(self._yticks_left)
@@ -158,16 +175,16 @@ class Animator(object):
                               # pad=110
                               )
 
-        if self._xticks:
+        if self._xticks is not None:
             self._ax.set_xticks(self._xticks)
-            self._ax.set_xticklabels(f'{x*100:.0f}' for x in xticks)
+            self._ax.set_xticklabels(f'{x*100:.0f}' for x in self._xticks)
         self._ax.set_xlim(*self._xlim)
         self._ax.set_ylim(len(self._data)-0.5, -0.5)
         self._axr.set_ylim(len(self._data)-0.5, -0.5)
 
         self._moviewriters = []
         for ofile in self._opts.output:
-            mw = animation.ImageMagickFileWriter(fps=self._fps)
+            mw = animation.PillowWriter(fps=self._fps)
             mw.setup(self._fig, ofile, dpi=150)
             self._moviewriters.append(mw)
 
@@ -193,7 +210,7 @@ class Animator(object):
 
         iframe = int(np.floor(frame))-1
         year, month = self.yearmonth(iframe+1)
-        self._ax.set_title('{}.{}'.format(year, month))
+        self._ax.set_title(r'{}.{}\hspace{{10mm}}'.format(year, month), ha='left', clip_on=False, x=0.445)
 
         digitsmax = max(next(iter(d.measurement.values())).table[iframe]['precision'] for d in self._data.values())
         updateall=self._digitsmax!=digitsmax
@@ -202,6 +219,7 @@ class Animator(object):
         xmax, xmin = self._ax.get_xlim()
         lst=[]
         updatevalues=False
+        updatenames=False
         for i, (name, exp) in enumerate(self._data.items()):
             meass = exp.measurement
 
@@ -216,6 +234,8 @@ class Animator(object):
                 data = meas.table[iframe]
                 if not data['value']:
                     continue
+
+                updatenames+=self.set_name(i, data['name'], data['mark'])
 
                 value = meas.value(frame)
                 left = meas.left(frame)
@@ -239,6 +259,11 @@ class Animator(object):
 
         if updatevalues:
             self._axr.set_yticklabels(self._yticks_right, ha='left')
+            updatevalues=False
+
+        if updatenames:
+            self._ax.set_yticklabels(self._yticks_left, ha='left')
+            updatenames=False
 
         for mw in self._moviewriters:
             mw.grab_frame()
@@ -282,14 +307,13 @@ class Measurement(NamedTuple):
 
 class Experiment(NamedTuple):
     name: str
-    target: str
     measurement: Dict[str, Measurement]
 
 animdata = [ ('date', 'U10'),
              ('gmonth', 'i'), ('gmonth_p', 'i'),
              ('value', 'f'), ('left', 'f'), ('right', 'f'),
              ('value2', 'f'), ('left2', 'f'), ('right2', 'f'),
-             ('precision', 'i')
+             ('precision', 'i'), ('mark', 'U10'), ('name', 'U20'),
            ]
 
 input_dtype = [

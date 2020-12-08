@@ -6,7 +6,7 @@ url='git.jinr.ru/nu/osc'
 date='2020.12'
 reference = f'v{version} {date}: {url}'
 
-xlabel=r'$|\Delta m^2_{32}|$ NO, $10^{-3}$ eV$^2$'
+xlabel=r'$|\Delta m^2_{32}|$, $10^{-3}$ eV$^2$, NO'
 
 styles = {
 	'reactor':     { 'color': 'red' },

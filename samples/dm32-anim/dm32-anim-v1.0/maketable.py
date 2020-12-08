@@ -183,7 +183,7 @@ def collect_result(var, experiment):
                 if context['ordering']!=res['ordering']:
                     continue
             else:
-                res['ordering'] = context['ordering']
+                res['ordering'] = '' #context['ordering']
 
         try:
             val = res['value']

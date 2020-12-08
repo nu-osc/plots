@@ -12,10 +12,8 @@ result:
     splitting_large:
         precision: 2
         mode: '32'
-        results:
-            - ordering: False
-              value: 2.43
-              uncertainty: 0.13
+        value: 2.43
+        uncertainty: 0.13
 crosschecks:
     - Liudmila Kolupaeva
     - Maxim Gonchar
