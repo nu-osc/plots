@@ -12,19 +12,20 @@ from typing import NamedTuple, Dict, types
 from style import *
 
 class Animator(object):
-    _start = (2012, 1)
-    _end   = (2019, 12)
-    _mps   = 4        # months per second
-    _fps   = 10       # for a file
+    _start = (2011, 9)
+    _end   = (2019, 1)
+    _mps   = 4.0      # months per second
+    _fps   = None     # for a file
     _interval  = None # for the animation
     _framestep = None # for the animation
-    _xlim = (0.03, 0.18)
+    _xlim = (0.03, 0.22)
     def __init__(self, opts):
         self._opts = opts
 
+        self._fps = self._mps
         self._interval=1000/self._fps
-        frames_per_month = self._fps//self._mps
-        self._framestep=self._mps/self._fps
+        frames_per_month = 1.0/self._mps
+        self._framestep = 1.0
         print('FPS:', self._fps)
         print('MPS:', self._mps)
         print('Frames per month:', frames_per_month)
@@ -73,7 +74,8 @@ class Animator(object):
 
             ordering=list(exp.measurement.keys())[-1]
             print(name, ordering)
-            print(storage)
+            print(storage[:10])
+            print(storage[-10:])
             exp.measurement[ordering]=Measurement(ordering, storage, interp_value, interp_left, interp_right)
 
         def newstorage(name, ordering):
@@ -89,9 +91,7 @@ class Animator(object):
             return exp, amonth, storage
 
         prev = None
-        ioffset=0
         for i, (dline1, dline2) in enumerate(it.zip_longest(datum, datum[1:])):
-            i-=ioffset
             _, date1, name, _, _, ordering1, prec1, value1, left1, right1, _, _ = dline1
             if ordering1:
                 name+=f' {ordering1}'
@@ -103,17 +103,19 @@ class Animator(object):
                 year2, month2 = map(int, date2.split('.')[1:])
                 gmonth2 = self.gmonth(year2, month2)
 
-            if dline2 is None or ordering1!=ordering2:
+            assert ordering1==ordering2
+
+            if dline2 is None:
                 gmonth2 = self._nmonths
 
             if not exp or not ordering1 in exp.measurement:
                 savestorage(name)
-                ioffset=i+1
                 exp, amonth, storage = newstorage(name, ordering1)
 
             amonth[i]=gmonth1
             s=slice(gmonth1-1,gmonth2)
             substorage = storage[s]
+            substorage['date'] = date1.split('.', 1)[-1]
             substorage['gmonth_p'] = gmonth1
             substorage['value'] = value1
             substorage['left'] = left1
@@ -130,9 +132,15 @@ class Animator(object):
     def init_figure(self):
         self._fig = plt.figure(figsize=(8, 2.5))
         self._ax = plt.subplot(111, xlabel=xlabel, ylabel='', title='')
-        plt.subplots_adjust(left=0.22, right=0.84, bottom=0.25)
+        plt.subplots_adjust(left=0.22, right=0.82, bottom=0.25)
 
-        self._yticks_left = list('{{{style}{name}}}'.format(style=texstyles.get(name,''), name=name) for name in self._data.keys())
+        self._yticks_left = ()
+        for name in self._data.keys():
+            name = '{{{style}{name}}}'.format(style=texstyles.get(name,''), name=name)
+            # name = name.replace('NO', r'NO')
+            name = name.replace('IO', r'\hspace{2.3mm}IO')
+            self._yticks_left+=name,
+
         yticks = np.arange(len(self._yticks_left))
         self._ax.set_yticks(yticks)
         self._ax.set_yticklabels(self._yticks_left, ha='left')
@@ -149,7 +157,9 @@ class Animator(object):
                               # pad=110
                               )
 
-        self._ax.set_xticks(np.arange(0.0, 0.21, 0.02))
+        xticks = np.arange(0.0, 0.23, 0.02)
+        self._ax.set_xticks(xticks)
+        self._ax.set_xticklabels(f'{x*100:.0f}' for x in xticks)
         self._ax.set_xlim(*self._xlim)
         self._ax.set_ylim(len(self._data)-0.5, -0.5)
         self._axr.set_ylim(len(self._data)-0.5, -0.5)
@@ -161,6 +171,9 @@ class Animator(object):
             self._moviewriters.append(mw)
 
         self._digitsmax=0
+
+        self._ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=self._fig.transFigure,
+                      ha='right', va='center', fontsize='x-small')
 
     def run(self):
         repeat = not bool(self._moviewriters)
@@ -270,7 +283,7 @@ class Experiment(NamedTuple):
     name: str
     measurement: Dict[str, Measurement]
 
-animdata = [
+animdata = [ ('date', 'U10'),
              ('gmonth', 'i'), ('gmonth_p', 'i'),
              ('value', 'f'), ('left', 'f'), ('right', 'f'),
              ('value2', 'f'), ('left2', 'f'), ('right2', 'f'),
