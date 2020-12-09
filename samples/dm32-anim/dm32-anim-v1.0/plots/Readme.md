@@ -38,5 +38,5 @@
 
 ![\|Δm²₃₂\| NO](dm32-anim_v1-0.gif)
 
-![\|Δm²₃₂\| NO](dm32-anim_v1-0.apng)
+![\|Δm²₃₂\| NO](dm32-anim_v1-0.webm)
 
