@@ -1,6 +1,6 @@
 # Published $`|\Delta m^2_{32}|`$ measurements animation till 2020
 
-- Version: 1.0, Normal Neutrino Mass Ordering
+- Version: 1.0 with Normal Neutrino Mass Ordering
 - [Plotting scripts](samples/dm32-anim/dm32-anim-v1.0)
 - Data tables, references included:
     * [Daya Bay](data/dm32-dayabay-anim_v1-0.dat)
@@ -8,7 +8,7 @@
     * [T2K](data/dm32-t2k-anim_v1-0.dat)
     * [MINOS](data/dm32-minos-anim_v1-0.dat)
     * [RENO](data/dm32-reno-anim_v1-0.dat)
-    * See also [yaml](../../../../data)
+    * See also complete [collection](../../../../data).
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{ee}| - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$.
