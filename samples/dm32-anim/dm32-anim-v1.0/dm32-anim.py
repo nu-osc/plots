@@ -185,7 +185,7 @@ class Animator(object):
 
         self._moviewriters = []
         for ofile in self._opts.output:
-            mw = animation.FFMpegFileWriter(fps=self._fps)
+            mw = animation.PillowWriter(fps=self._fps)
             mw.setup(self._fig, ofile, dpi=150)
             self._moviewriters.append(mw)
 

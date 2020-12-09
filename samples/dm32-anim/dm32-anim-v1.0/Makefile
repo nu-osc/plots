@@ -30,7 +30,6 @@ name         = $(variable)-$(suffix)_$(version)
 #names        = $(name) $(name_global) $(name_dayabay)
 names        = $(name)
 extensions   = gif apng
-extensions   = webm
 
 #
 # Targets
