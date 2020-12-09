@@ -19,13 +19,11 @@ Previous archives are located in [archives/](archives/).
 
 ## Special plots
 
-The following plots are made for occasions, are not meant for the regular updates and are not included in the archive.
+The following plots are made for a special occasions, are not meant for the regular updates and are not included in the archive.
 
-### Animations
-
-| Note              | $`\sin^22\theta_{13}`$                                     | $`\|\Delta m^2_{32}\|`$                              |
-| ------            | ------:                                                    | ------:                                              |
-| Daya Bay shutdown | [v1.0 beta](samples/theta13-anim/theta13-anim-v1.0/plots/) | [v1.0 beta](samples/dm32-anim/dm32-anim-v1.0/plots/) |
+| Occasion                  | $`\sin^22\theta_{13}`$ animation                           | $`\|\Delta m^2_{32}\|`$ animation                    |
+| ------                    | ------:                                                    | ------:                                              |
+| Daya Bay shutdown 2020.12 | [v1.0 beta](samples/theta13-anim/theta13-anim-v1.0/plots/) | [v1.0 beta](samples/dm32-anim/dm32-anim-v1.0/plots/) |
 
 ## Disclaimer
 
