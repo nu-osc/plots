@@ -9,7 +9,7 @@
     * T2K:
         + [T2K NO](data/theta13-t2k_NO-anim_v1-0.dat)
         + [T2K IO](data/theta13-t2k_IO-anim_v1-0.dat)
-    * See also complete [collection](../../../../data).
+    * See also a complete [collection](../../../../data).
 - Cross checks by:
     * David Jaffe
     * @ldkolupaeva

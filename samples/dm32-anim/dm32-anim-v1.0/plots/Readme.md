@@ -8,7 +8,7 @@
     * [T2K](data/dm32-t2k-anim_v1-0.dat)
     * [MINOS](data/dm32-minos-anim_v1-0.dat)
     * [RENO](data/dm32-reno-anim_v1-0.dat)
-    * See also complete [collection](../../../../data).
+    * See also a complete [collection](../../../../data).
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{ee}| - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$.
