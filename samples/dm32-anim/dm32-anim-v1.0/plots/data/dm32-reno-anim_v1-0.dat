@@ -1,3 +1,0 @@
-style   	date     	name  	type   	notes  	ordering  	octant  	  precision	  value	  left	  right	    span	arxiv            	conf
-reno_ngd	d.2015.11	RENO  	reactor	nGd    	          	        	          2	   2.57	  0.26	   0.24	0.506065	hep-ex/1511.05849
-reno_ngd	d.2018.06	RENO  	reactor	nGd    	          	        	          2	   2.63	  0.14	   0.14	0.277849	hep-ex/1806.00248

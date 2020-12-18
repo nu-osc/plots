@@ -1,4 +1,0 @@
-style  	date     	name  	type       	notes  	ordering  	  precision	  value	  left	  right	    span	arxiv            	conf
-t2k    	d.2013.04	T2K   	accelerator	       	IO        	          3	  0.108	0.046 	 0.059 	0.105   	hep-ex/1304.0841
-t2k    	d.2013.11	T2K   	accelerator	       	IO        	          3	  0.17 	0.037 	 0.045 	0.082   	hep-ex/1311.4750
-t2k    	d.2017.07	T2K   	accelerator	       	IO        	          4	  0.116	0.0254	 0.0302	0.055577	hep-ex/1707.01048

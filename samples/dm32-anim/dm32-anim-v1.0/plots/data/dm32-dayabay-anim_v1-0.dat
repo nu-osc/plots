@@ -1,5 +1,0 @@
-style      	date     	name    	type   	notes  	ordering  	octant  	  precision	  value	  left	  right	  span	arxiv            	conf
-dayabay_ngd	d.2013.10	Daya Bay	reactor	nGd    	NO        	        	          2	  2.54 	  0.2 	  0.19 	 0.39 	hep-ex/1310.6732
-dayabay_ngd	d.2015.05	Daya Bay	reactor	nGd    	NO        	        	          2	  2.37 	  0.11	  0.11 	 0.22 	hep-ex/1505.03456
-dayabay_ngd	d.2016.10	Daya Bay	reactor	nGd    	NO        	        	          3	  2.45 	  0.08	  0.08 	 0.16 	hep-ex/1610.04802	Neutrino2016
-dayabay_ngd	d.2018.06	Daya Bay	reactor	nGd    	NO        	        	          3	  2.471	  0.07	  0.068	 0.138	hep-ex/1809.02261	Neutrino2018

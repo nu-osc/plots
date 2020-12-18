@@ -1,5 +1,0 @@
-style  	date     	name  	type       	notes  	ordering  	octant  	  precision	  value	  left	  right	  span	arxiv            	conf
-nova   	d.2016.01	NOvA  	accelerator	       	NO        	        	          2	   2.52	  0.18	   0.2 	  0.38	hep-ex/1601.05037
-nova   	d.2017.01	NOvA  	accelerator	       	NO        	        	          2	   2.67	  0.11	   0.11	  0.22	hep-ex/1701.05891
-nova   	d.2018.06	NOvA  	accelerator	       	NO        	        	          2	   2.44	  0.07	   0.08	  0.15	hep-ex/1806.00096
-nova   	d.2019.06	NOvA  	accelerator	       	NO        	        	          2	   2.48	  0.06	   0.11	  0.17	hep-ex/1906.04907

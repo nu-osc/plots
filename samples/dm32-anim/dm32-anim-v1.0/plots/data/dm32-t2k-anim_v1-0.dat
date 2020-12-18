@@ -1,6 +1,0 @@
-style  	date     	name  	type       	notes  	ordering  	octant  	  precision	  value	  left	  right	  span	arxiv            	conf
-t2k    	d.2013.11	T2K   	accelerator	       	          	        	          2	  2.44 	  0.15	  0.17 	 0.32 	hep-ex/1311.4750
-t2k    	d.2014.03	T2K   	accelerator	       	NO        	        	          2	  2.51 	  0.1 	  0.1  	 0.2  	hep-ex/1403.1532
-t2k    	d.2017.07	T2K   	accelerator	       	NO        	        	          2	  2.54 	  0.08	  0.08 	 0.161	hep-ex/1707.01048
-t2k    	d.2018.07	T2K   	accelerator	       	NO        	        	          3	  2.463	  0.07	  0.071	 0.141	hep-ex/1807.07891
-t2k    	d.2019.10	T2K   	accelerator	       	NO        	        	          2	  2.45 	  0.07	  0.07 	 0.14 	hep-ex/1910.03887
