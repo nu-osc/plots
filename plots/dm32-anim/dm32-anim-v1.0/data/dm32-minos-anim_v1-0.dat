@@ -1,0 +1,6 @@
+style  	date     	name  	type                    	notes  	ordering  	octant  	  precision	  value	  left	  right	  span	arxiv            	conf
+minos  	d.2008.06	MINOS 	accelerator             	       	          	        	          2	   2.43	  0.13	   0.13	  0.26	hep-ex/0806.2237
+minos  	d.2011.03	MINOS 	accelerator             	       	          	        	          2	   2.32	  0.08	   0.12	  0.2 	hep-ex/1103.0340
+minos  	d.2013.04	MINOS 	accelerator             	       	          	        	          2	   2.41	  0.1 	   0.09	  0.19	hep-ex/1304.6335
+minos  	d.2014.03	MINOS 	accelerator             	       	NO        	        	          2	   2.37	  0.09	   0.09	  0.18	hep-ex/1403.0867
+minos  	d.2020.06	MINOS+	accelerator, atmospheric	       	NO        	        	          2	   2.4 	  0.09	   0.08	  0.17	hep-ex/2006.15208	Neutrino2020

@@ -79,4 +79,4 @@ clean:
 
 publish: all
 	test -d $(publishdir) || mkdir -p $(publishdir)
-	cp -v plots/* $(publishdir)/
+	cp -vr plots/* $(publishdir)/
