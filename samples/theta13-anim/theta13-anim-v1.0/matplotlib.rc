@@ -1,0 +1,15 @@
+text.usetex:         True
+grid.alpha:          0.2
+grid.linewidth:      1.5
+font.size:           15
+font.family:         serif
+axes.grid:           True
+axes.grid.axis:      x
+axes.spines.left:    False
+axes.spines.right:   False
+xtick.top:           True
+xtick.minor.visible: True
+ytick.left:          False
+ytick.labelleft:     True
+ytick.major.visible: False
+errorbar.capsize:    2
