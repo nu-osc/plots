@@ -8,7 +8,7 @@ from matplotlib.patches import Arc, Rectangle
 import itertools as it
 import yaml
 
-reference =  'v1.0 2020.08: git.jinr.ru/nu/osc'
+reference =  'v1.1 2021.02: git.jinr.ru/nu/osc'
 
 def main(args):
 
@@ -39,8 +39,10 @@ def main(args):
             file = yaml.load(f, Loader=yaml.Loader)
         name = file["experiment"]
         hie = file["result"]["hier"]["value"]
-        proj = file["result"]["hier"]["proj_max"]
-        this_exp = {'id': exp.rsplit('/',1)[-1].replace('.yaml',''), 'name' : name, 'hie' : hie, 'proj' : proj}
+        proj_max = file["result"]["hier"]["proj_max"]
+        proj_min = file["result"]["hier"]["proj_min"]
+        this_exp = {'id': exp.rsplit('/',1)[-1].replace('.yaml',''), 'name' : name, 'hie' : hie, 
+                    'proj_min' : proj_min, 'proj_max' : proj_max}
         exps.append(this_exp)
 
     #
@@ -49,14 +51,15 @@ def main(args):
     ax = fig.add_subplot(111)
     ax.set_title('Inverted ordering rejection', pad=10)
     ax.set_xlabel('Standard deviations')
-    plt.subplots_adjust(left=0.24, right=0.91, top=0.9, bottom=0.15)
+    plt.subplots_adjust(left=0.24, right=0.83, top=0.9, bottom=0.15)
     ax.set_xlim(0,6.0)
     ax.set_ylim(0.5,6.5)
     plt.plot([5.0, 5.0], [0, 8.0], ls='dotted', color='grey', alpha=0.35, lw=1)
 
     text_itself = []
     hie_values = []
-    hie_proj = []
+    hie_proj_min = []
+    hie_proj_max = []
     order_id = []
     axis_text_1 = []
     axis_text_2 = []
@@ -70,18 +73,32 @@ def main(args):
     for count, exp in enumerate(exps_sorted):
         text_itself.append(exp['name'])
         hie_values.append(exp['hie'])
-        hie_proj.append(exp['proj'])
+        hie_proj_min.append(exp['proj_min'])
+        hie_proj_max.append(exp['proj_max'])
         order_id.append(exp['id'])
         axis_text_1.append('\\textbf{'+str(exp['hie'])+'}')
-        if exp['proj'] >0:
-            axis_text_2.append(str(exp['proj']))
-        else:
-            axis_text_2.append(' ')
-        eb=plt.errorbar(exp['proj'], count+1, yerr=0.4, ls='--', color = colors[exp['id']])
-        eb[-1][0].set_linestyle('--')
+#        if exp['proj_max'] >0:
+#            axis_text_2.append(str(exp['proj_max']))
+#        else:
+#            axis_text_2.append(' ')
+        #eb=plt.errorbar(exp['proj'], count+1, yerr=0.4, ls='--', color = colors[exp['id']])
+        #eb[-1][0].set_linestyle('--')
+    proj_ids = np.array([1,2,3])
+    barlist_proj = plt.barh(proj_ids+1, 
+                                 np.array(hie_proj_max)[proj_ids] - np.array(hie_proj_min)[proj_ids], 
+                            left=np.array(hie_proj_min)[proj_ids], alpha=0.3, height=0.95)
+    for i,proj_i in zip(range(len(proj_ids)),proj_ids):
+        barlist_proj[i].set_color(colors[order_id[proj_i]])
+    plt.annotate(r"$\}$",fontsize=48, color='gray', ha='left', va='center',
+                 xy=(6.05, 3.5), annotation_clip=False)
+#            xy=(0.915, 0.485), xycoords='figure fraction')
+    plt.annotate(r'1.5$-$3.5'+'\n'+r'$(\sqrt{\Delta \chi^2})$',fontsize=16, color='gray', ha='left', va='center',
+                 xy=(6.45, 3.5), annotation_clip=False)
+    plt.annotate(r'0.5$-$5.0',fontsize=16, color='gray', ha='left', va='center',
+                 xy=(6.45, 2.0), annotation_clip=False)
 
     y_axis = np.arange(1, 7, 1)
-    plt.barh(y_axis, hie_values)
+    #plt.barh(y_axis, hie_values)  # seems to be not needed
     barlist=plt.barh(y_axis, hie_values)
     barlist[0].set_color(colors[order_id[0]])
     barlist[1].set_color(colors[order_id[1]])
@@ -89,7 +106,7 @@ def main(args):
     barlist[3].set_color(colors[order_id[3]])
     barlist[4].set_color(colors[order_id[4]])
     barlist[5].set_color(colors[order_id[5]])
-    ax.set_yticks([1.5, 2.5, 3.5, 4.5, 5.5, 6.5], minor=True)
+    ax.set_yticks([1.5, 2.5, 3.5, 4.5, 5.5, 6.5], minor=False)
     ax.set_yticks(y_axis)
     ax.set_yticklabels(text_itself, ha='left')
     ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=120)
@@ -110,8 +127,8 @@ def main(args):
         t.set_alpha(0.6)
 
     # ax.xaxis.grid(True, which='minor')
-    ax.tick_params(top=True)
     ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5, 5.5], minor=True)
+    ax.tick_params(top=True)
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.25, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 

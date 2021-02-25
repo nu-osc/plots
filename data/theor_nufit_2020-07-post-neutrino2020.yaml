@@ -87,7 +87,8 @@ result:
         precision: 1
         mode: sigma
         value: 2.7
-        proj: 0
+        proj_max: 0
+        proj_min: 0
         note: SK is included
 crosschecks:
     - Liudmila Kolupaeva
