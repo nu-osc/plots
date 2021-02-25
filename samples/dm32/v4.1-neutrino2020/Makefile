@@ -58,15 +58,19 @@ plots/$(variable)_IO_$(version).pdf plots/$(variable)_IO_$(version).png: $(varia
 
 plots/$(variable)_NO_global_$(version).pdf plots/$(variable)_NO_global_$(version).png: $(variable)_NO_$(version).dat $(script) | plots
 	$(script) $< -o $@
+	cp -v $< plots/
 
 plots/$(variable)_IO_global_$(version).pdf plots/$(variable)_IO_global_$(version).png: $(variable)_IO_$(version).dat $(script) | plots
 	$(script) $< -o $@
+	cp -v $< plots/
 
 plots/$(variable)_NO_dayabay_$(version).pdf plots/$(variable)_NO_dayabay_$(version).png: $(variable)_NO_$(version).dat $(script) | plots
 	$(script) $< -o $@ -e theor --dayabay
+	cp -v $< plots/
 
 plots/$(variable)_IO_dayabay_$(version).pdf plots/$(variable)_IO_dayabay_$(version).png: $(variable)_IO_$(version).dat $(script) | plots
 	$(script) $< -o $@ -e theor --dayabay
+	cp -v $< plots/
 
 table: $(table)
 

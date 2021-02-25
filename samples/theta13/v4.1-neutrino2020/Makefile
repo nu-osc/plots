@@ -43,9 +43,11 @@ plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$
 
 plots/$(variable)_dayabay_$(version).pdf plots/$(variable)_dayabay_$(version).png: $(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@ -e theor --dayabay
+	cp -v $< plots/
 
 plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@
+	cp -v $< plots/
 
 $(tables): $(scripts) $(data)
 	./maketable.py -v $(variable) \
