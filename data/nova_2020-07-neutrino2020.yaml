@@ -69,7 +69,8 @@ result:
         precision: 1
         mode: sigma
         value: 1.0
-        proj: 5.0
+        proj_max: 5.0
+        proj_min: 0.5
 crosschecks:
     - Bedrich Roskovec
     - Liudmila Kolupaeva

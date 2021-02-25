@@ -39,7 +39,7 @@ def main(args):
             file = yaml.load(f, Loader=yaml.Loader)
         name = file["experiment"]
         hie = file["result"]["hier"]["value"]
-        proj = file["result"]["hier"]["proj"]
+        proj = file["result"]["hier"]["proj_max"]
         this_exp = {'id': exp.rsplit('/',1)[-1].replace('.yaml',''), 'name' : name, 'hie' : hie, 'proj' : proj}
         exps.append(this_exp)
 

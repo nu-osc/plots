@@ -54,7 +54,8 @@ result:
         precision: 1
         mode: sigma
         value: 1.6
-        proj: 3.5
+        proj_max: 3.5
+        proj_min: 1.5
         notes: |-
              2020 IH rej value is approximate, no clear value in the talk,
              took minima of IH curve on slide 26
