@@ -22,5 +22,5 @@
         + For T2K and SK 3.5 $`\sigma`$ is expected result of a joint fit.
     * Shaded areas are expected sensitivity ranges.
 
-![NMO](mo_v1-0.png) 
+![NMO](mo_v1-1.png) 
 
