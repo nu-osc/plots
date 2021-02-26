@@ -69,9 +69,11 @@ result:
         precision: 1
         mode: sigma
         value: 1.0
-        proj_max: 5.0
-        proj_min: 0.5
+        proj:
+            max: 5.0
+            min: 0.5
 crosschecks:
+    - Yury Malyshkin
     - Bedrich Roskovec
     - Liudmila Kolupaeva
     - Maxim Gonchar

@@ -39,9 +39,13 @@ def main(args):
             file = yaml.load(f, Loader=yaml.Loader)
         name = file["experiment"]
         hie = file["result"]["hier"]["value"]
-        proj_max = file["result"]["hier"]["proj_max"]
-        proj_min = file["result"]["hier"]["proj_min"]
-        this_exp = {'id': exp.rsplit('/',1)[-1].replace('.yaml',''), 'name' : name, 'hie' : hie, 
+        proj = file["result"]["hier"]['proj']
+        if isinstance(proj, dict):
+            proj_max = proj["max"]
+            proj_min = proj["min"]
+        else:
+            proj_max, proj_min = proj, proj
+        this_exp = {'id': exp.rsplit('/',1)[-1].replace('.yaml',''), 'name' : name, 'hie' : hie,
                     'proj_min' : proj_min, 'proj_max' : proj_max}
         exps.append(this_exp)
 
@@ -84,8 +88,8 @@ def main(args):
         #eb=plt.errorbar(exp['proj'], count+1, yerr=0.4, ls='--', color = colors[exp['id']])
         #eb[-1][0].set_linestyle('--')
     proj_ids = np.array([1,2,3])
-    barlist_proj = plt.barh(proj_ids+1, 
-                                 np.array(hie_proj_max)[proj_ids] - np.array(hie_proj_min)[proj_ids], 
+    barlist_proj = plt.barh(proj_ids+1,
+                                 np.array(hie_proj_max)[proj_ids] - np.array(hie_proj_min)[proj_ids],
                             left=np.array(hie_proj_min)[proj_ids], alpha=0.3, height=0.95)
     for i,proj_i in zip(range(len(proj_ids)),proj_ids):
         barlist_proj[i].set_color(colors[order_id[proj_i]])
