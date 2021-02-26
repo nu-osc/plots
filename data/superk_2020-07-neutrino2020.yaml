@@ -57,12 +57,14 @@ result:
         precision: 2
         mode: sigma
         value: 1.79
-        proj_max: 3.5
-        proj_min: 1.5
+        proj:
+            min: 1.5
+            max: 3.5
         notes: |-
              2020 IH rej value is taken as difference of IH and NH BF on slide 27,
              MH proj value is SK+T2K (http://www-sk.icrr.u-tokyo.ac.jp/sk/_pdf/articles/2019/mjiang_dt.pdf)
 crosschecks:
+    - Yury Malyshkin
     - Bedrich Roskovec
     - Liudmila Kolupaeva
     - Maxim Gonchar

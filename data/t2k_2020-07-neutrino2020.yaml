@@ -54,13 +54,15 @@ result:
         precision: 1
         mode: sigma
         value: 1.6
-        proj_max: 3.5
-        proj_min: 1.5
+        proj:
+            max: 3.5
+            min: 1.5
         notes: |-
              2020 IH rej value is approximate, no clear value in the talk,
              took minima of IH curve on slide 26
              MH proj value is SK+T2K (http://www-sk.icrr.u-tokyo.ac.jp/sk/_pdf/articles/2019/mjiang_dt.pdf)
 crosschecks:
+    - Yury Malyshkin
     - Bedrich Roskovec
     - Liudmila Kolupaeva
     - Maxim Gonchar (author)
