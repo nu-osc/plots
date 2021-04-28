@@ -1,0 +1,31 @@
+experiment: JUNO reactor
+type: solar
+dataset: 6 years
+target: nH
+reference:
+    date: '2015.07'
+    arxiv: hep-ex/1507.05613
+    inspire: https://inspirehep.net/literature/1384111
+    doi: https://doi.org/10.1088/0954-3899/43/3/030401
+    citation: An:2015jdp
+result:
+    splitting_large:
+        precision: 3
+        mode: ee
+        value: 2.44
+        uncertainty:
+            percent: 0.44
+    splitting_small:
+        precision: 3
+        value: 7.54
+        uncertainty:
+            percent: 0.59
+    amplitude12:
+        precision: 3
+        mode: single
+        value:
+        uncertainty:
+            percent: 0.67
+crosschecks:
+    - Maxim Gonchar
+

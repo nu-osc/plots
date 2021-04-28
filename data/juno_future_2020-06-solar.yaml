@@ -1,0 +1,25 @@
+experiment: JUNO solar
+type: reactor
+dataset: 10 years
+target: ''
+reference:
+    date: '2020.06'
+    arxiv: hep-ex/
+    inspire:
+    doi: 
+    citation: 
+result:
+    splitting_small:
+        precision: 1
+        value: 7.5
+        uncertainty: 
+            left: 1.2
+            right: 1.6
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.307
+        uncertainty: 0.023
+crosschecks:
+    - Maxim Gonchar
+
