@@ -1,9 +1,9 @@
-style         name            type                       notes      precision    value    left    right      span  arxiv              conf
-junoreactor   JUNO_reactor    solar                      {}                 3     7.54   0.044    0.044  0.088972  hep-ex/1507.05613  {}
-kamlandsksno  KamLAND+SK+SNO  reactor+atmospheric+solar  {}                 2     7.51   0.18     0.19   0.37      {}                 {}
-kamland       KamLAND         reactor                    {}                 2     7.54   0.18     0.19   0.37      {}                 {}
-nufit5.0      NuFIT_5.0       theory                     {}                 2     7.42   0.2      0.21   0.41      hep-ph/2007.14792  {}
-foreroetal.   Forero_et_al.   theory                     {}                 2     7.5    0.2      0.22   0.42      hep-ex/2006.11237  {}
-superksno     SuperK+SNO      solar                      {}                 2     6.11   0.68     1.21   1.89      {}                 {}
-junosolar     JUNO_solar      reactor                    {}                 2     7.5    1.2      1.6    2.8       hep-ex/            {}
-sno           SNO             solar                      {}                 2     5.6    1.4      1.9    3.3       1109.0763          {}
+style         name            type                       measurement    notes      precision    value    left    right      span  arxiv              conf
+junoreactor   JUNO_reactor    solar                      estimation     {}                 3     7.54   0.044    0.044  0.088972  hep-ex/1507.05613  {}
+kamlandsksno  KamLAND+SK+SNO  reactor+atmospheric+solar  {}             {}                 2     7.51   0.18     0.19   0.37      {}                 {}
+kamland       KamLAND         reactor                    {}             {}                 2     7.54   0.18     0.19   0.37      {}                 {}
+nufit5.0      NuFIT_5.0       theory                     {}             {}                 2     7.42   0.2      0.21   0.41      hep-ph/2007.14792  {}
+foreroetal.   Forero_et_al.   theory                     {}             {}                 2     7.5    0.2      0.22   0.42      hep-ex/2006.11237  {}
+superksno     SuperK+SNO      solar                      {}             {}                 2     6.11   0.68     1.21   1.89      {}                 {}
+junosolar     JUNO_solar      reactor                    estimation     {}                 1     7.5    1.2      1.6    2.8       hep-ex/            {}
+sno           SNO             solar                      {}             {}                 2     5.6    1.4      1.9    3.3       1109.0763          {}
