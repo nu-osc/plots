@@ -57,7 +57,7 @@ def main():
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.15, right=0.80, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.15, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -72,7 +72,7 @@ def main():
 
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
         marker='o'
-        if sigma<0.1:
+        if sigma/value<0.01:
             marker='|'
         plt.plot(value, count+1, marker, markerfacecolor=colors[id], markeredgecolor=colors[id])
 
@@ -121,7 +121,7 @@ def main():
     # ax_left_right.set_yticks(yticks)
     # ax_left_right.set_yticklabels([label if val<=val_median else '' for label, val in zip(latex_text, values)], ha='left')
 
-    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='left', va='center', fontsize='x-small')
+    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     if args.output:
         plt.savefig(args.output, dpi=300)

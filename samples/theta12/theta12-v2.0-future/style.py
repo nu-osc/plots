@@ -1,4 +1,6 @@
 colors = {
+    'junoreactor':     'xkcd:red',
+    'junosolar':       'xkcd:saffron',
     'kamland':         'xkcd:red',
     'kamlandsksno':    'xkcd:orange',
     'nova':            'xkcd:green',
@@ -12,5 +14,9 @@ colors = {
 	}
 
 names = {
-	'Super-Kamiokande': 'SuperK+SNO'
+	'Super-Kamiokande': 'SuperK+SNO',
+	'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled} \relsize{-2}(expected)',
+	'JUNO reactor': r'\textbf{JUNO} \Radioactivity{} \relsize{-2}(expected)'
 	}
+
+preamble = r'\usepackage{bbding}\let\Cross\undefined\usepackage{marvosym}\usepackage{relsize}'

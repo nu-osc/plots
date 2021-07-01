@@ -7,10 +7,11 @@ import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 import itertools as it
 import re
+from argparse import ArgumentParser, Namespace
 
-from style import colors, names
+from style import colors, names, preamble
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -23,11 +24,12 @@ def main(args):
     plt.rcParams.update({'legend.fontsize': 18})
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
+    plt.rcParams['text.latex.preamble']+=preamble
 
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(9))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
     result = result[::-1]
     if args.exclude:
         mask = [args.exclude not in res['type'] for res in result]
@@ -53,24 +55,32 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.30, right=0.84, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.20, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
     #
     exp_name = []
     latex_text = []
+    values = []
     for count, exp in enumerate(result):
-        id, name, _, typ, digits, value, left, right, _ = exp
+        id, name, _, typ, measurement, digits, value, left, right, _ = exp
+        values.append(value)
+        sigma = 0.5*(right+left)
 
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
-        plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+        marker='o'
+        if sigma/value<0.01:
+            marker='|'
+        plt.plot(value, count+1, marker, markerfacecolor=colors[id], markeredgecolor=colors[id])
 
         name = name.replace('_', ' ')
         exp_name.append(names.get(name, name))
 
         latex = format_latex(digits, value, left, right, digits_max)
         latex_text.append(latex)
+    values=np.array(values)
+    val_median = np.median(values)
 
     #
     # Setup ticks and labels
@@ -79,15 +89,35 @@ def main(args):
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=150)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=100)
+    for label in ax.get_yticklabels():
+        label.set_backgroundcolor('white')
+        bbox = label.get_bbox_patch()
+        bbox.set_alpha(0.8)
 
     # Right: values
-    double_y = ax.twinx()
-    double_y.set_ylim(ax.get_ylim())
+    ax_right_right = ax.twinx()
+    ax_right_right.set_ylim(ax.get_ylim())
     ax.tick_params(axis='y', which='both', left=False)
-    double_y.tick_params(axis='y', which='both', direction='out', left=False, labelleft=False, right=False, labelright=True, pad=5)
-    double_y.set_yticks(yticks)
-    double_y.set_yticklabels(latex_text, ha='left')
+    ax_right_right.tick_params(axis='y', which='both', direction='out', left=False, labelleft=False, right=False, labelright=True, pad=5)
+    ax_right_right.set_yticks(yticks)
+    ax_right_right.set_yticklabels(latex_text, ha='left')
+
+    # # Right: values
+    # ax_right_left = ax.twinx()
+    # ax_right_left.set_ylim(ax.get_ylim())
+    # ax.tick_params(axis='y', which='both', left=False)
+    # ax_right_left.tick_params(axis='y', which='both', direction='in', left=False, labelleft=False, right=False, labelright=True, pad=-10)
+    # ax_right_left.set_yticks(yticks)
+    # ax_right_left.set_yticklabels([label if val>val_median else '' for label, val in zip(latex_text, values)], ha='right')
+
+    # # Left: values
+    # ax_left_right = ax.twinx()
+    # ax_left_right.set_ylim(ax.get_ylim())
+    # ax.tick_params(axis='y', which='both', left=False)
+    # ax_left_right.tick_params(axis='y', which='both', direction='in', left=False, labelleft=True, right=False, labelright=False, pad=5)
+    # ax_left_right.set_yticks(yticks)
+    # ax_left_right.set_yticklabels([label if val<=val_median else '' for label, val in zip(latex_text, values)], ha='left')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
@@ -105,18 +135,29 @@ def format_latex(digits, value, left, right, digits_max):
     else:
         extra = ''
 
+    span = right+left
+    relsigma = 100*0.5*span/value
+
     value = f'{value:.{digits}f}'
     left = f'{left:.{digits}f}'
     right = f'{right:.{digits}f}'
+
+    width1_rel='24mm'
+    width2_rel='11mm'
+    box1 = f'\\makebox[{width1_rel}]{{', r'\hfill}'
+    box2 = f'\\makebox[{width2_rel}]{{', r'\hfill}'
+
+    ret=''
     if left==right:
-        ret = f'${value}{extra}{{\\scriptstyle\\pm{left}}}$'
+        ret = f'{box1[0]}${value}{extra}{{\\scriptstyle\\pm{left}}}${box1[1]}'
     else:
-        ret = f'${value}{extra}^{{+{right}}}_{{-{left}}}$'
+        ret = f'{box1[0]}${value}{extra}^{{+{right}}}_{{-{left}}}${box1[1]}'
+
+    ret+=f'{box2[0]}\\hspace{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
 
     return ret
 
 if __name__ == '__main__':
-    from argparse import ArgumentParser
     parser = ArgumentParser()
     parser.add_argument('input', help='file to load')
     parser.add_argument('-o', '--output', help='file to write')

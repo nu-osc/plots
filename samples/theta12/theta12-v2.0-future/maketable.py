@@ -43,11 +43,11 @@ def main(args):
 
     data = collect(args.inputs, var=var)
 
-    data = sorted(data, key=lambda item: item['span'])
+    data = sorted(data, key=lambda item: item['span']+1.e-8*(100-len(item['name'])))
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'notes', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'measurement', 'notes', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -214,6 +214,7 @@ def collect_result(var, experiment):
 
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')
+        target['measurement']=experiment.get('measurement')
 
         yield target
 
@@ -234,6 +235,15 @@ def get_uncertainty(val, unc):
     elif not isinstance(unc, dict):
         raise Exception('Invalid uncertainty: '+str(unc))
 
+    # Symmetric, relative, percent
+    try:
+        relsigma = unc['percent']*0.01
+    except KeyError:
+        pass
+    else:
+        return val*(1-relsigma), val*(1+relsigma)
+
+    # Asymmetric, absolute
     try:
         left, right = unc['left'], unc['right']
     except KeyError:
@@ -241,13 +251,7 @@ def get_uncertainty(val, unc):
     else:
         return val-left, val+right
 
-    try:
-        left, right = unc['left'], unc['right']
-    except KeyError:
-        pass
-    else:
-        return val-left, val+right
-
+    # Absolute, interval
     try:
         val_left, val_right = unc['interval']
     except KeyError:
@@ -255,6 +259,7 @@ def get_uncertainty(val, unc):
     else:
         return val_left, val_right
 
+    # (A)symmetric, stat/syst, absolute
     try:
         stat, syst = unc['stat'], unc['syst']
     except KeyError:
