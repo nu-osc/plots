@@ -36,11 +36,11 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
-plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) | plots
+plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@ -e theor
 	cp -v $< plots/
 
-plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) | plots
+plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@
 	cp -v $< plots/
 

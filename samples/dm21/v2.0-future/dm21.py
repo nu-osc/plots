@@ -9,7 +9,7 @@ import itertools as it
 import re
 from argparse import ArgumentParser, Namespace
 
-from style import colors, names
+from style import colors, names, preamble
 from reference import reference, variable, lims
 dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
@@ -26,6 +26,7 @@ def main():
     plt.rcParams.update({'legend.fontsize': 18})
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
+    plt.rcParams['text.latex.preamble']+=preamble
 
     #
     # Load
@@ -56,7 +57,7 @@ def main():
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.30, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.15, right=0.80, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -90,7 +91,11 @@ def main():
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=150)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=75)
+    for label in ax.get_yticklabels():
+        label.set_backgroundcolor('white')
+        bbox = label.get_bbox_patch()
+        bbox.set_alpha(0.8)
 
     # Right: values
     ax_right_right = ax.twinx()
@@ -100,21 +105,21 @@ def main():
     ax_right_right.set_yticks(yticks)
     ax_right_right.set_yticklabels(latex_text, ha='left')
 
-    # Right: values
-    ax_right_left = ax.twinx()
-    ax_right_left.set_ylim(ax.get_ylim())
-    ax.tick_params(axis='y', which='both', left=False)
-    ax_right_left.tick_params(axis='y', which='both', direction='in', left=False, labelleft=False, right=False, labelright=True, pad=-10)
-    ax_right_left.set_yticks(yticks)
-    ax_right_left.set_yticklabels([label if val>val_median else '' for label, val in zip(latex_text, values)], ha='right')
+    # # Right: values
+    # ax_right_left = ax.twinx()
+    # ax_right_left.set_ylim(ax.get_ylim())
+    # ax.tick_params(axis='y', which='both', left=False)
+    # ax_right_left.tick_params(axis='y', which='both', direction='in', left=False, labelleft=False, right=False, labelright=True, pad=-10)
+    # ax_right_left.set_yticks(yticks)
+    # ax_right_left.set_yticklabels([label if val>val_median else '' for label, val in zip(latex_text, values)], ha='right')
 
-    # Left: values
-    ax_left_right = ax.twinx()
-    ax_left_right.set_ylim(ax.get_ylim())
-    ax.tick_params(axis='y', which='both', left=False)
-    ax_left_right.tick_params(axis='y', which='both', direction='in', left=False, labelleft=True, right=False, labelright=False, pad=5)
-    ax_left_right.set_yticks(yticks)
-    ax_left_right.set_yticklabels([label if val<=val_median else '' for label, val in zip(latex_text, values)], ha='left')
+    # # Left: values
+    # ax_left_right = ax.twinx()
+    # ax_left_right.set_ylim(ax.get_ylim())
+    # ax.tick_params(axis='y', which='both', left=False)
+    # ax_left_right.tick_params(axis='y', which='both', direction='in', left=False, labelleft=True, right=False, labelright=False, pad=5)
+    # ax_left_right.set_yticks(yticks)
+    # ax_left_right.set_yticklabels([label if val<=val_median else '' for label, val in zip(latex_text, values)], ha='left')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='left', va='center', fontsize='x-small')
 
@@ -139,17 +144,18 @@ def format_latex(digits, value, left, right, digits_max):
     left = f'{left:.{digits}f}'
     right = f'{right:.{digits}f}'
 
-    width1_rel='22mm'
-    width2_rel='9mm'
-    box1 = f'\\makebox[{width1_rel}]{{', '}'
-    box2 = f'\\makebox[{width2_rel}]{{', '}'
+    width1_rel='24mm'
+    width2_rel='11mm'
+    box1 = f'\\makebox[{width1_rel}]{{', r'\hfill}'
+    box2 = f'\\makebox[{width2_rel}]{{', r'\hfill}'
 
+    ret=''
     if left==right:
         ret = f'{box1[0]}${value}{extra}{{\\scriptstyle\\pm{left}}}${box1[1]}'
     else:
         ret = f'{box1[0]}${value}{extra}^{{+{right}}}_{{-{left}}}${box1[1]}'
 
-    ret+=f' {box2[0]}\\hspace*{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
+    ret+=f'{box2[0]}\\hspace{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
 
     return ret
 
