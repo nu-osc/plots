@@ -5,8 +5,8 @@
     * Added JUNO estimation
 - [Plotting scripts](samples/dm32/dm32-v5.0-future)
 - Data tables:
-    * [NO table](dm32_NO_v4-1.dat)
-    * [IO table](dm32_IO_v4-1.dat)
+    * [NO table](dm32_NO_v5-0b.dat)
+    * [IO table](dm32_IO_v5-0b.dat)
 - References:
     * [Daya Bay nGd](data/dayabay_2018-06-neutrino2018.yaml)
     * [RENO](data/reno_2020-07-neutrino2020.yaml)
@@ -36,8 +36,9 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
-|                  | Normal ordering                          | Inverted Ordering                    |
-|------------------|------------------------------------------|--------------------------------------|
-| Experiments only | ![\|Δm²₃₂\| NO](dm32_NO_v4-1.png)        | ![Δm²₃₂ IO](dm32_IO_v4-1.png)        |
-| Including global | ![\|Δm²₃₂\| NO](dm32_NO_global_v4-1.png) | ![Δm²₃₂ IO](dm32_IO_global_v4-1.png) |
+|                             | Normal ordering                                  | Inverted Ordering                            |
+|-----------------------------|--------------------------------------------------|----------------------------------------------|
+| Experiments only            | ![\|Δm²₃₂\| NO](dm32_NO_v5-0b.png)               | ![Δm²₃₂ IO](dm32_IO_v5-0b.png)               |
+| Including global            | ![\|Δm²₃₂\| NO](dm32_NO_global_v5-0b.png)        | ![Δm²₃₂ IO](dm32_IO_global_v5-0b.png)        |
+| Including global and future | ![\|Δm²₃₂\| NO](dm32_NO_global_future_v5-0b.png) | ![Δm²₃₂ IO](dm32_IO_global_future_v5-0b.png) |
 
