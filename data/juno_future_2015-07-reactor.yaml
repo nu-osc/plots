@@ -1,5 +1,5 @@
 experiment: JUNO reactor
-type: solar
+type: reactor
 dataset: 6 years
 measurement: estimation
 target: nH
