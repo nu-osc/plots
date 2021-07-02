@@ -32,7 +32,7 @@ def main(args):
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
     result = result[::-1]
     if args.exclude:
-        mask = [args.exclude not in res['type'] for res in result]
+        mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
     nitems = len(result)
     digits_max = result['digits'].max()
@@ -162,7 +162,7 @@ if __name__ == '__main__':
     parser.add_argument('input', help='file to load')
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
-    parser.add_argument('-e', '--exclude', help='types mask to exclude (tested with contains)')
+    parser.add_argument('-e', '--exclude', nargs='+', help='types mask to exclude (tested with contains)')
 
     main(parser.parse_args())
 
