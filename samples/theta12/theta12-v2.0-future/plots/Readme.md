@@ -17,7 +17,7 @@
     * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
         + $`\sin^2 \theta_{12} = 1 - 1/(1+\tan^2 \theta_{12})`$.
 
-| Experiments only              | Including global                     | Including global and future          |
-|-------------------------------|--------------------------------------|--------------------------------------|
-| ![sin²θ₁₂](theta12_v2-0b.png) | ![sin²θ₁₂](theta12_global_v2-0b.png) | ![sin²θ₁₂](theta12_global_v2-0b.png) |
+| Experiments only              | Including global                     | Including global and future                 |
+|-------------------------------|--------------------------------------|---------------------------------------------|
+| ![sin²θ₁₂](theta12_v2-0b.png) | ![sin²θ₁₂](theta12_global_v2-0b.png) | ![sin²θ₁₂](theta12_global_future_v2-0b.png) |
 
