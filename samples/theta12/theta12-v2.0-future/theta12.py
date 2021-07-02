@@ -7,7 +7,7 @@ import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 import itertools as it
 import re
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 
 from style import colors, names, preamble
 from reference import reference, variable, lims

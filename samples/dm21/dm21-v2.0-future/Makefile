@@ -13,11 +13,12 @@ data       = $(shell realpath $(wildcard data/*.yaml))
 #
 # Name combinations
 #
-name         = $(variable)_$(version)
-name_global  = $(variable)_global_$(version)
-names        = $(name) $(name_global)
+name               = $(variable)_$(version)
+name_global        = $(variable)_global_$(version)
+name_global_future = $(variable)_global_future_$(version)
+names              = $(name) $(name_global) $(name_global_future)
 # Extensions
-extensions   = pdf png
+extensions         = pdf png
 
 #
 # Targets
@@ -37,10 +38,14 @@ plots:
 	test -d plots || mkdir plots
 
 plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
-	$(script) $< -o $@ -e theor
+	$(script) $< -o $@ -e theor estimation
 	cp -v $< plots/
 
 plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
+	$(script) $< -o $@ -e estimation
+	cp -v $< plots/
+
+plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@
 	cp -v $< plots/
 

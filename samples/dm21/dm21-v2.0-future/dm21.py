@@ -7,15 +7,13 @@ import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 import itertools as it
 import re
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 
 from style import colors, names, preamble
 from reference import reference, variable, lims
 dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
-args = Namespace()
-
-def main():
+def main(args):
     #
     # RC params
     #
@@ -34,7 +32,7 @@ def main():
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
     result = result[::-1]
     if args.exclude:
-        mask = [args.exclude not in res['type'] for res in result]
+        mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
     nitems = len(result)
     digits_max = result['digits'].max()
@@ -164,8 +162,7 @@ if __name__ == '__main__':
     parser.add_argument('input', help='file to load')
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
-    parser.add_argument('-e', '--exclude', help='types mask to exclude (tested with contains)')
-    parser.parse_args(namespace=args)
+    parser.add_argument('-e', '--exclude', nargs='+', help='types mask to exclude (tested with contains)')
 
-    main()
+    main(parser.parse_args())
 

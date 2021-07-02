@@ -13,12 +13,12 @@ data       = $(shell realpath $(wildcard data/*.yaml))
 #
 # Name combinations
 #
-name         = $(variable)_$(version)
-name_global  = $(variable)_global_$(version)
-name_global_future  = $(variable)_global_future_$(version)
-names        = $(name) $(name_global) $(name_global_future)
+name               = $(variable)_$(version)
+name_global        = $(variable)_global_$(version)
+name_global_future = $(variable)_global_future_$(version)
+names              = $(name) $(name_global) $(name_global_future)
 # Extensions
-extensions   = pdf png
+extensions         = pdf png
 
 #
 # Targets
