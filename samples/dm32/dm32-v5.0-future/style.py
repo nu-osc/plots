@@ -31,10 +31,10 @@ colors = {
 
 names = {
         'Super-Kamiokande': 'SuperK',
-        'JUNO reactor': r'\textbf{JUNO} {\relsize{-2}(expect)}'
+        'JUNO reactor': r'\textbf{JUNO} \Radioactivity{} {\relsize{-2}(expect)}'
         }
 
-preamble = r'\usepackage{bbding}\let\Cross\undefined\usepackage{marvosym}\usepackage{relsize}'
+preamble = r'\usepackage{marvosym}\usepackage{relsize}'
 
 def dayabay():
 	colors['dayabay_nh'] = 'xkcd:blue'

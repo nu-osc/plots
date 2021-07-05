@@ -94,7 +94,7 @@ def main(args):
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
 
         name = names.get(name, name)
-        name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}}}'
+        name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
         exp_name.append(name)
 
         latex = format_latex(digits, value, left, right, digits_max)

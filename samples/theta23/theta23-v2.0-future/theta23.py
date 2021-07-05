@@ -5,8 +5,11 @@ from scipy.interpolate import interp1d
 import numpy as np
 import pandas as pd
 from matplotlib.patches import Arc, Rectangle
+import matplotlib as mpl
 import itertools as it
 from argparse import ArgumentParser
+
+mpl.use('pgf')
 
 from style import colors, names, preamble, titles
 from reference import reference, variable, lims
@@ -31,6 +34,8 @@ def main(args):
     plt.rcParams.update({'legend.fontsize': 18})
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
+    plt.rcParams['pgf.texsystem']='pdflatex'
+    plt.rcParams['pgf.preamble']+=preamble
     plt.rcParams['text.latex.preamble']+=preamble
 
     #
@@ -82,7 +87,7 @@ def main(args):
         name = name.replace('_', ' ')
         if note and note!='{}':
             note = note.replace('_', ' ')
-            name = f'{name}, {{\\small{{}}{note}}}'
+            name = f'{name}, {{\\relsize{{-1}}{note}}}'
 
         name = names.get(name, name)
         if name in exp_name:
@@ -169,7 +174,7 @@ def format_latex(digits, value, left, right, digits_max, addspaces, *, percentag
         ret = f'{box1[0]}${value}{extra}^{{+{right}}}_{{-{left}}}${box1[1]}'
 
     if percentage:
-        ret+=f'{box2[0]}\\hspace{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
+        ret+=f'{box2[0]}\\hspace{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%{box2[1]}'
 
     return ret
 
