@@ -25,6 +25,7 @@ colors = {
     'icecube':         colors['atm'],
     'nufit5.0':        colors['global'],
     'foreroetal.':     colors['global'],
+    'junoreactor':     colors['reactor'],
     'junoreactor_nh':  colors['reactor'],
     'junoreactor_ih':  colors['reactor'],
 	}

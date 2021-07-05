@@ -1,5 +1,5 @@
 style            name              type                      measurement    notes    ordering    octant      precision    value    left    right      span  arxiv              conf
-junoreactor_nh   JUNO_reactor      reactor                   estimation     nH       IO          {}                  3    2.492   0.011    0.011  0.021472  hep-ex/1507.05613  {}
+junoreactor      JUNO_reactor      reactor                   estimation     {}       IO          {}                  3    2.492   0.011    0.011  0.021472  hep-ex/1507.05613  {}
 nufit5.0         NuFIT_5.0         theory                    {}             {}       IO          {}                  3    2.498   0.028    0.028  0.056     hep-ph/2007.14792  {}
 foreroetal.      Forero_et_al.     theory                    {}             {}       IO          {}                  2    2.54    0.03     0.03   0.06      hep-ex/2006.11237  {}
 nova             NOvA              accelerator               {}             {}       IO          {}                  2    2.45    0.06     0.06   0.12      {}                 Neutrino2020
