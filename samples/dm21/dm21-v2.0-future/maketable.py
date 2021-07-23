@@ -162,7 +162,7 @@ def collect_experiment(entry, target, var):
     before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
 
     if entry.get('type')=='reactor':
-        before['notes'] = entry['target']
+        before['notes'] = entry.get('target', '')
     else:
         before['notes'] = ''
 

@@ -1,4 +1,5 @@
 colors = {
+        'junoreactor':     'xkcd:red',
         'junoreactor_nh':  'xkcd:red',
         'junoreactor_ih':  'xkcd:red',
         'junosolar':       'xkcd:saffron',
@@ -16,7 +17,7 @@ colors = {
 
 names = {
         'Super-Kamiokande': 'SuperK+SNO',
-        'JUNO solar':   r'\textbf{JUNO} {\relscale{0.75}\SunshineOpenCircled} \relsize{-2}(expected)',
+        'JUNO solar':   r'\textbf{JUNO} {\relscale{0.75}\SunshineOpenCircled}+SNO(NC) \relsize{-2}(expected)',
         'JUNO reactor': r'\textbf{JUNO} \Radioactivity{} \relsize{-2}(expected)'
         }
 
