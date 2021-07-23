@@ -52,6 +52,7 @@ plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$
 table: $(tables)
 
 $(tables): $(scripts) $(data)
+	ipython --pdb -- \
 	./maketable.py -v $(variable) \
 	               -o $@ \
 				   $(filter %.yaml,$^)

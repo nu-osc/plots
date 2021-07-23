@@ -55,7 +55,7 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.20, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.25, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -89,7 +89,7 @@ def main(args):
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=100)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=130)
     for label in ax.get_yticklabels():
         label.set_backgroundcolor('white')
         bbox = label.get_bbox_patch()
