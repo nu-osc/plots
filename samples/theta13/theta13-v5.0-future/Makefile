@@ -1,5 +1,5 @@
 variable = theta13
-version  = v5-0
+version  = v5-0b
 suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
@@ -66,3 +66,4 @@ clean-all:
 publish: all
 	test -d $(publishdir) || mkdir -p $(publishdir)
 	cp -v plots/* $(publishdir)/
+	cp -v $(tables) $(publishdir)/
