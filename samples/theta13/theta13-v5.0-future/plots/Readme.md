@@ -19,7 +19,7 @@
     * Forero et al. is pre-Neutrino fit
     * dashed grey bar in theoretical entry means IO
 
-| Experiments only              | Including global                     |
-|-------------------------------|--------------------------------------|
-| ![sin²2θ₁₃](theta13_v4-1.png) | ![sin²2θ₁₃](theta13_global_v4-1.png) |
+| Experiments only               | Including global                      |
+|--------------------------------|---------------------------------------|
+| ![sin²2θ₁₃](theta13_v5-0b.png) | ![sin²2θ₁₃](theta13_global_v5-0b.png) |
 
