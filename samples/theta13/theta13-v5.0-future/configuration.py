@@ -20,6 +20,7 @@ colors = {
     'kamland':         colors['reactor'],
     'reno_ngd':        colors['reactor'],
     'reno_nh':         colors['reactor'],
+    'junoreactor':     colors['reactor'],
     'dayabay_ngd':     colors['reactor'],
     'dayabay_nh':      colors['reactor'],
     'doublechooz':     colors['reactor'],
@@ -36,7 +37,9 @@ colors = {
     'foreroetal.':     colors['global'],
 	}
 
-names = {}
+names = {
+	'JUNO reactor': r'JUNO \Radioactivity{} \relsize{-2}(expected)'
+		}
 
 titles = {}
 
@@ -44,4 +47,4 @@ def dayabay():
 	colors['dayabay_nh'] = 'xkcd:blue'
 	colors['dayabay_ngd'] = 'xkcd:blue'
 
-preamble = r'\usepackage{xcolor}'
+preamble = r'\usepackage{xcolor}\usepackage{bbding}\let\Cross\undefined\usepackage{marvosym}\usepackage{relsize}'

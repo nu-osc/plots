@@ -17,7 +17,7 @@ def main(args):
     # Extra style
     #
     if args.dayabay:
-        dayabay()
+        cfg.dayabay()
 
     #
     # RC params
@@ -77,7 +77,7 @@ def main(args):
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
     padleft = 110
-    namewidth = '38mm'
+    namewidth = '42mm'
     right = digits_decimal_max>4 and 0.76 or 0.78
     plt.subplots_adjust(left=0.22, right=right, top=axtop, bottom=fracbottom*singleheight/figheight)
 
@@ -188,7 +188,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
     zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
 
-    print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
+    # print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
 
     span = right+left
     relsigma = 100*0.5*span/value

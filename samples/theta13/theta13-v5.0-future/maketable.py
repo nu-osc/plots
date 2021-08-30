@@ -162,7 +162,7 @@ def collect_experiment(entry, target, var):
     before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
 
     if entry.get('type')=='reactor':
-        before['notes'] = entry['target']
+        before['notes'] = entry.get('target', '')
     else:
         before['notes'] = ''
 
@@ -214,6 +214,7 @@ def collect_result(var, experiment):
 
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')
+        target['measurement']=experiment.get('measurement')
 
         yield target
 
@@ -234,6 +235,15 @@ def get_uncertainty(val, unc):
     elif not isinstance(unc, dict):
         raise Exception('Invalid uncertainty: '+str(unc))
 
+    # Symmetric, relative, percent
+    try:
+        relsigma = unc['percent']*0.01
+    except KeyError:
+        pass
+    else:
+        return val*(1-relsigma), val*(1+relsigma)
+
+    # Asymmetric, absolute
     try:
         left, right = unc['left'], unc['right']
     except KeyError:
@@ -241,13 +251,7 @@ def get_uncertainty(val, unc):
     else:
         return val-left, val+right
 
-    try:
-        left, right = unc['left'], unc['right']
-    except KeyError:
-        pass
-    else:
-        return val-left, val+right
-
+    # Absolute, interval
     try:
         val_left, val_right = unc['interval']
     except KeyError:

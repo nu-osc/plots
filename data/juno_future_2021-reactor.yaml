@@ -1,0 +1,21 @@
+experiment: JUNO reactor
+type: reactor
+dataset: 6 years
+measurement: estimation
+reference:
+    date: '2021.08'
+    arxiv: 
+    inspire: 
+    doi: 
+    citation: 
+    talk:
+result:
+    amplitude13:
+        precision: 3
+        mode: single
+        value: 0.024
+        uncertainty:
+            percent: 12
+crosschecks:
+    - Maxim Gonchar
+
