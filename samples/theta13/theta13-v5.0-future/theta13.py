@@ -177,6 +177,8 @@ def phantom_zeros(num, num_max):
         return ''
 
     extra = '0'*(num_max-num)
+    # return extra
+    # return f'{{\color{{red}}{extra}}}'
     return f'\phantom{{{extra}}}'
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
@@ -195,21 +197,21 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     left = f'{left:.{digits_decimal}f}'
     right = f'{right:.{digits_decimal}f}'
 
-    width1_rel='31mm'
-    width2_rel='16mm'
-    box1 = f'\\makebox[{width1_rel}]{{', r'\hfill}'
-    box2 = f'\\makebox[{width2_rel}]{{', r'\hfill}'
-
     the_value = f'{zeros_leading}{value}{zeros_decimal}'
     if left==right:
-        the_error = f'{{\\scriptstyle\\pm{left}}}'
+        the_error = f'{{\\scriptstyle\\pm{left}{zeros_decimal}}}'
     else:
-        the_error = f'^{{+{right}}}_{{-{left}}}'
+        the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
-    ret = f'{box1[0]}${the_value}{the_error}${box1[1]}'
-    ret+=f'{box2[0]}\\hspace{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
+    width1_rel='31mm'
+    width2_rel='9mm'
+    ret = [
+            f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
+            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\small{relsigma:.1f}\\%}}'
+          ]
 
-    return ret
+    # return ''.join(f'\\fbox{{{s}}}' for s in ret)
+    return ''.join(ret)
 
 if __name__ == '__main__':
     parser = ArgumentParser()
