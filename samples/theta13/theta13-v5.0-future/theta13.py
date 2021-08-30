@@ -29,7 +29,7 @@ def main(args):
     plt.rcParams.update({'legend.fontsize': 18})
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
-    # plt.rcParams['text.latex.preamble']+=preamble
+    plt.rcParams['text.latex.preamble']+=cfg.preamble
 
     #
     # Load
@@ -41,7 +41,22 @@ def main(args):
         result = result[mask]
     uniqnames = dict(zip(*np.unique(np.core.defchararray.add(result['exp'],result['notes']), return_counts=True)))
     nitems = len(uniqnames)
-    digits_max = result['digits'].max()
+    digits_decimal_max = result['digits'].max()
+
+    #
+    # Scale the numbers
+    #
+    if cfg.scale:
+        for key in ('value', 'left', 'right', 'span'):
+            result[key]*=cfg.scale
+        poweroften = -int(np.log10(cfg.scale))
+        xlabel = f'{cfg.variable}, $10^{{{poweroften:d}}}$'
+        digits_decimal_max += poweroften+1
+    else:
+        xlabel = cfg.variable
+
+    logs10 = ceil_from_zero(np.log10(result['value']))
+    digits_leading_max = int(max(1.0, *logs10))
 
     #
     # Figure
@@ -55,7 +70,7 @@ def main(args):
     fig = plt.figure(figsize=(8,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
-    ax.set_xlabel(cfg.variable)
+    ax.set_xlabel(xlabel)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
     if cfg.lims:
         ax.set_xlim(cfg.lims)
@@ -63,7 +78,7 @@ def main(args):
     ax.xaxis.grid(True)
     padleft = 110
     namewidth = '38mm'
-    right = digits_max>4 and 0.76 or 0.78
+    right = digits_decimal_max>4 and 0.76 or 0.78
     plt.subplots_adjust(left=0.22, right=right, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
@@ -122,7 +137,7 @@ def main(args):
         name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}{ordering}}}'
         exp_name.append(name)
 
-        latex = format_latex(digits, value, left, right, digits_max)
+        latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         latex_text.append(latex)
 
     #
@@ -138,9 +153,9 @@ def main(args):
     ax_right_right = ax.twinx()
     ax_right_right.set_ylim(ax.get_ylim())
     ax.tick_params(axis='y', which='both', left=False)
-    ax_right_right.tick_params(axis='y', which='both', direction='out', left=False, labelleft=False, right=False, labelright=True, pad=0)
+    ax_right_right.tick_params(axis='y', which='both', direction='out', left=False, labelleft=False, right=False, labelright=True, pad=110)
     ax_right_right.set_yticks(yticks)
-    ax_right_right.set_yticklabels(latex_text, ha='left')
+    ax_right_right.set_yticklabels(latex_text, ha='right')
 
     ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
@@ -151,37 +166,47 @@ def main(args):
     if args.show:
         plt.show()
 
-def format_latex(digits, value, left, right, digits_max):
-    value*=100
-    left*=100
-    right*=100
-    digits-=2
-    digits_max-=2
+def ceil_from_zero(nums):
+    nums = np.asanyarray(nums)
+    nums[nums<0] = np.floor(nums[nums<0])
+    nums[nums>0] = np.ceil(nums[nums>0])
+    return nums
 
-    if digits<digits_max:
-        extra = '0'*(digits_max-digits)
-        extra = f'\\phantom{{{extra}}}'
-    else:
-        extra = ''
+def phantom_zeros(num, num_max):
+    if num>=num_max:
+        return ''
+
+    extra = '0'*(num_max-num)
+    return f'\phantom{{{extra}}}'
+
+def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
+    digits_leading = int(ceil_from_zero(np.log10(value)))
+    digits_decimal-=digits_leading
+
+    zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
+    zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
+
+    print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
 
     span = right+left
     relsigma = 100*0.5*span/value
 
-    value = f'{value:.{digits}f}'
-    left = f'{left:.{digits}f}'
-    right = f'{right:.{digits}f}'
+    value = f'{value:.{digits_decimal}f}'
+    left = f'{left:.{digits_decimal}f}'
+    right = f'{right:.{digits_decimal}f}'
 
-    width1_rel='27mm'
-    width2_rel='11mm'
+    width1_rel='31mm'
+    width2_rel='16mm'
     box1 = f'\\makebox[{width1_rel}]{{', r'\hfill}'
     box2 = f'\\makebox[{width2_rel}]{{', r'\hfill}'
 
-    ret=''
+    the_value = f'{zeros_leading}{value}{zeros_decimal}'
     if left==right:
-        ret = f'{box1[0]}${value}{extra}{{\\scriptstyle\\pm{left}}}${box1[1]}'
+        the_error = f'{{\\scriptstyle\\pm{left}}}'
     else:
-        ret = f'{box1[0]}${value}{extra}^{{+{right}}}_{{-{left}}}${box1[1]}'
+        the_error = f'^{{+{right}}}_{{-{left}}}'
 
+    ret = f'{box1[0]}${the_value}{the_error}${box1[1]}'
     ret+=f'{box2[0]}\\hspace{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
 
     return ret

@@ -43,3 +43,5 @@ titles = {}
 def dayabay():
 	colors['dayabay_nh'] = 'xkcd:blue'
 	colors['dayabay_ngd'] = 'xkcd:blue'
+
+preamble = r'\usepackage{xcolor}'
