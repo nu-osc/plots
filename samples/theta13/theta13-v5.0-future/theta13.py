@@ -9,8 +9,7 @@ import itertools as it
 import re
 from argparse import ArgumentParser
 
-from style import colors, names, dayabay, titles
-from reference import reference, variable, lims
+import configuration as cfg
 dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
@@ -56,10 +55,10 @@ def main(args):
     fig = plt.figure(figsize=(8,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
-    ax.set_xlabel(variable)
+    ax.set_xlabel(cfg.variable)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
-    if lims:
-        ax.set_xlim(lims)
+    if cfg.lims:
+        ax.set_xlim(cfg.lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
     padleft = 110
@@ -95,8 +94,8 @@ def main(args):
         voffset = occurance/(uniqnames[uname]-1)-0.5 if uniqnames[uname]>1 else 0.0
         vpos = count+1 + voffset*0.2
 
-        ekwargs=dict(capsize=2, color=colors[id])
-        pkwargs=dict(marker='o', color=colors[id])
+        ekwargs=dict(capsize=2, color=cfg.colors[id])
+        pkwargs=dict(marker='o', color=cfg.colors[id])
         if sigma/value<0.01:
             pkwargs['marker']='|'
 
@@ -119,7 +118,7 @@ def main(args):
             elines[-1][0].set_linestyle('dashed')
             continue
 
-        name = names.get(name, name)
+        name = cfg.names.get(name, name)
         name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}{ordering}}}'
         exp_name.append(name)
 
@@ -143,7 +142,7 @@ def main(args):
     ax_right_right.set_yticks(yticks)
     ax_right_right.set_yticklabels(latex_text, ha='left')
 
-    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     if args.output:
         plt.savefig(args.output, dpi=300)
