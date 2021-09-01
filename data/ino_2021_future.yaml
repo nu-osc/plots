@@ -3,6 +3,7 @@ type: atmospheric
 dataset:
 measurement: estimation
 years: 10
+status: 
 reference:
     date: '2015.05'
     arxiv: 1505.07380
