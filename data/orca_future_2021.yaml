@@ -1,0 +1,36 @@
+experiment: ORCA
+type: atmospheric
+dataset:
+measurement: estimation
+years:
+status:
+reference:
+    date:
+    arxiv: https://arxiv.org/pdf/2108.06293.pdf
+    inspire:
+    doi:
+    citation:
+result:
+    amplitude23:
+        precision: 2
+        mode: degrees
+        value:
+        uncertainty:
+            percent:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        value:
+        uncertainty:
+            percent:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        low:
+            - [1.57, 2.24, 2.76, 3.21, 3.61, 3.89, 4.21, 4.53, 4.81, 5.06]
+        high:
+            - [2.59, 3.46, 4.09, 4.52, 4.96, 5.35, 5.69, 5.98, 6.30, 6.57]
+
+crosschecks:
+    - Liudmila Kolupaeva
+
