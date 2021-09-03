@@ -2,27 +2,29 @@ experiment: ORCA
 type: atmospheric
 dataset:
 measurement: estimation
-years:
+years: 3
 status:
 reference:
     date:
-    arxiv: https://arxiv.org/pdf/2108.06293.pdf
+    arxiv: https://arxiv.org/pdf/2108.06293.pdf, https://arxiv.org/pdf/2103.09885.pdf
     inspire:
     doi:
     citation:
 result:
     amplitude23:
+        note: "90% CL"
         precision: 2
         mode: degrees
-        value:
+        value: 48.6
         uncertainty:
-            percent:
+            right: 1.9
+            left: 3.1
     splitting_large:
+        note: "90% CL"
         precision: 3
         mode: '32'
-        value:
-        uncertainty:
-            percent:
+        value: 2.4541
+        uncertainty: 85e-3
     mh:
         year:
             - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

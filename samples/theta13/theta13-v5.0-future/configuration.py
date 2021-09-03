@@ -35,6 +35,7 @@ colors = {
     'icecube':         colors['atm'],
     'nufit5.0':        colors['global'],
     'foreroetal.':     colors['global'],
+    'dune':            colors['acc'],
 	}
 
 names = {

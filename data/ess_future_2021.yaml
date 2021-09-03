@@ -1,0 +1,28 @@
+experiment: ESSnuSB
+type: atmospheric, accelerator
+dataset:
+measurement: estimation
+years:
+status: 
+reference:
+    date:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+result:
+    amplitude23:
+        precision: 2
+        mode: degrees
+        value:
+        uncertainty:
+            percent:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        value:
+        uncertainty:
+            percent: 
+crosschecks:
+    - Liudmila Kolupaeva
+

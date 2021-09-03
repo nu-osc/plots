@@ -1,0 +1,36 @@
+experiment: IceCube Upgrade
+type: atmospheric
+dataset:
+measurement: estimation
+years:
+starting_year: 2023
+status: approved
+reference:
+    date:
+    arxiv:
+    inspire: https://inspirehep.net/literature/1765534
+    doi:
+    citation:
+result:
+    amplitude23:
+        precision: 2
+        mode: degrees
+        value:
+        uncertainty:
+            percent:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        value:
+        uncertainty:
+            percent:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6]
+        low:
+            - [0.68, 1.03, 1.24, 1.41, 1.58, 1.71]
+        high:
+            - [1.55, 2.25, 2.72, 3.12, 3.47, 3.78]
+crosschecks:
+    - Liudmila Kolupaeva
+
