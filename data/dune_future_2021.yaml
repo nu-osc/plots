@@ -2,10 +2,9 @@ experiment: DUNE
 type: accelerator
 starting_year: 2026
 status: approved
-years: 7
 reference:
     arxiv:
-    inspire: https://arxiv.org/pdf/2006.16043.pdf
+    inspire: https://arxiv.org/pdf/2006.16043.pdf, https://arxiv.org/abs/1808.08232
     doi:
     citation:
     conf:
@@ -13,20 +12,36 @@ reference:
     page: 
 result:
     amplitude23:
+        years: 7
         precision: 4
         mode: double
         value: 0.9742
         uncertainty: 0.00275
     splitting_large:
+        years: 7
         precision: 3
         mode: '32'
         value: 2.451
         uncertainty: 0.01
     amplitude13:
+        years: 7
         precision: 4
         mode: double
         value: 0.0873
         uncertainty: 0.005
+    splitting_small:
+        years: 20
+        precision: 2
+        value: 4.85
+        uncertainty:
+            percent: 5.9
+    amplitude12:
+        years: 20
+        precision: 3
+        mode: single
+        value: 0.308
+        uncertainty:
+            percent: 3.0
     mh:
         year:
             - [1, 2, 3, 4, 5, 6, 7]

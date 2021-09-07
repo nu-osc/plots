@@ -2,11 +2,12 @@ experiment: ESSnuSB
 type: atmospheric, accelerator
 dataset:
 measurement: estimation
-years:
+years: 10
+note: 360 km option
 status: 
 reference:
     date:
-    arxiv:
+    arxiv: https://arxiv.org/pdf/2107.07585.pdf
     inspire:
     doi:
     citation:
@@ -14,15 +15,17 @@ result:
     amplitude23:
         precision: 2
         mode: degrees
-        value:
+        value: 49
         uncertainty:
-            percent:
+            right: 1.3
+            left: 1.4
     splitting_large:
         precision: 3
         mode: '32'
-        value:
+        value: 2.516
         uncertainty:
-            percent: 
+            right: 0.0085
+            left: 0.008
 crosschecks:
     - Liudmila Kolupaeva
 

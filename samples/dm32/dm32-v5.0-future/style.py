@@ -28,6 +28,11 @@ colors = {
     'junoreactor':     colors['reactor'],
     'junoreactor_nh':  colors['reactor'],
     'junoreactor_ih':  colors['reactor'],
+    'dune':            colors['acc'],
+    'orca':            colors['atm'],
+    'hyperkamiokande': colors['atm'],
+    'ino':             colors['atm'],
+    'icecubeupgrade':  colors['atm'],
 	}
 
 names = {
