@@ -13,10 +13,11 @@ reference:
 result:
     amplitude23:
         years: 7
-        precision: 4
+        precision: 3
         mode: double
-        value: 0.9742
-        uncertainty: 0.00275
+        value: 0.974
+        uncertainty:
+            percent: 0.0035
     splitting_large:
         years: 7
         precision: 3
@@ -30,13 +31,13 @@ result:
         value: 0.0873
         uncertainty: 0.005
     splitting_small:
-        years: 20
+        years: 2.5
         precision: 2
         value: 4.85
         uncertainty:
             percent: 5.9
     amplitude12:
-        years: 20
+        years: 2.5
         precision: 3
         mode: single
         value: 0.308

@@ -30,9 +30,10 @@ colors = {
     'junoreactor_ih':  colors['reactor'],
     'dune':            colors['acc'],
     'orca':            colors['atm'],
-    'hyperkamiokande': colors['atm'],
+    'hyperkamiokande': colors['acc'],
     'ino':             colors['atm'],
     'icecubeupgrade':  colors['atm'],
+    'essnusb':         colors['acc']
 	}
 
 names = {
