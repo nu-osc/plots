@@ -3,6 +3,7 @@ type: solar
 years: 2.5
 starting_year: 2026
 status: approved
+measurement: estimation
 reference:
     arxiv:
     inspire: https://arxiv.org/abs/1808.08232

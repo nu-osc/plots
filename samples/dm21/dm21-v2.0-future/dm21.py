@@ -30,12 +30,16 @@ def main(args):
     # Load
     #
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
-    result = result[::-1]
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
+    result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
+    result = result[::-1]
+    print(result)
     nitems = len(result)
     digits_max = result['digits'].max()
+    line_place = sum(item['measurement'] == 'estimation' for item in result)
+    
 
     #
     # Figure
@@ -46,7 +50,7 @@ def main(args):
     fracax     = 1.
     figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
     axtop      = 1.0-fractop*singleheight/figheight
-    fig = plt.figure(figsize=(8,figheight))
+    fig = plt.figure(figsize=(9,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
     ax.set_xlabel(variable)
@@ -55,7 +59,7 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.15, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.20, right=0.81, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -89,7 +93,7 @@ def main(args):
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=75)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=110)
     for label in ax.get_yticklabels():
         label.set_backgroundcolor('white')
         bbox = label.get_bbox_patch()
@@ -120,6 +124,9 @@ def main(args):
     # ax_left_right.set_yticklabels([label if val<=val_median else '' for label, val in zip(latex_text, values)], ha='left')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    
+    if line_place > 0:
+        plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
     if args.output:
         plt.savefig(args.output, dpi=300)
@@ -153,7 +160,7 @@ def format_latex(digits, value, left, right, digits_max):
     else:
         ret = f'{box1[0]}${value}{extra}^{{+{right}}}_{{-{left}}}${box1[1]}'
 
-    ret+=f'{box2[0]}\\hspace{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
+    ret+=f'{box2[0]}\\hspace{{\\fill}}\\large{relsigma:.1f}\\%{box2[1]}'
 
     return ret
 

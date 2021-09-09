@@ -2,6 +2,7 @@ experiment: Hyper-Kamiokande
 starting_year: 2027
 status: approved
 type: solar
+measurement: estimation
 note: sensitivity with all solar experiments (SNO, SK)
 years: 20
 reference:

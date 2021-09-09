@@ -19,8 +19,9 @@ colors = {
 
 names = {
         'Super-Kamiokande': 'SuperK+SNO',
-        'JUNO solar':   r'\textbf{JUNO} {\relscale{0.75}\SunshineOpenCircled}+SNO(NC) \relsize{-2}(expected)',
-        'JUNO reactor': r'\textbf{JUNO} \Radioactivity{} \relsize{-2}(expected)'
+        'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled} + SNO(NC)',
+        'JUNO reactor': r'JUNO \Radioactivity{}',
+        'Hyper-Kamiokande': 'HyperK+SNO+SK',
         }
 
 preamble = r'\usepackage{bbding}\let\Cross\undefined\usepackage{marvosym}\usepackage{relsize}'
