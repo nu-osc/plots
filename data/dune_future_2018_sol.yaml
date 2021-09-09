@@ -1,0 +1,28 @@
+experiment: DUNE
+type: solar
+years: 2.5
+starting_year: 2026
+status: approved
+reference:
+    arxiv:
+    inspire: https://arxiv.org/abs/1808.08232
+    doi:
+    citation:
+    conf:
+    talk:
+    page:
+result:
+    splitting_small:
+        precision: 2
+        value: 4.85
+        uncertainty:
+            percent: 5.9
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.308
+        uncertainty:
+            percent: 3.0
+crosschecks:
+    - Liudmila Kolupaeva
+

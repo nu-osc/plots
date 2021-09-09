@@ -2,13 +2,13 @@ experiment: IceCube Upgrade
 type: atmospheric
 dataset:
 measurement: estimation
-years:
+years: 3
 starting_year: 2023
 status: approved
 reference:
     date:
     arxiv:
-    inspire: https://inspirehep.net/literature/1765534
+    inspire: https://inspirehep.net/literature/1765534, https://pos.sissa.it/358/1031/pdf
     doi:
     citation:
 result:

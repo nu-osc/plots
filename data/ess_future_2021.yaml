@@ -1,5 +1,5 @@
 experiment: ESSnuSB
-type: atmospheric, accelerator
+type: accelerator
 dataset:
 measurement: estimation
 years: 10
