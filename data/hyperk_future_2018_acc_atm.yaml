@@ -1,6 +1,7 @@
 experiment: Hyper-Kamiokande
 starting_year: 2027
 status: approved
+measurement: estimation
 type: atmospheric, accelerator
 note: sensitivity for joint atmospheric and beam neutrinos
 reference:

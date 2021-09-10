@@ -30,12 +30,14 @@ def main(args):
     # Load
     #
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
-    result = result[::-1]
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
+    result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
+    result = result[::-1]
     nitems = len(result)
     digits_max = result['digits'].max()
+    line_place = sum(item['measurement'] == 'estimation' for item in result)
 
     #
     # Figure
@@ -120,6 +122,9 @@ def main(args):
     # ax_left_right.set_yticklabels([label if val<=val_median else '' for label, val in zip(latex_text, values)], ha='left')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    
+    if line_place > 0:
+        plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
     if args.output:
         plt.savefig(args.output, dpi=300)

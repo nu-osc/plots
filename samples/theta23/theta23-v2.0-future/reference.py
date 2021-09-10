@@ -1,6 +1,6 @@
-version='2.0b'
+version='1.0'
 url='git.jinr.ru/nu/osc'
-date='2021.07'
+date='2021.09'
 variable=r'$\sin^2 \theta_{23}$'
 lims = (0.35,0.65)
 

@@ -217,6 +217,8 @@ def collect_result(var, experiment):
 
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')
+        if experiment.get('type', {}) != 'reactor':
+            target['notes']=res.get('note')
         target['measurement']=experiment.get('measurement')
 
         yield target

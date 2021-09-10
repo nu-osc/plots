@@ -38,7 +38,8 @@ colors = {
 
 names = {
         'Super-Kamiokande': 'SuperK',
-        'JUNO reactor': r'\textbf{JUNO} \Radioactivity{} {\relsize{-2}(expect)}'
+        'JUNO reactor': r'JUNO',
+        'Hyper-Kamiokande': 'HyperK'
         }
 
 preamble = r'\usepackage{marvosym}\usepackage{relsize}'

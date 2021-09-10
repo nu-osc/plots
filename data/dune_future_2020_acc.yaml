@@ -3,6 +3,7 @@ type: accelerator
 starting_year: 2026
 years: 7
 status: approved
+measurement: estimation
 reference:
     arxiv:
     inspire: https://arxiv.org/pdf/2006.16043.pdf
@@ -14,10 +15,9 @@ reference:
 result:
     amplitude23:
         precision: 3
-        mode: double
-        value: 0.974
-        uncertainty:
-            percent: 0.0035
+        mode: single
+        value: 0.58
+        uncertainty: 0.006
     splitting_large:
         precision: 3
         mode: '32'

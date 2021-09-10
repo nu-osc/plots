@@ -36,13 +36,15 @@ def main(args):
     # Load
     #
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(12))
-    result = result[::-1]
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
+    result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
+    result = result[::-1]
     nitems = len(result)
     digits_max = result['digits'].max()
-
+    line_place = sum(item['measurement'] == 'estimation' for item in result)
+    
     ordering = result[0]['ordering']
     title = titles.get(ordering)
 
@@ -82,6 +84,7 @@ def main(args):
         kwargs=dict()
         if args.dayabay and 'Daya_Bay' in name:
             kwargs['elinewidth'] = 2.0
+        print(id)
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2, **kwargs)
 
         marker='o'
@@ -92,7 +95,7 @@ def main(args):
         name = name.replace('_', ' ')
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
-
+    
         name = names.get(name, name)
         name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
         exp_name.append(name)
@@ -118,6 +121,9 @@ def main(args):
     ax_right_right.set_yticklabels(latex_text, ha='left')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    
+    if line_place > 0:
+        plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
     if args.output:
         plt.savefig(args.output, dpi=300)

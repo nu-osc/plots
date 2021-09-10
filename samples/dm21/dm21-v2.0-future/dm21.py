@@ -35,7 +35,6 @@ def main(args):
         result = result[mask]
     result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
     result = result[::-1]
-    print(result)
     nitems = len(result)
     digits_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)

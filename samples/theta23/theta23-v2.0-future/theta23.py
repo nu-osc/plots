@@ -42,12 +42,14 @@ def main(args):
     # Load
     #
     result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(12))
-    result = result[::-1]
     if args.exclude:
         mask = [all(pattern not in res['notes'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
+    result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
+    result = result[::-1]
     nitems = len(result)
     digits_max = result['digits'].max()
+    line_place = sum(item['measurement'] == 'estimation' for item in result)
 
     ordering=args.nmo
     title = titles.get(ordering)
@@ -60,7 +62,7 @@ def main(args):
     fracax     = 1.
     figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
     axtop      = 1.0-fractop*singleheight/figheight
-    fig = plt.figure(figsize=(8,figheight))
+    fig = plt.figure(figsize=(9,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
     ax.set_xlabel(variable)
@@ -70,7 +72,7 @@ def main(args):
         ax.set_title(title)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    padleft=80
+    padleft=95
     plt.subplots_adjust(left=0.16, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     plt.axvline(0.5, ls='--', color='grey', alpha=0.5)
@@ -141,6 +143,9 @@ def main(args):
     triple_y.tick_params(axis='y', which='both', left=False, right=False, direction='in',  labelleft=True,  labelright=False, pad=-4, labelcolor='grey', labelsize='small')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    
+    if line_place > 0:
+        plt.axhline(nitems-line_place-0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
     if args.output:
         plt.savefig(args.output, dpi=300)
