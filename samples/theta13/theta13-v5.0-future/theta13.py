@@ -187,7 +187,7 @@ def phantom_zeros(num, num_max):
     return f'\phantom{{{extra}}}'
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
-    digits_leading = max(0, int(ceil_from_zero(np.log10(value))))
+    digits_leading = int(ceil_from_zero(np.log10(value)))
     digits_decimal-=digits_leading
 
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
