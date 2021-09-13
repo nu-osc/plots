@@ -12,7 +12,7 @@ reference:
     citation:
 result:
     amplitude23:
-        note: "90% CL"
+        note: 90\% CL
         precision: 2
         mode: degrees
         value: 48.6
@@ -20,7 +20,7 @@ result:
             right: 1.9
             left: 3.1
     splitting_large:
-        note: "90% CL"
+        note: 90\% CL
         precision: 3
         mode: '32'
         value: 2.4541

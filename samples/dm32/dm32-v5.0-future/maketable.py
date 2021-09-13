@@ -50,7 +50,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'measurement', 'years', 'notes', 'ordering', 'octant', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'measurement', 'dataset', 'notes', 'ordering', 'octant', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -83,8 +83,10 @@ def postprocess_splitting_large(entry):
         entry['notes']=''
 
     slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
-    # if entry['notes']:
-        # slist.append(entry['notes'].lower())
+
+    if entry['notes'] and entry['type'] == 'reactor':
+        slist.append(entry['notes'].lower())
+
     entry['style']='_'.join(slist)
     return entry
 
@@ -220,7 +222,11 @@ def collect_result(var, experiment):
         if experiment.get('type', {}) != 'reactor':
             target['notes']=res.get('note')
         target['measurement']=experiment.get('measurement')
-        target['years']=str(experiment.get('dataset'))
+
+        target['dataset']=experiment.get('dataset')
+        if experiment.get('measurement') != 'estimation':
+            target['dataset']=''
+
 
         yield target
 

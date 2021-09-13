@@ -37,7 +37,8 @@ colors = {
 names = {
         'Super-Kamiokande': 'SuperK',
         'JUNO reactor': r'JUNO',
-        'Hyper-Kamiokande': 'HyperK'
+        'Hyper-Kamiokande': 'HyperK',
+        'ESSnuSB': r'ESS$\nu$SB'
         }
 
 preamble = r'\usepackage{marvosym}\usepackage{relsize}'

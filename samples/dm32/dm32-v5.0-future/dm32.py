@@ -11,7 +11,8 @@ from argparse import ArgumentParser
 
 from style import colors, names, preamble, dayabay, titles
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('years', 'U40'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('dataset', 'U20'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -60,7 +61,7 @@ def main(args):
     fracax     = 1.
     figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
     axtop      = 1.0-fractop*singleheight/figheight
-    fig = plt.figure(figsize=(8,figheight))
+    fig = plt.figure(figsize=(9,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
     ax.set_xlabel(variable)
@@ -71,7 +72,7 @@ def main(args):
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    padleft = 75
+    padleft = 95
     namewidth = '40mm'
     plt.subplots_adjust(left=0.16, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
 
@@ -81,7 +82,8 @@ def main(args):
     exp_name = []
     latex_text = []
     for count, exp in enumerate(result):
-        id, name, typ, measurement, years, notes, ordering, _, digits, value, left, right, _ = exp
+        id, name, typ, measurement, dataset, notes, ordering, _, digits, value, left, right, _ = exp
+
         sigma = 0.5*(right+left)
 
         kwargs=dict()
@@ -96,12 +98,18 @@ def main(args):
 
         name = name.replace('_', ' ')
         notes = notes.replace('_', ' ')
-        notes = notes.replace('%', '\\%')
+        dataset = dataset.replace('_', ' ')
+
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
 
         name = names.get(name, name)
-        name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
+
+        if measurement == 'estimation':
+            print(dataset)
+            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}}}'
+        else:
+            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
 
         exp_name.append(name)
 
