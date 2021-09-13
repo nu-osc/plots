@@ -13,7 +13,7 @@ mpl.use('pgf')
 
 from style import colors, names, preamble, titles
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U30'), ('measurement', 'U20'), ('years', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 def main(args):
     if args.nmo=='auto':
         if 'NO' in args.output:
@@ -65,7 +65,7 @@ def main(args):
     fracax     = 1.
     figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
     axtop      = 1.0-fractop*singleheight/figheight
-    fig = plt.figure(figsize=(9,figheight))
+    fig = plt.figure(figsize=(10,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
     ax.set_xlabel(variable)
@@ -75,7 +75,7 @@ def main(args):
         ax.set_title(title)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    padleft=95
+    padleft=120
     plt.subplots_adjust(left=0.16, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     plt.axvline(0.5, ls='--', color='grey', alpha=0.5)
@@ -87,14 +87,20 @@ def main(args):
     latex_text = []
     latex_lo_text = []
     for count, exp in enumerate(result):
-        id, name, note, measurement, years, _, oct, digits, value, left, right, _ = exp
+        id, name, note, measurement, dataset, _, oct, digits, value, left, right, _ = exp
         sigma = 0.5*(right+left)
-        name = name.replace('_', ' ')
-        if note and note!='{}':
-            note = note.replace('_', ' ')
-            name = f'{name}, {{\\relsize{{-1}}{note}}}'
-
         name = names.get(name, name)
+        
+        name = name.replace('_', ' ')
+        note = note.replace('_', ' ')
+        dataset = dataset.replace('_', ' ')
+        if measurement == 'estimation':
+            if note and note!='{}':
+                name =  f'{name}, {{\\relsize{{-1}}{({dataset}), note}}}'
+            else:
+                name = f'{name}, {{\\relsize{{-1}}{({dataset})}}}'
+            
+        name = name.replace("'" , "")
         if name in exp_name:
             latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
             latex_lo = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=False, percentage=False)

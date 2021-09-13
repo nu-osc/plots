@@ -1,4 +1,4 @@
-version='1.0'
+version='6.0b'
 url='git.jinr.ru/nu/osc'
 date='2021.09'
 variable=r'$\sin^2 \theta_{23}$'

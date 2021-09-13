@@ -84,8 +84,8 @@ def postprocess_splitting_large(entry):
 
     slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
 
-    if entry['notes'] and entry['type'] == 'reactor':
-        slist.append(entry['notes'].lower())
+    #if entry['notes'] and entry['type'] == 'reactor':
+    #    slist.append(entry['notes'].lower())
 
     entry['style']='_'.join(slist)
     return entry

@@ -106,10 +106,7 @@ def main(args):
 
         name = names.get(name, name)
 
-        print(notes)
-
         if measurement == 'estimation':
-            print(dataset)
             name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}}}'
         else:
             name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
@@ -188,7 +185,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     width2_rel='11mm'
     ret = [
             f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
-            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\small{relsigma:.1f}\\%}}'
+            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%}}'
           ]
 
     # return ''.join(f'\\fbox{{{s}}}' for s in ret)
