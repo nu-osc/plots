@@ -150,11 +150,11 @@ def main(args):
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
     ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=padleft)
+    ax.tick_params(axis='y', which='both', left=False)
 
     # Right: values
     ax_right_right = ax.twinx()
     ax_right_right.set_ylim(ax.get_ylim())
-    ax.tick_params(axis='y', which='both', left=False)
     ax_right_right.tick_params(axis='y', which='both', direction='out', left=False, labelleft=False, right=False, labelright=True, pad=110)
     ax_right_right.set_yticks(yticks)
     ax_right_right.set_yticklabels(latex_text, ha='right')

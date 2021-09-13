@@ -13,7 +13,7 @@ mpl.use('pgf')
 
 from style import colors, names, preamble, titles
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U30'), ('measurement', 'U20'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U30'), ('measurement', 'U20'), ('years', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 def main(args):
     if args.nmo=='auto':
         if 'NO' in args.output:
@@ -48,8 +48,11 @@ def main(args):
     result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
     result = result[::-1]
     nitems = len(result)
-    digits_max = result['digits'].max()
+    digits_decimal_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)
+
+    logs10 = ceil_from_zero(np.log10(result['value']))
+    digits_leading_max = int(max(1.0, *logs10))
 
     ordering=args.nmo
     title = titles.get(ordering)
@@ -84,7 +87,7 @@ def main(args):
     latex_text = []
     latex_lo_text = []
     for count, exp in enumerate(result):
-        id, name, note, measurement, _, oct, digits, value, left, right, _ = exp
+        id, name, note, measurement, years, _, oct, digits, value, left, right, _ = exp
         sigma = 0.5*(right+left)
         name = name.replace('_', ' ')
         if note and note!='{}':
@@ -93,15 +96,15 @@ def main(args):
 
         name = names.get(name, name)
         if name in exp_name:
-            latex = format_latex(digits, value, left, right, digits_max, False, percentage=True)
-            latex_lo = format_latex(digits, value, left, right, digits_max, False, percentage=False)
+            latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
+            latex_lo = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=False, percentage=False)
             counter=exp_name.index(name)
             plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
             latex_lo_text[counter] = latex_lo
             if oct != 'LO':
                 plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
         else:
-            latex = format_latex(digits, value, left, right, digits_max, True, percentage=True)
+            latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
             exp_name.append(name)
             latex_text.append(latex)
             counter=exp_name.index(name)
@@ -125,6 +128,7 @@ def main(args):
     # Right: values
     ax_right_right = ax.twinx()
     ax_right_right.set_ylim(ax.get_ylim())
+    ax_right_right.tick_params(axis='y', which='both', direction='out', left=False, labelleft=False, right=False, labelright=True, pad=-100)
     ax_right_right.set_yticks(yticks+ticklabeloffset_right)
     ax_right_right.set_yticklabels(latex_text, ha='left')
 
@@ -143,7 +147,7 @@ def main(args):
     triple_y.tick_params(axis='y', which='both', left=False, right=False, direction='in',  labelleft=True,  labelright=False, pad=-4, labelcolor='grey', labelsize='small')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
-    
+
     if line_place > 0:
         plt.axhline(nitems-line_place-0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
@@ -154,33 +158,59 @@ def main(args):
     if args.show:
         plt.show()
 
-def format_latex(digits, value, left, right, digits_max, addspaces, *, percentage=False):
-    if addspaces and digits<digits_max:
-        extra = '0'*(digits_max-digits)
-        extra = f'\\phantom{{{extra}}}'
+def ceil_from_zero(nums):
+    nums = np.asanyarray(nums)
+    nums[nums<0] = np.floor(nums[nums<0])
+    nums[nums>0] = np.ceil(nums[nums>0])
+    return nums
+
+def phantom_zeros(num, num_max):
+    if num>=num_max:
+        return ''
+
+    extra = '0'*(num_max-num)
+    # return extra
+    # return f'{{\color{{red}}{extra}}}'
+    return f'\phantom{{{extra}}}'
+
+def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max, *, addspaces=True, percentage=False):
+    digits_leading = max(0, int(ceil_from_zero(np.log10(value))))
+    digits_decimal-=digits_leading
+
+    if addspaces:
+        zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
+        zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
     else:
-        extra = ''
+        zeros_leading = ''
+        zeros_decimal = ''
+
+    #print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
 
     span = right+left
     relsigma = 100*0.5*span/value
 
-    value = f'{value:.{digits}f}'
-    left = f'{left:.{digits}f}'
-    right = f'{right:.{digits}f}'
+    value = f'{value:.{digits_decimal}f}'
+    left = f'{left:.{digits_decimal}f}'
+    right = f'{right:.{digits_decimal}f}'
+
+    the_value = f'{zeros_leading}{value}{zeros_decimal}'
+    if left==right:
+        the_error = f'{{\\scriptstyle\\pm{left}{zeros_decimal}}}'
+    else:
+        the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
     width1_rel='24mm'
-    width2_rel='11mm'
-    box1 = f'\\makebox[{width1_rel}]{{', r'\hfill}'
-    box2 = f'\\makebox[{width2_rel}]{{', r'\hfill}'
-
-    if left==right:
-        ret = f'{box1[0]}${value}{extra}{{\\scriptstyle\\pm{left}}}${box1[1]}'
-    else:
-        ret = f'{box1[0]}${value}{extra}^{{+{right}}}_{{-{left}}}${box1[1]}'
+    width2_rel='14mm'
+    ret = [
+            f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
+        ]
 
     if percentage:
-        ret+=f'{box2[0]}\\hspace{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%{box2[1]}'
+        ret.append(f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}{{\\relsize{{-2}}{relsigma:.1f}\\%}}}}')
 
+    ret = ''.join(ret)
+    print(ret)
+    # return ''.join(f'\\fbox{{{s}}}' for s in ret)
     return ret
 
 if __name__ == '__main__':
