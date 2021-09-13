@@ -100,10 +100,13 @@ def main(args):
         notes = notes.replace('_', ' ')
         dataset = dataset.replace('_', ' ')
 
+
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
 
         name = names.get(name, name)
+
+        print(notes)
 
         if measurement == 'estimation':
             print(dataset)

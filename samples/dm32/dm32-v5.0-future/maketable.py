@@ -227,7 +227,6 @@ def collect_result(var, experiment):
         if experiment.get('measurement') != 'estimation':
             target['dataset']=''
 
-
         yield target
 
 def merge_leftright(unc):
