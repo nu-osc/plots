@@ -175,7 +175,6 @@ def phantom_zeros(num, num_max):
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max, *, addspaces=True, percentage=False):
     digits_leading = max(0, int(ceil_from_zero(np.log10(value))))
-    digits_decimal-=digits_leading
 
     if addspaces:
         zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
@@ -209,7 +208,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
         ret.append(f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}{{\\relsize{{-2}}{relsigma:.1f}\\%}}}}')
 
     ret = ''.join(ret)
-    print(ret)
+    # print(ret)
     # return ''.join(f'\\fbox{{{s}}}' for s in ret)
     return ret
 
