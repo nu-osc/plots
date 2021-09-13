@@ -11,7 +11,7 @@ from argparse import ArgumentParser
 
 from style import colors, names, preamble, dayabay, titles
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('years', 'U40'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -35,16 +35,19 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(12))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(13))
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
     result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
     result = result[::-1]
     nitems = len(result)
-    digits_max = result['digits'].max()
+    digits_decimal_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)
-    
+
+    logs10 = ceil_from_zero(np.log10(result['value']))
+    digits_leading_max = int(max(1.0, *logs10))
+
     ordering = result[0]['ordering']
     title = titles.get(ordering)
 
@@ -78,13 +81,12 @@ def main(args):
     exp_name = []
     latex_text = []
     for count, exp in enumerate(result):
-        id, name, typ, measurement, notes, ordering, _, digits, value, left, right, _ = exp
+        id, name, typ, measurement, years, notes, ordering, _, digits, value, left, right, _ = exp
         sigma = 0.5*(right+left)
 
         kwargs=dict()
         if args.dayabay and 'Daya_Bay' in name:
             kwargs['elinewidth'] = 2.0
-        print(id)
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2, **kwargs)
 
         marker='o'
@@ -93,14 +95,17 @@ def main(args):
         plt.plot(value, count+1, marker, markerfacecolor=colors[id], markeredgecolor=colors[id])
 
         name = name.replace('_', ' ')
+        notes = notes.replace('_', ' ')
+        notes = notes.replace('%', '\\%')
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
-    
+
         name = names.get(name, name)
         name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
+
         exp_name.append(name)
 
-        latex = format_latex(digits, value, left, right, digits_max)
+        latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         latex_text.append(latex)
 
     #
@@ -121,7 +126,7 @@ def main(args):
     ax_right_right.set_yticklabels(latex_text, ha='left')
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
-    
+
     if line_place > 0:
         plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
@@ -132,34 +137,51 @@ def main(args):
     if args.show:
         plt.show()
 
-def format_latex(digits, value, left, right, digits_max):
-    if digits<digits_max:
-        extra = '0'*(digits_max-digits)
-        extra = f'\\phantom{{{extra}}}'
-    else:
-        extra = ''
+def ceil_from_zero(nums):
+    nums = np.asanyarray(nums)
+    nums[nums<0] = np.floor(nums[nums<0])
+    nums[nums>0] = np.ceil(nums[nums>0])
+    return nums
+
+def phantom_zeros(num, num_max):
+    if num>=num_max:
+        return ''
+
+    extra = '0'*(num_max-num)
+    # return extra
+    # return f'{{\color{{red}}{extra}}}'
+    return f'\phantom{{{extra}}}'
+
+def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
+    digits_leading = int(ceil_from_zero(np.log10(value)))
+
+    zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
+    zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
+
+    #print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
 
     span = right+left
     relsigma = 100*0.5*span/value
 
-    value = f'{value:.{digits}f}'
-    left = f'{left:.{digits}f}'
-    right = f'{right:.{digits}f}'
+    value = f'{value:.{digits_decimal}f}'
+    left = f'{left:.{digits_decimal}f}'
+    right = f'{right:.{digits_decimal}f}'
+
+    the_value = f'{zeros_leading}{value}{zeros_decimal}'
+    if left==right:
+        the_error = f'{{\\scriptstyle\\pm{left}{zeros_decimal}}}'
+    else:
+        the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
     width1_rel='24mm'
     width2_rel='11mm'
-    box1 = f'\\makebox[{width1_rel}]{{', r'\hfill}'
-    box2 = f'\\makebox[{width2_rel}]{{', r'\hfill}'
+    ret = [
+            f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
+            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\small{relsigma:.1f}\\%}}'
+          ]
 
-    ret=''
-    if left==right:
-        ret = f'{box1[0]}${value}{extra}{{\\scriptstyle\\pm{left}}}${box1[1]}'
-    else:
-        ret = f'{box1[0]}${value}{extra}^{{+{right}}}_{{-{left}}}${box1[1]}'
-
-    ret+=f'{box2[0]}\\hspace{{\\fill}}\\small{relsigma:.1f}\\%{box2[1]}'
-
-    return ret
+    # return ''.join(f'\\fbox{{{s}}}' for s in ret)
+    return ''.join(ret)
 
 if __name__ == '__main__':
     parser = ArgumentParser()

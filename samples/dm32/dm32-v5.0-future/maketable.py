@@ -83,8 +83,8 @@ def postprocess_splitting_large(entry):
         entry['notes']=''
 
     slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
-    if entry['notes']:
-        slist.append(entry['notes'].lower())
+    # if entry['notes']:
+        # slist.append(entry['notes'].lower())
     entry['style']='_'.join(slist)
     return entry
 
@@ -220,7 +220,7 @@ def collect_result(var, experiment):
         if experiment.get('type', {}) != 'reactor':
             target['notes']=res.get('note')
         target['measurement']=experiment.get('measurement')
-        target['years']=experiment.get('dataset')
+        target['years']=str(experiment.get('dataset'))
 
         yield target
 

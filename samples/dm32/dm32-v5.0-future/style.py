@@ -9,10 +9,8 @@ colors = {
 
 colors = {
     'kamland':         colors['reactor'],
-    'reno_ngd':        colors['reactor'],
-    'reno_nh':         colors['reactor'],
-    'dayabay_ngd':     colors['reactor'],
-    'dayabay_nh':      colors['reactor'],
+    'reno':        colors['reactor'],
+    'dayabay':     colors['reactor'],
     'doublechooz':     colors['reactor'],
     'dchooz':          colors['reactor'],
     'kamlandsksno':    colors['reacsolar'],
