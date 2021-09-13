@@ -160,7 +160,7 @@ def main(args):
     ax_right_right.set_yticklabels(latex_text, ha='right')
 
     ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
-    
+
     if line_place > 0:
         plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
@@ -187,7 +187,7 @@ def phantom_zeros(num, num_max):
     return f'\phantom{{{extra}}}'
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
-    digits_leading = int(ceil_from_zero(np.log10(value)))
+    digits_leading = max(0, int(ceil_from_zero(np.log10(value))))
     digits_decimal-=digits_leading
 
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
