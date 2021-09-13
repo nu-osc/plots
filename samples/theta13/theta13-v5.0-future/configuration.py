@@ -39,7 +39,7 @@ colors = {
 	}
 
 names = {
-	'JUNO reactor': r'JUNO \Radioactivity{} \relsize{-2}(expected)'
+	'JUNO reactor': r'JUNO'
 		}
 
 titles = {}

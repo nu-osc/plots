@@ -1,7 +1,7 @@
 experiment: JUNO solar
 type: solar
 measurement: estimation
-dataset: 10 years
+dataset: 10 yr
 reference:
     date: '2020.06'
     arxiv: hep-ex/

@@ -47,7 +47,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'notes', 'ordering', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'notes', 'measurement', 'ordering', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 

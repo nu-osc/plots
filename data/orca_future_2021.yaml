@@ -2,7 +2,7 @@ experiment: ORCA
 type: atmospheric
 dataset:
 measurement: estimation
-years: 3
+dataset: 3 yr
 status:
 reference:
     date:

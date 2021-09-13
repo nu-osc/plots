@@ -4,6 +4,7 @@ status: approved
 measurement: estimation
 type: atmospheric, accelerator
 note: sensitivity for joint atmospheric and beam neutrinos
+dataset: 10 yr
 reference:
     arxiv: hep-ex/1805.04163
     inspire: https://inspirehep.net/literature/1672899
@@ -14,12 +15,10 @@ reference:
     page: 219
 result:
     amplitude23:
-        years: 10
         precision: 2
         value: 0.55
         uncertainty: 0.009
     splitting_large:
-        years: 10
         precision: 3
         mode: '32'
         value: 2.4

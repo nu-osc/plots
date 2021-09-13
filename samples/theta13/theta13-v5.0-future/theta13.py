@@ -10,7 +10,7 @@ import re
 from argparse import ArgumentParser
 
 import configuration as cfg
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('ordering', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('measurement', 'U20'), ('ordering', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -34,14 +34,16 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
-    result = result[::-1]
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(11))
     if args.exclude:
         mask = [args.exclude not in res['type'] for res in result]
         result = result[mask]
+    result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
+    result = result[::-1]
     uniqnames = dict(zip(*np.unique(np.core.defchararray.add(result['exp'],result['notes']), return_counts=True)))
     nitems = len(uniqnames)
     digits_decimal_max = result['digits'].max()
+    line_place = sum(item['measurement'] == 'estimation' for item in result)
 
     #
     # Scale the numbers
@@ -90,7 +92,7 @@ def main(args):
     occurances = {}
     offset=0
     for i, exp in enumerate(result):
-        id, name, typ, notes, ordering, digits, value, left, right, _ = exp
+        id, name, typ, notes, measurement, ordering, digits, value, left, right, _ = exp
         count=i-offset
         sigma = 0.5*(right+left)
 
@@ -158,6 +160,9 @@ def main(args):
     ax_right_right.set_yticklabels(latex_text, ha='right')
 
     ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    
+    if line_place > 0:
+        plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
     if args.output:
         plt.savefig(args.output, dpi=300)
@@ -188,7 +193,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
     zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
 
-    # print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
+    #print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
 
     span = right+left
     relsigma = 100*0.5*span/value

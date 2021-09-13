@@ -2,7 +2,7 @@ experiment: IceCube Upgrade
 type: atmospheric
 dataset:
 measurement: estimation
-years: 3
+dataset: 3 yr
 starting_year: 2023
 status: approved
 reference:
