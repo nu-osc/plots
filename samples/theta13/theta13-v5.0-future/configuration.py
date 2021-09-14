@@ -1,6 +1,6 @@
-version='5.0b'
+version='6.0b'
 url='git.jinr.ru/nu/osc'
-date='2021.08'
+date='2021.09'
 variable=r'$\sin^2 2\theta_{13}$'
 lims = None
 scale = 100.0
@@ -18,11 +18,9 @@ colors = {
 
 colors = {
     'kamland':         colors['reactor'],
-    'reno_ngd':        colors['reactor'],
-    'reno_nh':         colors['reactor'],
+    'reno':            colors['reactor'],
     'junoreactor':     colors['reactor'],
-    'dayabay_ngd':     colors['reactor'],
-    'dayabay_nh':      colors['reactor'],
+    'dayabay':         colors['reactor'],
     'doublechooz':     colors['reactor'],
     'dchooz':          colors['reactor'],
     'kamlandsksno':    colors['reacsolar'],

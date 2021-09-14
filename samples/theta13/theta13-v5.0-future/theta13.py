@@ -10,7 +10,7 @@ import re
 from argparse import ArgumentParser
 
 import configuration as cfg
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('measurement', 'U20'), ('ordering', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('measurement', 'U20'), ('dataset', 'U20'), ('ordering', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -34,7 +34,7 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(11))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(12))
     if args.exclude:
         mask = [args.exclude not in res['type'] for res in result]
         result = result[mask]
@@ -79,7 +79,7 @@ def main(args):
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
     padleft = 110
-    namewidth = '42mm'
+    namewidth = '40mm'
     right = digits_decimal_max>4 and 0.76 or 0.78
     plt.subplots_adjust(left=0.22, right=right, top=axtop, bottom=fracbottom*singleheight/figheight)
 
@@ -92,7 +92,7 @@ def main(args):
     occurances = {}
     offset=0
     for i, exp in enumerate(result):
-        id, name, typ, notes, measurement, ordering, digits, value, left, right, _ = exp
+        id, name, typ, notes, measurement, dataset, ordering, digits, value, left, right, _ = exp
         count=i-offset
         sigma = 0.5*(right+left)
 
@@ -134,9 +134,16 @@ def main(args):
         if ordering=='IO':
             elines[-1][0].set_linestyle('dashed')
             continue
-
+        
+        dataset = dataset.replace('_', ' ')
+        
         name = cfg.names.get(name, name)
-        name = f'\\parbox{{{namewidth}}}{{{name}\\hfill{{}}{notes}{ordering}}}'
+
+        if measurement == 'estimation':
+            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}{ordering}}}'
+        else:
+            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}{ordering}}}'
+
         exp_name.append(name)
 
         latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
@@ -209,10 +216,10 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
         the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
     width1_rel='31mm'
-    width2_rel='9mm'
+    width2_rel='14mm'
     ret = [
             f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
-            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\small{relsigma:.1f}\\%}}'
+            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%}}'
           ]
 
     # return ''.join(f'\\fbox{{{s}}}' for s in ret)

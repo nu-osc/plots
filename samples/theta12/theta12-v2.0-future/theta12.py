@@ -11,7 +11,7 @@ from argparse import ArgumentParser
 
 from style import colors, names, preamble
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('dataset', 'U20'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
     #
@@ -29,7 +29,7 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(10))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(11))
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
@@ -51,7 +51,7 @@ def main(args):
     fracax     = 1.
     figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
     axtop      = 1.0-fractop*singleheight/figheight
-    fig = plt.figure(figsize=(8,figheight))
+    fig = plt.figure(figsize=(9,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
     ax.set_xlabel(variable)
@@ -59,6 +59,7 @@ def main(args):
     if lims:
         ax.set_xlim(lims)
     ax.tick_params(axis='x', which='both', top=True)
+    namewidth='40mm'
     ax.xaxis.grid(True)
     plt.subplots_adjust(left=0.25, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
 
@@ -69,7 +70,7 @@ def main(args):
     latex_text = []
     values = []
     for count, exp in enumerate(result):
-        id, name, _, typ, measurement, digits, value, left, right, _ = exp
+        id, name, typ, measurement, dataset, notes, digits, value, left, right, _ = exp
         values.append(value)
         sigma = 0.5*(right+left)
 
@@ -80,7 +81,16 @@ def main(args):
         plt.plot(value, count+1, marker, markerfacecolor=colors[id], markeredgecolor=colors[id])
 
         name = name.replace('_', ' ')
-        exp_name.append(names.get(name, name))
+        dataset = dataset.replace('_', ' ')
+        
+        name = names.get(name, name)
+
+        if measurement == 'estimation':
+            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}}}'
+        else:
+            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
+
+        exp_name.append(name)
 
         latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         latex_text.append(latex)
@@ -94,7 +104,7 @@ def main(args):
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
-    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=130)
+    ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=140)
     for label in ax.get_yticklabels():
         label.set_backgroundcolor('white')
         bbox = label.get_bbox_patch()
@@ -173,10 +183,10 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
         the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
     width1_rel='24mm'
-    width2_rel='11mm'
+    width2_rel='14mm'
     ret = [
             f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
-            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\small{relsigma:.1f}\\%}}'
+            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%}}'
           ]
 
     # return ''.join(f'\\fbox{{{s}}}' for s in ret)

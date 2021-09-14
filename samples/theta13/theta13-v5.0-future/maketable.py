@@ -47,7 +47,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'notes', 'measurement', 'ordering', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'notes', 'measurement', 'dataset', 'ordering', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -70,8 +70,8 @@ def postprocess_amplitude13(entry):
         entry['notes']=''
 
     slist = [ entry['name'].lower().replace(' ', '').replace('-', '').replace('+', '') ]
-    if entry['notes']:
-        slist.append(entry['notes'].lower())
+    #if entry['notes']:
+    #    slist.append(entry['notes'].lower())
     entry['style']='_'.join(slist)
     return entry
 
@@ -215,6 +215,10 @@ def collect_result(var, experiment):
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')
         target['measurement']=experiment.get('measurement')
+
+        target['dataset']=experiment.get('dataset')
+        if experiment.get('measurement') != 'estimation':
+            target['dataset']=''
 
         yield target
 

@@ -1,6 +1,6 @@
 experiment: DUNE
 type: solar
-years: 2.5
+dataset: 2.5 yr
 starting_year: 2026
 status: approved
 measurement: estimation

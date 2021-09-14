@@ -76,7 +76,7 @@ def main(args):
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
     padleft=120
-    plt.subplots_adjust(left=0.16, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.18, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     plt.axvline(0.5, ls='--', color='grey', alpha=0.5)
 
@@ -89,16 +89,16 @@ def main(args):
     for count, exp in enumerate(result):
         id, name, note, measurement, dataset, _, oct, digits, value, left, right, _ = exp
         sigma = 0.5*(right+left)
-        name = names.get(name, name)
         
         name = name.replace('_', ' ')
+        name = names.get(name, name)
         note = note.replace('_', ' ')
         dataset = dataset.replace('_', ' ')
         if measurement == 'estimation':
             if note and note!='{}':
-                name =  f'{name}, {{\\relsize{{-1}}{({dataset}), note}}}'
+                name =  f'{name} {{\\relsize{{-1}}({dataset}) {note}}}'
             else:
-                name = f'{name}, {{\\relsize{{-1}}{({dataset})}}}'
+                name = f'{name} {{\\relsize{{-1}}({dataset})}}'
             
         name = name.replace("'" , "")
         if name in exp_name:
@@ -211,7 +211,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
         ]
 
     if percentage:
-        ret.append(f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}{{\\relsize{{-2}}{relsigma:.1f}\\%}}}}')
+        ret.append(f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}{{\\relsize{{-1}}{relsigma:.1f}\\%}}}}')
 
     ret = ''.join(ret)
     # print(ret)

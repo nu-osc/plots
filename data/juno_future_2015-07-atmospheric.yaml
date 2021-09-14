@@ -1,6 +1,6 @@
 experiment: JUNO atmospheric
 type: atmospheric
-dataset:
+dataset: 10 yr
 measurement: estimation
 target: nH
 reference:

@@ -47,7 +47,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'measurement', 'notes', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'measurement', 'dataset', 'notes', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -215,6 +215,10 @@ def collect_result(var, experiment):
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')
         target['measurement']=experiment.get('measurement')
+        
+        target['dataset']=experiment.get('dataset')
+        if experiment.get('measurement') != 'estimation':
+            target['dataset']=''
 
         yield target
 

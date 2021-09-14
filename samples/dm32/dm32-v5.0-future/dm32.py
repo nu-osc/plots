@@ -182,7 +182,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
         the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
     width1_rel='24mm'
-    width2_rel='11mm'
+    width2_rel='13mm'
     ret = [
             f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
             f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%}}'
