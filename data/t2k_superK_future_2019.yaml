@@ -10,7 +10,7 @@ reference:
     conf:
     talk: http://www-sk.icrr.u-tokyo.ac.jp/sk/_pdf/articles/2019/mjiang_dt.pdf
     page: 150
-sensitivity:
+result:
     mh:
         year:
             - [2020, 2023, 2026]

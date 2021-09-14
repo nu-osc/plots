@@ -10,7 +10,7 @@ reference:
     conf:
     talk:
     page: 74
-sensitivity:
+result:
     mh:
         year:
             - [1, 2, 3, 6, 10]

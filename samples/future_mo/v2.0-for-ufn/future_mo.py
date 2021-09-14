@@ -29,11 +29,11 @@ def main(args):
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
 
-    colors = {'nova' : 'xkcd:bubblegum', 't2ksk' : 'xkcd:green teal', 'icupgr' : 'xkcd:clear blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:charcoal grey', 't2hk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 't2hkk' : 'xkcd:emerald green'}
+    colors = {'nova' : 'xkcd:bubblegum', 't2k' : 'xkcd:green teal', 'icecube' : 'xkcd:clear blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:charcoal grey', 'hyperk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 't2hkk' : 'xkcd:emerald green'}
 
-    position = {'nova' : (2022.5, 3.5), 't2ksk' : (2020.5, 2.0), 'icupgr' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027, 4.25), 't2hk' : (2034.5, 4.3), 'dune' : (2028.5, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
+    position = {'nova' : (2022.5, 3.5), 't2k' : (2020.5, 2.0), 'icecube' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027, 4.25), 'hyperk' : (2034.5, 4.3), 'dune' : (2028.5, 8), 'ino' : (2035, 2.5), 't2hkk' : (2033.5, 8)}
 
-    marker_offset = {'nova' : 0, 't2ksk' : 0, 'icupgr' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 't2hk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
+    marker_offset = {'nova' : 0, 't2k' : 0, 'icecube' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 'hyperk' : 0.05, 'dune' : 0, 'ino' : 0.05, 't2hkk' : 0.05}
     #
     # Load
     #
@@ -41,17 +41,17 @@ def main(args):
     for exp in args.inputs:
         with open(exp, 'r') as f:
             file = yaml.load(f, Loader=yaml.Loader)
-        #print(file)
-        points = file["sensitivity"]["mh"]["year"][0]
+        print(file)
+        points = file["result"]["mh"]["year"][0]
         name = file["experiment"]
         status = file["status"]
         start = file["starting_year"]
         low = []
         high = []
         for i in range(0, len(points)):
-            min = file["sensitivity"]["mh"]["low"][0][i]
-            max = file["sensitivity"]["mh"]["high"][0][i]
-            year_v = file["sensitivity"]["mh"]["year"][0][i]
+            min = file["result"]["mh"]["low"][0][i]
+            max = file["result"]["mh"]["high"][0][i]
+            year_v = file["result"]["mh"]["year"][0][i]
             year_ax=year_v+start
             low.append((year_ax, min))
             high.append((year_ax, max))
@@ -103,7 +103,7 @@ def main(args):
             poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=2, ls=lstyle)
             ax.add_patch(poly_dub)
 
-        if exp['id'] != 'orca' and exp['id'] != 'icupgr' and exp['id'] != 'juno' and exp['id'] != 'pingu':
+        if exp['id'] != 'orca' and exp['id'] != 'icecube' and exp['id'] != 'juno' and exp['id'] != 'pingu':
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
         marker_place_x = start+marker_offset[exp['id']]
         marker_place_y = sens_max_1year
