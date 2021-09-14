@@ -1,0 +1,20 @@
+experiment: T2K+SK
+starting_year: 0
+status: running
+note: sensitivity is taken from thesis for joint T2K+SK (accel + atm)
+reference:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk: http://www-sk.icrr.u-tokyo.ac.jp/sk/_pdf/articles/2019/mjiang_dt.pdf
+    page: 150
+sensitivity:
+    mh:
+        year:
+            - [2020, 2023, 2026]
+        low:
+            - [1.46, 1.77, 2.05]
+        high:
+            - [2.63, 3.01, 3.36]

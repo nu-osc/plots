@@ -1,0 +1,20 @@
+experiment: PINGU
+starting_year: 2028
+status: not clear
+note: Starting year is unclear, approximate here
+reference:
+    arxiv: hep-ex/1911.06745
+    inspire: https://inspirehep.net/literature/1765534
+    doi: https://doi.org/10.1103/PhysRevD.101.032006
+    citation:
+    conf:
+    talk:
+    page: 13
+result:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6]
+        low:
+            - [1.49, 2.04, 2.49, 2.86, 3.18, 3.42]
+        high:
+            - [2.97, 4.01, 4.86, 5.55, 6.08, 6.61]

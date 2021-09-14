@@ -1,0 +1,20 @@
+experiment: T2HKK
+starting_year: 2027
+status: not clear
+note: sensitivity for joint atmospheric and beam neutrinos with additional det. in Korea
+reference:
+    arxiv: hep-ex/1611.06118
+    inspire: https://inspirehep.net/literature/1499045
+    doi: https://doi.org/10.1093/ptep/pty044
+    citation:
+    conf:
+    talk:
+    page: 74
+sensitivity:
+    mh:
+        year:
+            - [1, 2, 3, 6, 10]
+        low:
+            - [2.71, 3.75, 4.56, 6.26, 7.94]
+        high:
+            - [3.82, 5.32, 6.43, 8.95, 11.32]
