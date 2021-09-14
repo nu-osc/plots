@@ -42,7 +42,6 @@ def main(args):
     result = result[::-1]
     uniqnames = dict(zip(*np.unique(np.core.defchararray.add(result['exp'],result['notes']), return_counts=True)))
     nitems = len(uniqnames)
-    digits_decimal_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)
 
     #
@@ -53,11 +52,11 @@ def main(args):
             result[key]*=cfg.scale
         poweroften = -int(np.log10(cfg.scale))
         xlabel = f'{cfg.variable}, $10^{{{poweroften:d}}}$'
-        digits_decimal_max += poweroften+1
         result['digits']+=poweroften
     else:
         xlabel = cfg.variable
 
+    digits_decimal_max = result['digits'].max()
     logs10 = ceil_from_zero(np.log10(result['value']))
     digits_leading_max = int(max(1.0, *logs10))
 
@@ -135,9 +134,9 @@ def main(args):
         if ordering=='IO':
             elines[-1][0].set_linestyle('dashed')
             continue
-        
+
         dataset = dataset.replace('_', ' ')
-        
+
         name = cfg.names.get(name, name)
 
         if measurement == 'estimation':
@@ -200,7 +199,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
     zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
 
-    #print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
+    print(f'{value=:.6f} {digits_decimal=} {digits_leading=} {digits_leading_max=} {digits_decimal_max=} {zeros_leading=} {zeros_decimal=}')
 
     span = right+left
     relsigma = 100*0.5*span/value
