@@ -54,6 +54,7 @@ def main(args):
         poweroften = -int(np.log10(cfg.scale))
         xlabel = f'{cfg.variable}, $10^{{{poweroften:d}}}$'
         digits_decimal_max += poweroften+1
+        result['digits']+=poweroften
     else:
         xlabel = cfg.variable
 
@@ -195,7 +196,6 @@ def phantom_zeros(num, num_max):
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
     digits_leading = int(ceil_from_zero(np.log10(value)))
-    digits_decimal-=digits_leading
 
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
     zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
