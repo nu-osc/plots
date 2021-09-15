@@ -4,7 +4,8 @@ dataset:
 measurement: estimation
 dataset: 10 yr
 note: 360 km option
-status: 
+status: not clear
+starting_year: 2035
 reference:
     date:
     arxiv: https://arxiv.org/pdf/2107.07585.pdf
@@ -26,6 +27,13 @@ result:
         uncertainty:
             right: 0.0085
             left: 0.008
+    dcp:
+        year:
+            - [1, 2, 3, 4, 5, 6, 7]
+        low:
+            - [2.62, 4.26, 5.34, 6.56, 7.56, 8.5, 10.05]
+        high:
+            - [6.39, 9.69, 12.14, 14.58, 16.46, 18.26, 21.16]
 crosschecks:
     - Liudmila Kolupaeva
 
