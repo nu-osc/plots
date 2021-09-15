@@ -115,9 +115,9 @@ def main(args):
         if exp['low_values']:
             poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
             ax.add_patch(poly)
-        if star != '':
-            poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=2, ls=lstyle)
-            ax.add_patch(poly_dub)
+            if star != '':
+                poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=2, ls=lstyle)
+                ax.add_patch(poly_dub)
 
         ax.plot(exp['years'], exp['reference_line'], color=color, linewidth=2)
         print(exp['years'])
