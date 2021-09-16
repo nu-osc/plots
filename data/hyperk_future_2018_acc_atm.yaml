@@ -36,9 +36,9 @@ result:
         low:
             - [3.25, 4.61, 5.77, 6.45, 6.92]
         high:
-            - [3.7, 5.77, 8.04, 9.76, 11.28]
-        reference_line:
             - [3.49, 5.24, 6.88, 7.95, 8.72]
+        line:
+            - [3.7, 5.77, 8.04, 9.76, 11.28]
 crosschecks:
     - Liudmila Kolupaeva
 

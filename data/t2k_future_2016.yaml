@@ -1,0 +1,22 @@
+experiment: T2K-II
+starting_year: 0
+status: running
+note:
+reference:
+    arxiv: https://arxiv.org/pdf/1609.04111.pdf
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk:
+    page:
+result:
+    dcp:
+        year:
+            - [2020, 2021, 2022, 2023, 2024, 2025, 2026]
+        low:
+            - [1.87, 2.09, 2.32, 2.49, 2.69, 2.84, 3]
+        high:
+            - [1.93, 2.23, 2.49, 2.72, 2.93, 3.14, 3.34]
+        line:
+            - [2.03, 2.33, 2.61, 2.86, 3.11, 3.35, 3.58]
