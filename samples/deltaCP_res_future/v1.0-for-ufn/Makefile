@@ -1,4 +1,4 @@
-variable = deltaCP
+variable = deltaCP_res
 version  = v1-0
 suffix   = ufn_2021
 

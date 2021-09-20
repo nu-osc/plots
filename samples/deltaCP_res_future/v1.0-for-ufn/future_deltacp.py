@@ -10,6 +10,7 @@ import yaml
 import matplotlib.transforms as transforms
 from scipy.interpolate import interp1d, pchip_interpolate
 from matplotlib import text as mtext
+from matplotlib.ticker import MultipleLocator
 import math
 
 reference =  'v1.0b 2021.09: git.jinr.ru/nu/osc'
@@ -39,7 +40,7 @@ def main(args):
 
     colors = {'hyperk' : 'xkcd:green', 'dune':'xkcd:violet'}
 
-    position = {'hyperk' : (2033, 15), 'dune' : (2029, 50)}
+    position = {'hyperk' : (2033, 15), 'dune' : (2029, 45)}
 
     #
     # Load
@@ -87,13 +88,15 @@ def main(args):
     plt.subplots_adjust(left=0.11, right=0.96, top=0.95, bottom=0.13)
     plt.title('', pad=20)
     ax.set_xlabel('Year')
-    ax.set_ylabel('$\delta_{CP}$ resolution, degrees')
+    ax.set_ylabel('$\delta_{\\rm CP}$ resolution, degrees')
     ax.set_xlim(2025, 2040)
-    ax.set_ylim(0, 60)
-    plt.yticks([10, 20, 30, 40, 50, 60])
+    ax.set_ylim(0, 50)
+    plt.yticks([10, 20, 30, 40, 50])
 
     text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
 
+    leg_styles = []
+    leg_text = []
     for count, exp in enumerate(exps):
 
         star = ''
@@ -112,23 +115,21 @@ def main(args):
         line_sm_0 = pchip_interpolate(np.array(exp['years']), exp['line_0'], new_num)
         line_sm_3_2 = pchip_interpolate(np.array(exp['years']), exp['line_3_2'], new_num)
         alpha=0.4
-        lstyle = '-'
         width=2
         if exp['low_values_0']:
             low_sm_0 = pchip_interpolate(np.array(exp['years']), exp['low_values_0'], new_num)
             high_sm_0 = pchip_interpolate(np.array(exp['years']), exp['high_values_0'], new_num)
-            poly_0 = Polygon(list(zip(years_sm.tolist()+years_sm[::-1].tolist(), low_sm_0.tolist()+high_sm_0[::-1].tolist())), facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
+            poly_0 = Polygon(list(zip(years_sm.tolist()+years_sm[::-1].tolist(), low_sm_0.tolist()+high_sm_0[::-1].tolist())), facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls='-')
             ax.add_patch(poly_0)
+            leg_styles.append(poly_0)
+            leg_text.append("HyperK syst. cases")
             low_sm_3_2 = pchip_interpolate(np.array(exp['years']), exp['low_values_3_2'], new_num)
             high_sm_3_2 = pchip_interpolate(np.array(exp['years']), exp['high_values_3_2'], new_num)
-            poly_3_2 = Polygon(list(zip(years_sm.tolist()+years_sm[::-1].tolist(), low_sm_3_2.tolist()+high_sm_3_2[::-1].tolist())), facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
+            poly_3_2 = Polygon(list(zip(years_sm.tolist()+years_sm[::-1].tolist(), low_sm_3_2.tolist()+high_sm_3_2[::-1].tolist())), facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls='--')
             ax.add_patch(poly_3_2)
 
-        lstyle = '-'
-        if exp['id']=='hyperk' or exp['id']=='t2k':
-            lstyle = '--'
-        ax.plot(years_sm, line_sm_0, color=color, linewidth=2, ls=lstyle)
-        ax.plot(years_sm, line_sm_3_2, color=color, linewidth=2, ls=lstyle)
+        ax.plot(years_sm, line_sm_0, color=color, linewidth=2, ls='-')
+        ax.plot(years_sm, line_sm_3_2, color=color, linewidth=2, ls='--')
 
         ax.text(text_place_x, text_place_y, name, color=color)
 
@@ -136,19 +137,26 @@ def main(args):
         if args.arrows:
             plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color, alpha=alpha)
         
-        plt.plot([start, start], [0, 60], ls='--', color=color, lw=1,  alpha=alpha)
-        ax.text(start - 0.7, 2, "start of data taking", color=color, rotation=90, alpha=alpha, fontsize=19)
+        
+        marker_place_x = start
+        marker_place_y_0 = exp['line_0'][0]
+        marker_place_y_3_2 = exp['line_3_2'][0]
+        if exp['id']!='dune':
+            ax.plot(marker_place_x, marker_place_y_0, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=alpha)
+            plt.plot([marker_place_x, exp['years'][0]], [marker_place_y_0, marker_place_y_0], ls='dotted', color=color, alpha=alpha)
+            
+        ax.plot(marker_place_x, marker_place_y_3_2, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=alpha)
+        plt.plot([marker_place_x, exp['years'][0]], [marker_place_y_3_2, marker_place_y_3_2], ls='dotted', color=color, alpha=alpha)
         
         kwargs = dict(color='xkcd:slate grey', fontsize=19)
         if exp['id']=='hyperk':
-            text = CurvedText( x = years_sm[1:-1], y = line_sm_0[1:-1], text='stat. only', va = 'top', axes = ax, **kwargs)
-            text2 = CurvedText( x = years_sm[1:-1], y = line_sm_3_2[1:-1], text='stat. only', va = 'top', axes = ax, **kwargs)
-            text = CurvedText( x = years_sm[1:-1], y = high_sm_0[1:-1], text='2018 T2K syst.', va = 'bottom', axes = ax, **kwargs)
-            text2 = CurvedText( x = years_sm[1:-1], y = high_sm_3_2[1:-1], text='2018 T2K syst.', va = 'bottom', axes = ax, **kwargs)
+            text = CurvedText( x = years_sm[1:-1], y = line_sm_0[1:-1]-0.5, text='stat. only', va = 'top', axes = ax, **kwargs)
+            text2 = CurvedText( x = years_sm[1:-1], y = line_sm_3_2[1:-1]-0.5, text='stat. only', va = 'top', axes = ax, **kwargs)
 
 
     plt.grid()
     x_axis = np.arange(2025, 2040, 2)
+    ax.yaxis.set_minor_locator(MultipleLocator(5))
     ax.set_xticks(x_axis)
     ax.tick_params(top=True, right=True)
     ax.yaxis.grid(True, which='minor')
@@ -157,6 +165,11 @@ def main(args):
     ax.xaxis.labelpad = 10
     ax.yaxis.labelpad = 7
     ax.tick_params(axis='x', which='major', pad=15)
+    
+    
+    line_0 = plt.Line2D((0,1),(0,0), color='k')
+    line_3_2 = plt.Line2D((0,1),(0,0), color='k', ls='--')
+    fig.legend(leg_styles + [line_0, line_3_2], leg_text + ['$\delta_{\\rm CP}$ = 0', '$\delta_{\\rm CP} = 3\pi/2$'], loc='upper right', bbox_to_anchor=(0.93, 0.92))
 
     labels = ax.get_xticklabels()
 

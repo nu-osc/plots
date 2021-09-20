@@ -145,7 +145,6 @@ def main(args):
     plt.grid()
     x_axis = np.arange(2020, 2042, 4)
     ax.set_xticks(x_axis)
-    ax.set_xticklabels(['\\textbf{2020}', '\\textbf{2024}', '\\textbf{2028}', '\\textbf{2032}',  '\\textbf{2036}', '\\textbf{2040}'])
     ax.tick_params(top=True, right=True)
     ax.yaxis.grid(True, which='minor')
     ax.xaxis.grid(True, which='minor')
