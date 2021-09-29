@@ -1,5 +1,5 @@
 variable = dm32
-version  = v5-0b
+version  = v6-0b
 suffix   = neutrino2020
 
 .PHONY: all table debug debug-plot clean clean-all publish
