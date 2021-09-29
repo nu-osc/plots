@@ -1,0 +1,12 @@
+style            name              type                      measurement    notes    ordering    octant      precision    value    left    right      span  arxiv              conf
+junoreactor      JUNO_reactor      reactor                   estimation     {}       NO          {}                  3    2.388   0.011    0.011  0.021472  hep-ex/1507.05613  {}
+nufit5.0         NuFIT_5.0         theory                    {}             {}       NO          {}                  3    2.442   0.028    0.026  0.054     hep-ph/2007.14792  {}
+foreroetal.      Forero_et_al.     theory                    {}             {}       NO          {}                  2    2.48    0.04     0.03   0.07      hep-ex/2006.11237  {}
+dayabay_ngd      Daya_Bay          reactor                   {}             nGd      NO          {}                  3    2.471   0.07     0.068  0.138     hep-ex/1809.02261  Neutrino2018
+nova             NOvA              accelerator               {}             {}       NO          {}                  2    2.41    0.07     0.07   0.14      {}                 Neutrino2020
+t2k              T2K               accelerator               {}             {}       NO          {}                  2    2.49    0.08     0.06   0.14      {}                 Neutrino2020
+minos            MINOS+            accelerator,_atmospheric  {}             {}       NO          {}                  2    2.4     0.09     0.08   0.17      hep-ex/2006.15208  Neutrino2020
+superkamiokande  Super-Kamiokande  atmospheric               {}             {}       NO          {}                  2    2.4     0.12     0.11   0.23      {}                 Neutrino2020
+reno_ngd         RENO              reactor                   {}             nGd      NO          {}                  2    2.69    0.12     0.12   0.233238  {}                 Neutrino2020
+icecube          IceCube           atmospheric               {}             {}       NO          {}                  2    2.31    0.13     0.11   0.24      hep-ex/1707.07081  Neutrino2018
+reno_nh          RENO              reactor                   {}             nH       NO          {}                  2    2.48    0.32     0.28   0.60427   {}                 Neutrino2018
