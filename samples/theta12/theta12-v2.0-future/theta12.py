@@ -9,8 +9,7 @@ import itertools as it
 import re
 from argparse import ArgumentParser
 
-from style import colors, names, preamble
-from reference import reference, variable, lims
+import configuration as cfg
 dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 
 def main(args):
@@ -24,7 +23,7 @@ def main(args):
     plt.rcParams.update({'legend.fontsize': 18})
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
-    plt.rcParams['text.latex.preamble']+=preamble
+    plt.rcParams['text.latex.preamble']+=cfg.preamble
 
     #
     # Load
@@ -35,9 +34,22 @@ def main(args):
         result = result[mask]
     result = result[::-1]
     nitems = len(result)
-    digits_decimal_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)
 
+    #
+    # Scale the numbers
+    #
+    if cfg.scale:
+        for key in ('value', 'left', 'right', 'span'):
+            result[key]*=cfg.scale
+        poweroften = -int(np.log10(cfg.scale))
+        xlabel = f'{cfg.variable}, $10^{{{poweroften:d}}}$'
+        result['digits']+=poweroften
+    else:
+        cfg.scale = 1.0
+        xlabel = cfg.variable
+
+    digits_decimal_max = result['digits'].max()
     logs10 = ceil_from_zero(np.log10(result['value']))
     digits_leading_max = int(max(1.0, *logs10))
 
@@ -53,13 +65,13 @@ def main(args):
     fig = plt.figure(figsize=(8,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
-    ax.set_xlabel(variable)
+    ax.set_xlabel(xlabel)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
-    if lims:
-        ax.set_xlim(lims)
+    if cfg.lims:
+        ax.set_xlim(np.array(cfg.lims)*cfg.scale)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    plt.subplots_adjust(left=0.25, right=0.79, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=0.25, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -72,19 +84,17 @@ def main(args):
         values.append(value)
         sigma = 0.5*(right+left)
 
-        plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+        plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
         marker='o'
         if sigma/value<0.01:
             marker='|'
-        plt.plot(value, count+1, marker, markerfacecolor=colors[id], markeredgecolor=colors[id])
+        plt.plot(value, count+1, marker, markerfacecolor=cfg.colors[id], markeredgecolor=cfg.colors[id])
 
         name = name.replace('_', ' ')
-        exp_name.append(names.get(name, name))
+        exp_name.append(cfg.names.get(name, name))
 
         latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         latex_text.append(latex)
-    values=np.array(values)
-    val_median = np.median(values)
 
     #
     # Setup ticks and labels
@@ -107,6 +117,8 @@ def main(args):
     ax_right_right.set_yticks(yticks)
     ax_right_right.set_yticklabels(latex_text, ha='left')
 
+    # values=np.array(values)
+    # val_median = np.median(values)
     # # Right: values
     # ax_right_left = ax.twinx()
     # ax_right_left.set_ylim(ax.get_ylim())
@@ -123,7 +135,7 @@ def main(args):
     # ax_left_right.set_yticks(yticks)
     # ax_left_right.set_yticklabels([label if val<=val_median else '' for label, val in zip(latex_text, values)], ha='left')
 
-    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     if args.output:
         plt.savefig(args.output, dpi=300)
@@ -148,7 +160,7 @@ def phantom_zeros(num, num_max):
     return f'\phantom{{{extra}}}'
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
-    digits_leading = max(0, int(ceil_from_zero(np.log10(value))))
+    digits_leading = int(ceil_from_zero(np.log10(value)))
 
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
     zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
@@ -168,12 +180,16 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     else:
         the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
-    width1_rel='24mm'
-    width2_rel='13mm'
+    width_value=cfg.width_value
+    width_error=cfg.width_error
+    relsize_relerror=cfg.relsize_relerror
     ret = [
-            f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
-            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%}}'
+            f'\\makebox[{width_value}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
+            f'\\makebox[{width_error}]{{\\hspace*{{\\fill}}\\relsize{{{relsize_relerror}}}{relsigma:.1f}\\%}}'
           ]
+
+    if cfg.plot_fbox:
+        ret = [f'\\fbox{{{s}}}' for s in ret]
 
     # return ''.join(f'\\fbox{{{s}}}' for s in ret)
     return ''.join(ret)
