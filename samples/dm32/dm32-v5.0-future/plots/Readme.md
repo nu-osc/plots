@@ -36,9 +36,22 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
-|                             | Normal ordering                                  | Inverted Ordering                            |
-|-----------------------------|--------------------------------------------------|----------------------------------------------|
-| Experiments only            | ![\|Δm²₃₂\| NO](dm32_NO_v5-0b.png)               | ![Δm²₃₂ IO](dm32_IO_v5-0b.png)               |
-| Including global            | ![\|Δm²₃₂\| NO](dm32_NO_global_v5-0b.png)        | ![Δm²₃₂ IO](dm32_IO_global_v5-0b.png)        |
-| Including global and future | ![\|Δm²₃₂\| NO](dm32_NO_global_future_v5-0b.png) | ![Δm²₃₂ IO](dm32_IO_global_future_v5-0b.png) |
+## Including global analyses and future experiments
+
+![\|Δm²₃₂\| NO](dm32_NO_global_future_v5-0b.png)
+
+![Δm²₃₂ IO](dm32_IO_global_future_v5-0b.png)
+
+## Including global analyses
+
+![\|Δm²₃₂\| NO](dm32_NO_global_v5-0b.png)
+
+![Δm²₃₂ IO](dm32_IO_global_v5-0b.png)
+
+## Experiments only
+
+![\|Δm²₃₂\| NO](dm32_NO_v5-0b.png)
+
+![Δm²₃₂ IO](dm32_IO_v5-0b.png)
+
 
