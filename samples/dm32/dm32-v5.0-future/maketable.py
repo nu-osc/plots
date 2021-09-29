@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-"""Version v0.2.0 (deltaCP):
+"""Version v0.4.0
+
+Changes in 0.4.0:
+    + add Δm²₂₁
+
+Changes in 0.3.0:
+    + add sin²θ₁₂
+    + add sin²θ₂₃
 
 Changes in 0.2.0:
     + add deltaCP
@@ -39,11 +46,11 @@ def main(args):
 
     data = collect(args.inputs, var=var)
 
-    data = sorted(data, key=lambda item: item['span'])
+    data = sorted(data, key=lambda item: item['span']+1.e-8*(100-len(item['name'])))
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'note', 'ordering', 'octant', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'measurement', 'notes', 'ordering', 'octant', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -158,7 +165,7 @@ def collect_experiment(entry, target, var):
     before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
 
     if entry.get('type')=='reactor':
-        before['notes'] = entry['target']
+        before['notes'] = entry.get('target', '')
     else:
         before['notes'] = ''
 
@@ -194,7 +201,8 @@ def collect_result(var, experiment):
 
         val = res['value']
         val_left, val_right = get_uncertainty(val, res['uncertainty'])
-        val_left, val, val_right = convert(var, mode, val_left, val, val_right)#, context=context)
+        if mode:
+            val_left, val, val_right = convert(var, mode, val_left, val, val_right, context=context)
         unc_left = val - val_left
         unc_right = val_right - val
 
@@ -209,7 +217,7 @@ def collect_result(var, experiment):
 
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')
-        target['note']=res.get('note')
+        target['measurement']=experiment.get('measurement')
 
         yield target
 
@@ -230,6 +238,15 @@ def get_uncertainty(val, unc):
     elif not isinstance(unc, dict):
         raise Exception('Invalid uncertainty: '+str(unc))
 
+    # Symmetric, relative, percent
+    try:
+        relsigma = unc['percent']*0.01
+    except KeyError:
+        pass
+    else:
+        return val*(1-relsigma), val*(1+relsigma)
+
+    # Asymmetric, absolute
     try:
         left, right = unc['left'], unc['right']
     except KeyError:
@@ -237,13 +254,7 @@ def get_uncertainty(val, unc):
     else:
         return val-left, val+right
 
-    try:
-        left, right = unc['left'], unc['right']
-    except KeyError:
-        pass
-    else:
-        return val-left, val+right
-
+    # Absolute, interval
     try:
         val_left, val_right = unc['interval']
     except KeyError:
@@ -251,6 +262,7 @@ def get_uncertainty(val, unc):
     else:
         return val_left, val_right
 
+    # (A)symmetric, stat/syst, absolute
     try:
         stat, syst = unc['stat'], unc['syst']
     except KeyError:
@@ -272,11 +284,11 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23' ]
+    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12', 'splitting_small' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')
-    parser.add_argument('--ordering', '--nmo', default='auto', choices=('NO', 'IO', 'auto'), help='ordering')
+    parser.add_argument('--ordering', '--nmo', choices=('NO', 'IO'), help='ordering')
     parser.add_argument('-o', '--output', default='', help='file to write')
 
     main(parser.parse_args())

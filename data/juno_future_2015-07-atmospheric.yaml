@@ -1,0 +1,21 @@
+experiment: JUNO atmospheric
+type: atmospheric
+dataset:
+measurement: estimation
+target: nH
+reference:
+    date: '2015.07'
+    arxiv: hep-ex/1507.05613
+    inspire: https://inspirehep.net/literature/1384111
+    doi: https://doi.org/10.1088/0954-3899/43/3/030401
+    citation: An:2015jdp
+result:
+    amplitude23:
+        precision: 2
+        mode: degrees
+        value: 45
+        uncertainty:
+            percent: 6
+crosschecks:
+    - Maxim Gonchar
+
