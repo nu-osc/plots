@@ -1,6 +1,8 @@
 # $`\Delta m^2_{21}`$ measurements comparison, after Neutrino 2020
 
 - Version: **2.0b**
+- Updates since v1.0:
+    * Add JUNO estimation for solar and reactor neutrinos
 - [Plotting scripts](samples/dm21/dm21-v2.0-future)
 - [Data table](dm21_v2-0b.dat)
 - References:
@@ -13,11 +15,9 @@
     - JUNO estimation:
         * [JUNO Yellow Book](data/juno_future_2015-07-reactor.yaml)
         * [JUNO Solar ⁸B](data/juno_future_2020-06-solar.yaml)
-- Updates:
-    * Add JUNO estimation for solar and reactor neutrinos
 - Cross checks by:
-    * @maxfl
     * @ldkolupaeva
+    * @maxfl
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
