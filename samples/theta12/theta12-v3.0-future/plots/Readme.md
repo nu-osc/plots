@@ -1,8 +1,8 @@
 # $`\sin^2 \theta_{12}`$ measurements comparison, after Neutrino 2020
 
-- Version: **2.0b**
-- [Plotting scripts](samples/theta12/theta12-v2.0-future)
-- [Data table](theta12_v2-0b.dat)
+- Version: **3.0b**
+- [Plotting scripts](samples/theta12/theta12-v3.0-future)
+- [Data table](theta12_v3-0b.dat)
 - References:
     - [KamLAND+SNO+SuperK](data/kamland+sk+sno_2020-07-neutrino2020.yaml)
     - [SNO+SuperK](data/sk+sno_2020-07-neutrino2020.yaml)
@@ -20,5 +20,5 @@
 
 | Experiments only              | Including global                     | Including global and future                 |
 |-------------------------------|--------------------------------------|---------------------------------------------|
-| ![sin²θ₁₂](theta12_v2-0b.png) | ![sin²θ₁₂](theta12_global_v2-0b.png) | ![sin²θ₁₂](theta12_global_future_v2-0b.png) |
+| ![sin²θ₁₂](theta12_v3-0b.png) | ![sin²θ₁₂](theta12_global_v3-0b.png) | ![sin²θ₁₂](theta12_global_future_v3-0b.png) |
 
