@@ -166,11 +166,11 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     else:
         the_error = f'^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}'
 
-    width1_rel='24mm'
-    width2_rel='13mm'
+    width1_rel='22mm'
+    width2_rel='11mm'
     ret = [
             f'\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}',
-            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%}}'
+            f'\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-2}}{relsigma:.1f}\\%}}'
           ]
 
     # return ''.join(f'\\fbox{{{s}}}' for s in ret)

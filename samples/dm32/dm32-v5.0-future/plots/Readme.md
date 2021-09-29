@@ -2,7 +2,7 @@
 
 - Version: **5.0b**
 - Updates since v4.1:
-    * Added JUNO estimation
+    * Add JUNO estimation
 - [Plotting scripts](samples/dm32/dm32-v5.0-future)
 - Data tables:
     * [NO table](dm32_NO_v5-0b.dat)
@@ -18,7 +18,7 @@
     * [SuperK](data/superk_2020-07-neutrino2020.yaml)
     * [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
     * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
-    * [JUNO] TBD
+    * [JUNO Yellow Book](data/juno_future_2015-07-reactor.yaml)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{ee}| - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$.
