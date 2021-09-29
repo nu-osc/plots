@@ -5,5 +5,5 @@ kamlandsksno  KamLAND+SK+SNO  reactor+atmospheric+solar  {}             {}      
 superksno     SuperK+SNO      solar                      {}             {}                 3    0.306   0.014    0.014  0.028      {}                 {}
 sno           SNO             solar                      {}             {}                 3    0.299   0.015    0.016  0.0303761  1109.0763          {}
 foreroetal.   Forero_et_al.   theory                     {}             {}                 3    0.318   0.016    0.016  0.032      hep-ex/2006.11237  {}
-junosolar     JUNO_solar      solar                      estimation     {}                 3    0.307   0.023    0.023  0.046      hep-ex/            {}
+junosolar     JUNO_solar      solar                      estimation     {}                 3    0.307   0.023    0.023  0.046      hep-ex/2006.11760  {}
 kamland       KamLAND         reactor                    {}             {}                 3    0.316   0.026    0.034  0.06       {}                 {}
