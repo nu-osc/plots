@@ -4,15 +4,15 @@ measurement: estimation
 dataset: 10 yr
 reference:
     date: '2020.06'
-    arxiv: hep-ex/
-    inspire:
-    doi: 
-    citation: 
+    arxiv: hep-ex/2006.11760
+    inspire: https://inspirehep.net/literature/1802342
+    doi: https://doi.org/10.1088/1674-1137/abd92a
+    citation: JUNO:2020hqc
 result:
     splitting_small:
         precision: 1
         value: 7.5
-        uncertainty: 
+        uncertainty:
             left: 1.2
             right: 1.6
     amplitude12:
@@ -22,4 +22,5 @@ result:
         uncertainty: 0.023
 crosschecks:
     - Maxim Gonchar
+    - Liudmila Kolupaeva
 
