@@ -1,5 +1,5 @@
 variable = theta12
-version  = v2-0b
+version  = v3-0b
 suffix   = neutrino2020
 
 .PHONY: all table debug clean clean-all publish
