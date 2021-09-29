@@ -10,9 +10,14 @@
     - [SNO](data/sno_2020-07-neutrino2020.yaml)
     - [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
     - [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
-    - [JUNO] TBD
+    - JUNO estimation:
+        * [JUNO Yellow Book](data/juno_future_2015-07-reactor.yaml)
+        * [JUNO Solar ⁸B](data/juno_future_2020-06-solar.yaml)
+- Updates:
+    * Add JUNO estimation for solar and reactor neutrinos
 - Cross checks by:
     * @maxfl
+    * @ldkolupaeva
 - Notes:
     * Forero et al. is pre-Neutrino fit
     * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
