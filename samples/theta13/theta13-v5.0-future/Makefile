@@ -45,10 +45,10 @@ plots/Readme.md: Readme.md Makefile | plots
 	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
 
 plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
-	$(script) $< -o $@ -e theor
+	$(script) $< -o $@ -e theor estimation
 
 plots/$(variable)_dayabay_$(version).pdf plots/$(variable)_dayabay_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
-	$(script) $< -o $@ -e theor --dayabay
+	$(script) $< -o $@ -e theor estimation --dayabay
 
 plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@
