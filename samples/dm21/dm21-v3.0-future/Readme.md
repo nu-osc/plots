@@ -1,10 +1,10 @@
 # $`\Delta m^2_{21}`$ measurements comparison, after Neutrino 2020
 
-- Version: **3.0b**
-- Updates since v2.0:
+- Version: **${version_num}${beta}**
+- Updates since v${version_prev}:
     * Add future experiments
 - [Plotting scripts](samples/dm21/dm21-v${version-num}-future)
-- [Data table](dm21_v3-0b.dat)
+- [Data table](dm21_v${version_dash}${beta}.dat)
 - References:
     - [KamLAND+SNO+SuperK](data/kamland+sk+sno_2020-07-neutrino2020.yaml)
     - [SNO+SuperK](data/sk+sno_2020-07-neutrino2020.yaml)
@@ -23,11 +23,11 @@
     * Forero et al. is pre-Neutrino fit
 
 ## Including global analyses and future experiments
-![Δm²₂₁](dm21_global_future_v3-0b.png)
+![Δm²₂₁](dm21_global_future_v${version_dash}${beta}.png)
 
 ## Including global analyses
-![Δm²₂₁](dm21_global_v3-0b.png)
+![Δm²₂₁](dm21_global_v${version_dash}${beta}.png)
 
 ## Experiments only
-![Δm²₂₁](dm21_v3-0b.png)
+![Δm²₂₁](dm21_v${version_dash}${beta}.png)
 

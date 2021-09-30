@@ -1,11 +1,15 @@
 variable = dm21
-version  = v3-0b
+version_num = 3.0
 suffix   = neutrino2020
+beta = b
+version_prev = 2.0
+version_dash = $(subst .,-,${version_num})
+version  = v${version_dash}${beta}
 
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 
-publishdir = ../../../plots/$(variable)/$(subst -,.,$(version))-$(suffix)
+publishdir = ../../../plots/$(variable)/${variable}-${version_num}-${suffix}
 scripts    = maketable.py pylib/*.py
 script     = ./$(variable).py
 data       = $(shell realpath $(wildcard data/*.yaml))
@@ -23,8 +27,8 @@ extensions         = pdf png
 #
 # Targets
 #
-tables       = $(name).dat
-targets      = $(foreach n,$(names),$(foreach ext,$(extensions),plots/$(n).$(ext)))
+tables       = plots/$(name).dat
+targets      = $(foreach n,$(names),$(foreach ext,$(extensions),plots/$(n).$(ext))) plots/Readme.md
 
 .PRECIOUS: $(tables) $(targets)
 
@@ -37,21 +41,21 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
-plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
+plots/Readme.md: Readme.md Makefile | plots
+	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
+
+plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@ -e theor estimation
-	cp -v $< plots/
 
-plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@ -e estimation
-	cp -v $< plots/
 
-plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@
-	cp -v $< plots/
 
 table: $(tables)
 
-$(tables): $(scripts) $(data)
+$(tables): $(scripts) $(data) | plots
 	./maketable.py -v splitting_small \
 	               -o $@ \
 				   $(filter %.yaml,$^)
@@ -65,7 +69,6 @@ print-%:
 clean-all:
 	rm plots/*.pdf plots/*.png
 
-publish: all
+publish: $(targets) | plots
 	test -d $(publishdir) || mkdir -p $(publishdir)
 	cp -v plots/* $(publishdir)/
-	cp -v $(tables) $(publishdir)/
