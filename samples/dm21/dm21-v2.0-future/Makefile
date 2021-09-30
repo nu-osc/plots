@@ -9,7 +9,7 @@ version  = v${version_dash}${beta}
 .PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 
-publishdir = ../../../plots/$(variable)/${version_num}-${suffix}
+publishdir = ../../../plots/$(variable)/${variable}-${version_num}-${suffix}
 scripts    = maketable.py pylib/*.py
 script     = ./$(variable).py
 data       = $(shell realpath $(wildcard data/*.yaml))
@@ -41,7 +41,7 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
-plots/Readme.md: Readme.md
+plots/Readme.md: Readme.md Makefile | plots
 	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
 
 plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
