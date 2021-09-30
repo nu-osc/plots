@@ -2,7 +2,7 @@ experiment: ESSnuSB
 type: accelerator
 dataset:
 measurement: estimation
-dataset: 10 yr
+dataset: 10 years
 note: 360 km option
 status: not clear
 starting_year: 2035

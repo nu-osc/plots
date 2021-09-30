@@ -1,7 +1,7 @@
 experiment: ORCA
 type: atmospheric
 measurement: estimation
-dataset: 3 yr
+dataset: 3 years
 starting_year: 2024
 status: approved
 reference:

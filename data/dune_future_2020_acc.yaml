@@ -1,7 +1,7 @@
 experiment: DUNE
 type: accelerator
 starting_year: 2026
-dataset: 7 yr
+dataset: 7 years
 status: approved
 measurement: estimation
 reference:

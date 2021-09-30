@@ -4,7 +4,7 @@ status: approved
 type: solar
 measurement: estimation
 note: sensitivity with all solar experiments (SNO, SK)
-dataset: 20 yr
+dataset: 20 years
 reference:
     arxiv:
     inspire: https://indico.cern.ch/event/868940/contributions/3817116/attachments/2082544/3498466/ICHEP2020_v1.pdf
