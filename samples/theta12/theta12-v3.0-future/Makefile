@@ -44,13 +44,13 @@ plots:
 plots/Readme.md: Readme.md Makefile | plots
 	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
 
-plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@ -e theor estimation
 
-plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@ -e estimation
 
-plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@
 
 table: $(tables)
