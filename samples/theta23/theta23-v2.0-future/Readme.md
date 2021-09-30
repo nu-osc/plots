@@ -23,11 +23,6 @@
     * @ldkolupaeva
     * @maxfl
 
-|                  | Normal ordering                            | Inverted Ordering                          |
-| ---              | ---                                        | ---                                        |
-| Main             | ![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png)        | ![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}.png)        |
-| Including future | ![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png) | ![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}.png) |
-
 ## Including global analyses and future experiments
 
 ![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png)
