@@ -181,7 +181,7 @@ if __name__ == '__main__':
     parser.add_argument('input', help='file to load')
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
-    parser.add_argument('-e', '--exclude', nargs='+', help='types mask to exclude (tested with contains)')
+    parser.add_argument('-e', '--exclude', nargs='+', default=(), help='types mask to exclude (tested with contains)')
     parser.add_argument('--dayabay', action='store_true', help='style for Daya Bay')
 
     main(parser.parse_args())

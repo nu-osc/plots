@@ -10,7 +10,7 @@ version  = v${version_dash}${beta}
 .SUFFIXES: .tex .dat .pdf .png .yaml
 
 publishdir = ../../../plots/$(variable)/${variable}-${version_num}-${suffix}
-scripts    = maketable.py pylib/*.py
+scripts    = *.py pylib/*.py
 script     = ./$(variable).py
 data       = $(shell realpath $(wildcard data/*.yaml))
 
@@ -44,13 +44,13 @@ plots:
 plots/Readme.md: Readme.md Makefile | plots
 	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
 
-plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@ -e theor estimation
 
-plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@ -e estimation
 
-plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: plots/$(variable)_$(version).dat $(script) | plots
 	$(script) $< -o $@
 
 table: $(tables)
