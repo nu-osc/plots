@@ -1,12 +1,12 @@
 # $`|\Delta m^2_{32}|`$ measurements comparison, updated after Neutrino 2020
 
-- Version: **6.0b**
-- Updates since v5.0:
+- Version: **${version_num}${beta}**
+- Updates since v${version_prev}:
     * Add JUNO estimation
-- [Plotting scripts](samples/dm32/dm32-v6.0-future)
+- [Plotting scripts](samples/dm32/dm32-v${version_num}-future)
 - Data tables:
-    * [NO table](dm32_NO_v6-0b.dat)
-    * [IO table](dm32_IO_v6-0b.dat)
+    * [NO table](dm32_NO_v${version_dash}${beta}.dat)
+    * [IO table](dm32_IO_v${version_dash}${beta}.dat)
 - References:
     * [Daya Bay nGd](data/dayabay_2018-06-neutrino2018.yaml)
     * [RENO](data/reno_2020-07-neutrino2020.yaml)
@@ -38,20 +38,20 @@
 
 ## Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](dm32_NO_global_future_v6-0b.png)
+![\|Δm²₃₂\| NO](dm32_NO_global_future_v${version_dash}${beta}.png)
 
-![Δm²₃₂ IO](dm32_IO_global_future_v6-0b.png)
+![Δm²₃₂ IO](dm32_IO_global_future_v${version_dash}${beta}.png)
 
 ## Including global analyses
 
-![\|Δm²₃₂\| NO](dm32_NO_global_v6-0b.png)
+![\|Δm²₃₂\| NO](dm32_NO_global_v${version_dash}${beta}.png)
 
-![Δm²₃₂ IO](dm32_IO_global_v6-0b.png)
+![Δm²₃₂ IO](dm32_IO_global_v${version_dash}${beta}.png)
 
 ## Experiments only
 
-![\|Δm²₃₂\| NO](dm32_NO_v6-0b.png)
+![\|Δm²₃₂\| NO](dm32_NO_v${version_dash}${beta}.png)
 
-![Δm²₃₂ IO](dm32_IO_v6-0b.png)
+![Δm²₃₂ IO](dm32_IO_v${version_dash}${beta}.png)
 
 
