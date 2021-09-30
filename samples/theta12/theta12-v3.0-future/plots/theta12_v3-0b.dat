@@ -1,5 +1,5 @@
 style            name              type                       measurement    dataset    notes      precision    value    left    right       span  arxiv              conf
-junoreactor      JUNO_reactor      reactor                    estimation     6_yr       {}                 3    0.307   0.002    0.002  0.0041138  hep-ex/1507.05613  {}
+junoreactor      JUNO_reactor      reactor                    estimation     6_years    {}                 3    0.307   0.002    0.002  0.0041138  hep-ex/1507.05613  {}
 dune             DUNE              solar                      estimation     2.5_yr     {}                 3    0.308   0.009    0.009  0.01848    {}                 {}
 nufit5.0         NuFIT_5.0         theory                     {}             {}         {}                 3    0.304   0.012    0.012  0.024      hep-ph/2007.14792  {}
 kamlandsksno     KamLAND+SK+SNO    reactor+atmospheric+solar  {}             {}         {}                 3    0.306   0.012    0.013  0.025      {}                 {}
@@ -7,5 +7,5 @@ hyperkamiokande  Hyper-Kamiokande  solar                      estimation     20_
 superksno        SuperK+SNO        solar                      {}             {}         {}                 3    0.306   0.014    0.014  0.028      {}                 {}
 sno              SNO               solar                      {}             {}         {}                 3    0.299   0.015    0.016  0.0303761  1109.0763          {}
 foreroetal.      Forero_et_al.     theory                     {}             {}         {}                 3    0.318   0.016    0.016  0.032      hep-ex/2006.11237  {}
-junosolar        JUNO_solar        solar                      estimation     10_yr      {}                 3    0.307   0.023    0.023  0.046      hep-ex/            {}
+junosolar        JUNO_solar        solar                      estimation     10_years   {}                 3    0.307   0.023    0.023  0.046      hep-ex/2006.11760  {}
 kamland          KamLAND           reactor                    {}             {}         {}                 3    0.316   0.026    0.034  0.06       {}                 {}
