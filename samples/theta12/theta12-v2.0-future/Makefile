@@ -44,7 +44,6 @@ plots:
 plots/Readme.md: Readme.md
 	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
 
-
 plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@ -e theor estimation
 
@@ -57,7 +56,6 @@ plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$
 table: $(tables)
 
 $(tables): $(scripts) $(data) | plots
-	ipython --pdb -- \
 	./maketable.py -v $(variable) \
 	               -o $@ \
 				   $(filter %.yaml,$^)
