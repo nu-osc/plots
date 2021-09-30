@@ -1,6 +1,6 @@
 experiment: JUNO reactor
 type: reactor
-dataset: 6 yr
+dataset: 6 years
 measurement: estimation
 reference:
     date: '2015.07'
