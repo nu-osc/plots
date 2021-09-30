@@ -25,9 +25,10 @@
 
 ## Including global analyses and future experiments
 
-![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png)
+![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}_future.png)
 
-![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}.png)
+![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}_future.png)
+
 
 ## Experiments only
 
