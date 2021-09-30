@@ -27,7 +27,7 @@ extensions         = pdf png
 #
 # Targets
 #
-tables       = $(name).dat
+tables       = plots/$(name).dat
 targets      = $(foreach n,$(names),$(foreach ext,$(extensions),plots/$(n).$(ext))) plots/Readme.md
 
 .PRECIOUS: $(tables) $(targets)
@@ -45,21 +45,18 @@ plots/Readme.md: Readme.md
 	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
 
 
-plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_$(version).pdf plots/$(variable)_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@ -e theor estimation
-	cp -v $< plots/
 
-plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_$(version).pdf plots/$(variable)_global_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@ -e estimation
-	cp -v $< plots/
 
-plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: $(variable)_$(version).dat $(script) *.py | plots
+plots/$(variable)_global_future_$(version).pdf plots/$(variable)_global_future_$(version).png: plots/$(variable)_$(version).dat $(script) *.py | plots
 	$(script) $< -o $@
-	cp -v $< plots/
 
 table: $(tables)
 
-$(tables): $(scripts) $(data)
+$(tables): $(scripts) $(data) | plots
 	ipython --pdb -- \
 	./maketable.py -v $(variable) \
 	               -o $@ \
@@ -74,7 +71,6 @@ print-%:
 clean-all:
 	rm plots/*.pdf plots/*.png
 
-publish: all
+publish: $(targets) | plots
 	test -d $(publishdir) || mkdir -p $(publishdir)
 	cp -v plots/* $(publishdir)/
-	cp -v $(tables) $(publishdir)/
