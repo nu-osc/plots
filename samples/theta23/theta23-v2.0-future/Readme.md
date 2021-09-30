@@ -1,12 +1,12 @@
 # $`\sin^2 \theta_{23}`$ measurements comparison, after Neutrino 2020
 
-- Version: **2.0b**
-- Updates since v1.0:
+- Version: **${version_num}${beta}**
+- Updates since v${version_prev}:
     * Add future experiments
-- [Plotting scripts](samples/theta23/theta23-v2.0-future)
+- [Plotting scripts](samples/theta23/theta23-v${version_num}-future)
 - Data tables:
-    * [NO table](theta23_NO_v2-0b.dat)
-    * [IO table](theta23_IO_v2-0b.dat)
+    * [NO table](theta23_NO_v${version_dash}${beta}.dat)
+    * [IO table](theta23_IO_v${version_dash}${beta}.dat)
 - References:
     * [MINOS](data/minos_2020-07-neutrino2020.yaml)
     * [IceCube](data/icecube_2020-07-neutrino2020.yaml)
@@ -25,19 +25,19 @@
 
 |                  | Normal ordering                            | Inverted Ordering                          |
 | ---              | ---                                        | ---                                        |
-| Main             | ![sin²θ₂₃ NO](theta23_NO_v2-0b.png)        | ![sin²θ₂₃ IO](theta23_IO_v2-0b.png)        |
-| Including future | ![sin²θ₂₃ NO](theta23_NO_v2-0b.png) | ![sin²θ₂₃ IO](theta23_IO_v2-0b.png) |
+| Main             | ![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png)        | ![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}.png)        |
+| Including future | ![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png) | ![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}.png) |
 
 ## Including global analyses and future experiments
 
-![sin²θ₂₃ NO](theta23_NO_v2-0b.png)
+![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png)
 
-![sin²θ₂₃ IO](theta23_IO_v2-0b.png)
+![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}.png)
 
 ## Experiments only
 
-![sin²θ₂₃ NO](theta23_NO_v2-0b.png)
+![sin²θ₂₃ NO](theta23_NO_v${version_dash}${beta}.png)
 
-![sin²θ₂₃ IO](theta23_IO_v2-0b.png)
+![sin²θ₂₃ IO](theta23_IO_v${version_dash}${beta}.png)
 
 

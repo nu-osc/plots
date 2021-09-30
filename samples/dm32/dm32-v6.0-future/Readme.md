@@ -40,18 +40,18 @@
 
 ![\|Δm²₃₂\| NO](dm32_NO_global_future_v${version_dash}${beta}.png)
 
-![Δm²₃₂ IO](dm32_IO_global_future_v${version_dash}${beta}.png)
+![\|Δm²₃₂\| IO](dm32_IO_global_future_v${version_dash}${beta}.png)
 
 ## Including global analyses
 
 ![\|Δm²₃₂\| NO](dm32_NO_global_v${version_dash}${beta}.png)
 
-![Δm²₃₂ IO](dm32_IO_global_v${version_dash}${beta}.png)
+![\|Δm²₃₂\| IO](dm32_IO_global_v${version_dash}${beta}.png)
 
 ## Experiments only
 
 ![\|Δm²₃₂\| NO](dm32_NO_v${version_dash}${beta}.png)
 
-![Δm²₃₂ IO](dm32_IO_v${version_dash}${beta}.png)
+![\|Δm²₃₂\| IO](dm32_IO_v${version_dash}${beta}.png)
 
 
