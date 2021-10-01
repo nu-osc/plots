@@ -32,4 +32,3 @@
 ## Experiments only
 ![sin²θ₁₂](theta12_v${version_dash}${beta}.png)
 
-

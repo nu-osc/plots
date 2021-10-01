@@ -1,4 +1,4 @@
-# $`\delta_{\scriptscriptstyle\mathrm{CP}}`$ measurements comparison, updated after Neutrino 2020
+# $`\delta_{\scriptscriptstyle\mathrm{CP}}`$ sensitivity comparison
 
 - Version: **${version_num}${beta}**
 - [Plotting scripts](samples/deltaCP/v2.0-neutrino2020)
