@@ -1,6 +1,6 @@
 version='5.0b'
 url='git.jinr.ru/nu/osc'
-date='2021.09'
+date='2021.11'
 variable=r'$\sin^2 2\theta_{13}$'
 lims = None
 scale = 100.0
@@ -31,7 +31,7 @@ colors = {
     'superksno':       colors['solar'],
     'sno':             colors['solar'],
     'icecube':         colors['atm'],
-    'nufit5.0':        colors['global'],
+    'nufit5.1':        colors['global'],
     'foreroetal.':     colors['global'],
     'dune':            colors['acc'],
 	}

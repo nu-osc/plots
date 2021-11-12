@@ -1,0 +1,95 @@
+experiment: NuFIT 5.1
+type: theory
+reference:
+    date: '2021.10'
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    url: http://www.nu-fit.org/?q=node/238
+    conf:
+    talk:
+    slides:
+result:
+    splitting_large:
+        precision: 3
+        results:
+            - ordering: 'NO'
+              mode: '31'
+              value: 2.510
+              uncertainty:
+                  left: 0.027
+                  right: 0.027
+            - ordering: IO
+              mode: '32'
+              value: 2.49
+              uncertainty:
+                  left: 0.028
+                  right: 0.026
+        notes: With SuperK data included
+    deltaCP:
+        precision: 3
+        mode: degrees
+        results:
+            - ordering: 'NO'
+              value: 230
+              uncertainty:
+                  left: 25
+                  right: 36
+            - ordering: IO
+              value: 278
+              uncertainty:
+                  left: 30
+                  right: 22
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.450
+              uncertainty:
+                  left: 0.016
+                  right: 0.019
+            - ordering: IO
+              value: 0.570
+              uncertainty:
+                  left: 0.022
+                  right: 0.016
+    amplitude13:
+        precision: 5
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.02246
+              uncertainty:
+                  left: 0.00062
+                  right: 0.00062
+            - ordering: IO
+              value: 0.02241
+              uncertainty:
+                  left: 0.00062
+                  right: 0.00074
+    splitting_small:
+        precision: 2
+        value: 7.42
+        uncertainty:
+            left: 0.20
+            right: 0.21
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.304
+        uncertainty:
+            left: 0.012
+            right: 0.012
+        notes: Using NO value. IO value is the same with slighly higher uncertainty.
+    hier:
+        precision: 1
+        mode: sigma
+        value: 2.7
+        proj:
+            max: 0
+            min: 0
+        note: SK is included, kept 5.0 number since there was no clear number in 5.1
+crosschecks:
+    - Liudmila Kolupaeva

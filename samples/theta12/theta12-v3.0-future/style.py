@@ -11,7 +11,7 @@ colors = {
     'superksno':       'xkcd:saffron',
     'sno':             'xkcd:saffron',
     'icecube':         'xkcd:azure',
-    'nufit5.0':        'xkcd:steel grey',
+    'nufit5.1':        'xkcd:steel grey',
     'foreroetal.':     'xkcd:steel grey',
     'hyperkamiokande': 'xkcd:saffron',
     'dune':            'xkcd:saffron'

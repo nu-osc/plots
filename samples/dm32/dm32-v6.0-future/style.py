@@ -21,7 +21,7 @@ colors = {
     'superksno':       colors['solar'],
     'sno':             colors['solar'],
     'icecube':         colors['atm'],
-    'nufit5.0':        colors['global'],
+    'nufit5.1':        colors['global'],
     'foreroetal.':     colors['global'],
     'junoreactor':     colors['reactor'],
     'junoreactor_nh':  colors['reactor'],
