@@ -14,7 +14,8 @@ colors = {
         'nufit5.1':        'xkcd:steel grey',
         'foreroetal.':     'xkcd:steel grey',
         'hyperkamiokande': 'xkcd:saffron',
-        'dune':            'xkcd:saffron'
+        'dune':            'xkcd:saffron',
+        'capozzietal.':    'xkcd:steel grey'
         }
 
 names = {

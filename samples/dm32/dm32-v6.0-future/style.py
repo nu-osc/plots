@@ -9,8 +9,8 @@ colors = {
 
 colors = {
     'kamland':         colors['reactor'],
-    'reno':        colors['reactor'],
-    'dayabay':     colors['reactor'],
+    'reno':            colors['reactor'],
+    'dayabay':         colors['reactor'],
     'doublechooz':     colors['reactor'],
     'dchooz':          colors['reactor'],
     'kamlandsksno':    colors['reacsolar'],
@@ -31,7 +31,8 @@ colors = {
     'hyperkamiokande': colors['acc'],
     'ino':             colors['atm'],
     'icecubeupgrade':  colors['atm'],
-    'essnusb':         colors['acc']
+    'essnusb':         colors['acc'],
+    'capozzietal.':    colors['global']
 	}
 
 names = {

@@ -35,6 +35,7 @@ colors = {
     'icecubeupgrade':  colors['atm'],
     'essnusb':         colors['acc'],
     'junoatmospheric': colors['atm'],
+    'capozzietal.':    colors['global']
     }
 
 names = {

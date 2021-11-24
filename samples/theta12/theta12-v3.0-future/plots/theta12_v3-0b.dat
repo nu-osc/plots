@@ -4,6 +4,7 @@ dune             DUNE              solar                      estimation     2.5
 nufit5.1         NuFIT_5.1         theory                     {}             {}         {}                 3    0.304   0.012    0.012  0.024      {}                 {}
 kamlandsksno     KamLAND+SK+SNO    reactor+atmospheric+solar  {}             {}         {}                 3    0.306   0.012    0.013  0.025      {}                 {}
 hyperkamiokande  Hyper-Kamiokande  solar                      estimation     20_years   {}                 3    0.308   0.013    0.013  0.026      {}                 {}
+capozzietal.     Capozzi_et_al.    theory                     {}             {}         {}                 3    0.303   0.013    0.013  0.026      2107.00532         {}
 superksno        SuperK+SNO        solar                      {}             {}         {}                 3    0.306   0.014    0.014  0.028      {}                 {}
 sno              SNO               solar                      {}             {}         {}                 3    0.299   0.015    0.016  0.0303761  1109.0763          {}
 foreroetal.      Forero_et_al.     theory                     {}             {}         {}                 3    0.318   0.016    0.016  0.032      hep-ex/2006.11237  {}

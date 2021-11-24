@@ -34,6 +34,7 @@ colors = {
     'nufit5.1':        colors['global'],
     'foreroetal.':     colors['global'],
     'dune':            colors['acc'],
+    'capozzietal.':     colors['global']
 	}
 
 names = {
