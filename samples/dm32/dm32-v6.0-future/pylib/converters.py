@@ -14,8 +14,9 @@ def splitting_large_ee(dmee, context):
     return dm32
     
 def splitting_large_avg(dmavg, context):
+    ordering = context['ordering']=='NO' and 1.0 or -1.0
     dmSq21 = context['dmSq21']*1.e3 # dm32 is multiplied by 1.e3
-    dm32 = dmavg - 0.5 * dmSq21
+    dm32 = dmavg - 0.5 * ordering * dmSq21
     return dm32
 
 def splitting_large_31(dm31, context):
