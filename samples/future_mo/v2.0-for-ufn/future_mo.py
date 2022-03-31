@@ -32,17 +32,18 @@ def main(args):
     
     names = {
         'IceCube Upgrade': 'IceCube',
-        'T2HKK': 'HyperKK',
+        'T2HKK': 'HyperK-Korea',
         'JUNO reactor': r'JUNO',
         'Hyper-Kamiokande': 'HyperK',
-        'ESSnuSB': r'ESS$\nu$SB'
+        'ESSnuSB': r'ESS$\nu$SB',
+        'INO': r'ICAL',
         }
 
     colors = {'nova' : 'xkcd:bubblegum', 't2k' : 'xkcd:green teal', 'icecube' : 'xkcd:clear blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:charcoal grey', 'hyperk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 'hyperkkorea' : 'xkcd:emerald green', 'ess' : 'xkcd:lilac'}
 
-    position = {'nova' : (2022.5, 3.5), 't2k' : (2020.3, 2.0), 'icecube' : (2025.25, 1.5), 'juno' : (2023.5, 2.5), 'pingu' : (2031, 3.75), 'orca': (2027, 4.25), 'hyperk' : (2034.5, 4.3), 'dune' : (2028.5, 8), 'ino' : (2035, 2.5), 'hyperkkorea' : (2033.5, 8), 'ess' : (2038, 8)}
+    position = {'nova' : (2022.5, 3.5), 't2k' : (2020.3, 2.0), 'icecube' : (2025.25, 1.5), 'juno' : (2025.5, 1.5), 'pingu' : (2031, 3.75), 'orca': (2027, 4.25), 'hyperk' : (2034.5, 4.3), 'dune' : (2028.5, 8), 'ino' : (2035, 2.5), 'hyperkkorea' : (2033, 8), 'ess' : (2038, 8)}
 
-    marker_offset = {'nova' : 0, 't2k' : 0, 'icecube' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 'hyperk' : 0.05, 'dune' : 0, 'ino' : 0.05, 'hyperkkorea' : 0.05, 'ess' : 0}
+    marker_offset = {'nova' : 0, 't2k' : 0, 'icecube' : 0, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 'hyperk' : 0.05, 'dune' : 0, 'ino' : 0.1, 'hyperkkorea' : 0.05, 'ess' : 0}
     #
     # Load
     #
@@ -80,6 +81,7 @@ def main(args):
     ax.set_yticks([2.0, 4.0, 6.0, 8.0, 10.0], minor=True)
 
     text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
+    text_qual_juno = dict(boxstyle='round, pad = 0.15', facecolor='white', alpha=0.2, edgecolor ='white')
     plt.plot([2020.0, 2040.0], [5.0, 5.0], ls='--', color='black', lw=1,  alpha=0.5)
 
     for count, exp in enumerate(exps):
@@ -114,6 +116,8 @@ def main(args):
 
         if exp['id'] != 'orca' and exp['id'] != 'icecube' and exp['id'] != 'juno' and exp['id'] != 'pingu' and exp['id'] != 'ess':
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
+        if exp['id'] == 'juno':
+            ax.text(text_place_x, text_place_y,  name, color=color, bbox=text_qual_juno)
         marker_place_x = start+marker_offset[exp['id']]
         marker_place_y = sens_max_1year
 
