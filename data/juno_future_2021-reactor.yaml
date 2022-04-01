@@ -2,7 +2,7 @@ experiment: JUNO reactor
 type: reactor
 dataset: 6 years
 measurement: estimation
-starting_year: 2022
+starting_year: 2023
 status: approved
 reference:
     date: '2021.08'
