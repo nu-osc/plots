@@ -9,7 +9,7 @@ version  = v${version_dash}${beta}
 .PHONY: all table debug debug-plot clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 
-publishdir = ../../../plots/$(variable)/${variable}-${version_num}-${suffix}
+publishdir = ../../../plots/$(variable)/${variable}-v${version_num}-${suffix}
 scripts    = *.py pylib/*.py
 script     = ./$(variable).py
 data       = $(shell realpath $(wildcard data/*.yaml))
