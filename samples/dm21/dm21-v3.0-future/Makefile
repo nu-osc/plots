@@ -1,7 +1,7 @@
 variable = dm21
 version_num = 3.0
 suffix   = neutrino2020
-beta = b
+beta=
 version_prev = 2.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
