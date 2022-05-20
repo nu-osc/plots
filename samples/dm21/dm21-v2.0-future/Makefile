@@ -1,6 +1,6 @@
 variable = dm21
 version_num = 2.0
-suffix   = neutrino2020
+suffix   = future
 beta=
 version_prev = 1.0
 version_dash = $(subst .,-,${version_num})

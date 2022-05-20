@@ -1,6 +1,6 @@
 variable = dm32
 version_num = 6.0
-suffix   = neutrino2020
+suffix   = future
 beta=
 version_prev = 5.0
 version_dash = $(subst .,-,${version_num})
