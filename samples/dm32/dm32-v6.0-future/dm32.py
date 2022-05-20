@@ -68,8 +68,8 @@ def main(args):
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
     if title:
         ax.set_title(title)
-    if lims:
-        ax.set_xlim(lims)
+    if xlims:=lims.get(ordering):
+        ax.set_xlim(xlims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
     padleft = 95
