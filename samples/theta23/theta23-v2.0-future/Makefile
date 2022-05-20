@@ -1,7 +1,7 @@
 variable = theta23
 version_num = 2.0
 suffix   = neutrino2020
-beta = b
+beta=
 version_prev = 1.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
