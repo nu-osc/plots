@@ -1,4 +1,4 @@
-version='5.0b'
+version='5.0'
 url='git.jinr.ru/nu/osc'
 date='2021.07'
 variable=r'$|\Delta m^2_{32}|$, $10^{-3}$ eV$^2$'

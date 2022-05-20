@@ -1,7 +1,7 @@
 variable = dm32
 version_num = 5.0
 suffix   = neutrino2020
-beta = b
+beta=
 version_prev = 4.1
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
