@@ -1,0 +1,50 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - 14.9e20 POT ν
+    - 16.4e20 POT ν-bar
+channel: numudisapp
+reference:
+    date: '2021.01'
+    arxiv: hep-ex/2101.03779
+    inspire: https://inspirehep.net/literature/1840450
+    doi: https://doi.org/10.1103/PhysRevD.103.112008
+    citation: T2K:2021xwb
+    reference: tables XIV, XV; page 44
+result:
+    amplitude23:
+        precision: 2
+        mode: single
+        value: 0.53
+        uncertainty:
+            left: 0.04
+            right: 0.03
+        note: with reactor constraints
+    amplitude13:
+        precision: 2
+        mode: single
+        results:
+          - mode: 'NO'
+            value: 26.8e-3
+            uncertainty:
+                left: 4.3e-3
+                right: 5.5e-3
+          - mode: 'IO'
+            value: 30.0e-3
+            uncertainty:
+                left: 5.0e-3
+                right: 5.9e-3
+        note: with reactor constraints (essentialy)
+    splitting_large:
+        precision: 2
+        mode: '32NO/31IO'
+        results:
+            - mode: 'NO'
+              value: 2.45
+              uncertainty: 0.07
+            - mode: 'IO'
+              value: 2.43
+              uncertainty: 0.07
+        note: with reactor constraints
+crosschecks:
+    - Maxim Gonchar
