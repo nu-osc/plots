@@ -34,7 +34,7 @@ result:
             uncertainty:
                 left: 5.0e-3
                 right: 5.9e-3
-        note: with reactor constraints (essentialy)
+        note: without reactor constraints (essentialy)
     splitting_large:
         precision: 2
         mode: '32NO/31IO'
