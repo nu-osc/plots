@@ -25,7 +25,7 @@ result:
         value: 2.4
         uncertainty:
             percent: 7.4
-        note: page 64
+        notes: page 64
     mh:
         year:
             - [5, 10, 15, 20]

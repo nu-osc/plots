@@ -16,6 +16,7 @@ reference:
       - https://doi.org/10.1007/JHEP03(2022)055
       - https://doi.org/10.1140/epjc/s10052-021-09893-0
     citation:
+    reference: "2103.09885: page 12, table 1; page 13, sec 3.3, 1st paragraph"
 result:
     amplitude23:
         note: 90\% CL
@@ -26,11 +27,19 @@ result:
             right: 1.9
             left: 3.1
     splitting_large:
-        note: 90\% CL
         precision: 3
         mode: '32'
-        value: 2.4541
-        uncertainty: 0.085
+        results:
+          - ordering: 'NO'
+            note: 90\% CL
+            value: 2.4541
+            uncertainty: 0.085
+            notes: central value |Δm²₃₂|=|Δm²₃₁|-Δm²₂₁
+          - ordering: 'IO'
+            note: 90\% CL
+            value: 2.5099
+            uncertainty: 0.075
+            notes: central value |Δm²₃₂|=|Δm²₃₁|+Δm²₂₁
     mh:
         year:
             - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
