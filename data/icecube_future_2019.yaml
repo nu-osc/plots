@@ -6,10 +6,10 @@ dataset: 3 years
 starting_year: 2023
 status: approved
 reference:
-    date:
-    arxiv:
+    date: "2019.11"
+    arxiv: hep-ex/1911.06745
     inspire: https://inspirehep.net/literature/1765534, https://pos.sissa.it/358/1031/pdf
-    doi:
+    doi: https://doi.org/10.1103/PhysRevD.101.032006
     citation:
 result:
     amplitude23:

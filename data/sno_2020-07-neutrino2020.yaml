@@ -3,7 +3,7 @@ type: solar
 dataset:
 reference:
     date: '2020.07'
-    arxiv: 1109.0763
+    arxiv: hep-ex/1109.0763
     inspire: https://inspirehep.net/literature/926320
     doi: https://doi.org/10.1103/PhysRevC.88.025501
     citation: Aharmim:2011vm

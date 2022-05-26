@@ -7,7 +7,7 @@ starting_year: 2025
 status: not clear
 reference:
     date: '2015.05'
-    arxiv: 1505.07380
+    arxiv: physics.ins-det/1505.07380
     inspire: https://inspirehep.net/literature/1373310
     doi: https://doi.org/10.1007/s12043-017-1373-4
     citation: ICAL:2015stm
@@ -25,6 +25,7 @@ result:
         value: 2.4
         uncertainty:
             percent: 7.4
+        note: page 64
     mh:
         year:
             - [5, 10, 15, 20]
@@ -34,4 +35,5 @@ result:
             - [2.36, 3.29, 3.99, 4.58]
 crosschecks:
     - Liudmila Kolupaeva
+    - Maxim Gonchar
 

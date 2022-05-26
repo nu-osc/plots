@@ -21,28 +21,28 @@ result:
             right: 0.03
         note: with reactor constraints
     amplitude13:
-        precision: 2
+        precision: 4
         mode: single
         results:
-          - mode: 'NO'
+          - ordering: 'NO'
             value: 26.8e-3
             uncertainty:
                 left: 4.3e-3
                 right: 5.5e-3
-          - mode: 'IO'
+          - ordering: 'IO'
             value: 30.0e-3
             uncertainty:
                 left: 5.0e-3
                 right: 5.9e-3
-        note: with reactor constraints (essentialy)
+        note: without reactor constraints (essentialy)
     splitting_large:
         precision: 2
         mode: '32NO/31IO'
         results:
-            - mode: 'NO'
+            - ordering: 'NO'
               value: 2.45
               uncertainty: 0.07
-            - mode: 'IO'
+            - ordering: 'IO'
               value: 2.43
               uncertainty: 0.07
         note: with reactor constraints

@@ -2,13 +2,10 @@ experiment: Forero et al.
 type: theory
 reference:
     date: '2020.06'
-    arxiv: hep-ex/2006.11237
-    inspire:
-    doi:
+    arxiv: hep-ph/2006.11237
+    inspire: https://inspirehep.net/literature/1802107
+    doi: https://doi.org/10.1007/JHEP02(2021)071
     citation: deSalas:2020pgw
-    conf:
-    talk:
-    slides:
 result:
     splitting_large:
         precision: 2

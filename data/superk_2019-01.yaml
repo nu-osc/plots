@@ -1,0 +1,42 @@
+experiment: Super-Kamiokande
+type: atmospheric
+dataset: 253.9 kt-years
+reference:
+    date: '2019.01'
+    arxiv: hep-ex/1901.03230
+    inspire: https://inspirehep.net/literature/1713073
+    doi: https://doi.org/10.1093/ptep/ptz015
+    citation: Super-Kamiokande:2019gzr
+    reference: table 11, page 33, constrained θ₁₃
+result:
+    splitting_large:
+        precision: 2
+        mode: '32NO/31IO'
+        results:
+            - ordering: 'NO'
+              value: 2.53
+              uncertainty:
+                  right: 0.22
+                  left: 0.12
+            - ordering: IO
+              value: 2.53
+              uncertainty:
+                  right: 0.14
+                  left: 0.31
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+          - ordering: 'NO'
+            value: 0.008
+            uncertainty:
+                right: 0.025
+                left:  0.005
+          - ordering: 'IO'
+            value: 0.008
+            uncertainty:
+                left:  0.015
+                right: 0.007
+        note: without reactor constraints (essentialy)
+crosschecks:
+    - Maxim Gonchar

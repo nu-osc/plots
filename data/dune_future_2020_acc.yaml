@@ -5,13 +5,10 @@ dataset: 7 years
 status: approved
 measurement: estimation
 reference:
-    arxiv:
-    inspire: https://arxiv.org/pdf/2006.16043.pdf
-    doi:
-    citation:
-    conf:
-    talk:
-    page:
+    arxiv: hep-ex/2006.16043
+    inspire: https://inspirehep.net/literature/1803589
+    doi: https://doi.org/10.1140/epjc/s10052-020-08456-z
+    citation: DUNE:2020jqi
 result:
     amplitude23:
         precision: 3
