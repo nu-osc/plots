@@ -35,9 +35,21 @@ def main(args):
     result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
     result = result[::-1]
     nitems = len(result)
-    digits_decimal_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)
 
+    #
+    # Scale the numbers
+    #
+    if cfg.scale:
+        for key in ('value', 'left', 'right', 'span'):
+            result[key]*=cfg.scale
+        poweroften = -int(np.log10(cfg.scale))
+        xlabel = f'{cfg.variable}, $10^{{{poweroften:d}}}$'
+        result['digits']+=poweroften
+    else:
+        xlabel = cfg.variable
+
+    digits_decimal_max = result['digits'].max()
     logs10 = ceil_from_zero(np.log10(result['value']))
     digits_leading_max = int(max(1.0, *logs10))
 
@@ -53,7 +65,7 @@ def main(args):
     fig = plt.figure(figsize=(9,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
-    ax.set_xlabel(cfg.variable)
+    ax.set_xlabel(xlabel)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
     if cfg.lims:
         ax.set_xlim(cfg.lims)
@@ -69,7 +81,7 @@ def main(args):
     latex_text = []
     values = []
     for count, exp in enumerate(result):
-        id, name, typ, measurement, dataset, notes, digits, value, left, right, _ = exp
+        id, name, _, measurement, dataset, notes, digits, value, left, right, _ = exp
         values.append(value)
         sigma = 0.5*(right+left)
 
@@ -161,7 +173,7 @@ def phantom_zeros(num, num_max):
     return f'\phantom{{{extra}}}'
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max):
-    digits_leading = max(0, int(ceil_from_zero(np.log10(value))))
+    digits_leading = int(ceil_from_zero(np.log10(value)))
 
     zeros_leading = phantom_zeros(digits_leading, digits_leading_max)
     zeros_decimal = phantom_zeros(digits_decimal, digits_decimal_max)
