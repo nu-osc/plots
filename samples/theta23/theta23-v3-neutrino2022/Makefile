@@ -1,11 +1,12 @@
-variable = dm32
-version_num = 7
-suffix   = dayabay
+variable = theta23
+version_num = 3
+suffix   = neutrino2022
 beta=b
-version_prev = 6.0
+version_prev = 2.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
+.PHONY: all table debug clean clean-all publish
 .SUFFIXES: .tex .dat .pdf .png .yaml
 .ONESHELL:
 
@@ -22,16 +23,11 @@ names0 = \
 		NMO/latest/$(variable)_$(version)_NMO_latest_global \
 		NMO/latest/$(variable)_$(version)_NMO_latest_global_future \
 		NMO/latest/$(variable)_$(version)_NMO_latest_future \
-		NMO/published/$(variable)_$(version)_NMO_published \
-		NMO/published/$(variable)_$(version)_NMO_published_global \
-		NMO/published/$(variable)_$(version)_NMO_published_global_future \
-		NMO/published/$(variable)_$(version)_NMO_published_future \
-		# NMO/latest/$(variable)_$(version)_NMO_latest_dayabay \
-		# NMO/latest/$(variable)_$(version)_NMO_latest_future_dayabay \
-		# NMO/latest/$(variable)_$(version)_NMO_latest_global_future_dayabay \
-		# NMO/published/$(variable)_$(version)_NMO_published_dayabay \
-		# NMO/published/$(variable)_$(version)_NMO_published_future_dayabay \
-		# NMO/published/$(variable)_$(version)_NMO_published_global_future_dayabay
+		# NMO/published/$(variable)_$(version)_NMO_published \
+		# NMO/published/$(variable)_$(version)_NMO_published_global \
+		# NMO/published/$(variable)_$(version)_NMO_published_global_future \
+		# NMO/published/$(variable)_$(version)_NMO_published_future \
+
 names = $(subst NMO,NO,$(names0)) $(subst NMO,IO,$(names0))
 
 # Extensions
@@ -42,7 +38,8 @@ extensions = pdf png
 #
 tables0 = \
 		 plots/$(variable)_$(version)_NMO_latest.dat \
-		 plots/$(variable)_$(version)_NMO_published.dat
+		 # plots/$(variable)_$(version)_NMO_published.dat
+
 tables = $(subst NMO,NO,$(tables0)) $(subst NMO,IO,$(tables0))
 
 #
@@ -76,7 +73,6 @@ $(targets_plots): $(variable).py reference.py style.py $(tables) | plots
 		*_IO_*) NMO=IO;;
 	esac
 	case "$@" in
-		*_dayabay*)   OPTS="$$OPTS --dayabay"    ;;&
 		*_global*)    TYPE="$${TYPE#theor}"      ;;&
 		*_future*)    TYPE="$${TYPE%estimation}" ;;&
 		*_latest*)    SOURCE=plots/$(variable)_$(version)_"$$NMO"_latest.dat ;;&
@@ -98,26 +94,16 @@ $(tables): maketable.py pylib/*.py $(data) | plots
 		*_NO_*)       NMO=NO ;;&
 		*_IO_*)       NMO=IO ;;&
 	esac
-	./$< -v splitting_large \
+	./$< -v $(variable) \
 	               -o $@ \
-		           --nmo $$NMO \
 				   $$SOURCE
-
 
 #
 # Misc
 #
 .PHONY: debug-plot
 debug-plot:
-	$(script) plots/$(variable)_NO_$(version).dat -s --dayabay
-
-.PHONY: debug
-debug:
-	ipython --pdb -- \
-		./maketable.py -v splitting_large \
-					   -o plots/$(variable)_NO.dat \
-					   --nmo NO \
-					   $(data)
+	ipython --pdb -- $(script) -s $(table_NO) --nmo NO
 
 print-%:
 	@echo '$*=$($*)'

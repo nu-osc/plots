@@ -1,8 +1,8 @@
 variable = dm32
-version_num = 7
-suffix   = dayabay
+version_num = 8
+suffix = neutrino2022
 beta=b
-version_prev = 6.0
+version_prev = 7
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
@@ -111,7 +111,6 @@ $(tables): maketable.py pylib/*.py $(data) | plots
 debug-plot:
 	$(script) plots/$(variable)_NO_$(version).dat -s --dayabay
 
-.PHONY: debug
 debug:
 	ipython --pdb -- \
 		./maketable.py -v splitting_large \
