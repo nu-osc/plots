@@ -9,11 +9,11 @@ import matplotlib as mpl
 import itertools as it
 from argparse import ArgumentParser
 
-mpl.use('pgf')
+# mpl.use('pgf')
 
 from style import colors, names, preamble, titles
 from reference import reference, variable, lims
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 def main(args):
     if args.nmo=='auto':
         if 'NO' in args.output:
@@ -41,9 +41,9 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(12))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(13))
     if args.exclude:
-        mask = [all(pattern not in res['notes'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
+        mask = [all(pattern not in res[source] for source in ('type', 'notes', 'measurement') for pattern in args.exclude) for res in result]
         result = result[mask]
     result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
     result = result[::-1]
@@ -87,9 +87,9 @@ def main(args):
     latex_text = []
     latex_lo_text = []
     for count, exp in enumerate(result):
-        id, name, note, measurement, dataset, _, oct, digits, value, left, right, _ = exp
+        id, name, _, note, measurement, dataset, _, oct, digits, value, left, right, _ = exp
         sigma = 0.5*(right+left)
-        
+
         name = name.replace('_', ' ')
         name = names.get(name, name)
         note = note.replace('_', ' ')
@@ -99,7 +99,7 @@ def main(args):
                 name =  f'{name} {{\\relsize{{-1}}({dataset}) {note}}}'
             else:
                 name = f'{name} {{\\relsize{{-1}}({dataset})}}'
-            
+
         name = name.replace("'" , "")
         if name in exp_name:
             latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
