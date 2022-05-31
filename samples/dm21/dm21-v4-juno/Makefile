@@ -51,21 +51,26 @@ plots:
 	test -d plots || mkdir plots
 
 plots/Readme.md: Readme.md Makefile | plots
-	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
+	cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
 
 $(targets_plots): $(variable).py configuration.py $(tables) | plots
 	@
 	DIRNAME=$$(dirname $@)
 	test -d $$DIRNAME || mkdir -p $$DIRNAME
-	OPTS=; TYPE="theor estimation"; SOURCE=
+	TYPE="theor estimation"
 	case "$@" in
+		*_NO_*) NMO=NO;;
+		*_IO_*) NMO=IO;;
+	esac
+	case "$@" in
+		*_dayabay*)   OPTS="$$OPTS --dayabay"    ;;&
 		*_global*)    TYPE="$${TYPE#theor}"      ;;&
 		*_future*)    TYPE="$${TYPE%estimation}" ;;&
-		*_latest*)    SOURCE=$(tables_latest)    ;;&
-		*_published*) SOURCE=$(tables_published) ;;&
+		*_latest*)    SOURCE=plots/$(variable)_$(version)_"$$NMO"_latest.dat ;;&
+		*_published*) SOURCE=plots/$(variable)_$(version)_"$$NMO"_published.dat ;;&
 	esac
 	test "$${TYPE# }" && OPTS="$$OPTS -e $$TYPE"
-	./$< $(script) $$SOURCE $$OPTS -o $@
+	./$< $$SOURCE $$OPTS -o $@
 
 #
 # Tables
@@ -94,7 +99,7 @@ print-%:
 
 .PHONY: clean
 clean:
-	@rm -v plots/*.*
+	@rm -rv plots/*
 
 .PHONY: publish
 publish: $(targets) | plots

@@ -1,13 +1,13 @@
-# $`\Delta m^2_{21}`$ measurements comparison, after Neutrino 2020
+# $`\Delta m^2_{21}`$ measurements comparison
 
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
     * Add latest JUNO estimation
     * Add a version with published only results
-- [Plotting scripts](samples/dm21/dm21-v${version-num}-juno)
+- [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:
-    * [published](dm21_v${version_dash}${beta}_published.dat)
-    * [latest](dm21_v${version_dash}${beta}_latest.dat)
+    * [published](${variable}_v${version_dash}${beta}_published.dat)
+    * [latest](${variable}_v${version_dash}${beta}_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -18,15 +18,15 @@
 
 ### Including global analyses and future experiments
 
-![Δm²₂₁](png/latest/dm21_v${version_dash}${beta}_latest_global_future.png)
+![Δm²₂₁](png/latest/${variable}_v${version_dash}${beta}_latest_global_future.png)
 
 ### Including global analyses
 
-![Δm²₂₁](png/latest/dm21_v${version_dash}${beta}_latest_global.png)
+![Δm²₂₁](png/latest/${variable}_v${version_dash}${beta}_latest_global.png)
 
 ### Experiments only
 
-![Δm²₂₁](png/latest/dm21_v${version_dash}${beta}_latest.png)
+![Δm²₂₁](png/latest/${variable}_v${version_dash}${beta}_latest.png)
 
 ## References
 
