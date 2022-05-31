@@ -1,32 +1,34 @@
-# $`\Delta m^2_{21}`$ measurements comparison
+# $`\sin^2 \theta_{12}`$ measurements comparison
 
 - Version: **4b**
 - Updates since v3.0:
     * Add latest JUNO estimation
     * Add a version with published only results
-- [Plotting scripts](samples/dm21/dm21-v4-juno)
+- [Plotting scripts](samples/theta12/theta12-v4-juno)
 - Data tables:
-    * [published](dm21_v4b_published.dat)
-    * [latest](dm21_v4b_latest.dat)
+    * [published](theta12_v4b_published.dat)
+    * [latest](theta12_v4b_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
 - Notes:
     * Forero et al. is pre-Neutrino fit
+    * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
+        + $`\sin^2 \theta_{12} = 1 - 1/(1+\tan^2 \theta_{12})`$.
 
 ## Plots
 
-### Including global analyses and future experiments
+###  Including global analyses and future experiments
 
-![Δm²₂₁](png/latest/dm21_v4b_latest_global_future.png)
+![sin²θ₁₂](png/latest/theta12_v4b_latest_global_future.png)
 
 ### Including global analyses
 
-![Δm²₂₁](png/latest/dm21_v4b_latest_global.png)
+![sin²θ₁₂](png/latest/theta12_v4b_latest_global.png)
 
 ### Experiments only
 
-![Δm²₂₁](png/latest/dm21_v4b_latest.png)
+![sin²θ₁₂](png/latest/theta12_v4b_latest.png)
 
 ## References
 
