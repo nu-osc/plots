@@ -12,7 +12,7 @@ version  = v${version_dash}${beta}
 
 publishdir = ../../../plots/$(variable)/${variable}-v${version_num}-${suffix}
 data_latest = $(shell realpath $(wildcard data_latest/*.yaml))
-data_published = $(shell realpath $(wildcard data_published/*.yaml))
+# data_published = $(shell realpath $(wildcard data_published/*.yaml))
 data = $(data_latest) $(data_published)
 
 #

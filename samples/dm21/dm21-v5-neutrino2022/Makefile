@@ -63,7 +63,6 @@ $(targets_plots): $(variable).py configuration.py $(tables) | plots
 		*_IO_*) NMO=IO;;
 	esac
 	case "$@" in
-		*_dayabay*)   OPTS="$$OPTS --dayabay"    ;;&
 		*_global*)    TYPE="$${TYPE#theor}"      ;;&
 		*_future*)    TYPE="$${TYPE%estimation}" ;;&
 		*_latest*)    SOURCE=plots/$(variable)_$(version)_"$$NMO"_latest.dat ;;&
