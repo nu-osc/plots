@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 # $`\Delta m^2_{21}`$ measurements comparison, after Neutrino 2020
+=======
+# $`\Delta m^2_{21}`$ measurements comparison
+>>>>>>> dayabay2022
 
 - Version: **4b**
 - Updates since v3.0:
     * Add latest JUNO estimation
     * Add a version with published only results
+<<<<<<< HEAD
 - [Plotting scripts](samples/dm21/dm21-v${version-num}-juno)
+=======
+- [Plotting scripts](samples/dm21/dm21-v4-juno)
+>>>>>>> dayabay2022
 - Data tables:
     * [published](dm21_v4b_published.dat)
     * [latest](dm21_v4b_latest.dat)
