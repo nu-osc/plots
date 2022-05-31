@@ -3,7 +3,7 @@
 - Version: **3.0**
 - Updates since v2.0:
     * Add future experiments
-- [Plotting scripts](samples/dm21/dm21-v${version-num}-future)
+- [Plotting scripts](samples/dm21/dm21-v3.0-future)
 - [Data table](dm21_v3-0.dat)
 - References:
     - [KamLAND+SNO+SuperK](data/kamland+sk+sno_2020-07-neutrino2020.yaml)

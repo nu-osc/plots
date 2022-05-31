@@ -3,7 +3,7 @@
 - Version: **2.0**
 - Updates since v1.0:
     * Add JUNO estimation for solar and reactor neutrinos
-- [Plotting scripts](samples/dm21/dm21-v${version-num}-future)
+- [Plotting scripts](samples/dm21/dm21-v2.0-future)
 - [Data table](dm21_v2-0.dat)
 - References:
     - [KamLAND+SNO+SuperK](data/kamland+sk+sno_2020-07-neutrino2020.yaml)
