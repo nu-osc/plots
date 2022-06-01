@@ -10,7 +10,7 @@
     - [SNO+SuperK](data/sk+sno_2020-07-neutrino2020.yaml)
     - [KamLAND](data/kamland_2020-07-neutrino2020.yaml)
     - [SNO](data/sno_2020-07-neutrino2020.yaml)
-    - [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
+    - [NuFIT 5.1](data/theor_nufit_5_1_2021-10.yaml)
     - [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
     - JUNO estimation:
         * [JUNO Yellow Book](data/juno_future_2015-07-reactor.yaml)

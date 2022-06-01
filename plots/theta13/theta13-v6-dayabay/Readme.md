@@ -35,6 +35,6 @@
 | Double CHOOZ   | [hep-ex/1901.09445](data/dchooz_2019-01.yaml) |  [Neutrino 2020](data/dchooz_2020-07-neutrino2020.yaml) |                                                                      |
 | Forero et al.  |                                               |                                                         | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |
 | JUNO           |                                               |                                                         |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |
-| NuFIT 5.0      |                                               |                                                         |         [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml) |
+| NuFIT 5.1      |                                               |                                                         |                       [NuFIT 5.1](data/theor_nufit_5_1_2021-10.yaml) |
 | RENO           |   [hep-ex/1806.00248](data/reno_2018-06.yaml) |    [Neutrino 2020](data/reno_2020-07-neutrino2020.yaml) |                                                                      |
 | T2K            |    [hep-ex/2101.03779](data/t2k_2021-01.yaml) |     [Neutrino 2020](data/t2k_2020-07-neutrino2020.yaml) |                                                                      |
