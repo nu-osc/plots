@@ -40,7 +40,7 @@
 | HyperK             |                                                       |                  [ICHEP2020](data/hyperk_future_2020_sol.yaml) |                                                                      |
 | JUNO               |                                                       |                                                                |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |
 | KamLAND            |                                                       |                                                                |          [hep-ex/1606.07538](data/kamland_2020-07-neutrino2020.yaml) |
-| NuFIT 5.0          |                                                       |                                                                |         [NuFit 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml) |
+| NuFIT 5.1          |                                                       |                                                                |                       [NuFIT 5.1](data/theor_nufit_5_1_2021-10.yaml) |
 | SNO                |                                                       |                                                                |               [hep-ex/1109.0763](data/sno_2020-07-neutrino2020.yaml) |
 | SuperK+SNO         |         [hep-ex/1606.07538](data/sk+sno_2016-06.yaml) |         [Neutrino 2020](data/sk+sno_2020-07-neutrino2020.yaml) |                                                                      |
 | SuperK+SNO+KamLAND | [hep-ex/1606.07538](data/kamland+sk+sno_2016-06.yaml) | [Neutrino 2020](data/kamland+sk+sno_2020-07-neutrino2020.yaml) |                                                                      |

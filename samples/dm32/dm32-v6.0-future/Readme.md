@@ -56,7 +56,7 @@
 | JUNO           |           [hep-ex/1507.05613](data/juno_future_2015-07-reactor.yaml) |
 | MINOS+         |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |
 | NOvA           |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |
-| NuFIT 5.0      |         [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml) |
+| NuFIT 5.1      |                       [NuFIT 5.1](data/theor_nufit_5_1_2021-10.yaml) |
 | RENO           |                 [Neutrino 2020](data/reno_2020-07-neutrino2020.yaml) |
 | RENO nH        |                 [Neutrino 2018](data/reno_2018-06-neutrino2018.yaml) |
 | SuperK         |               [Neutrino 2020](data/superk_2020-07-neutrino2020.yaml) |
