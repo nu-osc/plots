@@ -1,14 +1,14 @@
 # $`\sin^22\theta_{13}`$ measurements comparison
 
-- Version: **6b**
+- Version: **6**
 - Updates since v5.0:
     * Add latest Daya Bay measurement
     * Add latest JUNO estimation
     * Add a version with published only results
 - [Plotting scripts](samples/theta13/theta13-v6-dayabay)
 - Data tables:
-    * [published](theta13_v6b_published.dat)
-    * [latest](theta13_v6b_latest.dat)
+    * [published](theta13_v6_published.dat)
+    * [latest](theta13_v6_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -19,10 +19,10 @@
 ## Latest results
 
 ###  Including global analyses and future experiments
-![sin²2θ₁₃](png/latest/theta13_v6b_latest_global_future.png)
+![sin²2θ₁₃](png/latest/theta13_v6_latest_global_future.png)
 
 ### Experiments only
-![sin²2θ₁₃](png/latest/theta13_v6b_latest.png)
+![sin²2θ₁₃](png/latest/theta13_v6_latest.png)
 
 ## References
 

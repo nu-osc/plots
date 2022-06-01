@@ -1,7 +1,7 @@
 variable = theta13
 version_num = 6
 suffix   = dayabay
-beta=b
+beta=
 version_prev = 5.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
@@ -22,16 +22,16 @@ names = \
 	    latest/$(variable)_$(version)_latest_global \
 	    latest/$(variable)_$(version)_latest_global_future \
 	    latest/$(variable)_$(version)_latest_future \
-	    latest/$(variable)_$(version)_latest_dayabay \
-	    latest/$(variable)_$(version)_latest_future_dayabay \
-	    latest/$(variable)_$(version)_latest_global_future_dayabay \
 		published/$(variable)_$(version)_published \
 	    published/$(variable)_$(version)_published_global \
 	    published/$(variable)_$(version)_published_global_future \
 	    published/$(variable)_$(version)_published_future \
-		published/$(variable)_$(version)_published_dayabay \
-	    published/$(variable)_$(version)_published_global_future_dayabay \
-	    published/$(variable)_$(version)_published_future_dayabay
+	 #    latest/$(variable)_$(version)_latest_dayabay \
+	 #    latest/$(variable)_$(version)_latest_future_dayabay \
+	 #    latest/$(variable)_$(version)_latest_global_future_dayabay \
+		# published/$(variable)_$(version)_published_dayabay \
+	 #    published/$(variable)_$(version)_published_global_future_dayabay \
+	 #    published/$(variable)_$(version)_published_future_dayabay
 
 # Extensions
 extensions = pdf png
