@@ -1,8 +1,8 @@
 variable = future_nmo
-version_num = 3.0
+version_num = 3
 suffix   = ufn_2021
-beta = b
-version_prev = 1.0
+beta =
+version_prev = 2.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
@@ -15,26 +15,49 @@ scripts    = *.py pylib/*.py
 data       = $(shell realpath $(wildcard data/*.yaml))
 targets    = plots/$(variable)_$(version).png plots/$(variable)_$(version).pdf plots/Readme.md
 
+#
+# Recipes
+#
+.PHONY: all
 all: $(targets) | plots
 
 plots:
 	test -d plots || mkdir plots
 
+.PHONY: readme
+readme: plots/Readme.md
 plots/Readme.md: Readme.md Makefile | plots
-	cat $< | version_num=${version_num} beta=${beta} version_dash=${version_dash} version_prev=${version_prev} envsubst > $@
+	cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
 
-plots/$(variable)_$(version).png: $(data) future_mo.py | plots
+plots/$(variable)_$(version).%: $(data) future_mo.py | plots
 	./future_mo.py $(data) -o $@
 
-plots/$(variable)_$(version).pdf: $(data) future_mo.py | plots
-	./future_mo.py $(data) -o $@
-
+#
+# Misc
+#
 print-%:
 	@echo '$*=$($*)'
 
-clean-all:
-	rm plots/*.pdf plots/*.png
+.PHONY: clean
+clean:
+	@rm -rv plots/*
 
-publish: $(targets) | plots
-	test -d $(publishdir) || mkdir -p $(publishdir)
-	cp -v plots/* $(publishdir)/
+.PHONY: unstage
+unstage:
+	@git rm --cached --ignore-unmatch -r ./plots/
+
+.PHONY: stage
+stage: $(targets)
+	@git add -f ./plots/
+
+#
+# Publish
+#
+publish: $(targets)
+	@
+	test -d $(publishdir) || mkdir -vp $(publishdir)
+	cp -rv plots/* $(publishdir)/
+
+.PHONY: publish-readme
+publish-readme: plots/Readme.md
+	@cp -v $< $(publishdir)/

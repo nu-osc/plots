@@ -3,7 +3,7 @@
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
     * TBD
-- [Plotting scripts](samples/future_mo/v${version_num}-for-ufn)
+- [Plotting scripts](samples/future_mo/future_mo-v${version_num}-${suffix})
 - References:
     * [T2K+SK](data/future_mh/t2ksk.yaml)
     * [NOvA](data/future_mh/nova.yaml)

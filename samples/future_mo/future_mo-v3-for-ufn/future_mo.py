@@ -9,7 +9,7 @@ import itertools as it
 import yaml
 import matplotlib.transforms as transforms
 
-reference =  'v3.0 2022.03: git.jinr.ru/nu/osc'
+reference =  'v3 2022.03: git.jinr.ru/nu/osc'
 
 def main(args):
 
@@ -28,8 +28,7 @@ def main(args):
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
-    
-    
+
     names = {
         'IceCube Upgrade': 'IceCube',
         'T2HKK': 'HyperK-Korea',
@@ -177,6 +176,7 @@ def main(args):
     ax.set_xticklabels(['\\textbf{2020}', '\\textbf{2022}', '\\textbf{2024}', '\\textbf{2026}', '\\textbf{2028}', '\\textbf{2030}', '\\textbf{2032}', '\\textbf{2034}'])
     ax.tick_params(top=True, right=True)
     #ax.yaxis.grid(True, which='minor')
+    ax.minorticks_on()
     ax.xaxis.labelpad = 10
     ax.yaxis.labelpad = 15
     ax.tick_params(axis='x', which='major', pad=15)
