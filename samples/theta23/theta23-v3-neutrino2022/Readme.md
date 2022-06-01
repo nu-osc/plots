@@ -31,16 +31,6 @@
 
 ## References
 
-- References:
-    * [MINOS](data/minos_2020-07-neutrino2020.yaml)
-    * [IceCube](data/icecube_2020-07-neutrino2020.yaml)
-    * [T2K](data/t2k_2020-07-neutrino2020.yaml)
-    * [SuperK](data/superk_2020-07-neutrino2020.yaml)
-    * [NOvA](data/nova_2020-07-neutrino2020.yaml)
-    * [NuFIT 5.0](data/theor_nufit_2020-07-post-neutrino2020.yaml)
-    * [Forero et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
-    - [FUTURE] TBD
-
 | Measurement    | Published |                                                 Latest |                                                                 Both |
 |----------------|----------:|-------------------------------------------------------:|---------------------------------------------------------------------:|
 | Capozzi et al. |           |                                                        |                 [hep-ph/2107.00532](data/theor_capozzi_2021-07.yaml) |
