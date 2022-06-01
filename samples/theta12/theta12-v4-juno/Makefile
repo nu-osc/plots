@@ -1,7 +1,7 @@
 variable = theta12
 version_num = 4
 suffix = juno
-beta=b
+beta=
 version_prev = 3.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}

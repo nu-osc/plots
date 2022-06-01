@@ -1,13 +1,13 @@
 # $`\sin^2 \theta_{12}`$ measurements comparison
 
-- Version: **4b**
+- Version: **4**
 - Updates since v3.0:
     * Add latest JUNO estimation
     * Add a version with published only results
 - [Plotting scripts](samples/theta12/theta12-v4-juno)
 - Data tables:
-    * [published](theta12_v4b_published.dat)
-    * [latest](theta12_v4b_latest.dat)
+    * [published](theta12_v4_published.dat)
+    * [latest](theta12_v4_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -20,15 +20,15 @@
 
 ###  Including global analyses and future experiments
 
-![sin²θ₁₂](png/latest/theta12_v4b_latest_global_future.png)
+![sin²θ₁₂](png/latest/theta12_v4_latest_global_future.png)
 
 ### Including global analyses
 
-![sin²θ₁₂](png/latest/theta12_v4b_latest_global.png)
+![sin²θ₁₂](png/latest/theta12_v4_latest_global.png)
 
 ### Experiments only
 
-![sin²θ₁₂](png/latest/theta12_v4b_latest.png)
+![sin²θ₁₂](png/latest/theta12_v4_latest.png)
 
 ## References
 
