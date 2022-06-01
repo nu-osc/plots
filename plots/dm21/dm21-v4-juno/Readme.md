@@ -1,13 +1,13 @@
 # $`\Delta m^2_{21}`$ measurements comparison
 
-- Version: **4b**
+- Version: **4**
 - Updates since v3.0:
     * Add latest JUNO estimation
     * Add a version with published only results
 - [Plotting scripts](samples/dm21/dm21-v4-juno)
 - Data tables:
-    * [published](dm21_v4b_published.dat)
-    * [latest](dm21_v4b_latest.dat)
+    * [published](dm21_v4_published.dat)
+    * [latest](dm21_v4_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -18,15 +18,15 @@
 
 ### Including global analyses and future experiments
 
-![Δm²₂₁](png/latest/dm21_v4b_latest_global_future.png)
+![Δm²₂₁](png/latest/dm21_v4_latest_global_future.png)
 
 ### Including global analyses
 
-![Δm²₂₁](png/latest/dm21_v4b_latest_global.png)
+![Δm²₂₁](png/latest/dm21_v4_latest_global.png)
 
 ### Experiments only
 
-![Δm²₂₁](png/latest/dm21_v4b_latest.png)
+![Δm²₂₁](png/latest/dm21_v4_latest.png)
 
 ## References
 
