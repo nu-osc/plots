@@ -1,7 +1,7 @@
 variable = dm32
 version_num = 6.1
 suffix = juno
-beta=b
+beta=
 version_prev = 6.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}

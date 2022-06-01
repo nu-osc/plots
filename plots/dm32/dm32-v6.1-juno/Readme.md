@@ -1,16 +1,16 @@
 # $`|\Delta m^2_{32}|`$ measurements comparison
 
-- Version: **6.1b**
+- Version: **6.1**
 - Updates since v6.0:
     * Add latest JUNO estimation
     * Add a version with published only results
     * DUNE and ORCA: add distinct IO values
 - [Plotting scripts](samples/dm32/dm32-v6.1-juno)
 - Data tables:
-    * [NO published](dm32_v6-1b_NO_published.dat)
-    * [IO published](dm32_v6-1b_IO_published.dat)
-    * [NO latest](dm32_v6-1b_NO_latest.dat)
-    * [IO latest](dm32_v6-1b_IO_latest.dat)
+    * [NO published](dm32_v6-1_NO_published.dat)
+    * [IO published](dm32_v6-1_IO_published.dat)
+    * [NO latest](dm32_v6-1_NO_latest.dat)
+    * [IO latest](dm32_v6-1_IO_latest.dat)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{ee}| - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$.
@@ -32,21 +32,21 @@
 
 ### Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32_v6-1b_NO_latest_global_future.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32_v6-1_NO_latest_global_future.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32_v6-1b_IO_latest_global_future.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32_v6-1_IO_latest_global_future.png)
 
 ### Including global analyses
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32_v6-1b_NO_latest_global.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32_v6-1_NO_latest_global.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32_v6-1b_IO_latest_global.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32_v6-1_IO_latest_global.png)
 
 ### Experiments only
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32_v6-1b_NO_latest.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32_v6-1_NO_latest.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32_v6-1b_IO_latest.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32_v6-1_IO_latest.png)
 
 ## References
 
