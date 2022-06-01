@@ -1,6 +1,6 @@
 style            name              type                      measurement    dataset    notes    ordering    octant      precision    value    left    right      span  arxiv                                       conf
 junoreactor      JUNO_reactor      reactor                   estimation     6_years    {}       IO          {}                  4    2.546  0.0047   0.0047  0.0094    hep-ex/2204.13249                           {}
-essnusb          ESSnuSB           accelerator               estimation     10_years   {}       IO          {}                  3    2.516  0.008    0.009   0.0165    https://arxiv.org/pdf/2107.07585.pdf        {}
+essnusb          ESSnuSB           accelerator               estimation     10_years   {}       IO          {}                  3    2.516  0.008    0.009   0.0165    hep-ex/2107.07585                           {}
 dune             DUNE              accelerator               estimation     7_years    {}       IO          {}                  3    2.512  0.01     0.01    0.02      hep-ex/2006.16043                           {}
 hyperkamiokande  Hyper-Kamiokande  atmospheric,_accelerator  estimation     10_years   {}       IO          {}                  3    2.4    0.015    0.015   0.03      hep-ex/1805.04163                           {}
 nufit5.1         NuFIT_5.1         theory                    {}             {}         {}       IO          {}                  3    2.49   0.028    0.026   0.054     {}                                          {}
