@@ -12,7 +12,7 @@ from scipy.interpolate import interp1d, pchip_interpolate
 from matplotlib import text as mtext
 import math
 
-reference =  'v1.0b 2021.09: git.jinr.ru/nu/osc'
+reference =  'v1 2021.09: git.jinr.ru/nu/osc'
 
 def main(args):
 
@@ -31,8 +31,8 @@ def main(args):
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
-    
-    
+
+
     names = {
         'Hyper-Kamiokande': 'HyperK',
         'ESSnuSB': r'ESS$\nu$SB'
@@ -117,7 +117,7 @@ def main(args):
             high_sm = pchip_interpolate(np.array(exp['years']), exp['high_values'], new_num)
             poly = Polygon(list(zip(years_sm.tolist()+years_sm[::-1].tolist(), low_sm.tolist()+high_sm[::-1].tolist())), facecolor=color, edgecolor=color, alpha=alpha, lw=width, ls=lstyle)
             ax.add_patch(poly)
-            
+
         lstyle = '-'
         if exp['id']=='hyperk' or exp['id']=='t2k':
             lstyle = '--'
@@ -132,7 +132,7 @@ def main(args):
         plt.plot([marker_place_x, sens_year_start], [marker_place_y, marker_place_y], ls='dotted', color=color, alpha=alpha)
         if args.arrows:
             plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color, alpha=alpha)
-            
+
         kwargs = dict(color='xkcd:slate grey', fontsize=19)
         if exp['id']=='hyperk':
             text = CurvedText( x = years_sm[10:-1], y = line_sm[10:-1], text='stat. only', va = 'bottom', axes = ax, **kwargs)

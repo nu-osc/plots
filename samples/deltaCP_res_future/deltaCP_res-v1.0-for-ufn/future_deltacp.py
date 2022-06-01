@@ -13,7 +13,7 @@ from matplotlib import text as mtext
 from matplotlib.ticker import MultipleLocator
 import math
 
-reference =  'v1.0b 2021.09: git.jinr.ru/nu/osc'
+reference =  'v1 2021.09: git.jinr.ru/nu/osc'
 
 def main(args):
 
@@ -32,8 +32,8 @@ def main(args):
 
     prop_cycle = plt.rcParams['axes.prop_cycle']
     colors = prop_cycle.by_key()['color']
-    
-    
+
+
     names = {
         'Hyper-Kamiokande': 'HyperK'
         }
@@ -136,18 +136,18 @@ def main(args):
         alpha = 0.5
         if args.arrows:
             plt.plot([marker_place_x, start], [marker_place_y, 0], ls='dotted', color=color, alpha=alpha)
-        
-        
+
+
         marker_place_x = start
         marker_place_y_0 = exp['line_0'][0]
         marker_place_y_3_2 = exp['line_3_2'][0]
         if exp['id']!='dune':
             ax.plot(marker_place_x, marker_place_y_0, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=alpha)
             plt.plot([marker_place_x, exp['years'][0]], [marker_place_y_0, marker_place_y_0], ls='dotted', color=color, alpha=alpha)
-            
+
         ax.plot(marker_place_x, marker_place_y_3_2, '>', markeredgecolor=color, markersize=8, markerfacecolor=color, alpha=alpha)
         plt.plot([marker_place_x, exp['years'][0]], [marker_place_y_3_2, marker_place_y_3_2], ls='dotted', color=color, alpha=alpha)
-        
+
         kwargs = dict(color='xkcd:slate grey', fontsize=19)
         if exp['id']=='hyperk':
             text = CurvedText( x = years_sm[1:-1], y = line_sm_0[1:-1]-0.5, text='stat. only', va = 'top', axes = ax, **kwargs)
@@ -165,8 +165,8 @@ def main(args):
     ax.xaxis.labelpad = 10
     ax.yaxis.labelpad = 7
     ax.tick_params(axis='x', which='major', pad=15)
-    
-    
+
+
     line_0 = plt.Line2D((0,1),(0,0), color='k')
     line_3_2 = plt.Line2D((0,1),(0,0), color='k', ls='--')
     fig.legend(leg_styles + [line_0, line_3_2], leg_text + ['$\delta_{\\rm CP}$ = 0', '$\delta_{\\rm CP} = 3\pi/2$'], loc='upper right', bbox_to_anchor=(0.93, 0.92))
