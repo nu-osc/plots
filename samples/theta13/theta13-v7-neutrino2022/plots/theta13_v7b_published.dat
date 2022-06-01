@@ -11,5 +11,6 @@ reno          RENO            reactor      nGd      {}             {}         {}
 junoreactor   JUNO_reactor    reactor      {}       estimation     6_years    {}                    4  0.0853   0.01     0.0099   0.0198931   hep-ex/2204.13249  {}
 dayabay       Daya_Bay        reactor      nH       {}             {}         {}                    3  0.071    0.011    0.011    0.022       hep-ex/1603.03549  Neutrino2016
 doublechooz   Double_CHOOZ    reactor      {}       {}             {}         {}                    3  0.105    0.014    0.014    0.028       hep-ex/1901.09445  {}
+reno          RENO            reactor      nH       {}             {}         {}                    3  0.086    0.016    0.016    0.032249    hep-ex/1911.04601  Neutrino2020
 t2k           T2K             accelerator  {}       {}             {}         NO                    4  0.1043   0.0164   0.0207   0.0370518   hep-ex/2101.03779  {}
 t2k           T2K             accelerator  {}       {}             {}         IO                    4  0.1164   0.0189   0.022    0.0409448   hep-ex/2101.03779  {}
