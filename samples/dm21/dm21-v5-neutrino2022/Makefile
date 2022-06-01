@@ -67,8 +67,8 @@ $(targets_plots): $(variable).py configuration.py $(tables) | plots
 	case "$@" in
 		*_global*)    TYPE="$${TYPE#theor}"      ;;&
 		*_future*)    TYPE="$${TYPE%estimation}" ;;&
-		*_latest*)    SOURCE=plots/$(variable)_$(version)_"$$NMO"_latest.dat ;;&
-		*_published*) SOURCE=plots/$(variable)_$(version)_"$$NMO"_published.dat ;;&
+		*_latest*)    SOURCE=plots/$(variable)_$(version)_latest.dat ;;&
+		*_published*) SOURCE=plots/$(variable)_$(version)_published.dat ;;&
 	esac
 	test "$${TYPE# }" && OPTS="$$OPTS -e $$TYPE"
 	./$< $$SOURCE $$OPTS -o $@

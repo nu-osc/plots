@@ -60,15 +60,37 @@ $(tables): $(scripts) $(data) | plots
 	               -o $@ \
 				   $(filter %.yaml,$^)
 
+#
+# Misc
+#
+.PHONY: debug-plot
 debug-plot:
 	ipython --pdb -- $(script) -s $(tables) -e theor
 
 print-%:
 	@echo '$*=$($*)'
 
-clean-all:
-	rm plots/*.pdf plots/*.png
+.PHONY: clean
+clean:
+	@rm -rv plots/*
 
-publish: $(targets) | plots
-	test -d $(publishdir) || mkdir -p $(publishdir)
-	cp -v plots/* $(publishdir)/
+.PHONY: unstage
+unstage:
+	@git rm --cached --ignore-unmatch -r ./plots/
+
+.PHONY: stage
+stage: $(targets)
+	@git add -f ./plots/
+
+#
+# Publish
+#
+.PHONY: publish
+publish: $(targets)
+	@
+	test -d $(publishdir) || mkdir -vp $(publishdir)
+	cp -rv plots/* $(publishdir)/
+
+.PHONY: publish-readme
+publish-readme: plots/Readme.md
+	@cp -v $< $(publishdir)/
