@@ -129,7 +129,7 @@ clean:
 
 .PHONY: unstage
 unstage:
-	git rm --cached --ignore-unmatch -r ./plots/
+	@git rm --cached --ignore-unmatch -r ./plots/
 
 #
 # Publish
@@ -142,4 +142,4 @@ publish: $(targets)
 
 .PHONY: publish-readme
 publish-readme: plots/Readme.md
-	cp -v $< $(publishdir)/
+	@cp -v $< $(publishdir)/

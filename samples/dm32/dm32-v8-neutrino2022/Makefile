@@ -63,6 +63,8 @@ all: $(targets) | plots
 plots:
 	test -d plots || mkdir plots
 
+.PHONY: readme
+readme: plots/Readme.md
 plots/Readme.md: Readme.md Makefile | plots
 	cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
 
@@ -125,8 +127,19 @@ print-%:
 clean:
 	@rm -rv plots/*
 
+.PHONY: unstage
+unstage:
+	@git rm --cached --ignore-unmatch -r ./plots/
+
+#
+# Publish
+#
 .PHONY: publish
-publish: $(targets) | plots
+publish: $(targets)
 	@
 	test -d $(publishdir) || mkdir -vp $(publishdir)
 	cp -rv plots/* $(publishdir)/
+
+.PHONY: publish-readme
+publish-readme: plots/Readme.md
+	@cp -v $< $(publishdir)/
