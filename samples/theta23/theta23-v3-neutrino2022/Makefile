@@ -119,7 +119,7 @@ unstage:
 	@git rm --cached --ignore-unmatch -r ./plots/
 
 .PHONY: stage
-stage:
+stage: $(targets)
 	@git add -f ./plots/
 
 #
