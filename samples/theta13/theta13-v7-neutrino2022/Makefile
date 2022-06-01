@@ -114,11 +114,15 @@ clean:
 unstage:
 	@git rm --cached --ignore-unmatch -r ./plots/
 
+.PHONY: stage
+stage:
+	@git add -f ./plots/
+
 #
 # Publish
 #
 .PHONY: publish
-publish: $(targets) | plots
+publish: $(targets)
 	@
 	test -d $(publishdir) || mkdir -vp $(publishdir)
 	cp -rv plots/* $(publishdir)/

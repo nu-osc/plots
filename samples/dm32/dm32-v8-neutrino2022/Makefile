@@ -131,6 +131,10 @@ clean:
 unstage:
 	@git rm --cached --ignore-unmatch -r ./plots/
 
+.PHONY: stage
+stage:
+	@git add -f ./plots/
+
 #
 # Publish
 #
