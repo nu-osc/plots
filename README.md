@@ -10,7 +10,7 @@
 
 ###  $`\sin^2 \theta_{23}`$, $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ and NMO
 
-| Note                      | $`\sin^2 \theta_{23}`$                              | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$                | NMO                                 | MO sens.                                    |
+| Note                      | $`\sin^2 \theta_{23}`$                              | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ future         | NMO                                 | MO sens.                                    |
 | -------------             | ------:                                             | ------:                                           | ------------------:                                              | ------:                             | ------:                                     |
 | Neutrino 2022 in progress | [v3](samples/theta23/theta23-v3-neutrino2022/plots) |                                                   |                                                                  |                                     |                                             |
 | Future projection         |                                                     |                                                   | [v1](samples/deltaCP_res_future/deltaCP_res-v1.0-for-ufn/plots/) |                                     |                                             |
