@@ -2,7 +2,7 @@
 
 ## Recent plots
 
-### $`\sin^22\theta_{13}`$, $`\|\Delta m^2_{32}\|`$, $`\sin^2 \theta_{12}`$ and $`\Delta m^2_{21}`$
+### $`\sin^22\theta_{13}`$, $`|\Delta m^2_{32}|`$, $`\sin^2 \theta_{12}`$ and $`\Delta m^2_{21}`$
 
 | Note                      | $`\sin^22\theta_{13}`$                              | $`\|\Delta m^2_{32}\|`$                       | $`\sin^2 \theta_{12}`$                              | $`\Delta m^2_{21}`$                           |
 | -------------             | ------:                                             | ------:                                       | ------:                                             | ---:                                          |
@@ -21,7 +21,7 @@
 
 ## All plots
 
-### $`\sin^22\theta_{13}`$, $`\|\Delta m^2_{32}\|`$, $`\sin^2 \theta_{12}`$ and $`\Delta m^2_{21}`$
+### $`\sin^22\theta_{13}`$, $`|\Delta m^2_{32}|`$, $`\sin^2 \theta_{12}`$ and $`\Delta m^2_{21}`$
 
 | Note                           | $`\sin^22\theta_{13}`$                    | $`\|\Delta m^2_{32}\|`$              | $`\sin^2 \theta_{12}`$                    | $`\Delta m^2_{21}`$                   |
 | ------                         | ------:                                   | ------:                              | ------:                                   | ---:                                  |
