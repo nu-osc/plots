@@ -1,7 +1,7 @@
 variable = deltaCP
 version_num = 1
 suffix   = ufn_2021
-beta = b
+beta = 
 version_prev = 0.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
@@ -47,7 +47,7 @@ unstage:
 	@git rm --cached --ignore-unmatch -r ./plots/
 
 .PHONY: stage
-stage:
+stage: $(targets)
 	@git add -f ./plots/
 
 #
