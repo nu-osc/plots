@@ -10,10 +10,11 @@
 
 ###  $`\sin^2 \theta_{23}`$, $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ and NMO
 
-| Note                      | $`\sin^2 \theta_{23}`$                              | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | NMO                                 | MO sens.                                    |
-| -------------             | ------:                                             | ------:                                           | ------:                             | ------:                                     |
-| Neutrino 2022 in progress | [v3](samples/theta23/theta23-v3-neutrino2022/plots) |                                                   |                                     |                                             |
-| Neutrino 2020             |                                                     | [v2.0](plots/deltaCP/v2.0-neutrino2020/)          | [v1.1](plots/mo/v1.1-neutrino2020/) | [v1.0](plots/future_nmo/v1.0-neutrino2020/) |
+| Note                      | $`\sin^2 \theta_{23}`$                              | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$                | NMO                                 | MO sens.                                    |
+| -------------             | ------:                                             | ------:                                           |                                                                  | ------:                             | ------:                                     |
+| Neutrino 2022 in progress | [v3](samples/theta23/theta23-v3-neutrino2022/plots) |                                                   |                                                                  |                                     |                                             |
+| Future projection         |                                                     |                                                   | [v1](samples/deltaCP_res_future/deltaCP_res-v1.0-for-ufn/plots/) |                                     |                                             |
+| Neutrino 2020             |                                                     | [v2.0](plots/deltaCP/v2.0-neutrino2020/)          |                                                                  | [v1.1](plots/mo/v1.1-neutrino2020/) | [v1.0](plots/future_nmo/v1.0-neutrino2020/) |
 
 <!-- All these plots may be downloaded as a single file [nuosc_comparison_2021-02-26.zip](archives/nuosc_comparison_2021-02-26.zip). -->
 <!-- Previous archives are located in [archives/](archives/). -->
