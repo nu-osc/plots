@@ -1,7 +1,7 @@
 variable = dm32
 version_num = 7
-suffix   = dayabay
-beta=b
+suffix = dayabay
+beta=
 version_prev = 6.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
