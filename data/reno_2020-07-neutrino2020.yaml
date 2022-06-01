@@ -35,8 +35,10 @@
   target: nH
   dataset: 1500 days
   reference:
-      arxiv:
-      citation:
+      arxiv: hep-ex/1911.04601
+      inspire: https://inspirehep.net/literature/1764340
+      doi: https://doi.org/10.1007/JHEP04(2020)029
+      citation: RENO:2019otc
       conf: Neutrino2020
       talk: https://indico.fnal.gov/event/43209/contributions/187886/attachments/130339/158753/Neutrino2020YooRENO.pdf
       slides: 17
