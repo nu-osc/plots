@@ -13,3 +13,4 @@ dayabay       Daya_Bay        reactor      nH       {}             {}         {}
 reno          RENO            reactor      nH       {}             {}         {}                    3  0.086    0.012    0.012    0.0233238   {}                 Neutrino2022
 doublechooz   Double_CHOOZ    reactor      {}       {}             {}         {}                    3  0.102    0.012    0.012    0.0234094   {}                 Neutrino2020
 t2k           T2K             accelerator  {}       {}             {}         {}                    4  0.0952   0.008    0.0242   0.0321946   {}                 Neutrino2020
+nova          NOvA            accelerator  {}       {}             {}         {}                    3  0.085    0.016    0.02     0.036       {}                 Neutrino2022
