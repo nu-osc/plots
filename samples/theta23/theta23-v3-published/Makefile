@@ -1,6 +1,6 @@
 variable = theta23
 version_num = 3
-suffix   = neutrino2022
+suffix   = published
 beta=b
 version_prev = 2.0
 version_dash = $(subst .,-,${version_num})
