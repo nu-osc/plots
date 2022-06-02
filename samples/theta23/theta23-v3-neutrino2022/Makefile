@@ -12,7 +12,7 @@ version  = v${version_dash}${beta}
 
 publishdir = ../../../plots/$(variable)/${variable}-v${version_num}-${suffix}
 data_latest = $(shell realpath $(wildcard data_latest/*.yaml))
-# data_published = $(shell realpath $(wildcard data_published/*.yaml))
+data_published = $(shell realpath $(wildcard data_published/*.yaml))
 data = $(data_latest) $(data_published)
 
 #
@@ -23,10 +23,10 @@ names0 = \
 		NMO/latest/$(variable)_$(version)_NMO_latest_global \
 		NMO/latest/$(variable)_$(version)_NMO_latest_global_future \
 		NMO/latest/$(variable)_$(version)_NMO_latest_future \
-		# NMO/published/$(variable)_$(version)_NMO_published \
-		# NMO/published/$(variable)_$(version)_NMO_published_global \
-		# NMO/published/$(variable)_$(version)_NMO_published_global_future \
-		# NMO/published/$(variable)_$(version)_NMO_published_future \
+		NMO/published/$(variable)_$(version)_NMO_published \
+		NMO/published/$(variable)_$(version)_NMO_published_global \
+		NMO/published/$(variable)_$(version)_NMO_published_global_future \
+		NMO/published/$(variable)_$(version)_NMO_published_future 
 
 names = $(subst NMO,NO,$(names0)) $(subst NMO,IO,$(names0))
 
@@ -38,8 +38,7 @@ extensions = pdf png
 #
 tables0 = \
 		 plots/$(variable)_$(version)_NMO_latest.dat \
-		 # plots/$(variable)_$(version)_NMO_published.dat
-
+		 plots/$(variable)_$(version)_NMO_published.dat
 tables = $(subst NMO,NO,$(tables0)) $(subst NMO,IO,$(tables0))
 
 #
@@ -65,7 +64,7 @@ readme: plots/Readme.md
 plots/Readme.md: Readme.md Makefile | plots
 	cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
 
-$(targets_plots): $(variable).py reference.py style.py $(tables) | plots
+$(targets_plots): $(variable).py configuration.py $(tables) | plots
 	@
 	DIRNAME=$$(dirname $@)
 	test -d $$DIRNAME || mkdir -p $$DIRNAME

@@ -12,7 +12,7 @@ from argparse import ArgumentParser
 # mpl.use('pgf')
 
 import configuration as cfg
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('preferred', 'b'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 def main(args):
     if args.nmo=='auto':
         if 'NO' in args.output:
@@ -40,15 +40,18 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(13))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(14))
     if args.exclude:
         mask = [all(pattern not in res[source] for source in ('type', 'notes', 'measurement') for pattern in args.exclude) for res in result]
         result = result[mask]
     result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
     result = result[::-1]
-    nitems = len(result)-1
+    nitems = len(result)
     digits_decimal_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)
+
+    names_unique = np.unique(result['exp'])
+    nitems_unique = len(names_unique)
 
     logs10 = ceil_from_zero(np.log10(result['value']))
     digits_leading_max = int(max(1.0, *logs10))
@@ -62,14 +65,15 @@ def main(args):
     fracbottom = 2.4
     fractop    = 1.8
     fracax     = 1.
-    figheight  = (nitems+fractop+fracbottom+fracax)*singleheight
+    figheight  = (nitems_unique+fractop+fracbottom+fracax)*singleheight
     axtop      = 1.0-fractop*singleheight/figheight
     fig = plt.figure(figsize=(10,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
     ax.set_xlabel(cfg.variable)
-    ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5-1)
-    ax.set_xlim(cfg.lims)
+    ax.set_ylim(1.0-fracax*0.5, nitems_unique+fracax*0.5)
+    if cfg.lims:
+        ax.set_xlim(cfg.lims)
     if title:
         ax.set_title(title)
     ax.tick_params(axis='x', which='both', top=True)
@@ -93,9 +97,10 @@ def main(args):
     #
     exp_name = []
     latex_text = []
-    latex_lo_text = []
+    latex_left_text = []
+    latex_right_text = []
     for count, exp in enumerate(result):
-        id, name, _, note, measurement, dataset, _, oct, digits, value, left, right, _ = exp
+        id, name, _, note, measurement, dataset, _, oct, preferred, digits, value, left, right, _ = exp
         sigma = 0.5*(right+left)
 
         name = name.replace('_', ' ')
@@ -109,29 +114,35 @@ def main(args):
                 name = f'{name} {{\\relsize{{-1}}({dataset})}}'
 
         name = name.replace("'" , "")
-        if name in exp_name:
-            latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
-            latex_lo = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=False, percentage=False)
-            counter=exp_name.index(name)
-            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
-            latex_lo_text[counter] = latex_lo
-            if oct != 'LO':
-                plt.plot(value, counter+1, 'o', markerfacecolor=cfg.colors[id], markeredgecolor=cfg.colors[id])
-        else:
-            latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
+        latex      = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
+        latex_secondary = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=False, percentage=False)
+
+        if name not in exp_name:
             exp_name.append(name)
-            latex_text.append(latex)
-            counter=exp_name.index(name)
-            latex_lo_text.append('')
-            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
-            if oct != 'LO':
-                plt.plot(value, counter+1, 'o', markerfacecolor=cfg.colors[id], markeredgecolor=cfg.colors[id])
+            latex_text.append('')
+            latex_left_text.append('')
+            latex_right_text.append('')
+
+        counter=exp_name.index(name)
+
+        if preferred>0:
+            latex_text[counter]=latex
+        else:
+            if oct=='LO':
+                latex_left_text[counter] = latex_secondary
+            else:
+                latex_right_text[counter] = latex_secondary
+
+        plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
+        fcolor = preferred>0 and cfg.colors[id] or 'none'
+        plt.plot(value, counter+1, 'o', markerfacecolor=fcolor, markeredgecolor=cfg.colors[id])
 
     #
     # Setup ticks and labels
     #
     ticklabeloffset_right = 0.07
     ticklabeloffset_left = 0.04
+    ticklabeloffset_right2 = 0.04
 
     # Left: experiment cfg.names
     yticks = np.arange(1, len(exp_name)+1)
@@ -151,9 +162,21 @@ def main(args):
     triple_y.tick_params(axis='y', direction='in')
     triple_y.set_ylim(ax.get_ylim())
     triple_y.set_yticks(yticks+ticklabeloffset_left)
-    triple_y.set_yticklabels(latex_lo_text, ha='left', va='center_baseline')
+    triple_y.set_yticklabels(latex_left_text, ha='left', va='center_baseline')
     triple_y.tick_params(axis='y', which='both', left=False, right=False, direction='in',  labelleft=True,  labelright=False, pad=-4, labelcolor='grey', labelsize='small')
     for label in triple_y.get_yticklabels():
+        label.set_backgroundcolor('white')
+        bbox = label.get_bbox_patch()
+        bbox.set_alpha(0.8)
+
+    # Left: extra values
+    fourth_y =  ax.twinx()
+    fourth_y.tick_params(axis='y', direction='in')
+    fourth_y.set_ylim(ax.get_ylim())
+    fourth_y.set_yticks(yticks+ticklabeloffset_right2)
+    fourth_y.set_yticklabels(latex_right_text, ha='right', va='center_baseline')
+    fourth_y.tick_params(axis='y', which='both', left=False, right=False, direction='in',  labelleft=False,  labelright=True, pad=-4, labelcolor='grey', labelsize='small')
+    for label in fourth_y.get_yticklabels():
         label.set_backgroundcolor('white')
         bbox = label.get_bbox_patch()
         bbox.set_alpha(0.8)
@@ -164,7 +187,7 @@ def main(args):
     ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     if line_place > 0:
-        plt.axhline(nitems-line_place-0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
+        plt.axhline(nitems_unique-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
     if args.output:
         plt.savefig(args.output, dpi=300)
