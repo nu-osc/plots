@@ -147,9 +147,9 @@ def main(args):
         extra=''
         if ordering=='IO':
             ordering = 'NO'
-            extra=r'{\relsize{-2}{/IO}}'
+            extra=r'{\relsize{-3}{/IO}}'
         elif ordering=='NO':
-            extra=r'{\relsize{-2}{\textbackslash{}IO}}'
+            extra=r'{\relsize{-3}{\textbackslash{}IO}}'
 
         if measurement == 'estimation':
             name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}{ordering}}}{extra}'
