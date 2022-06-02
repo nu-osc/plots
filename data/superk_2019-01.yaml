@@ -7,7 +7,7 @@ reference:
     inspire: https://inspirehep.net/literature/1713073
     doi: https://doi.org/10.1093/ptep/ptz015
     citation: Super-Kamiokande:2019gzr
-    reference: table 11, page 33, constrained θ₁₃
+    reference: table 11, page 28 (PTEP), constrained θ₁₃
 result:
     splitting_large:
         precision: 2
@@ -23,6 +23,34 @@ result:
               uncertainty:
                   right: 0.14
                   left: 0.31
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: LO
+              value: 0.425
+              uncertainty:
+                  right: 0.046
+                  left:  0.037
+            - ordering: 'IO'
+              octant: LO
+              value: 0.425
+              uncertainty:
+                  right: 0.055
+                  left:  0.036
+            - ordering: 'NO'
+              octant: UO
+              value: 0.600
+              uncertainty:
+                  right: 0.013
+                  left:  0.030
+            - ordering: 'IO'
+              octant: UO
+              value: 0.588
+              uncertainty:
+                  right: 0.022
+                  left:  0.037
     amplitude13:
         precision: 4
         mode: single
