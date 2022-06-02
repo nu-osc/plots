@@ -29,24 +29,28 @@ result:
         results:
             - ordering: 'NO'
               octant: LO
+              preferred: yes
               value: 0.425
               uncertainty:
                   right: 0.046
                   left:  0.037
             - ordering: 'IO'
               octant: LO
+              preferred: yes
               value: 0.425
               uncertainty:
                   right: 0.055
                   left:  0.036
             - ordering: 'NO'
               octant: UO
+              preferred: no
               value: 0.600
               uncertainty:
                   right: 0.013
                   left:  0.030
             - ordering: 'IO'
               octant: UO
+              preferred: no
               value: 0.588
               uncertainty:
                   right: 0.022

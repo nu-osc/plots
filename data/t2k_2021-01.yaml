@@ -13,12 +13,19 @@ reference:
     reference: tables XIV, XV; page 44
 result:
     amplitude23:
-        precision: 2
+        precision: 3
         mode: single
-        value: 0.53
-        uncertainty:
-            left: 0.04
-            right: 0.03
+        results:
+          - ordering: 'NO'
+            value: 0.532
+            uncertainty:
+                right: 0.030
+                left:  0.037
+          - ordering: 'IO'
+            value: 0.532
+            uncertainty:
+                right: 0.029
+                left:  0.035
         note: with reactor constraints
     amplitude13:
         precision: 4
