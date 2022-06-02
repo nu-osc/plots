@@ -18,16 +18,16 @@
 
 ### Including global analyses and future experiments
 
-![sin²θ₂₃ NO](png/latest/NO/${variable}_v${version_dash}${beta}_NO_future.png)
+![sin²θ₂₃ NO](png/latest/NO/${variable}_v${version_dash}${beta}_NO_latest_global_future.png)
 
-![sin²θ₂₃ IO](png/latest/IO/${variable}_v${version_dash}${beta}_IO_future.png)
+![sin²θ₂₃ IO](png/latest/IO/${variable}_v${version_dash}${beta}_IO_latest_global_future.png)
 
 
 ### Experiments only
 
-![sin²θ₂₃ NO](png/latest/NO/${variable}_v${version_dash}${beta}_NO.png)
+![sin²θ₂₃ NO](png/latest/NO/${variable}_v${version_dash}${beta}_NO_latest.png)
 
-![sin²θ₂₃ IO](png/latest/IO/${variable}_v${version_dash}${beta}_IO.png)
+![sin²θ₂₃ IO](png/latest/IO/${variable}_v${version_dash}${beta}_IO_latest.png)
 
 ## References
 

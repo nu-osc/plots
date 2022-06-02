@@ -134,7 +134,7 @@ def main(args):
                 latex_right_text[counter] = latex_secondary
 
         plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
-        fcolor = preferred>0 and cfg.colors[id] or 'none'
+        fcolor = preferred>0 and cfg.colors[id] or 'white'
         plt.plot(value, counter+1, 'o', markerfacecolor=fcolor, markeredgecolor=cfg.colors[id])
 
     #
