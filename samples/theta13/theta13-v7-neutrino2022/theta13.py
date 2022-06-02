@@ -79,11 +79,11 @@ def main(args):
         ax.set_xlim(cfg.lims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    padleft = 110
-    # namewidth = '40mm'
-    namewidth = '42mm'
+    padleft = 105
+    namewidth = '41mm'
+    left = 0.20
     right = digits_decimal_max>4 and 0.76 or 0.78
-    plt.subplots_adjust(left=0.22, right=right, top=axtop, bottom=fracbottom*singleheight/figheight)
+    plt.subplots_adjust(left=left, right=right, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     #
     # Iterate data
@@ -147,11 +147,14 @@ def main(args):
         extra=''
         if ordering=='IO':
             ordering = 'NO'
-            extra=r'{/\relsize{-2}{IO}}'
+            extra=r'{\relsize{-2}{/IO}}'
+        elif ordering=='NO':
+            extra=r'{\relsize{-2}{\textbackslash{}IO}}'
+
         if measurement == 'estimation':
-            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}{ordering}{extra}}}'
+            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}{ordering}}}{extra}'
         else:
-            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}{ordering}{extra}}}'
+            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}{ordering}}}{extra}'
 
         latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         exp_name[count]  = name
@@ -168,6 +171,10 @@ def main(args):
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
     ax.tick_params(axis='y', direction='out', labelleft=True, labelright=False, pad=padleft)
+    for label in ax.get_yticklabels():
+        label.set_backgroundcolor('white')
+        bbox = label.get_bbox_patch()
+        bbox.set_alpha(0.7)
 
     # Right: values
     ax_right_right = ax.twinx()
