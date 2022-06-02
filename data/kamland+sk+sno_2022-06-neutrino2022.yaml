@@ -2,28 +2,28 @@ experiment: KamLAND+SK+SNO
 type: reactor+atmospheric+solar
 dataset:
 reference:
-    date: '2020.07'
+    date: '2022.06'
     arxiv:
     inspire:
     doi:
     citation:
-    conf: Neutrino 2020
-    talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
-    slides: 23
+    conf: Neutrino 2022
+    talk:
+    author: Yusuke Koshio
+    slides: 18
 result:
     splitting_small:
         precision: 2
-        value: 7.51
+        value: 7.49
         uncertainty:
-            left: 0.18
             right: 0.19
+            left:  0.17
     amplitude12:
         precision: 3
         mode: single
-        value: 0.306
+        value: 0.305
         uncertainty:
-            left: 0.012
             right: 0.013
+            left:  0.012
 crosschecks:
-    - Liudmila Kolupaeva
     - Maxim Gonchar
