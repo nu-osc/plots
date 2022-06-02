@@ -3,8 +3,6 @@
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
     * Add SuperK from Neutrino 2022
-    * Add latest JUNO estimation
-    * Add a version with published only results
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:
     * [published](${variable}_v${version_dash}${beta}_published.dat)

@@ -2,8 +2,7 @@
 
 - Version: **5b**
 - Updates since v4:
-    * Add latest JUNO estimation
-    * Add a version with published only results
+    * Add SuperK from Neutrino 2022
 - [Plotting scripts](samples/theta12/theta12-v5-neutrino2022)
 - Data tables:
     * [published](theta12_v5b_published.dat)
@@ -42,5 +41,5 @@
 | KamLAND            |                                                       |                                                                |          [hep-ex/1606.07538](data/kamland_2020-07-neutrino2020.yaml) |
 | NuFIT 5.1          |                                                       |                                                                |                       [NuFIT 5.1](data/theor_nufit_5_1_2021-10.yaml) |
 | SNO                |                                                       |                                                                |               [hep-ex/1109.0763](data/sno_2020-07-neutrino2020.yaml) |
-| SuperK+SNO         |         [hep-ex/1606.07538](data/sk+sno_2016-06.yaml) |         [Neutrino 2020](data/sk+sno_2020-07-neutrino2020.yaml) |                                                                      |
-| SuperK+SNO+KamLAND | [hep-ex/1606.07538](data/kamland+sk+sno_2016-06.yaml) | [Neutrino 2020](data/kamland+sk+sno_2020-07-neutrino2020.yaml) |                                                                      |
+| SuperK+SNO         |         [hep-ex/1606.07538](data/sk+sno_2016-06.yaml) |         [Neutrino 2022](data/sk+sno_2022-06-neutrino2022.yaml) |                                                                      |
+| SuperK+SNO+KamLAND | [hep-ex/1606.07538](data/kamland+sk+sno_2016-06.yaml) | [Neutrino 2022](data/kamland+sk+sno_2022-06-neutrino2022.yaml) |                                                                      |

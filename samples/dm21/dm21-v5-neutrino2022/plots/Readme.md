@@ -3,8 +3,6 @@
 - Version: **5b**
 - Updates since v4:
     * Add SuperK from Neutrino 2022
-    * Add latest JUNO estimation
-    * Add a version with published only results
 - [Plotting scripts](samples/dm21/dm21-v5-neutrino2022)
 - Data tables:
     * [published](dm21_v5b_published.dat)
