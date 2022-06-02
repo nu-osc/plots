@@ -11,8 +11,7 @@ from argparse import ArgumentParser
 
 # mpl.use('pgf')
 
-from style import colors, names, preamble, titles
-from reference import reference, variable, lims
+import configuration as cfg
 dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
 def main(args):
     if args.nmo=='auto':
@@ -35,8 +34,8 @@ def main(args):
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
     plt.rcParams['pgf.texsystem']='pdflatex'
-    plt.rcParams['pgf.preamble']+=preamble
-    plt.rcParams['text.latex.preamble']+=preamble
+    plt.rcParams['pgf.preamble']+=cfg.preamble
+    plt.rcParams['text.latex.preamble']+=cfg.preamble
 
     #
     # Load
@@ -47,7 +46,7 @@ def main(args):
         result = result[mask]
     result = np.sort(result, axis=- 1, kind=None, order=("measurement", "span"))
     result = result[::-1]
-    nitems = len(result)
+    nitems = len(result)-1
     digits_decimal_max = result['digits'].max()
     line_place = sum(item['measurement'] == 'estimation' for item in result)
 
@@ -55,7 +54,7 @@ def main(args):
     digits_leading_max = int(max(1.0, *logs10))
 
     ordering=args.nmo
-    title = titles.get(ordering)
+    title = cfg.titles.get(ordering)
     #
     # Figure
     #
@@ -68,15 +67,24 @@ def main(args):
     fig = plt.figure(figsize=(10,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
-    ax.set_xlabel(variable)
+    ax.set_xlabel(cfg.variable)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5-1)
-    ax.set_xlim(lims)
+    ax.set_xlim(cfg.lims)
     if title:
         ax.set_title(title)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
-    padleft=120
-    plt.subplots_adjust(left=0.18, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
+    if 'estimation' in args.exclude:
+        if 'theor' in args.exclude:
+            padleft=60
+            left=0.10
+        else:
+            padleft=86
+            left=0.14
+    else:
+        padleft=120
+        left=0.18
+    plt.subplots_adjust(left=left, right=0.82, top=axtop, bottom=fracbottom*singleheight/figheight)
 
     plt.axvline(0.5, ls='--', color='grey', alpha=0.5)
 
@@ -91,7 +99,7 @@ def main(args):
         sigma = 0.5*(right+left)
 
         name = name.replace('_', ' ')
-        name = names.get(name, name)
+        name = cfg.names.get(name, name)
         note = note.replace('_', ' ')
         dataset = dataset.replace('_', ' ')
         if measurement == 'estimation':
@@ -105,19 +113,19 @@ def main(args):
             latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
             latex_lo = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=False, percentage=False)
             counter=exp_name.index(name)
-            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
             latex_lo_text[counter] = latex_lo
             if oct != 'LO':
-                plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+                plt.plot(value, counter+1, 'o', markerfacecolor=cfg.colors[id], markeredgecolor=cfg.colors[id])
         else:
             latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max, addspaces=True, percentage=True)
             exp_name.append(name)
             latex_text.append(latex)
             counter=exp_name.index(name)
             latex_lo_text.append('')
-            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2)
+            plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
             if oct != 'LO':
-                plt.plot(value, counter+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
+                plt.plot(value, counter+1, 'o', markerfacecolor=cfg.colors[id], markeredgecolor=cfg.colors[id])
 
     #
     # Setup ticks and labels
@@ -125,7 +133,7 @@ def main(args):
     ticklabeloffset_right = 0.07
     ticklabeloffset_left = 0.04
 
-    # Left: experiment names
+    # Left: experiment cfg.names
     yticks = np.arange(1, len(exp_name)+1)
     ax.set_yticks(yticks)
     ax.set_yticklabels(exp_name, ha='left')
@@ -141,18 +149,19 @@ def main(args):
     # Left: extra values
     triple_y =  ax.twinx()
     triple_y.tick_params(axis='y', direction='in')
-    triple_y.set_ylim(0.5,7.5)
+    triple_y.set_ylim(ax.get_ylim())
     triple_y.set_yticks(yticks+ticklabeloffset_left)
     triple_y.set_yticklabels(latex_lo_text, ha='left', va='center_baseline')
-    labels = triple_y.get_yticklabels()
-    for label in labels:
-        label.set_bbox(dict(fc='white', ec='white'))
+    triple_y.tick_params(axis='y', which='both', left=False, right=False, direction='in',  labelleft=True,  labelright=False, pad=-4, labelcolor='grey', labelsize='small')
+    for label in triple_y.get_yticklabels():
+        label.set_backgroundcolor('white')
+        bbox = label.get_bbox_patch()
+        bbox.set_alpha(0.8)
 
     ax.tick_params(axis='y', which='both', left=False, right=False)
     ax_right_right.tick_params(axis='y', which='both', left=False, right=False, direction='out', labelleft=False, labelright=True,  pad=5)
-    triple_y.tick_params(axis='y', which='both', left=False, right=False, direction='in',  labelleft=True,  labelright=False, pad=-4, labelcolor='grey', labelsize='small')
 
-    ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     if line_place > 0:
         plt.axhline(nitems-line_place-0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
@@ -224,7 +233,7 @@ if __name__ == '__main__':
     parser.add_argument('--nmo', choices=('NO', 'IO', 'auto'), default='auto', help='ordering')
     parser.add_argument('-o', '--output', help='file to write')
     parser.add_argument('-s', '--show', action='store_true', help='show')
-    parser.add_argument('-e', '--exclude', nargs='+', help='types mask to exclude (tested with contains)')
+    parser.add_argument('-e', '--exclude', nargs='+', default=(), help='types mask to exclude (tested with contains)')
 
     main(parser.parse_args())
 
