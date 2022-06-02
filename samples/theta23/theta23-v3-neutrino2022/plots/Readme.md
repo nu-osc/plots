@@ -18,16 +18,16 @@
 
 ### Including global analyses and future experiments
 
-![sin²θ₂₃ NO](png/latest/NO/theta23_v3b_NO_future.png)
+![sin²θ₂₃ NO](png/latest/NO/theta23_v3b_NO_latest_global_future.png)
 
-![sin²θ₂₃ IO](png/latest/IO/theta23_v3b_IO_future.png)
+![sin²θ₂₃ IO](png/latest/IO/theta23_v3b_IO_latest_global_future.png)
 
 
 ### Experiments only
 
-![sin²θ₂₃ NO](png/latest/NO/theta23_v3b_NO.png)
+![sin²θ₂₃ NO](png/latest/NO/theta23_v3b_NO_latest.png)
 
-![sin²θ₂₃ IO](png/latest/IO/theta23_v3b_IO.png)
+![sin²θ₂₃ IO](png/latest/IO/theta23_v3b_IO_latest.png)
 
 ## References
 
