@@ -2,7 +2,7 @@
 
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
-    * Add ${suffix} experiments
+    * Add published results
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:
     * [NO table](${variable}_NO_v${version_dash}${beta}.dat)

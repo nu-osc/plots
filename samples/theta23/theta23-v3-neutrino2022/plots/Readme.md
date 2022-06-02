@@ -2,7 +2,7 @@
 
 - Version: **3b**
 - Updates since v2.0:
-    * Add neutrino2022 experiments
+    * Add published results
 - [Plotting scripts](samples/theta23/theta23-v3-neutrino2022)
 - Data tables:
     * [NO table](theta23_NO_v3b.dat)
