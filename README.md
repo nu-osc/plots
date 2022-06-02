@@ -4,9 +4,9 @@
 
 ### $`\sin^22\theta_{13}`$, $`|\Delta m^2_{32}|`$, $`\sin^2 \theta_{12}`$ and $`\Delta m^2_{21}`$
 
-| Note                      | $`\sin^22\theta_{13}`$                              | $`\|\Delta m^2_{32}\|`$                       | $`\sin^2 \theta_{12}`$                              | $`\Delta m^2_{21}`$                           |
-| -------------             | ------:                                             | ------:                                       | ------:                                             | ---:                                          |
-| Neutrino 2022 in progress | [v7](samples/theta13/theta13-v7-neutrino2022/plots) | [v8](samples/dm32/dm32-v8-neutrino2022/plots) | [v5](samples/theta12/theta12-v5-neutrino2022/plots) | [v5](samples/dm21/dm21-v5-neutrino2022/plots) |
+| Note                      | $`\sin^22\theta_{13}`$                              | $`\|\Delta m^2_{32}\|`$                       | $`\sin^2 \theta_{12}`$ | $`\Delta m^2_{21}`$ |
+| -------------             | ------:                                             | ------:                                       | ------:                | ---:                |
+| Neutrino 2022 in progress | [v7](samples/theta13/theta13-v7-neutrino2022/plots) | [v8](samples/dm32/dm32-v8-neutrino2022/plots) |                        |                     |
 
 ###  $`\sin^2 \theta_{23}`$, $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ and NMO
 
