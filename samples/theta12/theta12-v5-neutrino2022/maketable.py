@@ -1,22 +1,5 @@
 #!/usr/bin/env python
 
-"""Version v0.4.0
-
-Changes in 0.4.0:
-    + add Δm²₂₁
-
-Changes in 0.3.0:
-    + add sin²θ₁₂
-    + add sin²θ₂₃
-
-Changes in 0.2.0:
-    + add deltaCP
-
-Changes in 0.1.0:
-    + Choose variable from command line: -v
-    + Choose ordering with: --nmo
-"""
-
 context = dict()
 
 import yaml
@@ -47,7 +30,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'measurement', 'dataset', 'notes', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'measurement', 'dataset', 'notes', 'precision', 'value', 'left', 'right', 'span', 'preliminary', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -167,7 +150,12 @@ def collect_experiment(entry, target, var):
         before['notes'] = ''
 
     ref = entry.get('reference', {})
-    after = { 'arxiv': ref.get('arxiv', ''), 'conf': ref.get('conf')}
+    preliminary = ref.get('preliminary', not ref.get('arxiv'))
+    after = {
+        'arxiv': ref.get('arxiv', ''),
+        'conf': ref.get('conf'),
+        'preliminary': int(preliminary)
+    }
 
     for res in collect_result(var, entry):
         item = dict(before)
@@ -215,7 +203,7 @@ def collect_result(var, experiment):
         target['ordering']=res.get('ordering')
         target['octant']=res.get('octant')
         target['measurement']=experiment.get('measurement')
-        
+
         target['dataset']=experiment.get('dataset')
         if experiment.get('measurement') != 'estimation':
             target['dataset']=''

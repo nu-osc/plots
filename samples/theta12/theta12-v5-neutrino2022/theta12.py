@@ -10,7 +10,13 @@ import re
 from argparse import ArgumentParser
 
 import configuration as cfg
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('dataset', 'U20'), ('notes', 'U20'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([
+    ('id', 'U20'), ('exp', 'U20'), ('type', 'U50'),
+    ('measurement', 'U20'), ('dataset', 'U20'), ('notes', 'U20'),
+    ('digits', 'i1'),
+    ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'),
+    ('preliminary', 'bool')
+])
 
 def main(args):
     #
@@ -28,7 +34,7 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(11))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(12))
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
@@ -80,10 +86,12 @@ def main(args):
     exp_name = []
     latex_text = []
     values = []
+    haspreliminary = False
     for count, exp in enumerate(result):
-        id, name, _, measurement, dataset, notes, digits, value, left, right, _ = exp
+        id, name, _, measurement, dataset, notes, digits, value, left, right, _, preliminary = exp
         values.append(value)
         sigma = 0.5*(right+left)
+        haspreliminary|=preliminary
 
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
         marker='o'
@@ -96,10 +104,14 @@ def main(args):
 
         name = cfg.names.get(name, name)
 
+        font=''
+        if preliminary:
+            font=r'\slshape{}'
+
         if measurement == 'estimation':
-            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}}}'
+            name = f'\\makebox[{namewidth}]{{{{{font}{name}}} {{\\relsize{{-1}}({dataset}) {notes}}}'
         else:
-            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
+            name = f'\\makebox[{namewidth}]{{{{{font}{name}}} \\hfill{{}}{notes}}}'
 
         exp_name.append(name)
 
@@ -149,6 +161,12 @@ def main(args):
 
     if line_place > 0:
         plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
+
+    legend = r'\noindent'
+    if haspreliminary:
+        legend += r'{\slshape{}Preliminary}'
+    legend += r'\\Published'
+    ax.text(0.03, 0.05, legend, alpha=0.3, transform=fig.dpi_scale_trans, ha='left', va='bottom', fontsize='x-small')
 
     if args.output:
         plt.savefig(args.output, dpi=300)
