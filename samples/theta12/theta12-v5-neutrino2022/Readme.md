@@ -3,6 +3,7 @@
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
     * Add SuperK from Neutrino 2022
+    * Remove HK result from published
     * Distinguish published and preliminary results
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:

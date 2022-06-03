@@ -3,6 +3,7 @@
 - Version: **5b**
 - Updates since v4:
     * Add SuperK from Neutrino 2022
+    * Remove HK result from published
     * Distinguish published and preliminary results
 - [Plotting scripts](samples/dm21/dm21-v5-neutrino2022)
 - Data tables:
