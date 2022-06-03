@@ -7,6 +7,7 @@
         + RENO nH
         + NOvA bayessian
     * Add previously publisehd RENO nH result
+    * Distinguish published and preliminary results
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:
     * [published](${variable}_v${version_dash}${beta}_published.dat)

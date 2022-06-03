@@ -7,6 +7,7 @@
         + RENO nH
         + NOvA bayessian
     * Add previously publisehd RENO nH result
+    * Distinguish published and preliminary results
 - [Plotting scripts](samples/theta13/theta13-v7-neutrino2022)
 - Data tables:
     * [published](theta13_v7b_published.dat)

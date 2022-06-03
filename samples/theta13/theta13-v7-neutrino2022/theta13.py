@@ -10,7 +10,14 @@ import re
 from argparse import ArgumentParser
 
 import configuration as cfg
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U20'), ('measurement', 'U20'), ('dataset', 'U20'), ('ordering', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([
+    ('id', 'U20'), ('exp', 'U20'), ('type', 'U50'),
+    ('notes', 'U20'), ('measurement', 'U20'), ('dataset', 'U20'),
+    ('ordering', 'U2'),
+    ('digits', 'i1'),
+    ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'),
+    ('preliminary', 'bool')
+])
 
 def main(args):
     #
@@ -34,7 +41,7 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(12))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(13))
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
@@ -93,10 +100,12 @@ def main(args):
     duplicates = {}
     occurances = {}
     offset=0
+    haspreliminary = False
     for i, exp in enumerate(result):
-        id, name, typ, notes, measurement, dataset, ordering, digits, value, left, right, _ = exp
+        id, name, typ, notes, measurement, dataset, ordering, digits, value, left, right, _, preliminary = exp
         count=i-offset
         sigma = 0.5*(right+left)
+        haspreliminary|=preliminary
 
         uname = name+notes
         try:
@@ -151,10 +160,14 @@ def main(args):
         elif ordering=='NO':
             extra=r'{\relsize{-3}{\textbackslash{}IO}}'
 
+        font=''
+        if preliminary:
+            font=r'\slshape{}'
+
         if measurement == 'estimation':
-            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}{ordering}}}{extra}'
+            name = f'\\makebox[{namewidth}]{{{{{font}{name}}} {{\\relsize{{-1}}({dataset}) {notes}{ordering}}}{extra}'
         else:
-            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}{ordering}}}{extra}'
+            name = f'\\makebox[{namewidth}]{{{{{font}{name}}} \\hfill{{}}{notes}{ordering}}}{extra}'
 
         latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         exp_name[count]  = name
@@ -187,8 +200,14 @@ def main(args):
     if not args.dayabay:
         ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
+    legend = r'\noindent'
+    if haspreliminary:
+        legend += r'{\slshape{}Preliminary}'
+    legend += r'\\Published'
+    ax.text(0.03, 0.05, legend, alpha=0.3, transform=fig.dpi_scale_trans, ha='left', va='bottom', fontsize='x-small')
+
     if line_place > 0:
-        plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
+        plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.7)
 
     if args.output:
         plt.savefig(args.output, dpi=300)
