@@ -6,6 +6,7 @@
     * Add latest JUNO estimation
     * Add a version with published only results
     * DUNE and ORCA: add distinct IO values
+    * Distinguish published and preliminary results
 - [Plotting scripts](samples/dm32/dm32-v8-neutrino2022)
 - Data tables:
     * [NO published](dm32_v8b_NO_published.dat)
