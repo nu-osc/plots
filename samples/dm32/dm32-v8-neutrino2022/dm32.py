@@ -9,17 +9,22 @@ import itertools as it
 import re
 from argparse import ArgumentParser
 
-from style import colors, names, preamble, dayabay, titles
-from reference import reference, variable, lims
-
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('measurement', 'U20'), ('dataset', 'U20'), ('notes', 'U20'), ('ordering', 'U2'), ('octant', 'U2'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+import configuration as cfg
+dtype1 = np.dtype([
+    ('id', 'U20'), ('exp', 'U20'),
+    ('type', 'U50'), ('measurement', 'U20'), ('dataset', 'U20'), ('notes', 'U20'),
+    ('ordering', 'U2'), ('octant', 'U2'),
+    ('digits', 'i1'),
+    ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'),
+    ('preliminary', 'bool')
+])
 
 def main(args):
     #
     # Extra style
     #
     if args.dayabay:
-        dayabay()
+        cfg.dayabay()
 
     #
     # RC params
@@ -31,12 +36,12 @@ def main(args):
     plt.rcParams.update({'legend.fontsize': 18})
     plt.rcParams['axes.spines.left'] = False
     plt.rcParams['axes.spines.right'] = False
-    plt.rcParams['text.latex.preamble']+=preamble
+    plt.rcParams['text.latex.preamble']+=cfg.preamble
 
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(13))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(14))
     if args.exclude:
         mask = [all(pattern not in res['type'] and pattern not in res['measurement'] for pattern in args.exclude) for res in result]
         result = result[mask]
@@ -50,7 +55,7 @@ def main(args):
     digits_leading_max = int(max(1.0, *logs10))
 
     ordering = result[0]['ordering']
-    title = titles.get(ordering)
+    title = cfg.titles.get(ordering)
 
     #
     # Figure
@@ -64,11 +69,11 @@ def main(args):
     fig = plt.figure(figsize=(9,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
-    ax.set_xlabel(variable)
+    ax.set_xlabel(cfg.variable)
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
     if title:
         ax.set_title(title)
-    if xlims:=lims.get(ordering):
+    if xlims:=cfg.lims.get(ordering):
         ax.set_xlim(xlims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
@@ -82,20 +87,22 @@ def main(args):
     #
     exp_name = []
     latex_text = []
+    haspreliminary = False
     for count, exp in enumerate(result):
-        id, name, typ, measurement, dataset, notes, ordering, _, digits, value, left, right, _ = exp
+        id, name, typ, measurement, dataset, notes, ordering, _, digits, value, left, right, _, preliminary = exp
 
         sigma = 0.5*(right+left)
+        haspreliminary|=preliminary
 
         kwargs=dict()
         if args.dayabay and 'Daya_Bay' in name:
             kwargs['elinewidth'] = 2.0
-        plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2, **kwargs)
+        plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2, **kwargs)
 
         marker='o'
         if sigma/value<0.01:
             marker='|'
-        plt.plot(value, count+1, marker, markerfacecolor=colors[id], markeredgecolor=colors[id])
+        plt.plot(value, count+1, marker, markerfacecolor=cfg.colors[id], markeredgecolor=cfg.colors[id])
 
         name = name.replace('_', ' ')
         notes = notes.replace('_', ' ')
@@ -105,12 +112,16 @@ def main(args):
         if args.dayabay:
             name = name.replace('Daya Bay', r'\textbf{Daya Bay}')
 
-        name = names.get(name, name)
+        name = cfg.names.get(name, name)
+
+        font=''
+        if preliminary:
+            font=r'\slshape{}'
 
         if measurement == 'estimation':
-            name = f'\\makebox[{namewidth}]{{{name} {{\\relsize{{-1}}({dataset}) {notes}}}'
+            name = f'\\makebox[{namewidth}]{{{{{font}{name}}} {{\\relsize{{-1}}({dataset}) {notes}}}'
         else:
-            name = f'\\makebox[{namewidth}]{{{name} \\hfill{{}}{notes}}}'
+            name = f'\\makebox[{namewidth}]{{{{{font}{name}}} \\hfill{{}}{notes}}}'
 
         exp_name.append(name)
 
@@ -135,7 +146,13 @@ def main(args):
     ax_right_right.set_yticklabels(latex_text, ha='left')
 
     if not args.dayabay:
-        ax.text(1.0, 0.5, reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+        ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+
+    legend = r'\noindent'
+    if haspreliminary:
+        legend += r'{\slshape{}Preliminary}'
+    legend += r'\\Published'
+    ax.text(0.03, 0.05, legend, alpha=0.3, transform=fig.dpi_scale_trans, ha='left', va='bottom', fontsize='x-small')
 
     if line_place > 0:
         plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)

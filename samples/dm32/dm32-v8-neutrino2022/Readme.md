@@ -6,6 +6,7 @@
     * Add latest JUNO estimation
     * Add a version with published only results
     * DUNE and ORCA: add distinct IO values
+    * Distinguish published and preliminary results
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:
     * [NO published](${variable}_v${version_dash}${beta}_NO_published.dat)
