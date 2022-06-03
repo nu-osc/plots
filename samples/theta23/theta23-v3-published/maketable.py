@@ -1,15 +1,5 @@
 #!/usr/bin/env python
 
-"""Version v0.2.0 (deltaCP):
-
-Changes in 0.2.0:
-    + add deltaCP
-
-Changes in 0.1.0:
-    + Choose variable from command line: -v
-    + Choose ordering with: --nmo
-"""
-
 context = dict(#PDG 2020 values
         dmSq21 = 7.53e-5,
         sinSqTheta12 = 0.307
@@ -43,7 +33,7 @@ def main(args):
     data = postprocess(data, var)
     data = list(map(filter_data, data))
 
-    header = [ 'style', 'name', 'type', 'note', 'measurement', 'dataset', 'ordering', 'octant', 'preferred', 'precision', 'value', 'left', 'right', 'span', 'arxiv', 'conf' ]
+    header = [ 'style', 'name', 'type', 'note', 'measurement', 'dataset', 'ordering', 'octant', 'preferred', 'precision', 'value', 'left', 'right', 'span', 'preliminary', 'arxiv', 'conf' ]
     data = select_columns(data, header)
     result = tabulate(data, header, tablefmt='plain')
 
@@ -163,7 +153,12 @@ def collect_experiment(entry, target, var):
         before['notes'] = ''
 
     ref = entry.get('reference', {})
-    after = { 'arxiv': ref.get('arxiv', ''), 'conf': ref.get('conf')}
+    preliminary = ref.get('preliminary', not ref.get('arxiv'))
+    after = {
+        'arxiv': ref.get('arxiv', ''),
+        'conf': ref.get('conf'),
+        'preliminary': int(preliminary)
+    }
 
     for res in collect_result(var, entry):
         item = dict(before)

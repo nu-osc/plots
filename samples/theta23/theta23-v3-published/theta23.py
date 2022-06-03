@@ -12,7 +12,14 @@ from argparse import ArgumentParser
 # mpl.use('pgf')
 
 import configuration as cfg
-dtype1 = np.dtype([('id', 'U20'), ('exp', 'U20'), ('type', 'U50'), ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'), ('ordering', 'U4'), ('oct', 'U20'), ('preferred', 'b'), ('digits', 'i1'), ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8')])
+dtype1 = np.dtype([
+    ('id', 'U20'), ('exp', 'U20'), ('type', 'U50'),
+    ('notes', 'U30'), ('measurement', 'U20'), ('dataset', 'U40'),
+    ('ordering', 'U4'), ('oct', 'U20'), ('preferred', 'bool'),
+    ('digits', 'i1'),
+    ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'),
+    ('preliminary', 'bool')
+])
 def main(args):
     if args.nmo=='auto':
         if 'NO' in args.output:
@@ -40,7 +47,7 @@ def main(args):
     #
     # Load
     #
-    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(14))
+    result = np.loadtxt(args.input, dtype=dtype1, skiprows=1, usecols=range(15))
     if args.exclude:
         mask = [all(pattern not in res[source] for source in ('type', 'notes', 'measurement') for pattern in args.exclude) for res in result]
         result = result[mask]
@@ -99,13 +106,21 @@ def main(args):
     latex_text = []
     latex_left_text = []
     latex_right_text = []
+    haspreliminary = False
     for count, exp in enumerate(result):
-        id, name, _, note, measurement, dataset, _, oct, preferred, digits, value, left, right, _ = exp
+        id, name, _, note, measurement, dataset, _, oct, preferred, digits, value, left, right, _, preliminary = exp
         sigma = 0.5*(right+left)
+        haspreliminary|=preliminary
 
         name = name.replace('_', ' ')
         name = cfg.names.get(name, name)
         note = note.replace('_', ' ')
+
+        font=''
+        if preliminary:
+            font=r'\slshape{}'
+        name = f'{{{font}{name}}}'
+
         dataset = dataset.replace('_', ' ')
         if measurement == 'estimation':
             if note and note!='{}':
@@ -125,7 +140,7 @@ def main(args):
 
         counter=exp_name.index(name)
 
-        if preferred>0:
+        if preferred:
             latex_text[counter]=latex
         else:
             if oct=='LO':
@@ -134,7 +149,7 @@ def main(args):
                 latex_right_text[counter] = latex_secondary
 
         plt.errorbar(value, counter+1, xerr=np.array([[left, right]]).T, color=cfg.colors[id], capsize = 2)
-        fcolor = preferred>0 and cfg.colors[id] or 'white'
+        fcolor = preferred and cfg.colors[id] or 'white'
         plt.plot(value, counter+1, 'o', markerfacecolor=fcolor, markeredgecolor=cfg.colors[id])
 
     #
@@ -185,6 +200,11 @@ def main(args):
     ax_right_right.tick_params(axis='y', which='both', left=False, right=False, direction='out', labelleft=False, labelright=True,  pad=5)
 
     ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    legend = r'\noindent'
+    if haspreliminary:
+        legend += r'{\slshape{}Preliminary}'
+    legend += r'\\Published'
+    ax.text(0.03, 0.05, legend, alpha=0.3, transform=fig.dpi_scale_trans, ha='left', va='bottom', fontsize='x-small')
 
     if line_place > 0:
         plt.axhline(nitems_unique-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)

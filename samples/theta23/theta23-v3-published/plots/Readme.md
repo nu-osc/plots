@@ -1,13 +1,13 @@
 # $`\sin^2 \theta_{23}`$ measurements comparison
 
-- Version: **${version_num}${beta}**
-- Updates since v${version_prev}:
+- Version: **3b**
+- Updates since v2.0:
     * Add published results
     * Distinguish published and preliminary results
-- [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
+- [Plotting scripts](samples/theta23/theta23-v3-published)
 - Data tables:
-    * [NO table](${variable}_NO_v${version_dash}${beta}.dat)
-    * [IO table](${variable}_IO_v${version_dash}${beta}.dat)
+    * [NO table](theta23_NO_v3b.dat)
+    * [IO table](theta23_IO_v3b.dat)
 - Notes:
     * [T2K](data/t2k_2020-07-neutrino2020.yaml): Bayessian posterior, no particular ordering may be attributed to the number
     * [IceCube](data/icecube_2020-07-neutrino2020.yaml): NO uncertainty is used for the IO result
@@ -19,16 +19,16 @@
 
 ### Including global analyses and future experiments
 
-![sin²θ₂₃ NO](png/NO/latest/${variable}_v${version_dash}${beta}_NO_latest_global_future.png)
+![sin²θ₂₃ NO](png/NO/latest/theta23_v3b_NO_latest_global_future.png)
 
-![sin²θ₂₃ IO](png/IO/latest/${variable}_v${version_dash}${beta}_IO_latest_global_future.png)
+![sin²θ₂₃ IO](png/IO/latest/theta23_v3b_IO_latest_global_future.png)
 
 
 ### Experiments only
 
-![sin²θ₂₃ NO](png/NO/latest/${variable}_v${version_dash}${beta}_NO_latest.png)
+![sin²θ₂₃ NO](png/NO/latest/theta23_v3b_NO_latest.png)
 
-![sin²θ₂₃ IO](png/IO/latest/${variable}_v${version_dash}${beta}_IO_latest.png)
+![sin²θ₂₃ IO](png/IO/latest/theta23_v3b_IO_latest.png)
 
 ## References
 
