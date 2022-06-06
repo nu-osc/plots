@@ -8,5 +8,5 @@ foreroetal.      Forero_et_al.     theory                     {}             {} 
 dune             DUNE              solar                      estimation     2.5_years  {}                 2     4.85   0.29     0.29   0.5723                0  hep-ph/1808.08232  {}
 hyperkamiokande  Hyper-Kamiokande  solar                      estimation     20_years   {}                 2     4.85   0.45     0.36   0.81                  1  {}                 {}
 superksno        SuperK+SNO        solar                      {}             {}         {}                 2     6.1    0.75     1.04   1.79                  1  {}                 Neutrino_2022
-junosolar        JUNO_solar        solar                      estimation     10_years   {}                 1     7.5    1.2      1.6    2.8                   0  hep-ex/2006.11760  {}
+junosolar        JUNO_solar        solar                      estimation     10_years   {}                 1     7.5    1.3      2      3.3                   1  {}                 Neutrino_2022
 sno              SNO               solar                      {}             {}         {}                 2     5.6    1.4      1.9    3.3                   0  hep-ex/1109.0763   {}
