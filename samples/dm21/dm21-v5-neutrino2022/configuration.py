@@ -24,11 +24,12 @@ colors = {
         'hyperkamiokande': 'xkcd:saffron',
         'dune':            'xkcd:saffron',
         'capozzietal.':    'xkcd:steel grey'
-        }
+    }
 
 names = {
         'Super-Kamiokande': 'SuperK+SNO',
-        'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled} + SNO(NC)',
+        # 'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled} + SNO(NC)',
+        'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled}',
         'JUNO reactor': r'JUNO \Radioactivity{}',
         'Hyper-Kamiokande': 'HyperK+SNO+SK',
         }
