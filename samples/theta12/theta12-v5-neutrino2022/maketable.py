@@ -145,7 +145,7 @@ def collect_experiment(entry, target, var):
     before = { 'name': entry['experiment'], 'type': entry.get('type', '') }
 
     if entry.get('type')=='reactor':
-        before['notes'] = entry.get('target','')
+        before['notes'] = entry.get('target', '')
     else:
         before['notes'] = ''
 
@@ -232,8 +232,20 @@ def get_uncertainty(val, unc):
         relsigma = unc['percent']*0.01
     except KeyError:
         pass
+    except TypeError:
+        pass
     else:
         return val*(1-relsigma), val*(1+relsigma)
+
+    # Asymmetric, relative, percent
+    try:
+        percleft, percright = unc['percent']['left'], unc['percent']['right']
+    except KeyError:
+        pass
+    else:
+        left  = val*percleft*0.01
+        right = val*percright*0.01
+        return val-left, val+right
 
     # Asymmetric, absolute
     try:
