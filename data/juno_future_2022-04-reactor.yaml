@@ -22,7 +22,7 @@ result:
             uncertainty: 0.0047
         note: central values are taken from table 1 on the page 6
     splitting_small:
-        precision: 4
+        precision: 3
         value: 7.53
         uncertainty: 0.024
     amplitude12:
