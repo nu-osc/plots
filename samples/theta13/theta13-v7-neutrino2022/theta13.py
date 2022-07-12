@@ -145,6 +145,9 @@ def main(args):
 
         if ordering=='IO':
             elines[-1][0].set_linestyle('dashed')
+        else:
+            latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
+            latex_text[count]=latex
 
         if duplicate:
             continue
@@ -169,9 +172,9 @@ def main(args):
         else:
             name = f'\\makebox[{namewidth}]{{{{{font}{name}}} \\hfill{{}}{notes}{ordering}}}{extra}'
 
-        latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         exp_name[count]  = name
-        latex_text[count]=latex
+        # latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
+        # latex_text[count]=latex
 
     exp_name = list(e for e in exp_name if e!='')
     latex_text = list(e for e in latex_text if e!='')
