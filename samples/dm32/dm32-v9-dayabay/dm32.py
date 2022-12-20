@@ -69,11 +69,11 @@ def main(args):
     fig = plt.figure(figsize=(9,figheight))
     ax = fig.add_subplot(111)
     ax.minorticks_on()
-    ax.set_xlabel(cfg.variable)
+    ax.set_xlabel(cfg.axis_label[args.variable])
     ax.set_ylim(1.0-fracax*0.5, nitems+fracax*0.5)
     if title:
         ax.set_title(title)
-    if xlims:=cfg.lims.get(ordering):
+    if xlims:=cfg.lims[args.variable].get(ordering):
         ax.set_xlim(xlims)
     ax.tick_params(axis='x', which='both', top=True)
     ax.xaxis.grid(True)
@@ -217,6 +217,7 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--show', action='store_true', help='show')
     parser.add_argument('-e', '--exclude', nargs='+', help='types mask to exclude (tested with contains)')
     parser.add_argument('--dayabay', action='store_true', help='style for Daya Bay')
+    parser.add_argument('-v', '--variable', choices=('dm32', 'dm31'), default='dm32', help='variable to plot')
 
     main(parser.parse_args())
 

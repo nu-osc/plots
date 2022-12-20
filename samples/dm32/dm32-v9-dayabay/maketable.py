@@ -5,6 +5,11 @@ context = dict(#PDG 2020 values
     sinSqTheta12 = 0.307
 )
 
+fields = dict(
+        dm31 = 'splitting_large',
+        dm32 = 'splitting_large',
+        )
+
 import yaml
 from tabulate import tabulate
 import numpy as np
@@ -107,7 +112,8 @@ def postprocess_splitting_small(entry):
 postprocessors=dict(
         amplitude12     = postprocess_amplitude12,
         amplitude13     = postprocess_amplitude13,
-        splitting_large = postprocess_splitting_large,
+        dm32            = postprocess_splitting_large,
+        dm31            = postprocess_splitting_large,
         deltaCP         = postprocess_deltaCP,
         amplitude23     = postprocess_amplitude23,
         splitting_small = postprocess_splitting_small
@@ -169,7 +175,8 @@ def collect_experiment(entry, target, var):
         target.append(item)
 
 def collect_result(var, experiment):
-    parameter = experiment.get('result', {}).get(var, {})
+    field_to_read = fields.get(var, var)
+    parameter = experiment.get('result', {}).get(field_to_read, {})
     if not parameter:
         return
 
@@ -280,7 +287,7 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'theta13', 'dm32', 'dm31', 'deltaCP', 'theta23', 'theta12', 'splitting_small' ]
+    variables = [ 'theta13', 'dm31', 'dm32', 'deltaCP', 'theta23', 'theta12', 'splitting_small' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')
