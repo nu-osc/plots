@@ -6,7 +6,7 @@
 
 | Note          | $`\sin^22\theta_{13}`$                              | $`\|\Delta m^2_{31/32}\|`$                    | $`\sin^2 \theta_{12}`$                              | $`\Delta m^2_{21}`$                           |
 | ------------- | ------:                                             | ------:                                       | ------:                                             | ---:                                          |
-| Daya Bay      |                                                     | [v9](samples/dm32/dm32-v9-dayabay/plots)      |                                                     |                                               |  |
+| Daya Bay      | [v8](samples/theta13/theta13-v8-dayabay/plots)      | [v9](samples/dm32/dm32-v9-dayabay/plots)      |                                                     |                                               |  |
 | Neutrino 2022 | [v7](samples/theta13/theta13-v7-neutrino2022/plots) | [v8](samples/dm32/dm32-v8-neutrino2022/plots) | [v5](samples/theta12/theta12-v5-neutrino2022/plots) | [v5](samples/dm21/dm21-v5-neutrino2022/plots) |
 
 ###  $`\sin^2 \theta_{23}`$, $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ and NMO

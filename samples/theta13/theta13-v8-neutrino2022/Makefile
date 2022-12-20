@@ -1,8 +1,8 @@
 variable = theta13
-version_num = 7
+version_num = 8
 suffix   = neutrino2022
 beta=b
-version_prev = 6
+version_prev = 7
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
@@ -25,13 +25,7 @@ names = \
 		published/$(variable)_$(version)_published \
 	    published/$(variable)_$(version)_published_global \
 	    published/$(variable)_$(version)_published_global_future \
-	    published/$(variable)_$(version)_published_future \
-	 #    latest/$(variable)_$(version)_latest_dayabay \
-	 #    latest/$(variable)_$(version)_latest_future_dayabay \
-	 #    latest/$(variable)_$(version)_latest_global_future_dayabay \
-		# published/$(variable)_$(version)_published_dayabay \
-	 #    published/$(variable)_$(version)_published_global_future_dayabay \
-	 #    published/$(variable)_$(version)_published_future_dayabay
+	    published/$(variable)_$(version)_published_future
 
 # Extensions
 extensions = pdf png

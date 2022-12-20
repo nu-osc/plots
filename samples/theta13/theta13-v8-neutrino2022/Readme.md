@@ -28,7 +28,7 @@
 |----------------|---------------------------------------------------------------------:|---------------------------------------------------------:|
 | Capozzi et al. |                 [hep-ph/2107.00532](data/theor_capozzi_2021-07.yaml) |                                                          |
 | DUNE           |                  [hep-ex/2006.16043](data/dune_future_2020_acc.yaml) |                                                          |
-| Daya Bay nGd   |          [hep-ex/1809.02261](data/dayabay_2018-06-neutrino2018.yaml) |  [Neutrino 2022](data/dayabay_2022-06-neutrino2022.yaml) |
+| Daya Bay nGd   |          [hep-ex/1809.02261](data/dayabay_2018-06-neutrino2018.yaml) |       [hep-ex/2211.14988](data/dayabay_2022-11-nGd.yaml) |
 | Daya Bay nH    |          [hep-ex/1603.03549](data/dayabay_2016-07-neutrino2016.yaml) |                                                          |
 | Double CHOOZ   |                        [hep-ex/1901.09445](data/dchooz_2019-01.yaml) |   [Neutrino 2020](data/dchooz_2020-07-neutrino2020.yaml) |
 | Forero et al.  | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                          |
