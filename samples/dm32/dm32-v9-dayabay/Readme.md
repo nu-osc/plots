@@ -1,4 +1,4 @@
-# $`|\Delta m^2_{31}|`$/$`|\Delta m^2_{32}|`$ measurements comparison
+# $`|\Delta m^2_{31/32}|`$ measurements comparison
 
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
@@ -8,11 +8,6 @@
     * DUNE and ORCA: add distinct IO values
     * Distinguish published and preliminary results
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
-- Data tables:
-    * [NO published](${variable}_v${version_dash}${beta}_NO_published.dat)
-    * [IO published](${variable}_v${version_dash}${beta}_IO_published.dat)
-    * [NO latest](${variable}_v${version_dash}${beta}_NO_latest.dat)
-    * [IO latest](${variable}_v${version_dash}${beta}_IO_latest.dat)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
@@ -31,9 +26,11 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
+[TOC]
+
 ## Latest results
 
-### $`|\Delta m^2_{32}|`$
+### |Δm²₃₂|
 
 #### Including global analyses and future experiments
 
@@ -53,7 +50,7 @@
 
 ![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v${version_dash}${beta}_IO_latest.png)
 
-### $`|\Delta m^2_{31}|`$
+### |Δm²₃₁|
 
 #### Including global analyses and future experiments
 

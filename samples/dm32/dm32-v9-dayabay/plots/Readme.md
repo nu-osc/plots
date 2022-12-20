@@ -1,4 +1,4 @@
-# $`|\Delta m^2_{31}|`$/$`|\Delta m^2_{32}|`$ measurements comparison
+# $`|\Delta m^2_{31/32}|`$ measurements comparison
 
 - Version: **9b**
 - Updates since v8:
@@ -8,11 +8,6 @@
     * DUNE and ORCA: add distinct IO values
     * Distinguish published and preliminary results
 - [Plotting scripts](samples/dm32/dm32-v9-dayabay)
-- Data tables:
-    * [NO published](dm32_v9b_NO_published.dat)
-    * [IO published](dm32_v9b_IO_published.dat)
-    * [NO latest](dm32_v9b_NO_latest.dat)
-    * [IO latest](dm32_v9b_IO_latest.dat)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
@@ -31,47 +26,49 @@
 - Notes:
     * Forero et al. is pre-Neutrino fit
 
+[TOC]
+
 ## Latest results
 
-### $`|\Delta m^2_{32}|`$
+### |Δm²₃₂|
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32_v9b_NO_latest_global_future.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v9b_NO_latest_global_future.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32_v9b_IO_latest_global_future.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v9b_IO_latest_global_future.png)
 
 #### Including global analyses
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32_v9b_NO_latest_global.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v9b_NO_latest_global.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32_v9b_IO_latest_global.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v9b_IO_latest_global.png)
 
 #### Experiments only
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32_v9b_NO_latest.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v9b_NO_latest.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32_v9b_IO_latest.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v9b_IO_latest.png)
 
-### $`|\Delta m^2_{31}|`$
+### |Δm²₃₁|
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31_v9b_NO_latest_global_future.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v9b_NO_latest_global_future.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31_v9b_IO_latest_global_future.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v9b_IO_latest_global_future.png)
 
 #### Including global analyses
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31_v9b_NO_latest_global.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v9b_NO_latest_global.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31_v9b_IO_latest_global.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v9b_IO_latest_global.png)
 
 #### Experiments only
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31_v9b_NO_latest.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v9b_NO_latest.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31_v9b_IO_latest.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v9b_IO_latest.png)
 
 ## References
 
