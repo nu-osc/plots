@@ -27,6 +27,7 @@ colors = {
     'reno':            colors['reactor'],
     'dayabay':         colors['reactor'],
     'doublechooz':     colors['reactor'],
+    'superchooz':      colors['reactor'],
     'dchooz':          colors['reactor'],
     'kamlandsksno':    colors['reacsolar'],
     'nova':            colors['acc'],

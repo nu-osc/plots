@@ -92,6 +92,7 @@ $(tables): maketable.py pylib/*.py $(data) | plots
 		*/dm32_*)     VAR=dm32                   ;;&
 		*/dm31_*)     VAR=dm31                   ;;&
 	esac
+	ipython --pdb -- \
 	./$< -v $$VAR \
 	     -o $@ \
 		 --nmo $$NMO \
