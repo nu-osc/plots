@@ -2,7 +2,7 @@ experiment: ORCA
 type: atmospheric
 measurement: estimation
 dataset: 3 years
-starting_year: 2025
+starting_year: 2027
 status: approved
 reference:
     date: "2021"
@@ -42,12 +42,9 @@ result:
             notes: central value |Δm²₃₂|=|Δm²₃₁|+Δm²₂₁
     mh:
         year:
-            - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            - [1, 2, 3, 4, 5, 6, 7, 8]
         low:
-            - [1.57, 2.24, 2.76, 3.21, 3.61, 3.89, 4.21, 4.53, 4.81, 5.06]
+            - [1.38, 1.94, 2.34, 2.70, 3.02, 3.32, 3.58, 3.82]
         high:
-            - [2.59, 3.46, 4.09, 4.52, 4.96, 5.35, 5.69, 5.98, 6.30, 6.57]
-
-crosschecks:
-    - Liudmila Kolupaeva
+            - [2.68, 3.68, 4.41, 4.99, 5.50, 5.96, 6.34, 6.68]
 

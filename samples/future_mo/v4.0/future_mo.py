@@ -8,8 +8,9 @@ from matplotlib.patches import Arc, Rectangle, Polygon
 import itertools as it
 import yaml
 import matplotlib.transforms as transforms
+import matplotlib.colors as cs
 
-reference =  'v3 2022.03: git.jinr.ru/nu/osc'
+reference =  'v4 2023.06: git.jinr.ru/nu/osc'
 
 def main(args):
 
@@ -40,7 +41,7 @@ def main(args):
 
     colors = {'nova' : 'xkcd:bubblegum', 't2k' : 'xkcd:green teal', 'icecube' : 'xkcd:clear blue', 'juno':'xkcd:fire engine red', 'pingu' : 'xkcd:vivid blue', 'orca' : 'xkcd:charcoal grey', 'hyperk' : 'xkcd:green', 'dune':'xkcd:violet', 'ino' : 'xkcd:orange', 'hyperkkorea' : 'xkcd:emerald green', 'ess' : 'xkcd:lilac'}
 
-    position = {'nova' : (2022.5, 3.5), 't2k' : (2020.3, 2.0), 'icecube' : (2026.3, 1.6), 'juno' : (2025.5, 0.5), 'pingu' : (2031, 3.75), 'orca': (2029, 4), 'hyperk' : (2031, 3.5), 'dune' : (2028, 6.5), 'ino' : (2035, 2.5), 'hyperkkorea' : (2033, 8), 'ess' : (2038, 8)}
+    position = {'nova' : (2024, 3.6), 't2k' : (2023, 2.4), 'icecube' : (2028.5, 2.0), 'juno' : (2032, 2), 'pingu' : (2031, 3.75), 'orca': (2031.5, 4.1), 'hyperk' : (2034, 4.4), 'dune' : (2030, 7.0), 'ino' : (2035, 2.5), 'hyperkkorea' : (2033, 8), 'ess' : (2038, 8)}
 
     marker_offset = {'nova' : 0, 't2k' : 0, 'icecube' : 0.05, 'juno' : 0, 'pingu' : 0.05, 'orca': 0, 'hyperk' : 0.0, 'dune' : 0, 'ino' : 0.1, 'hyperkkorea' : 0.05, 'ess' : 0}
     #
@@ -74,14 +75,13 @@ def main(args):
     plt.title('Future neutrino mass ordering sensitivity', pad=20)
     ax.set_xlabel('Year')
     ax.set_ylabel('Median sensitivity, $\sigma$')
-    ax.set_xlim(2020, 2035)
-    ax.set_ylim(0, 8)
+    ax.set_xlim(2022, 2037)
+    ax.set_ylim(0, 9)
     plt.yticks([1.0, 3.0, 5.0, 7.0])
     ax.set_yticks([2.0, 4.0, 6.0, 8.0], minor=True)
 
-    text_qual = dict(boxstyle='round', facecolor='white', alpha=0.3, edgecolor ='white')
+    text_qual = dict(boxstyle='round', facecolor='white', alpha=0.5, edgecolor ='white')
     text_qual_juno = dict(boxstyle='round, pad = 0.15', facecolor='white', alpha=0.2, edgecolor ='white')
-    plt.plot([2020.0, 2035.0], [5.0, 5.0], ls='--', color='black', lw=1,  alpha=0.5)
 
     for count, exp in enumerate(exps):
 
@@ -98,23 +98,24 @@ def main(args):
         sens_year_start = exp['high_values'][0][0]
         sens_max_1year = exp['high_values'][0][1]
 
-        alpha=0.4
+        alpha=0.35
+        if exp['id'] == 'orca':
+            alpha=0.2
         lstyle = '-'
         width=2
         if star != '':
             lstyle = '--'
             alpha = 0.1
             width=0
-        if exp['id'] == 'juno':
-            alpha=0.5
-        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor='none', alpha=alpha, lw=width, ls=lstyle)
+
+        poly = Polygon(exp['low_values'] + revert_max, facecolor=color, edgecolor=cs.colorConverter.to_rgba(color, alpha=.1), alpha=alpha, lw=width, ls=lstyle)
         ax.add_patch(poly)
         if star != '':
-            poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=2, ls=lstyle)
+            poly_dub = Polygon(exp['low_values'] + revert_max, facecolor=color, fill=False, edgecolor=color, alpha=0.5, lw=1, ls=lstyle)
             ax.add_patch(poly_dub)
 
         #if exp['id'] != 'orca' and exp['id'] != 'icecube' and exp['id'] != 'juno' and exp['id'] != 'pingu' and exp['id'] != 'ess':
-        if exp['id'] == 'juno' or exp['id'] == 'icecube':
+        if exp['id'] == 'juno' or exp['id'] == 'hyperK':
             ax.text(text_place_x, text_place_y,  name, color=color, bbox=text_qual_juno)
         else:
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
@@ -131,7 +132,7 @@ def main(args):
         fulloffset = 1.3
         isodd = (start % 2)
         arrowprops = dict(transform=ax.transData,
-                          facecolor=color, ec=color, alpha=0.4,
+                          facecolor=color, ec=color, alpha=0.9,
                           zorder=-10,
                           width=0.02,
                           head_width=0.20,
@@ -151,7 +152,7 @@ def main(args):
             textopts1['va'] = 'top'
             arrowoffset = fulloffset+oddoffset*0.5
             #plt.text(start, -fulloffset-oddoffset, name, **textopts1)
-            plt.arrow(2026, 0.9, -0.4, 0.8, **arrowprops)
+            plt.arrow(2032, 2.4, -0.4, 0.8, **arrowprops)
         if 'icecube' in expid:
             textopts1 = dict(textopts)
             textopts1['va'] = 'bottom'
@@ -171,9 +172,9 @@ def main(args):
 
 
     #plt.grid()
-    x_axis = np.arange(2020, 2035, 2)
+    x_axis = np.arange(2022, 2037, 2)
     ax.set_xticks(x_axis)
-    ax.set_xticklabels(['\\textbf{2020}', '\\textbf{2022}', '\\textbf{2024}', '\\textbf{2026}', '\\textbf{2028}', '\\textbf{2030}', '\\textbf{2032}', '\\textbf{2034}'])
+    ax.set_xticklabels(['\\textbf{2022}', '\\textbf{2024}', '\\textbf{2026}', '\\textbf{2028}', '\\textbf{2030}', '\\textbf{2032}', '\\textbf{2034}', '\\textbf{2036}'])
     ax.tick_params(top=True, right=True)
     #ax.yaxis.grid(True, which='minor')
     ax.minorticks_on()
@@ -185,11 +186,12 @@ def main(args):
     for label in labels:
         label.set_bbox(dict(fc='white', ec='white', alpha=0.5, pad=0.2))
 
+    plt.plot([2022.0, 2037.0], [5.0, 5.0], ls='--', color='black', lw=1,  alpha=0.5)
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.30, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
-    plt.savefig(args.output, dpi=300)
+    #plt.savefig(args.output, dpi=300)
     print('Write output file', args.output)
-
+    plt.show()
     if args.show:
         plt.show()
 
