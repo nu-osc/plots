@@ -1,8 +1,8 @@
 variable = future_nmo
-version_num = 3
-suffix   = ufn_2021
+version_num = 4
+suffix =
 beta =
-version_prev = 2.0
+version_prev = 3
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
