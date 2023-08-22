@@ -2,7 +2,8 @@
 
 ## The most recent plots
 
-| Plot                   | Version                                           | Notes              
+| Plot                   | Version                                           | Notes  
+| -------------          | ------:                                           | ------:            
 | $`\sin^22\theta_{13}`$ | [v8](samples/theta13/theta13-v8-dayabay/plots)    |                    
 
 
