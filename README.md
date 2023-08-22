@@ -1,11 +1,16 @@
 # Neutrino oscillation parameters comparison
 
-## The most recent plots
+## Recent plots
 
-| Plot                   | Version                                           | Notes  
-| -------------          | ------:                                           | ------:            
-| $`\sin^22\theta_{13}`$ | [v8](samples/theta13/theta13-v8-dayabay/plots)    |                    
-
+| Plot                                                                           | Version                                              | Notes  
+| -------------                                                                  | ------:                                              | ------:            
+| $`\sin^22\theta_{13}`$                                                         | [v8](samples/theta13/theta13-v8-dayabay/plots)       |                    
+| $`\|\Delta m^2_{31/32}\|`$                                                     | [v9](samples/dm32/dm32-v9-dayabay/plots)             | 
+| $`\sin^2 \theta_{12}`$                                                         | [v5](samples/theta12/theta12-v5-neutrino2022/plots)  | 
+| $`\Delta m^2_{21}`$                                                            | [v5](samples/dm21/dm21-v5-neutrino2022/plots)        |
+| $`\sin^2 \theta_{23}`$                                                         | [v3](samples/theta23/theta23-v3-published/plots)     |
+| Mass ordering                                                                  | [v1.1](plots/mo/v1.1-neutrino2020/)                  |
+| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$                              | [v2.0](plots/deltaCP/v2.0-neutrino2020/)
 
 ## Recent plots
 
