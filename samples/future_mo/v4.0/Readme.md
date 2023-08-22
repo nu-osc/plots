@@ -17,4 +17,4 @@
     * Sources for sensitivities vs years for all experiments are written in references
     * Digitizer was used for extracting values from plots
 
-![NMO sensitivity projection](plots/future_nmo_v4.0.png) 
+![NMO sensitivity projection](plots/future_nmo_v4.png) 
