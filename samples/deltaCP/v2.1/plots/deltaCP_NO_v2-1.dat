@@ -1,0 +1,6 @@
+style            name              notes    ordering    octant      value    left    right      span  result                      arxiv              conf
+nufit52          NuFIT_5.2         {}       NO          {}          1.289   0.144    0.2    0.344444  $1.289^{+0.200}_{-0.144}$   {}                 {}
+desalasetal      de_Salas_et_al.   {}       NO          {}          1.2     0.14     0.23   0.37      $1.200^{+0.230}_{-0.140}$   hep-ph/2006.11237  {}
+t2k              T2K               {}       NO          {}         -0.626   0.221    0.317  0.537944  $-0.626^{+0.317}_{-0.221}$  {}                 Neutrino2020
+superkamiokande  Super-Kamiokande  {}       NO          {}          1.388   0.442    0.28   0.722563  $1.388^{+0.280}_{-0.442}$   {}                 Neutrino2020
+nova             NOvA              {}       NO          {}          0.82    1        0.24   1.24      $0.820^{+0.240}_{-1.000}$   hep-ex/2108.08219  Neutrino2020

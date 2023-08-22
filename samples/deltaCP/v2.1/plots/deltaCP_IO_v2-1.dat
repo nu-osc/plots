@@ -1,0 +1,6 @@
+style            name              notes    ordering    octant      value    left    right      span  result                      arxiv              conf
+desalasetal      de_Salas_et_al.   {}       IO          {}          1.54    0.13     0.13   0.26      $1.540\pm0.130$             hep-ph/2006.11237  {}
+nufit52          NuFIT_5.2         {}       IO          {}          1.533   0.161    0.122  0.283333  $1.533^{+0.122}_{-0.161}$   {}                 {}
+t2k              T2K               {}       IO          {}         -0.455   0.181    0.172  0.353324  $-0.455^{+0.172}_{-0.181}$  {}                 Neutrino2020
+nova             NOvA              {}       IO          {}          1.52    0.26     0.21   0.47      $1.520^{+0.210}_{-0.260}$   hep-ex/2108.08219  Neutrino2020
+superkamiokande  Super-Kamiokande  {}       IO          {}          1.445   0.42     0.28   0.700282  $1.445^{+0.280}_{-0.420}$   {}                 Neutrino2020
