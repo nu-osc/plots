@@ -12,7 +12,7 @@
     * [KM3NeT/ORCA](data/orca_future_2021.yaml)
     * [DUNE](data/dune_future_2023_optimistic.yaml)
 - Cross checks by:
-    * 
+
 - Notes:
     * Sources for sensitivities vs years for all experiments are written in references
     * Digitizer was used for extracting values from plots
