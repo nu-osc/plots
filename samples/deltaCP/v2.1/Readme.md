@@ -11,7 +11,7 @@
     * [NOvA](data/nova_2020-07-neutrino2020.yaml)
     * [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml)
     * [de Salas et al.](data/theor_forero_2020-06-pre-neutrino2020.yaml)
-- Previous version: [vv.0](plots/deltaCP/v2.0-neutrino2020). Updates:
+- Previous version: [v2.0](plots/deltaCP/v2.0-neutrino2020). Updates:
     * NuFIT 5.2
 - Cross checks by:
 
