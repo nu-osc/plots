@@ -26,7 +26,7 @@ names0 = \
 		NMO/published/$(variable)_$(version)_NMO_published \
 		NMO/published/$(variable)_$(version)_NMO_published_global \
 		NMO/published/$(variable)_$(version)_NMO_published_global_future \
-		NMO/published/$(variable)_$(version)_NMO_published_future 
+		NMO/published/$(variable)_$(version)_NMO_published_future
 
 names = $(subst NMO,NO,$(names0)) $(subst NMO,IO,$(names0))
 
@@ -74,10 +74,16 @@ $(targets_plots): $(variable).py configuration.py $(tables) | plots
 		*_IO_*) NMO=IO;;
 	esac
 	case "$@" in
-		*_global*)    TYPE="$${TYPE#theor}"      ;;&
-		*_future*)    TYPE="$${TYPE%estimation}" ;;&
-		*_latest*)    SOURCE=plots/$(variable)_$(version)_"$$NMO"_latest.dat ;;&
-		*_published*) SOURCE=plots/$(variable)_$(version)_"$$NMO"_published.dat ;;&
+		*_global*)    TYPE="$${TYPE#theor}"      ;;
+	esac
+	case "$@" in
+		*_future*)    TYPE="$${TYPE%estimation}" ;;
+	esac
+	case "$@" in
+		*_latest*)    SOURCE=plots/$(variable)_$(version)_"$$NMO"_latest.dat ;;
+	esac
+	case "$@" in
+		*_published*) SOURCE=plots/$(variable)_$(version)_"$$NMO"_published.dat ;;
 	esac
 	test "$${TYPE# }" && OPTS="$$OPTS -e $$TYPE"
 	./$< $$SOURCE $$OPTS -o $@
@@ -90,10 +96,16 @@ tables: $(tables)
 $(tables): maketable.py pylib/*.py $(data) | plots
 	@
 	case "$@" in
-		*_latest*)    SOURCE="$(data_latest)"    ;;&
-		*_published*) SOURCE="$(data_published)" ;;&
-		*_NO_*)       NMO=NO ;;&
-		*_IO_*)       NMO=IO ;;&
+		*_latest*)    SOURCE="$(data_latest)"    ;;
+	case "$@" in
+	esac
+		*_published*) SOURCE="$(data_published)" ;;
+	case "$@" in
+	esac
+		*_NO_*)       NMO=NO ;;
+	case "$@" in
+	esac
+		*_IO_*)       NMO=IO ;;
 	esac
 	./$< -v $(variable) \
 	               -o $@ \
