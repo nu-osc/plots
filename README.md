@@ -1,5 +1,11 @@
 # Neutrino oscillation parameters comparison
 
+## The most recent plots
+
+| Plot                   | Version                                           | Notes              |
+| $`\sin^22\theta_{13}`$ | [v8](samples/theta13/theta13-v8-dayabay/plots)    |                    |
+
+
 ## Recent plots
 
 ### $`\sin^22\theta_{13}`$, $`|\Delta m^2_{32}|`$, $`\sin^2 \theta_{12}`$ and $`\Delta m^2_{21}`$
