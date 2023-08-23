@@ -1,0 +1,26 @@
+experiment: DUNE
+type: solar
+dataset: 2.5 years
+starting_year: 2026
+status: approved
+measurement: estimation
+reference:
+    arxiv: hep-ph/1808.08232
+    inspire: https://inspirehep.net/literature/1691644
+    doi: https://doi.org/10.1103/PhysRevLett.123.131803
+    citation: Capozzi:2018dat
+result:
+    splitting_small:
+        precision: 2
+        value: 4.85
+        uncertainty:
+            percent: 5.9
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.308
+        uncertainty:
+            percent: 3.0
+crosschecks:
+    - Liudmila Kolupaeva
+

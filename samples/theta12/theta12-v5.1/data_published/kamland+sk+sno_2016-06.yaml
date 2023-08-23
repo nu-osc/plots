@@ -1,0 +1,26 @@
+experiment: KamLAND+SK+SNO
+type: reactor+atmospheric+solar
+dataset:
+reference:
+    date: '2022.05'
+    arxiv: hep-ex/1606.07538
+    inspire: https://inspirehep.net/literature/1472086
+    doi: https://doi.org/10.1103/PhysRevD.94.052010
+    citation: Super-Kamiokande:2016yck
+    reference: page 25, figure 25 (right, red)
+result:
+    splitting_small:
+        precision: 2
+        value: 7.49
+        uncertainty:
+            right: 0.19
+            left: 0.18
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.307
+        uncertainty:
+            right: 0.013
+            left: 0.012
+crosschecks:
+    - Maxim Gonchar
