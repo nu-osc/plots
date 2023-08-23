@@ -2,11 +2,7 @@
 
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
-    * Add latest Daya Bay measurement
-    * Add latest JUNO estimation
-    * Add a version with published only results
-    * DUNE and ORCA: add distinct IO values
-    * Distinguish published and preliminary results
+    * Add PDG and update NuFIT to 5.2
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
@@ -78,7 +74,7 @@
 | DUNE           |                  [hep-ex/2006.16043](data/dune_future_2020_acc.yaml) |                                                            |
 | Daya Bay nGd   |          [hep-ex/1809.02261](data/dayabay_2018-06-neutrino2018.yaml) |         [hep-ex/2211.14988](data/dayabay_2022-11-nGd.yaml) |
 | ESSνSB         |                       [hep-ex/2107.07585](data/ess_future_2021.yaml) |                                                            |
-| Forero et al.  | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
+| de Salas et al.| [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
 | HyperK         |            [hep-ex/1805.04163](data/hyperk_future_2018_acc_atm.yaml) |                                                            |
 | IceCube        |          [hep-ex/1707.07081](data/icecube_2020-07-neutrino2020.yaml) |                                                            |
 | IceCube future |                   [hep-ex/1911.06745](data/icecube_future_2019.yaml) |                                                            |
@@ -86,7 +82,8 @@
 | JUNO           |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
 | MINOS+         |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                            |
 | NOvA           |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |                                                            |
-| NuFIT 5.1      |                       [NuFIT 5.1](data/theor_nufit_5_1_2021-10.yaml) |                                                            |
+| NuFIT 5.2      |                       [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml) |                                                            |
+| PDG            |                       [PDG](data/theor_pdg_2022.yaml)                |                                                            |
 | ORCA           |                      [hep-ex/2103.09885](data/orca_future_2021.yaml) |                                                            |
 | RENO           |                          [hep-ex/1806.00248](data/reno_2018-06.yaml) |       [Neutrino 2020](data/reno_2020-07-neutrino2020.yaml) |
 | SuperCHOOZ     |                                                                      | [CERN seminar 2022](https://indico.cern.ch/event/1215214/) |
