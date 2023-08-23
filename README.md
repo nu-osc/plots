@@ -28,7 +28,7 @@ The following plots are made for a special occasions, are not meant for the regu
 
 | Occasion                  | $`\sin^22\theta_{13}`$ animation             | $`\|\Delta m^2_{32}\|`$ animation      |
 | ------                    | ------:                                      | ------:                                |
-| Daya Bay shutdown 2020.12 | [v1.0](plots/theta13-anim/theta13-anim-v1.0) | [v1.0](plots/dm32-anim/dm32-anim-v1.0) |
+| Daya Bay shutdown 2020.12 | [v1.0](samples/theta13-anim/theta13-anim-v1.0/plots) | [v1.0](samples/dm32-anim/dm32-anim-v1.0/plots) |
 
 
 ## Disclaimer
