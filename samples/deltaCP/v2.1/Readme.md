@@ -1,6 +1,6 @@
-# $`\delta_{\scriptscriptstyle\mathrm{CP}}`$ measurements comparison, updated after Neutrino 2020
+# $`\delta_{\scriptscriptstyle\mathrm{CP}}`$ measurements comparison, updated after Neutrino 2022
 
-- Version: 2.0
+- Version: 2.1
 - [Plotting scripts](samples/deltaCP/v2.1)
 - Data tables:
     * [NO table](deltaCP_NO_v2-1.dat)
@@ -14,7 +14,8 @@
 - Previous version: [v2.0](plots/deltaCP/v2.0-neutrino2020). Updates:
     * NuFIT 5.2
 - Cross checks by:
-
+    * @ldkolupaeva
+    * @maxfl
 | Normal ordering                        | Inverted Ordering                      |
 | ---                                    | ---                                    |
 | ![δ(CP) NO](plots/deltaCP_NO_v2-1.png) | ![δ(CP) IO](plots/deltaCP_IO_v2-1.png) |
