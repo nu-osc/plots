@@ -1,8 +1,8 @@
 variable = theta23
-version_num = 3
-suffix   = published
-beta=b
-version_prev = 2.0
+version_num = 3.1
+suffix   =
+beta=
+version_prev = 3.0
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
