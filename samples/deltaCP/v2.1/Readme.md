@@ -16,6 +16,7 @@
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
+
 | Normal ordering                        | Inverted Ordering                      |
 | ---                                    | ---                                    |
 | ![δ(CP) NO](plots/deltaCP_NO_v2-1.png) | ![δ(CP) IO](plots/deltaCP_IO_v2-1.png) |
