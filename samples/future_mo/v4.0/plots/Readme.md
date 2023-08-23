@@ -5,7 +5,7 @@
     * TBD
 - [Plotting scripts](samples/future_mo/future_mo-v4.0)
 - References:
-    * [T2K+SK](data/t2k_superK_future_2019.yaml )
+    * [T2K+SK](data/t2k_superK_future_2019.yaml)
     * [NOvA](data/nova_future_2022.yaml)
     * [JUNO](data/juno_future_2022-reactor.yaml)
     * [Ice Cube Upgrade](data/icecube_future_2019.yaml)
@@ -19,4 +19,4 @@
     * Sources for sensitivities vs years for all experiments are written in references
     * Digitizer was used for extracting values from plots
 
-![NMO sensitivity projection](future_nmo_v4.0.png) 
+![NMO sensitivity projection](future_nmo_v4.png) 
