@@ -8,7 +8,7 @@
 | -------------                                                                  | ------:                                              | ------:
 | $`\sin^2 \theta_{12}`$                                                         | [v5](samples/theta12/theta12-v5-neutrino2022/plots)  |  NuFIT 5.1           
 | $`\sin^22\theta_{13}`$                                                         | [v8](samples/theta13/theta13-v8-dayabay/plots)       |  NuFIT 5.1
-| $`\sin^2 \theta_{23}`$                                                         | [v3](samples/theta23/theta23-v3-published/plots)     |  NuFIT 5.1
+| $`\sin^2 \theta_{23}`$                                                         | [v3.1](samples/theta23/v3.1/plots)                   |  
 | $`\Delta m^2_{21}`$                                                            | [v5](samples/dm21/dm21-v5-neutrino2022/plots)        |  NuFIT 5.1               
 | $`\|\Delta m^2_{31/32}\|`$                                                     | [v9](samples/dm32/dm32-v9-dayabay/plots)             |  NuFIT 5.1
 | Mass ordering                                                                  | [v1.2](samples/mo/v1.2)                              |
