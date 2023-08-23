@@ -7,10 +7,10 @@
 | Plot                                                                           | Version                                              | Notes  
 | -------------                                                                  | ------:                                              | ------:
 | $`\sin^2 \theta_{12}`$                                                         | [v5.1](samples/theta12/theta12-v5.1/plots)           |             
-| $`\sin^22\theta_{13}`$                                                         | [v8.1](samples/theta13/theta13-v8.1/plots).          |  
+| $`\sin^22\theta_{13}`$                                                         | [v8.1](samples/theta13/theta13-v8.1/plots)           |  
 | $`\sin^2 \theta_{23}`$                                                         | [v3.1](samples/theta23/v3.1/plots)                   |  
 | $`\Delta m^2_{21}`$                                                            | [v5.1](samples/dm21/dm21-v5.1/plots)                 |                 
-| $`\|\Delta m^2_{31/32}\|`$                                                     | [v9](samples/dm32/dm32-v9-dayabay/plots)             |  NuFIT 5.1
+| $`\|\Delta m^2_{31/32}\|`$                                                     | [v9.1](samples/dm32/dm32-v9.1/plots)                 |  
 | Mass ordering                                                                  | [v1.2](samples/mo/v1.2)                              |
 | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$                              | [v2.1](samples/deltaCP/v2.1)                         |
 
