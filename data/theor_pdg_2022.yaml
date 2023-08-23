@@ -36,12 +36,12 @@ result:
               value: 0.534
               uncertainty:
                   left: 0.024
-                  right: 0.021
+                  right: 0.018
             - ordering: IO
               value: 0.547
               uncertainty:
                   left: 0.024
-                  right: 0.018
+                  right: 0.021
     amplitude13:
         precision: 5
         mode: single
@@ -58,3 +58,4 @@ result:
         uncertainty: 0.013
 crosschecks:
     - Liudmila Kolupaeva
+    - Maxim Gonchar
