@@ -6,7 +6,7 @@
 
 | Plot                                                                           | Version                                              | Notes  
 | -------------                                                                  | ------:                                              | ------:
-| $`\sin^2 \theta_{12}`$                                                         | [v5](samples/theta12/theta12-v5-neutrino2022/plots)  |  NuFIT 5.1           
+| $`\sin^2 \theta_{12}`$                                                         | [v5.1](samples/theta12/theta12-v5.1/plots)           |             
 | $`\sin^22\theta_{13}`$                                                         | [v8](samples/theta13/theta13-v8-dayabay/plots)       |  NuFIT 5.1
 | $`\sin^2 \theta_{23}`$                                                         | [v3.1](samples/theta23/v3.1/plots)                   |  
 | $`\Delta m^2_{21}`$                                                            | [v5](samples/dm21/dm21-v5-neutrino2022/plots)        |  NuFIT 5.1               
