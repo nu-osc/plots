@@ -1,0 +1,68 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - 19.7e20 POT ν
+    - 16.3e20 POT ν-bar
+channel: joint snumudisap + nueapp
+reference:
+    date: '2020.07'
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf: Neutrino2020
+    talk: https://indico.fnal.gov/event/43209/contributions/187830/attachments/129636/159603/T2K_Neutrino2020.pdf
+    slides: [11, 29, 47, 48]
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.49
+              uncertainty:
+                  interval: [2.408, 2.548]
+              notes: bayessian?
+    amplitude13:
+        precision: 4
+        mode: single
+        value: 0.0244
+        uncertainty:
+            interval: [0.0223, 0.0308]
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -1.967
+              uncertainty:
+                  interval: [-2.66, -0.97]
+            - ordering: IO
+              value: -1.43
+              uncertainty:
+                  interval: [-2.0, -0.89]
+              notes: IH is Bayesian result, not official
+    amplitude23:
+        precision: 3
+        mode: single
+        value: 0.546
+        uncertainty:
+            interval: [0.5, 0.57]
+        note: posterior
+        notes: these values are profiled across both hierarchies, label NO or IO is not precisely correct
+    hier:
+        precision: 1
+        mode: sigma
+        value: 1.6
+        proj:
+            max: 3.5
+            min: 1.5
+        notes: |-
+             2020 IH rej value is approximate, no clear value in the talk,
+             took minima of IH curve on slide 26
+             MH proj value is SK+T2K (http://www-sk.icrr.u-tokyo.ac.jp/sk/_pdf/articles/2019/mjiang_dt.pdf)
+crosschecks:
+    - Yury Malyshkin
+    - Bedrich Roskovec
+    - Liudmila Kolupaeva
+    - Maxim Gonchar (author)

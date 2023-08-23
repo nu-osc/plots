@@ -1,0 +1,47 @@
+experiment: IceCube
+type: atmospheric
+dataset: 1022 days
+reference:
+    date: '2020.07'
+    arxiv: hep-ex/1707.07081
+    inspire: https://inspirehep.net/literature/1611292
+    doi: https://doi.org/10.1103/PhysRevLett.120.071801
+    citation: Aartsen:2017nmd
+    conf: Neutrino2018
+    talk: https://zenodo.org/record/1286852
+    slides: 12
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.31
+              uncertainty:
+                  left: 0.13
+                  right: 0.11
+            - ordering: IO
+              value: 2.32
+              uncertainty:
+                  left: 0.13
+                  right: 0.11
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.51
+              uncertainty:
+                  left: 0.09
+                  right: 0.07
+            - ordering: 'IO'
+              value: 0.51
+              uncertainty:
+                  left: 0.09
+                  right: 0.07
+              note: 'error from NO'
+              notes: no error bar for IH in paper, but BF is the same as in NH
+crosschecks:
+    - Bedrich Roskovec
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
