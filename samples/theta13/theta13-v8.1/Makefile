@@ -1,7 +1,7 @@
 variable = theta13
 version_num = 8.1
-suffix   = none
-beta=a
+suffix=
+beta=
 version_prev = 8
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
