@@ -18,7 +18,7 @@
 ### Future projections
 | Plot                                                                           | Version                                                          | Notes
 | -------------                                                                  | ------:                                                          | ------:
-| Mass Ordering sensitivity                                                      | [v3](samples/future_mo/future_mo-v3-for-ufn/plots)               |
+| Mass Ordering sensitivity                                                      | [v4](samples/future_mo/v4.0/plots)                               |
 | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ resolution                   | [v1](samples/deltaCP_res_future/deltaCP_res-v1.0-for-ufn/plots/) | 
 | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ significance                 | [v1](samples/noCPV_future/noCPV_future-v1-for-ufn/plots/)        | 
 
