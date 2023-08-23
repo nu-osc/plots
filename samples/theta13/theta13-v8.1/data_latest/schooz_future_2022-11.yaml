@@ -1,0 +1,26 @@
+experiment: SuperCHOOZ
+type: reactor
+dataset: 3 years
+measurement: estimation
+notes: nGd, 10 kton
+reference:
+    date: '2022.11'
+    talk: https://indico.cern.ch/event/1215214/attachments/2557185/4407051/SuperChooz-SeminarEP@CERN-Nov2022-Anatael.pdf
+    reference: page 59
+    indico: https://indico.cern.ch/event/1215214/
+result:
+    splitting_large:
+        precision: 4
+        mode: 'ee'
+        results:
+          - value: 2.44
+            uncertainty:
+              percent: 0.5
+    amplitude13:
+        precision: 4
+        mode: double
+        value: 0.1000
+        uncertainty:
+          percent: 0.5
+crosschecks:
+    - Maxim Gonchar
