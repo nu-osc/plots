@@ -1,14 +1,15 @@
 # sin²2θ₁₃ measurements comparison
 
-- Version: **8.1a**
+- Version: **8.1**
 - Updates since v8:
     * Add PDG and update NuFIT to 5.2
-- [Plotting scripts](samples/theta13/theta13-v8.1)
+- [Plotting scripts](samples/theta13/theta13-v8.1-)
 - Data tables:
-    * [published](theta13_v8-1a_published.dat)
-    * [latest](theta13_v8-1a_latest.dat)
+    * [published](theta13_v8-1_published.dat)
+    * [latest](theta13_v8-1_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
+    * @maxfl
 - Notes:
     * Forero et al. is pre-Neutrino fit
     * dashed grey bar in theoretical entry means IO
@@ -16,10 +17,10 @@
 ## Latest results
 
 ###  Including global analyses and future experiments
-![sin²2θ₁₃](png/latest/theta13_v8-1a_latest_global_future.png)
+![sin²2θ₁₃](png/latest/theta13_v8-1_latest_global_future.png)
 
 ### Experiments only
-![sin²2θ₁₃](png/latest/theta13_v8-1a_latest.png)
+![sin²2θ₁₃](png/latest/theta13_v8-1_latest.png)
 
 ## References
 

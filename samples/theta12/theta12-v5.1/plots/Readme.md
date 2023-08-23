@@ -1,14 +1,15 @@
 # DRAFT: $`\sin^2 \theta_{12}`$ measurements comparison
 
-- Version: **5.1a**
+- Version: **5.1**
 - Updates since v5:
     * Add PDG point and update to NuFIT 5.2
-- [Plotting scripts](samples/theta12/theta12-v5.1)
+- [Plotting scripts](samples/theta12/theta12-v5.1-)
 - Data tables:
-    * [published](theta12_v5-1a_published.dat)
-    * [latest](theta12_v5-1a_latest.dat)
+    * [published](theta12_v5-1_published.dat)
+    * [latest](theta12_v5-1_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
+    * @maxfl
 - Notes:
     * de Salas et al. is pre-Neutrino fit
     * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
@@ -18,15 +19,15 @@
 
 ###  Including global analyses and future experiments
 
-![sin²θ₁₂](png/latest/theta12_v5-1a_latest_global_future.png)
+![sin²θ₁₂](png/latest/theta12_v5-1_latest_global_future.png)
 
 ### Including global analyses
 
-![sin²θ₁₂](png/latest/theta12_v5-1a_latest_global.png)
+![sin²θ₁₂](png/latest/theta12_v5-1_latest_global.png)
 
 ### Experiments only
 
-![sin²θ₁₂](png/latest/theta12_v5-1a_latest.png)
+![sin²θ₁₂](png/latest/theta12_v5-1_latest.png)
 
 ## References
 

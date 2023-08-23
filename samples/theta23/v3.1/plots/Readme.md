@@ -3,30 +3,31 @@
 - Version: **3.1**
 - Updates since v3.0:
     * Add PDG result and update to NuFIT 5.2
-- [Plotting scripts](samples/theta23/v3.1)
+- [Plotting scripts](samples/theta23/theta23-v3.1-)
 - Data tables:
-    * [NO table](theta23_v3b_NO_latest.dat)
-    * [IO table](theta23_v3b_IO_latest.dat)
+    * [NO table](theta23_NO_v3-1.dat)
+    * [IO table](theta23_IO_v3-1.dat)
 - Notes:
     * [T2K](data/t2k_2020-07-neutrino2020.yaml): Bayessian posterior, no particular ordering may be attributed to the number
     * [IceCube](data/icecube_2020-07-neutrino2020.yaml): NO uncertainty is used for the IO result
 - Cross checks by:
     * @ldkolupaeva
+    * @maxfl
 
 ## Plots
 
 ### Including global analyses and future experiments
 
-![sin²θ₂₃ NO](png/NO/latest/theta23_v3b_NO_latest_global_future.png)
+![sin²θ₂₃ NO](png/NO/latest/theta23_v3-1_NO_latest_global_future.png)
 
-![sin²θ₂₃ IO](png/IO/latest/theta23_v3b_IO_latest_global_future.png)
+![sin²θ₂₃ IO](png/IO/latest/theta23_v3-1_IO_latest_global_future.png)
 
 
 ### Experiments only
 
-![sin²θ₂₃ NO](png/NO/latest/theta23_v3b_NO_latest.png)
+![sin²θ₂₃ NO](png/NO/latest/theta23_v3-1_NO_latest.png)
 
-![sin²θ₂₃ IO](png/IO/latest/theta23_v3b_IO_latest.png)
+![sin²θ₂₃ IO](png/IO/latest/theta23_v3-1_IO_latest.png)
 
 ## References
 
