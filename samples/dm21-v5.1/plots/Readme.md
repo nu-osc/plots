@@ -1,4 +1,4 @@
-# DRAFT: $`\Delta m^2_{21}`$ measurements comparison
+# $`\Delta m^2_{21}`$ measurements comparison
 
 - Version: **5.1**
 - Updates since v5:

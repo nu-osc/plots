@@ -1,4 +1,4 @@
-# DRAFT: $`\sin^2 \theta_{12}`$ measurements comparison
+# $`\sin^2 \theta_{12}`$ measurements comparison
 
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
