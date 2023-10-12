@@ -2,7 +2,7 @@
 
 - Version: **10**
 - Updates since v9.1:
-    * Add PDG and update NuFIT to 5.2
+    * Add IceCube publication from April, 2023
 - [Plotting scripts](samples/dm32/dm32-v10-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
@@ -17,10 +17,10 @@
     * Asymmetric syst/stat errors conversion: quadratically sum left and right part of each (stat/syst) contribution independently
 - Cross checks by:
     * @ldkolupaeva
-    * Bedrich Roskovec
     * @maxfl
 - Notes:
     * Forero et al. is pre-Neutrino fit
+    * [IceCube](data/icecube_2023-04.yaml): NO value and uncertainty are used for the IO
 
 [TOC]
 
