@@ -1,0 +1,68 @@
+variable = "theta13"
+version_num = "8.2"
+suffix = ""
+beta = ""
+version_prev = "8.1"
+version_dash = version_num.replace('.', '-')
+version = f"{version_dash}{beta}"
+
+from glob import glob
+from os.path import realpath
+data_latest = [realpath(f) for f in glob("data_latest/*.yaml")]
+data_published = [realpath(f) for f in glob("data_published/*.yaml")]
+
+
+#
+# Output names
+#
+names = [
+		f"latest/{variable}_{version}_latest",
+	    f"latest/{variable}_{version}_latest_global",
+	    f"latest/{variable}_{version}_latest_global_future",
+	    f"latest/{variable}_{version}_latest_future",
+		f"published/{variable}_{version}_published",
+	    f"published/{variable}_{version}_published_global",
+	    f"published/{variable}_{version}_published_global_future",
+	    f"published/{variable}_{version}_published_future"
+        ]
+extensions = ["pdf", "png"]
+
+#
+# Targets
+#
+table_latest    = f"plots/{variable}_{version}_latest.dat"
+table_published = f"plots/{variable}_{version}_published.dat"
+tables           = [table_latest, table_published]
+targets_plots    = [f"plots/{name}.{ext}" for name in names for ext in extensions]
+targets          = targets_plots + ["plots/Readme.md"]
+targets          = tables + ["plots/Readme.md"]
+
+rule all:
+  input: targets
+
+rule readme:
+  input: "Readme.md"
+  output: "plots/Readme.md"
+  shell: """
+      cat {input} | version_num={version_num} beta={beta} version_dash={version_dash} version_prev={version_prev} variable={variable} suffix={suffix} envsubst > {output}
+  """
+
+rule tables:
+  shell: """
+      {input.script} -v {variable} -o {output} {input.yaml}
+  """
+
+use rule tables as tables_latest with:
+  input:
+    yaml=data_latest,
+    script="./maketable.py",
+    extra=glob("pylib/*.py")
+  output: table_latest
+
+use rule tables as tables_published with:
+  input:
+    yaml=data_published,
+    script="./maketable.py",
+    extra=glob("pylib/*.py")
+  output: table_published
+
