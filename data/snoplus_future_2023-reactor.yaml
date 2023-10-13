@@ -1,0 +1,21 @@
+experiment: "SNO+ reactor"
+type: reactor
+dataset: 5 years
+measurement: estimation
+status: approved
+reference:
+    date: "2022.06"
+    conf: "Neutrino 2022"
+    title: "Reactor antineutrinos at SNO+"
+    poster: "https://indico.kps.or.kr/event/30/contributions/374/"
+    notes:
+      - "With ¹³C(α,n)¹⁶O rate as measured in 2022"
+      - "Central value is taken from PDG 2022"
+result:
+    splitting_small:
+        precision: 2
+        value: 7.53
+        uncertainty: 0.1318
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
