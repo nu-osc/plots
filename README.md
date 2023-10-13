@@ -4,15 +4,15 @@
 
 ### Parameters
 
-| Plot                                              | Version                            | Date    | Notes   |
-| -------------                                     | ------:                            | ----    | ------: |
-| $`\sin^2 \theta_{12}`$                            | [v5.1](samples/theta12-v5.1/plots) | 2023-08 |         |
-| $`\sin^22\theta_{13}`$                            | [v8.1](samples/theta13-v8.1/plots) | 2023-08 |         |
-| $`\sin^2 \theta_{23}`$                            | [v3.1](samples/theta23-v3.1/plots) | 2023-08 |         |
-| $`\Delta m^2_{21}`$                               | [v5.1](samples/dm21-v5.1/plots)    | 2023-08 |         |
-| $`\|\Delta m^2_{31/32}\|`$                        | [v9.1](samples/dm32-v9.1/plots)    | 2023-08 |         |
-| Mass ordering                                     | [v1.2](samples/mo-v1.2)            | 2023-08 |         |
-| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v2.1](samples/deltaCP-v2.1)       | 2023-08 |         |
+| Plot                                              | Version                            | Date    | Notes          |
+| -------------                                     | ------:                            | ----    | ------:        |
+| $`\sin^2 \theta_{12}`$                            | [v5.1](samples/theta12-v5.1/plots) | 2023-08 |                |
+| $`\sin^22\theta_{13}`$                            | [v8.1](samples/theta13-v8.1/plots) | 2023-08 |                |
+| $`\sin^2 \theta_{23}`$                            | [v4](samples/theta23-v4/plots)     | 2023-10 | Update IceCube |
+| $`\Delta m^2_{21}`$                               | [v5.1](samples/dm21-v5.1/plots)    | 2023-08 |                |
+| $`\|\Delta m^2_{31/32}\|`$                        | [v10](samples/dm32-v10/plots)      | 2023-08 | Update IceCube |
+| Mass ordering                                     | [v1.2](samples/mo-v1.2)            | 2023-10 |                |
+| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v2.1](samples/deltaCP-v2.1)       | 2023-08 |                |
 
 
 ### Future projections
