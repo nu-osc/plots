@@ -29,11 +29,14 @@ colors = {
     }
 
 names = {
-        'Super-Kamiokande': 'SuperK+SNO',
-        # 'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled} + SNO(NC)',
+        'Super-Kamiokande': r'SuperK\texttt{+}SNO',
+        # 'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled} \texttt{+} SNO(NC)',
         'JUNO solar':   r'JUNO {\relscale{0.75}\SunshineOpenCircled}',
         'JUNO reactor': r'JUNO \Radioactivity{}',
-        'Hyper-Kamiokande': 'HyperK+SNO+SK',
+        'SNO+ reactor': r'SNO\texttt{+} \Radioactivity{}',
+        'Hyper-Kamiokande': r'HyperK\texttt{+}SNO\texttt{+}SK',
+        "SuperK+SNO": r"SuperK\texttt{+}SNO",
+        "KamLAND+SK+SNO": r"KamLAND\texttt{+}SK\texttt{+}SNO"
         }
 
 preamble = r'\usepackage{bbding}\let\Cross\undefined\usepackage{marvosym}\usepackage{relsize}'
