@@ -12,6 +12,7 @@ colors = {
         'solar':       'xkcd:saffron',
         'atm':         'xkcd:azure',
         'acc':         'xkcd:green',
+        'acc+atm':     '#12AB7E',
         'global':      'xkcd:steel gray',
         }
 
@@ -40,7 +41,7 @@ colors = {
     'junoreactor_ih':  colors['reactor'],
     'dune':            colors['acc'],
     'orca':            colors['atm'],
-    'hyperkamiokande': colors['acc'],
+    'hyperkamiokande': colors['acc+atm'],
     'ino':             colors['atm'],
     'icecubeupgrade':  colors['atm'],
     'essnusb':         colors['acc'],
@@ -50,7 +51,7 @@ colors = {
 
 names = {
         'Super-Kamiokande': 'SuperK',
-        'Hyper-Kamiokande': 'HyperK',
+        'Hyper-Kamiokande': 'T2HK+HyperK',
         # 'JUNO atmospheric': r'\textbf{JUNO} {\relscale{0.8}\FilledRainCloud} \relsize{-2}(expected)'
         # 'JUNO atmospheric': r'\textbf{JUNO} {\relscale{0.9}\raisebox{1.5mm}{\FilledCloud}{\relscale{0.5}\hspace{-5mm}\raisebox{-0.7mm}{\Lightning\hspace{-0.8mm}\Lightning}}} \relsize{-2}(expected)', # ifsym
         'JUNO atmospheric': r'JUNO',
