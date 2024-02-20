@@ -1,0 +1,56 @@
+- experiment: RENO
+  type: reactor
+  dataset: 2900 days, Aug. 2011 - Feb. 2020
+  reference:
+      date: '2020.07'
+      arxiv:
+      inspire:
+      doi:
+      citation:
+      conf: Neutrino2020
+      talk: https://indico.fnal.gov/event/43209/contributions/187886/attachments/130339/158753/Neutrino2020YooRENO.pdf
+      slides: 13
+  target: nGd
+  result:
+      amplitude13:
+          precision: 4
+          mode: double
+          value: 0.0892
+          uncertainty:
+              stat: 0.0044
+              syst: 0.0045
+      splitting_large:
+          precision: 2
+          mode: ee
+          value: 2.74
+          uncertainty:
+              stat: 0.10
+              syst: 0.06
+  crosschecks:
+      - Bedrich Roskovec
+      - Liudmila Kolupaeva
+      - Maxim Gonchar
+- experiment: RENO
+  type: reactor
+  target: nH
+  dataset: 1500 days
+  reference:
+      arxiv: hep-ex/1911.04601
+      inspire: https://inspirehep.net/literature/1764340
+      doi: https://doi.org/10.1007/JHEP04(2020)029
+      citation: RENO:2019otc
+      conf: Neutrino2020
+      talk: https://indico.fnal.gov/event/43209/contributions/187886/attachments/130339/158753/Neutrino2020YooRENO.pdf
+      slides: 17
+  result:
+      amplitude13:
+          precision: 4
+          mode: double
+          value: 0.086
+          uncertainty:
+              stat: 0.008
+              syst: 0.014
+  crosschecks:
+      - Bedrich Roskovec
+      - Liudmila Kolupaeva
+      - Maxim Gonchar
