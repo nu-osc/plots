@@ -1,9 +1,7 @@
-# |Δm²₃₂|/|Δm²₃₁| measurements comparison
+# |Δm²₃₂| measurements comparison for NOvA+t2K result release
 
-- Version: **${version_num}${beta}**
-- Updates since v${version_prev}:
-    * Add IceCube publication from April, 2023
-- [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
+- Version: 1
+- [Plotting scripts](samples/novat2k_jf_release/dm32-special)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
@@ -19,52 +17,14 @@
     * @ldkolupaeva
     * @maxfl
 - Notes:
-    * Forero et al. is pre-Neutrino fit
+    * NOvA and T2K individual results were extracted by the joint fit working group during preparation to the joint fit from individual experiments re-analysis.
     * [IceCube](data/icecube_2023-04.yaml): NO value and uncertainty are used for the IO
 
 [TOC]
 
-## Latest results
+![\|Δm²₃₂\| NO](plots/png/NO/latest/dm32/dm32_v1_NO_latest.png)
 
-### |Δm²₃₂|
-
-#### Including global analyses and future experiments
-
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v${version_dash}${beta}_NO_latest_global_future.png)
-
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v${version_dash}${beta}_IO_latest_global_future.png)
-
-#### Including global analyses
-
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v${version_dash}${beta}_NO_latest_global.png)
-
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v${version_dash}${beta}_IO_latest_global.png)
-
-#### Experiments only
-
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v${version_dash}${beta}_NO_latest.png)
-
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v${version_dash}${beta}_IO_latest.png)
-
-### |Δm²₃₁|
-
-#### Including global analyses and future experiments
-
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v${version_dash}${beta}_NO_latest_global_future.png)
-
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v${version_dash}${beta}_IO_latest_global_future.png)
-
-#### Including global analyses
-
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v${version_dash}${beta}_NO_latest_global.png)
-
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v${version_dash}${beta}_IO_latest_global.png)
-
-#### Experiments only
-
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v${version_dash}${beta}_NO_latest.png)
-
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v${version_dash}${beta}_IO_latest.png)
+![\|Δm²₃₂\| IO](plots/png/NO/latest/dm32/dm32_v1_IO_latest.png)
 
 ## References
 
