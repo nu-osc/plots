@@ -1,4 +1,4 @@
-# |Δm²₃₂| measurements comparison for NOvA+t2K result release
+# |Δm²₃₂| measurements comparison for NOvA+T2K result release
 
 - Version: 1
 - [Plotting scripts](samples/novat2k_jf_release/dm32-special)
@@ -20,33 +20,21 @@
     * NOvA and T2K individual results were extracted by the joint fit working group during preparation to the joint fit from individual experiments re-analysis.
     * [IceCube](data/icecube_2023-04.yaml): NO value and uncertainty are used for the IO
 
-[TOC]
+![NO](plots/png/NO/latest/dm32/dm32_v1_NO_latest.png)
 
-![\|Δm²₃₂\| NO](plots/png/NO/latest/dm32/dm32_v1_NO_latest.png)
-
-![\|Δm²₃₂\| IO](plots/png/NO/latest/dm32/dm32_v1_IO_latest.png)
+![IO](plots/png/IO/latest/dm32/dm32_v1_IO_latest.png)
 
 ## References
 
-| Measurement     |                                                            Published |                                                     Latest |
-|-----------------|---------------------------------------------------------------------:|-----------------------------------------------------------:|
-| Capozzi et al.  |                 [hep-ph/2107.00532](data/theor_capozzi_2021-07.yaml) |                                                            |
-| DUNE            |                  [hep-ex/2006.16043](data/dune_future_2020_acc.yaml) |                                                            |
-| Daya Bay nGd    |          [hep-ex/1809.02261](data/dayabay_2018-06-neutrino2018.yaml) |         [hep-ex/2211.14988](data/dayabay_2022-11-nGd.yaml) |
-| ESSνSB          |                       [hep-ex/2107.07585](data/ess_future_2021.yaml) |                                                            |
-| de Salas et al. | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
-| HyperK          |            [hep-ex/1805.04163](data/hyperk_future_2018_acc_atm.yaml) |                                                            |
-| IceCube         |                       [hep-ex/2304.12236](data/icecube_2023-04.yaml) |                                                            |
-| IceCube future  |                   [hep-ex/1911.06745](data/icecube_future_2019.yaml) |                                                            |
-| INO             |              [physics.ins-det/1505.07380](data/ino_future_2015.yaml) |                                                            |
-| JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
-| MINOS+          |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                            |
-| NOvA            |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |                                                            |
-| NuFIT 5.2       |                       [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml) |                                                            |
-| PDG             |                                      [PDG](data/theor_pdg_2022.yaml) |                                                            |
-| ORCA            |                      [hep-ex/2103.09885](data/orca_future_2021.yaml) |                                                            |
-| RENO            |                          [hep-ex/1806.00248](data/reno_2018-06.yaml) |       [Neutrino 2020](data/reno_2020-07-neutrino2020.yaml) |
-| SuperCHOOZ      |                                                                      | [CERN seminar 2022](https://indico.cern.ch/event/1215214/) |
-| SuperK          |                        [hep-ex/1901.03230](data/superk_2019-01.yaml) |     [Neutrino 2020](data/superk_2020-07-neutrino2020.yaml) |
-| T2K             |                           [hep-ex/2101.03779](data/t2k_2021-01.yaml) |        [Neutrino 2020](data/t2k_2020-07-neutrino2020.yaml) |
+| Measurement     |                                                            Reference |
+|-----------------|---------------------------------------------------------------------:|
+| Daya Bay nGd    |                   [hep-ex/2211.14988](data/dayabay_2022-11-nGd.yaml) | 
+| IceCube         |                       [hep-ex/2304.12236](data/icecube_2023-04.yaml) |
+| MINOS+          |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |
+| NOvA            |                                         Joint fit working group data |
+| RENO            |                 [Neutrino 2020](data/reno_2020-07-neutrino2020.yaml) |
+| SuperK          |                        [arXiv:2311.05105](data/superk_2023-011.yaml) |
+| T2K             |                                         Joint fit working group data |
+| NOvA+T2K        |                                         Joint fit working group data |
+| SuperK+T2K      |                                                        talk at NNN23 |
 
