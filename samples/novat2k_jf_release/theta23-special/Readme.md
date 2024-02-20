@@ -4,7 +4,7 @@
 - [Plotting scripts](samples/novat2k_jf_release/theta23-special)
 - Data tables:
     * [NO table](plots/theta23_v1_NO_latest.dat)
-    * [IO table](plots/theta23_v1_ШO_latest.dat)
+    * [IO table](plots/theta23_v1_IO_latest.dat)
 - Notes:
     * NOvA and T2K individual results were extracted by the joint fit working group during preparation to the joint fit from individual experiments re-analysis.
     * [IceCube](data/icecube_2023-04.yaml): NO value and uncertainty are used for the IO
