@@ -1,0 +1,81 @@
+experiment: NOvA
+type: accelerator
+dataset:
+reference:
+    date:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk:
+    slides:
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.39
+              uncertainty:
+                  interval: [2.34, 2.44]
+            - ordering: IO
+              value: 2.44
+              uncertainty:
+                  interval: [2.39, 2.49]
+              notes: private communication
+    deltaCP:
+        precision: 3
+        mode: pi
+        results:
+            - ordering: 'NO'
+              value: 0.89
+              uncertainty:
+                  interval: [-0.01, 1.07]
+            - ordering: IO
+              value: 1.44
+              uncertainty:
+                  interval: [1.2, 1.7]
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: UO
+              preferred: yes
+              value: 0.559
+              uncertainty:
+                  interval: [0.514, 0.582]
+            - ordering: 'NO'
+              octant: LO
+              preferred: no
+              value: 0.465
+              uncertainty:
+                  interval: [0.454, 0.496]
+            - ordering: IO
+              octant: UO
+              preferred: yes
+              value: 0.557
+              uncertainty:
+                  interval: [0.51, 0.584]
+            - ordering: IO
+              octant: LO
+              preferred: no
+              value: 0.465
+              uncertainty:
+                  interval: [0.46, 0.492]
+    amplitude13:
+        precision: 3
+        mode: double
+        results:
+            - ordering: 'NO'
+              value: 0.084
+              preferred: yes
+              uncertainty:
+                interval: [0.068, 0.103]
+            - ordering: IO
+              preferred: no
+              value: 0.0925
+              uncertainty:
+                interval: [0.078, 0.115]
+crosschecks:

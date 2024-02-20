@@ -1,0 +1,73 @@
+experiment: SuperK+T2K
+type: atmospheric
+dataset:
+channel: joint snumudisap + nueapp
+reference:
+    date:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk: https://agenda.infn.it/event/33778/contributions/207821/attachments/111325/158800/Eguchi_231011_NNN23_skt2k.pdf
+    slides: [65]
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.511
+              uncertainty:
+                  interval: [2.452, 2.571]
+            - ordering: IO
+              value: 2.484
+              uncertainty:
+                  interval: [2.424, 2.541]
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+            - ordering: IO
+              value: 0.0220
+              uncertainty:
+                  interval: [0.0213, 0.0227]
+            - ordering: 'NO'
+              value: 0.0219
+              uncertainty:
+                  interval: [0.0212, 0.0226]
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -1.872
+              uncertainty:
+                  interval: [-2.464, -1.205]
+            - ordering: IO
+              value: -1.476
+              uncertainty:
+                  interval: [-2.003, -0.976]
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: UO
+              preferred: yes
+              value: 0.549
+              uncertainty:
+                  interval: [0.521, 0.568]
+            - ordering: 'NO'
+              octant: LO
+              preferred: no
+              value: 0.485
+              uncertainty:
+                  interval: [0.459, 0.505]
+            - ordering: IO
+              value: 0.558
+              uncertainty:
+                  interval: [0.508, 0.581]
+    
+crosschecks:
+    - Liudmila Kolupaeva
