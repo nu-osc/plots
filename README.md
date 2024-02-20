@@ -1,5 +1,9 @@
 # Neutrino oscillation parameter comparisons
 
+- Recent plots for oscillation Parameters
+- Future projections
+- Special plots (Daya Bay shutdown, NOvA + T2K joint fit results)
+
 ## Recent plots
 
 ### Parameters
