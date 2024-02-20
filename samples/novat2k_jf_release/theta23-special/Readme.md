@@ -14,7 +14,7 @@
 
 ## Plots
 
-![NO](plots/png/NO/latest/theta23_v1_ТO_latest.png)
+![NO](plots/png/NO/latest/theta23_v1_NO_latest.png)
 
 ![IO](plots/png/IO/latest/theta23_v1_IO_latest.png)
 
