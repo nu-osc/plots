@@ -139,9 +139,18 @@ def main(args):
     ax_right_right = ax.twinx()
     ax_right_right.set_ylim(ax.get_ylim())
     ax.tick_params(axis='y', which='both', left=False)
-    ax_right_right.tick_params(axis='y', which='both', direction='out', left=False, labelleft=False, right=False, labelright=True, pad=5)
+    ax_right_right.tick_params(
+        axis='y',
+        which='both',
+        direction='out',
+        left=False,
+        labelleft=False,
+        right=False,
+        labelright=True,
+        pad=75
+    )
     ax_right_right.set_yticks(yticks)
-    ax_right_right.set_yticklabels(latex_text, ha='left')
+    ax_right_right.set_yticklabels(latex_text, ha='right')
 
     ax.text(1.0, 0.5, 'v1 2023.12: git.jinr.ru/nu/osc', rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
