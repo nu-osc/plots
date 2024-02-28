@@ -11,6 +11,7 @@ reference:
     conf:
     talk:
     slides:
+    notes: Results of NOvA+T2K joint analysis working group with T2K-only real data fit (analysis state match 2020 T2K result)
 result:
     splitting_large:
         precision: 2

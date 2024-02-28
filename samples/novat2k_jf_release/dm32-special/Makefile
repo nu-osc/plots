@@ -51,8 +51,8 @@ plots:
 
 .PHONY: readme
 readme: plots/Readme.md
-plots/Readme.md: Readme.md Makefile | plots
-	cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
+#plots/Readme.md: Readme.md Makefile | plots
+	#cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
 
 $(targets_plots): $(variable).py configuration.py $(tables) | plots
 	@

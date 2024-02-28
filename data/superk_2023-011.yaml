@@ -1,19 +1,21 @@
 experiment: Super-Kamiokande
 type: atmospheric
-dataset: 364.8 kt-years
+dataset: 484.2 kt-years
 reference:
-    date: '2020.07'
-    arxiv:
-    inspire:
+    date: '2023.11'
+    arxiv: 2311.05105
+    inspire: https://inspirehep.net/literature/2720510 
     doi:
-    citation:
-    conf: Neutrino2020
-    talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
-    slides: 23, 27
+    citation: Super-Kamiokande:2023ahc
+    conf:
+    talk: 
+    slides: 
+    notes: Table 5, with th13 constraint
+    
 result:
     splitting_large:
         precision: 2
-        mode: '32'
+        mode: '32NO/31IO'
         results:
             - ordering: 'NO'
               value: 2.40
@@ -53,8 +55,22 @@ result:
               uncertainty:
                   left: 0.03
                   right: 0.08
+
+    amplitude13:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.020
+              preferred: yes
+              uncertainty:
+                  left: 0.011
+                  right: 0.016
+            - ordering: IO
+              value: 0.010
+              preferred: no
+              uncertainty:
+                  left: 0.008
+                  right: 0.021
 crosschecks:
-    - Yury Malyshkin
-    - Bedrich Roskovec
     - Liudmila Kolupaeva
-    - Maxim Gonchar

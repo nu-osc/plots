@@ -152,7 +152,7 @@ def main(args):
     ax_right_right.set_yticks(yticks)
     ax_right_right.set_yticklabels(latex_text, ha='right')
 
-    ax.text(1.0, 0.5, 'v1 2023.12: git.jinr.ru/nu/osc', rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
+    ax.text(1.0, 0.5, 'v1 2024.02: git.jinr.ru/nu/osc', rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     legend = r'\noindent'
     legend += r'{\slshape{}Preliminary}'

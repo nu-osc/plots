@@ -1,14 +1,14 @@
 experiment: SuperK+T2K
 type: atmospheric
 dataset:
-channel: joint snumudisap + nueapp
+channel: joint numudisap + nueapp
 reference:
-    date:
+    date: 11.10.2023
     arxiv:
     inspire:
     doi:
     citation:
-    conf:
+    conf: NNN2023
     talk: https://agenda.infn.it/event/33778/contributions/207821/attachments/111325/158800/Eguchi_231011_NNN23_skt2k.pdf
     slides: [65]
 result:
