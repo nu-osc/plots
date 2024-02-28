@@ -202,9 +202,9 @@ def main(args):
 
     ax.text(1.0, 0.5, cfg.reference, rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
     legend = r'\noindent'
-    if haspreliminary:
-        legend += r'{\slshape{}Preliminary}'
-
+    #if haspreliminary:
+    #    legend += r'{\slshape{}Preliminary}'
+    #legend += r'\\Published'
     ax.text(0.03, 0.05, legend, alpha=0.3, transform=fig.dpi_scale_trans, ha='left', va='bottom', fontsize='x-small')
 
     if line_place > 0:

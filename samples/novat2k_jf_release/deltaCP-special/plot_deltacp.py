@@ -155,7 +155,7 @@ def main(args):
     ax.text(1.0, 0.5, 'v1 2024.02: git.jinr.ru/nu/osc', rotation=90, alpha=0.3, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
     legend = r'\noindent'
-    legend += r'{\slshape{}Preliminary}'
+    #legend += r'{\slshape{}Preliminary}'
     ax.text(0.03, 0.05, legend, alpha=0.3, transform=fig.dpi_scale_trans, ha='left', va='bottom', fontsize='x-small')
 
     for out in  args.output:
