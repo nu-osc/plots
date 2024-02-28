@@ -1,0 +1,76 @@
+experiment: Super-Kamiokande
+type: atmospheric
+dataset: 484.2 kt-years
+reference:
+    date: '2023.11'
+    arxiv: 2311.05105
+    inspire: https://inspirehep.net/literature/2720510 
+    doi:
+    citation: Super-Kamiokande:2023ahc
+    conf:
+    talk: 
+    slides: 
+    notes: Table 5, with th13 constraint
+    
+result:
+    splitting_large:
+        precision: 2
+        mode: '32NO/31IO'
+        results:
+            - ordering: 'NO'
+              value: 2.40
+              uncertainty:
+                  left: 0.09
+                  right: 0.07
+            - ordering: IO
+              value: 2.40
+              uncertainty:
+                  left: 0.12
+                  right: 0.06
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -1.75
+              uncertainty:
+                  left: 1.25
+                  right: 0.76
+            - ordering: IO
+              value: -1.75
+              uncertainty:
+                  left: 1.22
+                  right: 0.89
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.45
+              uncertainty:
+                  left: 0.03
+                  right: 0.06
+            - ordering: IO
+              value: 0.45
+              uncertainty:
+                  left: 0.03
+                  right: 0.08
+
+    amplitude13:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.020
+              preferred: yes
+              uncertainty:
+                  left: 0.011
+                  right: 0.016
+            - ordering: IO
+              value: 0.010
+              preferred: no
+              uncertainty:
+                  left: 0.008
+                  right: 0.021
+crosschecks:
+    - Liudmila Kolupaeva

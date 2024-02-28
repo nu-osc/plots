@@ -1,0 +1,66 @@
+experiment: T2K
+type: accelerator
+dataset:
+channel:
+reference:
+    date:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk:
+    slides:
+    notes: Results of NOvA+T2K joint analysis working group with T2K-only real data fit (analysis state match 2020 T2K result)
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.48
+              uncertainty:
+                  interval: [2.432, 2.528]
+            - ordering: IO
+              value: 2.53
+              uncertainty:
+                  interval: [2.48, 2.576]
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.02575
+              preferred: yes
+              uncertainty:
+                  interval: [0.0225, 0.029]
+            - ordering: IO
+              value: 0.02855
+              preferred: no
+              uncertainty:
+                  interval: [0.025, 0.03]
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -1.9792
+              uncertainty:
+                  interval: [-2.63894, -1.13097]
+            - ordering: IO
+              value: -1.41372
+              uncertainty:
+                  interval: [-2.01062, -0.879646]
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.555
+              uncertainty:
+                  interval: [0.502, 0.58]
+            - ordering: IO
+              value: 0.557
+              uncertainty:
+                  interval: [0.514, 0.582]
+crosschecks:

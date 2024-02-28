@@ -1,0 +1,6 @@
+style            name              type         notes    ordering    octant      value    left    right      span  result                      arxiv       conf
+nova             NOvA              accelerator  {}       IO          {}          1.44    0.24     0.26   0.5       $1.440^{+0.260}_{-0.240}$   {}          {}
+novat2k          NOvA+T2K          accelerator  {}       IO          {}         -0.47    0.15     0.17   0.319901  $-0.470^{+0.170}_{-0.150}$  {}          {}
+superkamiokande  Super-Kamiokande  atmospheric  {}       IO          {}         -0.557   0.388    0.283  0.671634  $-0.557^{+0.283}_{-0.388}$  2311.05105  {}
+superkt2k        SuperK+T2K        atmospheric  {}       IO          {}         -0.47    0.168    0.159  0.326904  $-0.470^{+0.159}_{-0.168}$  {}          NNN2023
+t2k              T2K               accelerator  {}       IO          {}         -0.45    0.19     0.17   0.36      $-0.450^{+0.170}_{-0.190}$  {}          {}

@@ -1,5 +1,10 @@
 # Neutrino oscillation parameter comparisons
 
+Page content:
+- Recent plots for oscillation parameters
+- Future projections
+- Special plots (Daya Bay shutdown, NOvA + T2K joint fit results)
+
 ## Recent plots
 
 ### Parameters
@@ -30,6 +35,9 @@ The following plots are made for a special occasions, are not meant for the regu
 | --------                  | ----------------------------------:                          | ------------------------------------:                  |
 | Daya Bay shutdown 2020.12 | [v1.0](samples_archive/theta13-anim/theta13-anim-v1.0/plots) | [v1.0](samples_archive/dm32-anim/dm32-anim-v1.0/plots) |
 
+| Occasion                       | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$  |  $`\|\Delta m^2_{32}\|`$                           |   $`\sin^2 \theta_{23}`$                          |  $`\sin^22\theta_{13}`$                             |
+| --------                       | ----------------------------------:                | ------------------------------------:              | ------------------------------------:             | ------------------------------------:               |
+| NOvA+T2K joint fit results 2024| [v1.0](samples/novat2k_jf_release/deltaCP-special) | [v1.0](samples/novat2k_jf_release/dm32-special)    |[v1.0](samples/novat2k_jf_release/theta23-special) | [v1.0](samples/novat2k_jf_release/theta13-special)  |
 
 ## Disclaimer
 
