@@ -17,7 +17,7 @@ result:
             uncertainty:
               percent: 0.5
     amplitude13:
-        precision: 4
+        precision: 5
         mode: double
         value: 0.1000
         uncertainty:
