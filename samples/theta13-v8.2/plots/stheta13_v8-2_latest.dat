@@ -1,5 +1,5 @@
 style         name             type         notes    measurement    dataset    ordering      precision    value     left    right         span    preliminary  arxiv              conf
-superchooz    SuperCHOOZ       reactor      {}       estimation     3_years    {}                    4  0.0257   0.0001   0.0001   0.000263523              1  {}                 {}
+superchooz    SuperCHOOZ       reactor      {}       estimation     3_years    {}                    5  0.02566  0.00013  0.00013  0.000263523              1  {}                 {}
 nufit5.2      NuFIT_5.2        theory       {}       {}             {}         NO                    5  0.02225  0.00059  0.00056  0.00115                  0  {}                 {}
 nufit5.2      NuFIT_5.2        theory       {}       {}             {}         IO                    5  0.02223  0.00058  0.00058  0.00116                  0  {}                 {}
 capozzietal.  Capozzi_et_al.   theory       {}       {}             {}         IO                    5  0.0223   0.0006   0.0006   0.0012                   0  hep-ph/2107.00532  {}
