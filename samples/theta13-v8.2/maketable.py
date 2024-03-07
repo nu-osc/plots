@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
 context = dict()
+fields = dict(
+        samplitude13 = 'amplitude13',
+        )
 
 import yaml
 from tabulate import tabulate
@@ -9,7 +12,7 @@ from pylib.converters import convert
 
 def main(args):
     global context
-    if args.variable.startswith('theta'):
+    if 'theta' in args.variable:
         args.variable = args.variable.replace('theta', 'amplitude')
 
     var = args.variable
@@ -102,6 +105,7 @@ def postprocess_splitting_small(entry):
 postprocessors=dict(
         amplitude12     = postprocess_amplitude12,
         amplitude13     = postprocess_amplitude13,
+        samplitude13     = postprocess_amplitude13,
         splitting_large = postprocess_splitting_large,
         deltaCP         = postprocess_deltaCP,
         amplitude23     = postprocess_amplitude23,
@@ -164,7 +168,8 @@ def collect_experiment(entry, target, var):
         target.append(item)
 
 def collect_result(var, experiment):
-    parameter = experiment.get('result', {}).get(var, {})
+    field_to_read = fields.get(var, var)
+    parameter = experiment.get('result', {}).get(field_to_read, {})
     if not parameter:
         return
 
@@ -272,7 +277,7 @@ def load(filename):
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
-    variables = [ 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12', 'splitting_small' ]
+    variables = [ 'stheta13', 'theta13', 'splitting_large', 'deltaCP', 'theta23', 'theta12', 'splitting_small' ]
     parser = ArgumentParser()
     parser.add_argument('inputs', nargs='+', type=load, help='files to load')
     parser.add_argument('-v', '--variable', choices=variables, required=True, help='variable to read')

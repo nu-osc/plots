@@ -1,7 +1,10 @@
-version='8.1'
+version='8.2'
 url='git.jinr.ru/nu/osc'
 date='2023.08'
-variable=r'$\sin^2 2\theta_{13}$'
+variables= {
+		"single": r'$\sin^2 \theta_{13}$',
+		"double": r'$\sin^2 2\theta_{13}$'
+}
 lims = None
 scale = 100.0
 
