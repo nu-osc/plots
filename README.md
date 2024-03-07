@@ -12,7 +12,7 @@ Page content:
 | Plot                                              | Version                            | Date    | Notes            |
 | -------------                                     | ------:                            | ----    | ------:          |
 | $`\sin^2 \theta_{12}`$                            | [v5.1](samples/theta12-v5.1/plots) | 2023-08 |                  |
-| $`\sin^22\theta_{13}`$                            | [v8.1](samples/theta13-v8.1/plots) | 2023-08 |                  |
+| $`\sin^22\theta_{13}`$                            | [v8.2](samples/theta13-v8.2/plots) | 2023-08 | include sin²θ₁₃  |
 | $`\sin^2 \theta_{23}`$                            | [v4](samples/theta23-v4/plots)     | 2023-10 | Update IceCube   |
 | $`\Delta m^2_{21}`$                               | [v6](samples/dm21-v6/plots)        | 2023-10 | Add SNO+ reactor |
 | $`\|\Delta m^2_{31/32}\|`$                        | [v10](samples/dm32-v10/plots)      | 2023-08 | Update IceCube   |
