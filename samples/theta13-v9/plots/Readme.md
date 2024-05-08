@@ -1,12 +1,12 @@
 # sin²2θ₁₃ (sin²θ₁₃) measurements comparison
 
-- Version: **8.2**
-- Updates since v8.1:
+- Version: **9**
+- Updates since v8.2:
     * Add sin²θ₁₃ plots
-- [Plotting scripts](samples/theta13/theta13-v8.2-)
+- [Plotting scripts](samples/theta13/theta13-v9-)
 - Data tables:
-    * [published](theta13_v8-2_published.dat)
-    * [latest](theta13_v8-2_latest.dat)
+    * [published](theta13_v9_published.dat)
+    * [latest](theta13_v9_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -20,18 +20,18 @@
 ### sin²2θ₁₃
 
 ####  Including global analyses and future experiments
-![sin²2θ₁₃](png/latest/double/theta13_v8-2_latest_global_future.png)
+![sin²2θ₁₃](png/latest/double/theta13_v9_latest_global_future.png)
 
 #### Experiments only
-![sin²2θ₁₃](png/latest/double/theta13_v8-2_latest.png)
+![sin²2θ₁₃](png/latest/double/theta13_v9_latest.png)
 
 ### sin²θ₁₃
 
 ####  Including global analyses and future experiments
-![sin²2θ₁₃](png/latest/single/stheta13_v8-2_latest_global_future.png)
+![sin²2θ₁₃](png/latest/single/stheta13_v9_latest_global_future.png)
 
 #### Experiments only
-![sin²2θ₁₃](png/latest/single/stheta13_v8-2_latest.png)
+![sin²2θ₁₃](png/latest/single/stheta13_v9_latest.png)
 
 ## References
 
@@ -44,10 +44,11 @@
 | Double CHOOZ   |                        [hep-ex/1901.09445](data/dchooz_2019-01.yaml) |     [Neutrino 2020](data/dchooz_2020-07-neutrino2020.yaml) |
 | de Salas et al.| [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
 | JUNO           |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
-| NOvA           |                                                                      |       [Neutrino 2022](data/nova_2022-06-neutrino2022.yaml) |
+| NOvA           |                                                                      | [Joint fit working group data](data/updated_nova_2023.yaml) |
+| NOvA+T2K       |                                                                      | [Joint fit working group data](data/nova_t2k_jf_2023.yaml) |
 | NuFIT 5.2      |                       [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml) |                                                            |
 | PDG            |                       [PDG](data/theor_pdg_2022.yaml)                |                                                            |
 | RENO nGd       |                          [hep-ex/1806.00248](data/reno_2018-06.yaml) |   [Neutrino 2020](data/reno_2020-07-nGd-neutrino2020.yaml) |
 | RENO nH        |                       [hep-ex/1911.04601](data/reno_2019-11_nH.yaml) |    [Neutrino 2022](data/reno_2020-06-nH-neutrino2022.yaml) |
-| SuperCHOOZ     |                                                                      | [CERN seminar 2022](https://indico.cern.ch/event/1215214/) |
-| T2K            |                           [hep-ex/2101.03779](data/t2k_2021-01.yaml) |        [Neutrino 2020](data/t2k_2020-07-neutrino2020.yaml) |
+| SuperCHOOZ     |                                                                      | [CERN seminar 2022](data/dchooz_2020-07-neutrino2020.yaml) |
+| T2K            |                                                                      | [Joint fit working group data](data/updated_t2k_2023.yaml) |
