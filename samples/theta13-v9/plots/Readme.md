@@ -2,7 +2,7 @@
 
 - Version: **9**
 - Updates since v8.2:
-    * Add sin²θ₁₃ plots
+    * Add combined NOvA+T2K measurement
 - [Plotting scripts](samples/theta13/theta13-v9-)
 - Data tables:
     * [published](theta13_v9_published.dat)
