@@ -17,6 +17,8 @@ colors = {
 		'atm':       'xkcd:azure',
 		'acc':       'xkcd:green',
 		'global':    'xkcd:steel gray',
+        'special':     'xkcd:purple',
+        'superkt2k':   'xkcd:dark cyan'
 		}
 
 colors = {
@@ -31,6 +33,8 @@ colors = {
     'kamlandsksno':    colors['reacsolar'],
     'nova':            colors['acc'],
     't2k':             colors['acc'],
+    'novat2k':         colors['special'],
+    'superkt2k':       colors['superkt2k'],
     'minos':           colors['acc'],
     'superkamiokande': colors['solar'],
     'superksno':       colors['solar'],
