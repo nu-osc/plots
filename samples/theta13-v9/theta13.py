@@ -114,7 +114,7 @@ def main(args):
     padleft = 105
     namewidth = "41mm"
     left = 0.20
-    right = digits_decimal_max > 4 and 0.76 or 0.78
+    right = digits_decimal_max > 4 and 0.80 or 0.81
     plt.subplots_adjust(
         left=left, right=right, top=axtop, bottom=fracbottom * singleheight / figheight
     )
@@ -128,6 +128,7 @@ def main(args):
     occurances = {}
     offset = 0
     haspreliminary = False
+    needs_io = False
     for i, exp in enumerate(result):
         (
             id,
@@ -203,10 +204,14 @@ def main(args):
 
         extra = ""
         if ordering == "IO":
-            ordering = "NO"
-            extra = r"{\relsize{-3}{/IO}}"
-        elif ordering == "NO":
-            extra = r"{\relsize{-3}{\textbackslash{}IO}}"
+            needs_io = True
+        ordering = ""
+        #  if ordering == "IO":
+            #  ordering = "NO"
+            #  extra = r"{\relsize{-3}{/IO}}"
+        #  elif ordering == "NO":
+            #  #  extra = r"{\relsize{-3}{\textbackslash{}IO}}"
+            #  extra = r"{dashed IO}"
 
         font = ""
         if preliminary:
@@ -251,7 +256,7 @@ def main(args):
         labelleft=False,
         right=False,
         labelright=True,
-        pad=110,
+        pad=90,
     )
     ax_right_right.set_yticks(yticks)
     ax_right_right.set_yticklabels(latex_text, ha="right")
@@ -273,6 +278,8 @@ def main(args):
     if haspreliminary:
         legend += r"{\slshape{}Preliminary}"
     legend += r"\\Published"
+    if needs_io:
+        legend += r"\\Inverted Ordering: -{}-$\vert$-{}-"
     ax.text(
         0.03,
         0.05,
