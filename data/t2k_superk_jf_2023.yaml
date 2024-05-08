@@ -24,18 +24,6 @@ result:
               value: 2.484
               uncertainty:
                   interval: [2.424, 2.541]
-    amplitude13:
-        precision: 4
-        mode: single
-        results:
-            - ordering: IO
-              value: 0.0220
-              uncertainty:
-                  interval: [0.0213, 0.0227]
-            - ordering: 'NO'
-              value: 0.0219
-              uncertainty:
-                  interval: [0.0212, 0.0226]
     deltaCP:
         precision: 3
         mode: radians
