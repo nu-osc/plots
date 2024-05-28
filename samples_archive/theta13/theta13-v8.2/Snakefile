@@ -120,7 +120,5 @@ for recency in recencies:
                     f"{plotsdir}/{ext[1:]}/{recency}/{angle}/{cvariable}_{version}_{recency}{globalness}{futureness}{ext}",
                 shell:
                     """
-                    DIRNAME=$(dirname {output})
-                    test -d $$DIRNAME || mkdir -p $$DIRNAME
                     ./{input.script} {input.table} {params.exclude} -a {params.angle} -o {output}
                 """
