@@ -198,6 +198,10 @@ def collect_result(var, experiment):
 
         span = val_right - val_left
 
+        if var=="samplitude13" and mode=="double" and precision<5:
+            print("Increase precision for single angle")
+            precision+=1
+
         s_val   = f'{val:.{precision}f}'
         s_left  = f'{unc_left:.{precision}f}'
         s_right = f'{unc_right:.{precision}f}'

@@ -114,7 +114,7 @@ def main(args):
     padleft = 105
     namewidth = "41mm"
     left = 0.20
-    right = digits_decimal_max > 4 and 0.80 or 0.81
+    right = digits_decimal_max > 4 and 0.79 or 0.80
     plt.subplots_adjust(
         left=left, right=right, top=axtop, bottom=fracbottom * singleheight / figheight
     )
@@ -207,11 +207,11 @@ def main(args):
             needs_io = True
         ordering = ""
         #  if ordering == "IO":
-            #  ordering = "NO"
-            #  extra = r"{\relsize{-3}{/IO}}"
+        #  ordering = "NO"
+        #  extra = r"{\relsize{-3}{/IO}}"
         #  elif ordering == "NO":
-            #  #  extra = r"{\relsize{-3}{\textbackslash{}IO}}"
-            #  extra = r"{dashed IO}"
+        #  #  extra = r"{\relsize{-3}{\textbackslash{}IO}}"
+        #  extra = r"{dashed IO}"
 
         font = ""
         if preliminary:
@@ -256,7 +256,7 @@ def main(args):
         labelleft=False,
         right=False,
         labelright=True,
-        pad=90,
+        pad=95,
     )
     ax_right_right.set_yticks(yticks)
     ax_right_right.set_yticklabels(latex_text, ha="right")
@@ -318,7 +318,7 @@ def phantom_zeros(num, num_max):
     extra = "0" * (num_max - num)
     # return extra
     # return f'{{\color{{red}}{extra}}}'
-    return f"\phantom{{{extra}}}"
+    return f"\\phantom{{{extra}}}"
 
 
 def format_latex(
@@ -361,7 +361,11 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output", help="file to write")
     parser.add_argument("-s", "--show", action="store_true", help="show")
     parser.add_argument(
-        "-a", "--angle", default="double", choices=("single", "double"), help="angle to use for axis"
+        "-a",
+        "--angle",
+        default="double",
+        choices=("single", "double"),
+        help="angle to use for axis",
     )
     parser.add_argument(
         "-e",
