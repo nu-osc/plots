@@ -73,6 +73,7 @@
 | Capozzi et al.  |                 [hep-ph/2107.00532](data/theor_capozzi_2021-07.yaml) |                                                            |
 | DUNE            |                  [hep-ex/2006.16043](data/dune_future_2020_acc.yaml) |                                                            |
 | Daya Bay nGd    |          [hep-ex/1809.02261](data/dayabay_2018-06-neutrino2018.yaml) |         [hep-ex/2211.14988](data/dayabay_2022-11-nGd.yaml) |
+| Daya Bay nH     |                                                                      |          [hep-ex/2406.01007](data/dayabay_2024-06-nH.yaml) |
 | ESSνSB          |                       [hep-ex/2107.07585](data/ess_future_2021.yaml) |                                                            |
 | de Salas et al. | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
 | HyperK          |            [hep-ex/1805.04163](data/hyperk_future_2018_acc_atm.yaml) |                                                            |
