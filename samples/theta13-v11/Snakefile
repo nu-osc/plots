@@ -1,0 +1,124 @@
+from itertools import product
+from pathlib import Path
+
+variable = "theta13"
+version_num = "11"
+suffix = ""
+beta = ""
+version_prev = "10"
+version_dash = version_num.replace(".", "-")
+version = f"v{version_dash}{beta}"
+
+recencies = ("latest", "published")
+extensions = (".pdf", ".png")
+angles = ("single", "double")
+plotsdir = "plots"
+
+data = {
+    recency: [p.absolute() for p in Path("./").glob(f"data_{recency}/*.yaml")]
+    for recency in recencies
+}
+data["all"] = data["latest"] + data["published"]
+
+names = {
+    recency: [
+        f"{plotsdir}/{ext[1:]}/{recency}/{angle}/{angle=='single' and 's' or ''}{variable}_{version}_{recency}{globalness}{futureness}{ext}"
+        for globalness in ("", "_global")
+        for futureness in ("", "_future")
+        for ext in extensions
+        for angle in angles
+    ]
+    for recency in recencies
+}
+names["all"] = names["latest"] + names["published"]
+
+tables = {
+    angle: {
+        recency: f"{plotsdir}/{angle=='single' and 's' or ''}{variable}_{version}_{recency}.dat"
+        for recency in recencies
+    }
+    for angle in angles
+}
+
+target_tables = []
+for st in tables.values():
+    for t in st.values():
+        target_tables.append(t)
+target_readme = f"{plotsdir}/Readme.md"
+targets = names["all"] + target_tables + [target_readme]
+
+
+rule all:
+    input:
+        targets,
+
+
+rule readme:
+    input:
+        "Readme.md.tmpl",
+    output:
+        target_readme,
+    shell:
+        """
+        test -d {plotsdir} || mkdir -p {plotsdir}
+    cat {input} | version_num={version_num} beta={beta} \
+                                    version_dash={version_dash} version_prev={version_prev} \
+                                    variable={variable} suffix={suffix} envsubst > {output}
+    """
+
+
+for recency in recencies:
+    for angle in angles:
+        angle_prefix = angle == "single" and "s" or ""
+        cvariable = angle_prefix + variable
+
+        rule:
+            name:
+                f"table_{angle}_{recency}"
+            input:
+                data=data[recency],
+                script="maketable.py",
+                extra=Path("./").glob("pylib/*.py"),
+            params:
+                variable=cvariable,
+            output:
+                tables[angle][recency],
+            shell:
+                """
+                ./{input.script} -v {params.variable} \
+                                             -o {output} \
+                                             {input.data}
+            """
+
+
+for recency in recencies:
+    for angle in angles:
+        angle_prefix = angle == "single" and "s" or ""
+        cvariable = angle_prefix + variable
+
+        for ext, recency, globalness, futureness in product(
+            extensions, recencies, ("", "_global"), ("", "_future")
+        ):
+            excl = ["-e"]
+            if globalness == "":
+                excl.append("theor")
+            if futureness == "":
+                excl.append("estimation")
+            excl = len(excl) > 1 and " ".join(excl) or ""
+
+            rule:
+                name:
+                    f"plot_{angle}_{recency}{globalness}{futureness}{ext}"
+                input:
+                    script=f"{variable}.py",
+                    cfg="configuration.py",
+                    table=tables[angle][recency],
+                params:
+                    exclude=excl,
+                    angle=angle,
+                output:
+                    f"{plotsdir}/{ext[1:]}/{recency}/{angle}/{cvariable}_{version}_{recency}{globalness}{futureness}{ext}",
+                shell:
+                    """
+                    ./{input.script} {input.table} {params.exclude} -a {params.angle} -o {output}
+                """
