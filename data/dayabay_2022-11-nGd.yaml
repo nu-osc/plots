@@ -1,6 +1,6 @@
 experiment: Daya Bay
 type: reactor
-dataset: XXXX days
+dataset: 1958 days
 details: "3158 days: 217 days (6AD) + 1524 days (8AD) + 1417 days (7AD), rate+shape analysis"
 reference:
     date: '2022.11'
