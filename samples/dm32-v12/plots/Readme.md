@@ -1,7 +1,7 @@
 # |Δm²₃₂|/|Δm²₃₁| measurements comparison
 
 - Version: **12**
-- Updates since v11:
+- Updates since v10:
     * Add Daya Bay nH result on the full dataset
 - [Plotting scripts](samples/dm32/dm32-v12-none)
 - Conversions:

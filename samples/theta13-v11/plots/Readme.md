@@ -1,7 +1,7 @@
 # sin²2θ₁₃ (sin²θ₁₃) measurements comparison
 
 - Version: **11**
-- Updates since v10:
+- Updates since v9:
     * Add Daya Bay nH result on the full dataset
 - [Plotting scripts](samples/theta13/theta13-v11-)
 - Data tables:

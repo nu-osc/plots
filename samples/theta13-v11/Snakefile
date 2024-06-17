@@ -5,7 +5,7 @@ variable = "theta13"
 version_num = "11"
 suffix = ""
 beta = ""
-version_prev = "10"
+version_prev = "9"
 version_dash = version_num.replace(".", "-")
 version = f"v{version_dash}{beta}"
 
