@@ -5,8 +5,8 @@ details: "3158 days: 217 days (6AD) + 1524 days (8AD) + 1417 days (7AD), rate+sh
 reference:
     date: '2022.11'
     arxiv: hep-ex/2206.09040
-    inspire:
-    doi:
+    inspire: https://inspirehep.net/literature/2601288
+    doi: 10.1103/PhysRevLett.130.161802
     citation:
     conf:
     talk:
