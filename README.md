@@ -9,15 +9,15 @@ Page content:
 
 ### Parameters
 
-| Plot                                              | Version                            | Date    | Notes                |
-| -------------                                     | ------:                            | ----    | ------:              |
-| $`\sin^2 \theta_{12}`$                            | [v5.1](samples/theta12-v5.1/plots) | 2023-08 |                      |
-| $`\sin^22\theta_{13}`$                            | [v12](samples/theta13-v12/plots)   | 2024-10 | Mark Daya Bay public |
-| $`\sin^2 \theta_{23}`$                            | [v4](samples/theta23-v4/plots)     | 2023-10 | Update IceCube       |
-| $`\Delta m^2_{21}`$                               | [v6](samples/dm21-v6/plots)        | 2023-10 | Add SNO+ reactor     |
-| $`\|\Delta m^2_{31/32}\|`$                        | [v13](samples/dm32-v13/plots)      | 2024-06 | Mark Daya Bay public |
-| Mass ordering                                     | [v1.2](samples/mo-v1.2)            | 2023-10 |                      |
-| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v2.1](samples/deltaCP-v2.1)       | 2023-08 |                      |
+| Plot                                              | Version                            | Date    | Notes                        |
+| -------------                                     | ------:                            | ----    | ------:                      |
+| $`\sin^2 \theta_{12}`$                            | [v5.1](samples/theta12-v5.1/plots) | 2023-08 |                              |
+| $`\sin^22\theta_{13}`$                            | [v12](samples/theta13-v12/plots)   | 2024-10 | Mark Daya Bay public         |
+| $`\sin^2 \theta_{23}`$                            | [v4](samples/theta23-v4/plots)     | 2023-10 | Update IceCube               |
+| $`\Delta m^2_{21}`$                               | [v7](samples/dm21-v7/plots)        | 2024-06 | Add SNO+ reactor measurement |
+| $`\|\Delta m^2_{31/32}\|`$                        | [v13](samples/dm32-v13/plots)      | 2024-06 | Mark Daya Bay public         |
+| Mass ordering                                     | [v1.2](samples/mo-v1.2)            | 2023-10 |                              |
+| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v2.1](samples/deltaCP-v2.1)       | 2023-08 |                              |
 
 
 ### Future projections
