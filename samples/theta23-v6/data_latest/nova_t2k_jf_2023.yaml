@@ -1,0 +1,81 @@
+experiment: NOvA+T2K
+type: accelerator
+dataset:
+reference:
+    date:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf:
+    talk:
+    slides:
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.429
+              uncertainty:
+                  left: 0.035
+                  right: 0.039
+            - ordering: IO
+              value: 2.477
+              uncertainty: 0.035
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -2.733
+              uncertainty:
+                  left: 0.659
+                  right: 1.099
+            - ordering: IO
+              value: -1.476
+              uncertainty:
+                  left: 0.471
+                  right: 0.534
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: UO
+              preferred: yes
+              value: 0.561
+              uncertainty:
+                  left: 0.039
+                  right: 0.021
+            - ordering: 'NO'
+              octant: LO
+              preferred: no
+              value: 0.47
+              uncertainty:
+                  interval: [0.462, 0.486]
+            - ordering: IO
+              octant: UO
+              preferred: yes
+              value: 0.563
+              uncertainty:
+                  left: 0.039
+                  right: 0.021
+    amplitude13:
+        precision: 4
+        mode: double
+        results:
+            - ordering: 'NO'
+              value: 0.0892
+              preferred: no
+              uncertainty:
+                  left: 0.0125
+                  right: 0.0158
+            - ordering: IO
+              value: 0.1008
+              preferred: yes
+              uncertainty:
+                  left: 0.0125
+                  right: 0.0162
+crosschecks:
+    - LK

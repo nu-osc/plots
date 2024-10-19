@@ -1,0 +1,72 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - 19.7e20 POT ν
+    - 16.3e20 POT ν-bar
+reference:
+    date: '2020.03'
+    arxiv: hep-ex/2303.03222
+    inspire: https://inspirehep.net/literature/2638628
+    doi: 10.1140/epjc/s10052-023-11819-x
+    citation: T2K:2023smv
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.494
+              uncertainty:
+                  left: 0.058
+                  right: 0.041
+            - ordering: IO
+              value: 2.463
+              uncertainty:
+                  left: 0.056
+                  right: 0.042
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.0280
+              preferred: yes
+              uncertainty:
+                  left: 0.0065
+                  right: 0.0028
+            - ordering: IO
+              preferred: no
+              value: 0.0310
+              uncertainty:
+                  left: 0.0069
+                  right: 0.003
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -1.97
+              uncertainty:
+                  left: 0.62
+                  right: 0.97
+            - ordering: IO
+              value: -1.44
+              uncertainty:
+                  left: 0.59
+                  right: 0.56
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.561
+              uncertainty:
+                  left: 0.038
+                  right: 0.019
+            - ordering: IO
+              value: 0.563
+              uncertainty:
+                  left: 0.032
+                  right: 0.017
+
+crosschecks:

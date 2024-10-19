@@ -1,0 +1,51 @@
+experiment: ORCA
+type: atmospheric
+measurement: estimation
+dataset: 3 years
+starting_year: 2024
+status: approved
+reference:
+    date: "2024"
+    arxiv:
+      - hep-ex/2108.06293
+      - hep-ex/2103.09885
+    inspire:
+      - https://inspirehep.net/literature/1904863
+      - https://inspirehep.net/literature/1852257
+    doi:
+      - https://doi.org/10.1007/JHEP03(2022)055
+      - https://doi.org/10.1140/epjc/s10052-021-09893-0
+    citation:
+    reference: "2103.09885: page 12, table 1; page 13, sec 3.3, 1st paragraph"
+result:
+    amplitude23:
+        note: 90\% CL
+        precision: 2
+        mode: degrees
+        value: 48.6
+        uncertainty:
+            right: 1.9
+            left: 3.1
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+          - ordering: 'NO'
+            note: 90\% CL
+            value: 2.4541
+            uncertainty: 0.085
+            notes: central value |Δm²₃₂|=|Δm²₃₁|-Δm²₂₁
+          - ordering: 'IO'
+            note: 90\% CL
+            value: 2.5099
+            uncertainty: 0.075
+            notes: central value |Δm²₃₂|=|Δm²₃₁|+Δm²₂₁
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        low:
+            - [0.76, 1.12, 1.41, 1.81, 2.2, 2.48, 3.02, 3.32, 3.58, 3.82]
+        high:
+            - [1.52, 2.21, 2.82, 3.6, 4.3, 4.80, 5.50, 5.96, 6.34, 6.68]
+
+

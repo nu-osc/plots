@@ -1,0 +1,78 @@
+experiment: NOvA_no_RC
+type: accelerator
+dataset: 26.6e20 POT ν, 12.5e20 POT ν-bar
+reference:
+    date: '2024.06'
+    arxiv: 
+    inspire: 
+    doi:
+    citation: 
+    conf: Neutrino2024
+    talk: 
+    slides: 
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.429
+              uncertainty: 
+                 interval: [2.395, 2.469]
+            - ordering: IO
+              value: 2.477
+              uncertainty:
+                  interval: [2.437, 2.512]
+    deltaCP:
+        precision: 3
+        mode: pi
+        results:
+            - ordering: 'NO'
+              value: 0.89
+              preferred: yes
+              uncertainty:
+                  interval: [0.5, 1.16]
+            - ordering: 'NO'
+              value: 0.1
+              preferred: no
+              uncertainty:
+                  interval: [0.02, 0.24]
+            - ordering: IO
+              value: 1.59
+              uncertainty:
+                  interval: [1.32, 1.78]
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.547
+              octant: UO
+              preferred: yes
+              uncertainty:
+                  interval: [0.516, 0.562]
+            - ordering: 'NO'
+              value: 0.48
+              octant: LO
+              preferred: no
+              uncertainty:
+                  interval: [0.466, 0.508]
+            - ordering: IO
+              value: 0.473
+              uncertainty:
+                  interval: [0.452, 0.536]
+    amplitude13:
+        precision: 3
+        mode: double
+        results:
+            - ordering: 'NO'
+              value: 0.0858
+              preferred: yes
+              uncertainty:
+                interval: [0.07, 0.1]
+            - ordering: IO
+              preferred: no
+              value: 0.0958
+              uncertainty:
+                interval: [0.083, 0.112]
+crosschecks:
