@@ -1,0 +1,13 @@
+style            name              type                       measurement    dataset    notes      precision    value    left    right       span    preliminary  arxiv                             conf
+junoreactor      JUNO_reactor      reactor                    estimation     6_years    {}                 4    0.307  0.0016   0.0016  0.0032                 0  hep-ex/2204.13249                 {}
+dune             DUNE              solar                      estimation     2.5_years  {}                 3    0.308  0.009    0.009   0.01848                0  hep-ph/1808.08232                 {}
+nufit6           NuFIT_6           theory                     {}             {}         {}                 3    0.308  0.011    0.012   0.023                  0  https://arxiv.org/pdf/2410.05380  {}
+kamlandsksno     KamLAND+SK+SNO    reactor+atmospheric+solar  {}             {}         {}                 3    0.305  0.012    0.013   0.025                  1  {}                                Neutrino_2022
+hyperkamiokande  Hyper-Kamiokande  solar                      estimation     20_years   {}                 3    0.308  0.013    0.013   0.026                  1  {}                                {}
+capozzietal.     Capozzi_et_al.    theory                     {}             {}         {}                 3    0.303  0.013    0.013   0.026                  0  hep-ph/2107.00532                 {}
+pdg2023          PDG_2023          theory                     {}             {}         {}                 3    0.307  0.013    0.013   0.026                  0  {}                                {}
+superksno        SuperK+SNO        solar                      {}             {}         {}                 3    0.305  0.014    0.014   0.028                  1  {}                                Neutrino_2022
+sno              SNO               solar                      {}             {}         {}                 3    0.299  0.015    0.016   0.0303761              0  hep-ex/1109.0763                  {}
+desalasetal.     de_Salas_et_al.   theory                     {}             {}         {}                 3    0.318  0.016    0.016   0.032                  0  hep-ph/2006.11237                 {}
+junosolar        JUNO_solar        solar                      estimation     10_years   {}                 3    0.306  0.024    0.028   0.05202                1  {}                                Neutrino_2022
+kamland          KamLAND           reactor                    {}             {}         {}                 3    0.316  0.026    0.034   0.06                   0  hep-ex/1606.07538                 {}
