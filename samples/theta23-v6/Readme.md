@@ -43,7 +43,7 @@
 | INO             |              [physics.ins-det/1505.07380](data/ino_future_2015.yaml) |                                                        |
 | MINOS+          |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                        |
 | NOvA            |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |                                                        |
-| NuFIT 5.2       |                       [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml) |                                                        |
+| NuFIT           |                       [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml) |             [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |
 | PDG 2023        |                                      [PDG](data/theor_pdg_2022.yaml) |                                                        |
 | ORCA            |                      [hep-ex/2103.09885](data/orca_future_2021.yaml) |                                                        |
 | SuperK          |                        [hep-ex/1901.03230](data/superk_2019-01.yaml) | [Neutrino 2020](data/superk_2020-07-neutrino2020.yaml) |
