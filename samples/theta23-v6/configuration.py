@@ -2,7 +2,7 @@ version='6'
 url='git.jinr.ru/nu/osc'
 date='2024.10'
 variable=r'$\sin^2 \theta_{23}$'
-lims = (0.35, 0.66)
+lims = (0.35, 0.64)
 
 reference = f'v{version} {date}: {url}'
 

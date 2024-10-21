@@ -230,7 +230,7 @@ def phantom_zeros(num, num_max):
     extra = '0'*(num_max-num)
     # return extra
     # return f'{{\color{{red}}{extra}}}'
-    return f'\phantom{{{extra}}}'
+    return rf'\phantom{{{extra}}}'
 
 def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_decimal_max, *, addspaces=True, percentage=False):
     digits_leading = max(0, int(ceil_from_zero(np.log10(value))))
