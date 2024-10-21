@@ -1,7 +1,7 @@
 style            name              type                       measurement    dataset    notes      precision    value    left    right       span    preliminary  arxiv                             conf
 junoreactor      JUNO_reactor      reactor                    estimation     6_years    {}                 4    0.307  0.0016   0.0016  0.0032                 0  hep-ex/2204.13249                 {}
 dune             DUNE              solar                      estimation     2.5_years  {}                 3    0.308  0.009    0.009   0.01848                0  hep-ph/1808.08232                 {}
-nufit6           NuFIT_6           theory                     {}             {}         {}                 3    0.308  0.011    0.012   0.023                  0  https://arxiv.org/pdf/2410.05380  {}
+nufit6           NuFIT_6           theory                     {}             {}         {}                 3    0.308  0.011    0.012   0.023                  1  https://arxiv.org/pdf/2410.05380  {}
 kamlandsksno     KamLAND+SK+SNO    reactor+atmospheric+solar  {}             {}         {}                 3    0.305  0.012    0.013   0.025                  1  {}                                Neutrino_2022
 hyperkamiokande  Hyper-Kamiokande  solar                      estimation     20_years   {}                 3    0.308  0.013    0.013   0.026                  1  {}                                {}
 capozzietal.     Capozzi_et_al.    theory                     {}             {}         {}                 3    0.303  0.013    0.013   0.026                  0  hep-ph/2107.00532                 {}
