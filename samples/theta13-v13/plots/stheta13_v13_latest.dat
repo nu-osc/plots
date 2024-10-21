@@ -1,7 +1,7 @@
 style         name             type         notes    measurement    dataset    ordering      precision    value     left    right         span    preliminary  arxiv                             conf
 superchooz    SuperCHOOZ       reactor      {}       estimation     3_years    {}                    5  0.02566  0.00013  0.00013  0.000263523              1  {}                                {}
-nufit6        NuFIT_6          theory       {}       {}             {}         IO                    5  0.02231  0.00056  0.00056  0.00112                  0  https://arxiv.org/pdf/2410.05380  {}
-nufit6        NuFIT_6          theory       {}       {}             {}         NO                    5  0.02215  0.00058  0.00056  0.00114                  0  https://arxiv.org/pdf/2410.05380  {}
+nufit6        NuFIT_6          theory       {}       {}             {}         IO                    5  0.02231  0.00056  0.00056  0.00112                  1  https://arxiv.org/pdf/2410.05380  {}
+nufit6        NuFIT_6          theory       {}       {}             {}         NO                    5  0.02215  0.00058  0.00056  0.00114                  1  https://arxiv.org/pdf/2410.05380  {}
 dayabay       Daya_Bay         reactor      nGd+nH   {}             {}         {}                    5  0.02128  0.00057  0.00057  0.00114889               0  hep-ex/2406.01007                 {}
 capozzietal.  Capozzi_et_al.   theory       {}       {}             {}         IO                    5  0.0223   0.0006   0.0006   0.0012                   0  hep-ph/2107.00532                 {}
 dayabay       Daya_Bay         reactor      nGd      {}             {}         {}                    5  0.02175  0.00063  0.00063  0.00125457               0  hep-ex/2206.09040                 {}

@@ -111,9 +111,9 @@ def main(args):
         ax.set_xlim(cfg.lims)
     ax.tick_params(axis="x", which="both", top=True)
     ax.xaxis.grid(True)
-    padleft = 105
+    padleft = 110
     namewidth = "45mm"
-    left = 0.20
+    left = 0.21
     right = digits_decimal_max > 4 and 0.79 or 0.80
     plt.subplots_adjust(
         left=left, right=right, top=axtop, bottom=fracbottom * singleheight / figheight
@@ -279,7 +279,7 @@ def main(args):
         legend += r"{\slshape{}Preliminary}"
     legend += r"\\Published"
     if needs_io:
-        legend += r"\\Inverted Ordering: -{}-$\vert$-{}-"
+        legend += r"\\Accelerator, inverted Ordering: -{}-$\vert$-{}-"
     ax.text(
         0.03,
         0.05,
