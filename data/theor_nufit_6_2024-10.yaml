@@ -4,6 +4,7 @@ reference:
     date: '2024.10'
     arxiv: https://arxiv.org/pdf/2410.05380
     url: http://www.nu-fit.org/?q=node/294
+    preliminary: yes
 result:
     splitting_large:
         precision: 3
