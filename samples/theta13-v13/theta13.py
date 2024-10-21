@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-import itertools as it
-import re
 from argparse import ArgumentParser
 
 import matplotlib.pyplot as plt
@@ -9,6 +7,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.patches import Arc, Rectangle
 from scipy.interpolate import interp1d
+from matplotlib.colors import to_rgb
 
 import configuration as cfg
 
@@ -69,7 +68,8 @@ def main(args):
     uniqnames = dict(
         zip(
             *np.unique(
-                np.core.defchararray.add(result["exp"], result["notes"]),
+                # np.core.defchararray.add(result["exp"], result["notes"]), # deprecated
+                result["exp"]+result["notes"],
                 return_counts=True,
             )
         )
@@ -177,8 +177,10 @@ def main(args):
             ekwargs["elinewidth"] = 2.0
         if ordering == "IO":
             ekwargs["alpha"] = 0.4
-            pkwargs["alpha"] = 0.4
-            pkwargs["marker"] = "|"
+
+            pkwargs["color"] = to_rgb(pkwargs["color"])+(0.4,) # add transparencly to lines only
+            pkwargs["markeredgecolor"] = pkwargs["color"]
+            pkwargs["markerfacecolor"] = "white"
 
         if args.dayabay:
             name = name.replace("Daya Bay", r"\textbf{Daya Bay}")
@@ -279,7 +281,7 @@ def main(args):
         legend += r"{\slshape{}Preliminary}"
     legend += r"\\Published"
     if needs_io:
-        legend += r"\\Accelerator, inverted Ordering: -{}-$\vert$-{}-"
+        legend += r"\\Dashed: Inverted Ordering"
     ax.text(
         0.03,
         0.05,
