@@ -1,0 +1,76 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - 21.4e20 POT ν
+    - 16.4e20 POT ν-bar
+reference:
+    date:
+    arxiv:
+    inspire:
+    url: https://indico.global/event/8670/contributions/82766/attachments/37883/70671/gzarnecki_T2K_v3.pdf
+    doi:
+    citation:
+    notes: Slide 43
+result:
+    splitting_large:
+        precision: 3
+        results:
+            - ordering: 'NO'
+              mode: '32'
+              value: 2.521
+              uncertainty:
+                  left: 0.050
+                  right: 0.037
+            - ordering: IO
+              mode: '31'
+              value: 2.486
+              uncertainty:
+                  left: 0.044
+                  right: 0.043
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.0219
+              preferred: yes
+              uncertainty:
+                  left: 0.0005
+                  right: 0.0009
+            - ordering: IO
+              preferred: no
+              value: 0.022
+              uncertainty:
+                  left: 0.0004
+                  right: 0.001
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -2.08
+              uncertainty:
+                  left: 0.61
+                  right: 1.33
+            - ordering: IO
+              value: -1.41
+              uncertainty:
+                  left: 0.82
+                  right: 0.64
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.568
+              uncertainty:
+                  left: 0.125
+                  right: 0.024
+            - ordering: IO
+              value: 0.567
+              uncertainty:
+                  left: 0.048
+                  right: 0.021
+
+crosschecks:
+- Liudmila Kolupaeva
