@@ -7,10 +7,10 @@ reference:
     date:
     arxiv:
     inspire:
-    url: https://indico.global/event/8670/contributions/82766/attachments/37883/70671/gzarnecki_T2K_v3.pdf
+    url: https://indico.global/event/8670/contributions/82766/attachments/37883/70671/gzarnecki_T2K_v3.pdf, https://indico.cern.ch/event/1291157/contributions/5888128/attachments/2899009/5083754/T2K_Osc_Analysis_ICHEP_Carabadjac.pdf
     doi:
     citation:
-    notes: Slide 43
+    slides: 43
 result:
     splitting_large:
         precision: 3
@@ -62,15 +62,24 @@ result:
         mode: single
         results:
             - ordering: 'NO'
+              octant: UO
+              preferred: yes
               value: 0.568
               uncertainty:
-                  left: 0.125
-                  right: 0.024
-            - ordering: IO
-              value: 0.567
+                  left: 0.036
+                  right: 0.014
+            - ordering: 'NO'
+              octant: LO
+              preferred: no
+              value: 0.475
               uncertainty:
-                  left: 0.048
-                  right: 0.021
+                  left: 0.011
+                  right: 0.007
+            - ordering: IO
+              value: 0.56
+              uncertainty:
+                  interval: [0.53, 0.585]
+              notes: "Approximate values from the plot"
 
 crosschecks:
 - Liudmila Kolupaeva
