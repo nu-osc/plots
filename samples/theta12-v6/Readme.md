@@ -22,15 +22,15 @@
 
 ###  Including global analyses and future experiments
 
-![sin²θ₁₂](plots/png/latest/${variable}_v${version_dash}${beta}_latest_global_future.png)
+![sin²θ₁₂](png/latest/${variable}_v${version_dash}${beta}_latest_global_future.png)
 
 ### Including global analyses
 
-![sin²θ₁₂](plots/png/latest/${variable}_v${version_dash}${beta}_latest_global.png)
+![sin²θ₁₂](png/latest/${variable}_v${version_dash}${beta}_latest_global.png)
 
 ### Experiments only
 
-![sin²θ₁₂](plots/png/latest/${variable}_v${version_dash}${beta}_latest.png)
+![sin²θ₁₂](png/latest/${variable}_v${version_dash}${beta}_latest.png)
 
 ## References
 

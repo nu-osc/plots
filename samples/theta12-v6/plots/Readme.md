@@ -22,15 +22,15 @@
 
 ###  Including global analyses and future experiments
 
-![sin²θ₁₂](plots/png/latest/theta12_v6_latest_global_future.png)
+![sin²θ₁₂](png/latest/theta12_v6_latest_global_future.png)
 
 ### Including global analyses
 
-![sin²θ₁₂](plots/png/latest/theta12_v6_latest_global.png)
+![sin²θ₁₂](png/latest/theta12_v6_latest_global.png)
 
 ### Experiments only
 
-![sin²θ₁₂](plots/png/latest/theta12_v6_latest.png)
+![sin²θ₁₂](png/latest/theta12_v6_latest.png)
 
 ## References
 
