@@ -11,7 +11,7 @@
     * @ldkolupaeva
     * @maxfl
 - Notes:
-    * de Salas et al. is pre-Neutrino fit
+    * de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
     * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
         + $`\sin^2 \theta_{12} = 1 - 1/(1+\tan^2 \theta_{12})`$.
 
