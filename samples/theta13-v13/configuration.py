@@ -44,7 +44,7 @@ colors = {
     'desalasetal.':    colors['global'],
     'nufit5.2':        colors['global'],
     'nufit6':        colors['global'],
-    'pdg2023':         colors['global'],
+    'pdg2024':         colors['global'],
     'dune':            colors['acc'],
     'capozzietal.':    colors['global']
 	}
