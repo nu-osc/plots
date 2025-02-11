@@ -1,0 +1,60 @@
+experiment: PDG 2024
+type: theory
+reference:
+    date:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    url: https://pdg.lbl.gov/2024/tables/contents_tables.html
+    preliminary: False
+    conf:
+    talk:
+    slides:
+result:
+    splitting_large:
+        precision: 3
+        results:
+            - ordering: 'NO'
+              mode: '32'
+              value: 2.455
+              uncertainty: 0.028
+            - ordering: IO
+              mode: '32'
+              value: 2.529
+              uncertainty: 0.029
+    deltaCP:
+        precision: 3
+        mode: radians
+        value: 1.19
+        uncertainty: 0.22
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.558
+              uncertainty:
+                  left: 0.021
+                  right: 0.015
+            - ordering: IO
+              value: 0.553
+              uncertainty:
+                  left: 0.024
+                  right: 0.016
+    amplitude13:
+        precision: 4
+        mode: single
+        value: 0.0219
+        uncertainty: 0.0007
+    splitting_small:
+        precision: 2
+        value: 7.53
+        uncertainty: 0.18
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.307
+        uncertainty: 0.013
+crosschecks:
+    - Liudmila Kolupaeva

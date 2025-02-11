@@ -3,8 +3,10 @@ type: theory
 reference:
     date: '2024.10'
     arxiv: https://arxiv.org/pdf/2410.05380
+    inspire: https://inspirehep.net/literature/2838825
     url: http://www.nu-fit.org/?q=node/294
-    preliminary: yes
+    cite: Esteban:2024eli
+    preliminary: false
 result:
     splitting_large:
         precision: 3
@@ -72,14 +74,12 @@ result:
             left: 0.011
             right: 0.012
     hier:
-        precision: 1
+        precision: 2
         mode: sigma
-        value: 2.5
+        value: 2.46
         proj:
             max: 0
             min: 0
-        note: SK is included, extracted from 1D plots
-        note: UPDATE!
+        note: SK and IC 24 are included
 crosschecks:
     - Liudmila Kolupaeva
-    - Maxim Gonchar
