@@ -45,4 +45,4 @@
 | PDG 2024           |                                      [PDG](data/theor_pdg_2024.yaml) |                                                                   |
 | SNO                |               [hep-ex/1109.0763](data/sno_2020-07-neutrino2020.yaml) |                                                                   |
 | Solar gloabl         |                        [2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |             |
-| Solar+KamLAND |                [h2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |     |
+| Solar+KamLAND |                [2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |     |
