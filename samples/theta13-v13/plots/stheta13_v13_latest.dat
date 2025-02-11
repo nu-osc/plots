@@ -9,8 +9,6 @@ capozzietal.  Capozzi_et_al.   theory       {}       {}             {}         N
 desalasetal.  de_Salas_et_al.  theory       {}       {}             {}         IO                    5  0.0225   0.00076  0.00056  0.00132                  0  hep-ph/2006.11237                 {}
 desalasetal.  de_Salas_et_al.  theory       {}       {}             {}         NO                    5  0.02225  0.00078  0.00055  0.00133                  0  hep-ph/2006.11237                 {}
 pdg2024       PDG_2024         theory       {}       {}             {}         {}                    4  0.0219   0.0007   0.0007   0.0014                   0  {}                                {}
-t2k           T2K              accelerator  {}       {}             {}         NO                    4  0.0219   0.0005   0.0009   0.0014                   1  {}                                {}
-t2k           T2K              accelerator  {}       {}             {}         IO                    4  0.022    0.0004   0.001    0.0014                   1  {}                                {}
 dayabay       Daya_Bay         reactor      nH       {}             {}         {}                    5  0.01935  0.00127  0.0013   0.00257471               0  hep-ex/2406.01007                 {}
 dune          DUNE             accelerator  {}       estimation     7_years    {}                    5  0.02232  0.00131  0.00131  0.00261684               0  hep-ex/2006.16043                 {}
 reno          RENO             reactor      nGd      {}             {}         {}                    5  0.02282  0.00165  0.00165  0.00329734               1  {}                                Neutrino2020
@@ -21,3 +19,5 @@ novat2k       NOvA+T2K         accelerator  {}       {}             {}         N
 novat2k       NOvA+T2K         accelerator  {}       {}             {}         IO                    5  0.02587  0.00328  0.00429  0.00757452               1  {}                                {}
 nova_1d_rc    NOvA_1D_RC       accelerator  {}       {}             {}         IO                    4  0.0246   0.0034   0.0043   0.00763183               1  {}                                Neutrino2024
 nova_1d_rc    NOvA_1D_RC       accelerator  {}       {}             {}         NO                    4  0.0219   0.0041   0.0037   0.00784089               1  {}                                Neutrino2024
+t2k           T2K              accelerator  {}       {}             {}         NO                    4  0.0266   0.0062   0.0025   0.0087                   1  {}                                {}
+t2k           T2K              accelerator  {}       {}             {}         IO                    4  0.0293   0.0065   0.0027   0.0092                   1  {}                                {}
