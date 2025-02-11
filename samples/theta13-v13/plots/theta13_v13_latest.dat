@@ -11,7 +11,7 @@ desalasetal.  de_Salas_et_al.  theory       {}       {}             {}         N
 pdg2024       PDG_2024         theory       {}       {}             {}         {}                    4  0.0857   0.0027   0.0027   0.00535472              0  {}                                {}
 dayabay       Daya_Bay         reactor      nH       {}             {}         {}                    4  0.0759   0.0049   0.005    0.0099                  0  hep-ex/2406.01007                 {}
 dune          DUNE             accelerator  {}       estimation     7_years    {}                    4  0.0873   0.005    0.005    0.01                    0  hep-ex/2006.16043                 {}
-reno          RENO             reactor      nGd      {}             {}         {}                    4  0.0892   0.0063   0.0063   0.0125873               1  {}                                Neutrino2020
+reno          RENO             reactor      nGd      {}             {}         {}                    4  0.092    0.0059   0.006    0.0118836               0  hep-ex/2412.18711                 {}
 junoreactor   JUNO_reactor     reactor      {}       estimation     6_years    {}                    4  0.0853   0.01     0.0099   0.0198931               0  hep-ex/2204.13249                 {}
 reno          RENO             reactor      nH       {}             {}         {}                    3  0.086    0.012    0.012    0.0233238               1  {}                                Neutrino2022
 doublechooz   Double_CHOOZ     reactor      {}       {}             {}         {}                    3  0.102    0.012    0.012    0.0234094               1  {}                                Neutrino2020
