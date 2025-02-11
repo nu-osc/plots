@@ -1,17 +1,20 @@
 # $`\Delta m^2_{21}`$ measurements comparison
 
-- Version: **${version_num}${beta}**
-- Updates since v${version_prev}:
-    * NuFIT 6
-- [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
+- Version: **8**
+- Updates since v7:
+    * Update to NuFIT 6
+    * SK+SNO is now taking into account other solar experiments ' measurements and thus called Solar global
+    * SK published new results
+    * PDG 2024 was released 
+    * SNO+ results with reactor neutrinos
+- [Plotting scripts](samples/dm21/dm21-v8-)
 - Data tables:
-    * [published](${variable}_v${version_dash}${beta}_published.dat)
-    * [latest](${variable}_v${version_dash}${beta}_latest.dat)
+    * [published](dm21_v8_published.dat)
+    * [latest](dm21_v8_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
-    * @maxfl
 - Notes:
-    * Forero et al. is pre-Neutrino fit
+    * de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
     * SNO+ central value is from PDG 2022
 
 ## Plots
@@ -38,9 +41,10 @@
 | HyperK             |                                                                      |                                                                           [ICHEP2020](data/hyperk_future_2020_sol.yaml) |
 | JUNO               |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                       [Neutrino 2022](data/juno_future_2022-06-solar-neutrino2022.yaml) |
 | KamLAND            |          [hep-ex/1606.07538](data/kamland_2020-07-neutrino2020.yaml) |                                                                                                                         |
-| NuFIT              |                       [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml) |                                                                              [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |
-| PDG                |                                      [PDG](data/theor_pdg_2022.yaml) |                                                                                                                         |
+| NuFIT 6            |                           [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |                                                                                                                         |
+| PDG                |                                      [PDG](data/theor_pdg_2024.yaml) |                                                                                                                         |
 | SNO                |               [hep-ex/1109.0763](data/sno_2020-07-neutrino2020.yaml) |                                                                                                                         |
-| SNO+               |                                                                      | [Neutrino 2022](data/snoplus_future_2023-reactor.yaml), [Neutrino 2024](data/snoplus_2024-06-neutrino2024-reactor.yaml) |
-| SuperK+SNO         |                        [hep-ex/1606.07538](data/sk+sno_2016-06.yaml) |                                                                  [Neutrino 2022](data/sk+sno_2022-06-neutrino2022.yaml) |
-| SuperK+SNO+KamLAND |                [hep-ex/1606.07538](data/kamland+sk+sno_2016-06.yaml) |                                                          [Neutrino 2022](data/kamland+sk+sno_2022-06-neutrino2022.yaml) |
+| SNO+   |                                                                      | [Neutrino 2022](data/snoplus_future_2023-reactor.yaml), [Neutrino 2024](data/snoplus_2024-06-neutrino2024-reactor.yaml) |
+| Solar global         |                        [2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |             |
+| Solar+KamLAND |                [h2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |     |
+
