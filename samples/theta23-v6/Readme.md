@@ -8,8 +8,8 @@
     * [NO table](${variable}_NO_v${version_dash}${beta}.dat)
     * [IO table](${variable}_IO_v${version_dash}${beta}.dat)
 - Notes:
-    * [T2K](data/t2k_2020-07-neutrino2020.yaml): Bayessian posterior, no particular ordering may be attributed to the number
-    * [IceCube](data/icecube_2023-04.yaml): NO value and uncertainty are used for the IO
+    * [T2K](data/t2k_2024-06-neutrino2024.yaml): IO values extracted from the plot
+    * [IceCube](data/icecube_2024-05.yaml): NO value and uncertainty are used for the IO
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
