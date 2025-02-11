@@ -143,7 +143,7 @@ def main(args):
         if preferred:
             latex_text[counter]=latex
         else:
-            continue
+            #continue
             if oct=='LO':
                 latex_left_text[counter] = latex_secondary
             else:
