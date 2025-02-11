@@ -40,7 +40,7 @@
 | DUNE            |                                                                 [hep-ph/1808.08232](data/dune_future_2018_sol.yaml) |                                               |
 | de Salas et al. |                                                [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                               |
 | HyperK          |                                                                                                                     | [ICHEP2020](data/hyperk_future_2020_sol.yaml) |
-| JUNO            | [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) [hep-ex/2210.08437](data/juno_future_2022-10-solar.yaml) |                                               |
+| JUNO            | [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml), [hep-ex/2210.08437](data/juno_future_2022-10-solar.yaml) |                                               |
 | KamLAND         |                                                         [hep-ex/1606.07538](data/kamland_2020-07-neutrino2020.yaml) |                                               |
 | NuFIT           |                                                                          [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |                                               |
 | PDG 2024        |                                                                                     [PDG](data/theor_pdg_2024.yaml) |                                               |
