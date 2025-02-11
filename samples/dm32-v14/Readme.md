@@ -83,11 +83,11 @@
 | INO             |              [physics.ins-det/1505.07380](data/ino_future_2015.yaml) |                                                            |
 | JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
 | MINOS+          |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                            |
-| NOvA            |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |  [Neutrino 2024](data/nova_2024-06-neutrino2024.yaml)      |
+| NOvA            |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |       [Neutrino 2024](data/nova_2024-06-neutrino2024.yaml) |
 | NuFIT           |                           [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |                                                            |
 | PDG             |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
 | ORCA            |                      [hep-ex/2103.09885](data/orca_future_2021.yaml) |                                                            |
-| RENO            |                          [hep-ex/1806.00248](data/reno_2018-06.yaml) |       [Neutrino 2020](data/reno_2020-07-neutrino2020.yaml) |
+| RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                             |
 | SuperCHOOZ      |                                                                      | [CERN seminar 2022](https://indico.cern.ch/event/1215214/) |
-| SuperK          |                        [hep-ex/2311.05105](data/superk_2023-011.yaml) |                                                           |
+| SuperK          |                       [hep-ex/2311.05105](data/superk_2023-011.yaml) |                                                            |
 | T2K             |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) |        [Neutrino 2024](data/t2k_2024-06-neutrino2024.yaml) |
