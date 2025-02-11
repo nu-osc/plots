@@ -4,6 +4,7 @@
 - Updates since v13:
     * IceCube, SuperK and Daya Bay results are published
     * T2K and NOvA presented new results at Neutrino 2024
+    * Latest RENO results
 - [Plotting scripts](samples/dm32/dm32-v14-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):

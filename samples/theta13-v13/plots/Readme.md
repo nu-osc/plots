@@ -3,6 +3,7 @@
 - Version: **13**
 - Updates since v12:
     * Daya Bay results are now published
+    * Latest RENO results
 - [Plotting scripts](samples/theta13/theta13-v13-)
 - Data tables:
     * [published](theta13_v13_published.dat)
