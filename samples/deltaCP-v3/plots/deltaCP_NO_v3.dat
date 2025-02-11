@@ -1,0 +1,7 @@
+style            name              notes    ordering    octant      value    left    right      span  result                      arxiv       conf
+nova_1d_rc       NOvA_1D_RC        {}       NO          {}          0.1     0.06     0.2    0.26      $0.100^{+0.200}_{-0.060}$   {}          Neutrino2024
+superkt2k        SuperK+T2K        {}       NO          {}         -0.596   0.188    0.212  0.400752  $-0.596^{+0.212}_{-0.188}$  {}          NNN2023
+nova_1d_rc       NOvA_1D_RC        {}       NO          {}          0.93    0.31     0.21   0.52      $0.930^{+0.210}_{-0.310}$   {}          Neutrino2024
+novat2k          NOvA+T2K          {}       NO          {}         -0.87    0.21     0.35   0.559589  $-0.870^{+0.350}_{-0.210}$  {}          {}
+t2k              T2K               {}       NO          {}         -0.662   0.194    0.423  0.617521  $-0.662^{+0.423}_{-0.194}$  {}          {}
+superkamiokande  Super-Kamiokande  {}       NO          {}         -0.557   0.398    0.242  0.639803  $-0.557^{+0.242}_{-0.398}$  2311.05105  {}
