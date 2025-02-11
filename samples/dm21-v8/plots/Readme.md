@@ -46,4 +46,4 @@
 | SNO                |               [hep-ex/1109.0763](data/sno_2020-07-neutrino2020.yaml) |                                                                                                                         |
 | SNO+   |                                                                      | [Neutrino 2022](data/snoplus_future_2023-reactor.yaml), [Neutrino 2024](data/snoplus_2024-06-neutrino2024-reactor.yaml) |
 | Solar global         |                        [2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |             |
-| Solar+KamLAND |                [h2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |     |
+| Solar+KamLAND |                [2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |     |
