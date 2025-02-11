@@ -3,13 +3,15 @@
 - Version: **6**
 - Updates since v5.1:
     * Update to NuFIT 6
+    * SK+SNO is now taking into account other solar experiments ' measurements and thus called Solar global
+    * SK published new results
+    * PDG 2024 was released 
 - [Plotting scripts](samples/theta12/theta12-v6-)
 - Data tables:
     * [published](theta12_v6_published.dat)
     * [latest](theta12_v6_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
-    * @maxfl
 - Notes:
     * de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
     * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
@@ -39,8 +41,8 @@
 | HyperK             |                                                                      |                     [ICHEP2020](data/hyperk_future_2020_sol.yaml) |
 | JUNO               |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) | [Neutrino 2022](data/juno_future_2022-06-solar-neutrino2022.yaml) |
 | KamLAND            |          [hep-ex/1606.07538](data/kamland_2020-07-neutrino2020.yaml) |                                                                   |
-| NuFIT              |                       [NuFIT 5.2](data/theor_nufit_5_2_2022-11.yaml) |                        [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |
-| PDG 2023           |                                      [PDG](data/theor_pdg_2022.yaml) |                                                                   |
+| NuFIT              |                       [NuFIT 6](data/theor_nufit_6_2024-10.yaml)  |                         |
+| PDG 2024           |                                      [PDG](data/theor_pdg_2024.yaml) |                                                                   |
 | SNO                |               [hep-ex/1109.0763](data/sno_2020-07-neutrino2020.yaml) |                                                                   |
-| SuperK+SNO         |                        [hep-ex/1606.07538](data/sk+sno_2016-06.yaml) |            [Neutrino 2022](data/sk+sno_2022-06-neutrino2022.yaml) |
-| SuperK+SNO+KamLAND |                [hep-ex/1606.07538](data/kamland+sk+sno_2016-06.yaml) |    [Neutrino 2022](data/kamland+sk+sno_2022-06-neutrino2022.yaml) |
+| Solar gloabl         |                        [2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |             |
+| Solar+KamLAND |                [h2312.12907 [hep-ex]](data/kamland+sk+sno_2023-12.yaml) |     |
