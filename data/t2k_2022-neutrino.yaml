@@ -1,0 +1,81 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - 19.7e20 POT ν
+    - 16.3e20 POT ν-bar
+reference:
+    date:
+    arxiv:
+    inspire:
+    doi:
+    citation: https://zenodo.org/records/6683821
+    notes: prvivate communication for numbers, Frequentist
+result:
+    splitting_large:
+        precision: 3
+        results:
+            - ordering: 'NO'
+              mode: '32'
+              value: 2.506
+              uncertainty:
+                  left: 0.052
+                  right: 0.039
+            - ordering: IO
+              mode: '31'
+              value: 2.473
+              uncertainty:
+                  left: 0.020
+                  right: 0.071
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.0266
+              preferred: yes
+              uncertainty:
+                  left: 0.0062
+                  right: 0.0025
+            - ordering: IO
+              preferred: no
+              value: 0.0293
+              uncertainty:
+                  left: 0.0065
+                  right: 0.0027
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -2.18
+              uncertainty:
+                  left: 0.47
+                  right: 1.22
+            - ordering: IO
+              value: -1.37
+              uncertainty:
+                  left: 1.28
+                  right: 0.41
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: UO
+              preferred: yes
+              value: 0.559
+              uncertainty:
+                  interval: [0.521, 0.579]
+            - ordering: 'NO'
+              octant: LO
+              preferred: no
+              value: 0.495
+              uncertainty:
+                  interval: [0.456, 0.498]
+            - ordering: IO
+              value: 0.56
+              uncertainty:
+                  left: 0.041
+                  right: 0.019
+
+crosschecks:

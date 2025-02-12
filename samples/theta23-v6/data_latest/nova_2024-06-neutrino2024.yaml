@@ -1,0 +1,70 @@
+experiment: NOvA_1D_RC
+type: accelerator
+dataset: 26.6e20 POT ν, 12.5e20 POT ν-bar
+reference:
+    date: '2024.06'
+    arxiv: 
+    inspire: 
+    doi:
+    citation: 
+    conf: Neutrino2024
+    talk: 
+    slides: 
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.42933
+              uncertainty: 
+                 interval: [2.39467, 2.46933]
+            - ordering: IO
+              value: 2.47733
+              uncertainty:
+                  interval: [2.44267, 2.51733]
+    deltaCP:
+        precision: 3
+        mode: pi
+        results:
+            - ordering: 'NO'
+              value: 0.93
+              preferred: yes
+              uncertainty:
+                  interval: [0.62, 1.14]
+            - ordering: 'NO'
+              value: 0.1
+              preferred: no
+              uncertainty:
+                  interval: [0.04, 0.3]
+            - ordering: IO
+              value: 1.49
+              uncertainty:
+                  interval: [1.3, 1.7]
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.547
+              uncertainty:
+                  interval: [0.484, 0.566]
+            - ordering: IO
+              value: 0.545
+              uncertainty:
+                  interval: [0.49, 0.566]
+    amplitude13:
+        precision: 3
+        mode: double
+        results:
+            - ordering: 'NO'
+              value: 0.0858
+              preferred: yes
+              uncertainty:
+                interval: [0.07, 0.1]
+            - ordering: IO
+              preferred: no
+              value: 0.0958
+              uncertainty:
+                interval: [0.083, 0.112]
+crosschecks:

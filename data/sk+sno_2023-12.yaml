@@ -1,0 +1,24 @@
+experiment: Solar global
+type: solar
+dataset: SK 5805 days, all solar
+reference:
+    date: '2023.12'
+    arxiv: 2312.12907 [hep-ex]
+    inspire: https://inspirehep.net/literature/2739285
+    doi: 10.1103/PhysRevD.109.092001
+    citation: Super-Kamiokande:2023jbt
+    notes: Figure 47
+result:
+    splitting_small:
+        precision: 2
+        value: 6.10
+        uncertainty:
+            right: 0.95
+            left:  0.81
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.306
+        uncertainty: 0.013
+crosschecks:
+    - Liudmila Kolupaeva

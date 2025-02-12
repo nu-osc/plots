@@ -1,0 +1,86 @@
+experiment: NOvA_2D_RC
+type: accelerator
+dataset: 26.6e20 POT ν, 12.5e20 POT ν-bar
+reference:
+    date: '2024.06'
+    arxiv: 
+    inspire: 
+    doi:
+    citation: 
+    conf: Neutrino2024
+    talk: 
+    slides: 
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.44
+              uncertainty: 
+                 interval: [2.405, 2.469]
+            - ordering: IO
+              value: 2.499
+              uncertainty:
+                  interval: [2.469, 2.533]
+    deltaCP:
+        precision: 3
+        mode: pi
+        results:
+            - ordering: 'NO'
+              value: 0.91
+              preferred: yes
+              uncertainty:
+                  interval: [0.6, 1.14]
+            - ordering: 'NO'
+              value: 0.1
+              preferred: no
+              uncertainty:
+                  interval: [0.08, 0.28]
+            - ordering: IO
+              value: 1.53
+              uncertainty:
+                  interval: [1.32, 1.72]
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.551
+              octant: UO
+              preferred: yes
+              uncertainty:
+                  interval: [0.51, 0.57]
+            - ordering: 'NO'
+              value: 0.48
+              octant: LO
+              preferred: no
+              uncertainty:
+                  interval: [0.472, 0.498]
+            - ordering: IO
+              value: 0.49
+              octant: LO
+              preferred: no
+              uncertainty:
+                  interval: [0.472, 0.49]
+            - ordering: 'NO'
+              value: 0.553
+              octant: UO
+              preferred: yes
+              uncertainty:
+                  interval: [0.508, 0.574]
+    amplitude13:
+        precision: 3
+        mode: double
+        results:
+            - ordering: 'NO'
+              value: 0.0858
+              preferred: yes
+              uncertainty:
+                interval: [0.07, 0.1]
+            - ordering: IO
+              preferred: no
+              value: 0.0958
+              uncertainty:
+                interval: [0.083, 0.112]
+crosschecks:

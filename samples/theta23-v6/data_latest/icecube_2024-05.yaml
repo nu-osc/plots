@@ -1,0 +1,42 @@
+experiment: IceCube
+type: atmospheric
+dataset: 
+reference:
+    date: '2024.05'
+    arxiv: hep-ex/2405.02163
+    inspire: https://inspirehep.net/literature/2783228
+    doi: https://doi.org/10.48550/arXiv.2405.02163
+    citation: IceCube:2024xjj
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.40
+              uncertainty: 
+                  left: 0.04
+                  right: 0.05
+            - ordering: 'IO'
+              value: 2.40
+              uncertainty:
+                  left: 0.04
+                  right: 0.05
+              notes: "Copied from NO"
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.54
+              uncertainty:
+                  left: 0.03
+                  right: 0.04
+            - ordering: 'IO'
+              value: 0.54
+              uncertainty:
+                  left: 0.03
+                  right: 0.04
+              notes: "Copied from NO"
+crosschecks:
+    - Liudmila Kolupaeva

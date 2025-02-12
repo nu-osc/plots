@@ -1,0 +1,32 @@
+experiment: RENO
+type: reactor
+dataset: 3800 days
+reference:
+    date: '2024.12'
+    arxiv: 'hep-ex/2412.18711'
+target: nGd
+result:
+    amplitude13:
+        precision: 4
+        mode: double
+        value: 0.0920
+        uncertainty:
+            stat: 
+                right: 0.0044
+                left: 0.0042
+            syst:
+                right: 0.0041
+                left: 0.0041
+    splitting_large:
+        precision: 2
+        mode: ee
+        value: 2.57
+        uncertainty:
+            stat: 
+                right: 0.10
+                left: 0.11
+            syst:
+                right: 0.05
+                left: 0.05
+crosschecks:
+    - Maxim Gonchar

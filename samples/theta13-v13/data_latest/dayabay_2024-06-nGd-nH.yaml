@@ -1,0 +1,18 @@
+experiment: Daya Bay
+type: reactor
+dataset: 1958 days
+details: "3158 days: 217 days (6AD) + 1524 days (8AD) + 1417 days (7AD), rate+shape analysis"
+reference:
+    date: '2024.06'
+    arxiv: hep-ex/2406.01007
+    inspire: https://inspirehep.net/literature/2793710
+    doi: 10.1103/PhysRevLett.133.151801
+target: 'nGd+nH'
+result:
+    amplitude13:
+        precision: 4
+        mode: double
+        value: 0.0833
+        uncertainty: 0.0022
+crosschecks:
+    - Maxim Gonchar
