@@ -19,7 +19,7 @@ colors = {
     "solarglobal": "xkcd:saffron",
     "sno": "xkcd:saffron",
     "snoreactor": "xkcd:red",
-    "snoreactorconstraint": "xkcd:red",
+    "snoreactorconstraint": "xkcd:orange",
     "icecube": "xkcd:azure",
     "nufit5.2": "xkcd:steel grey",
     "nufit6": "xkcd:steel grey",
