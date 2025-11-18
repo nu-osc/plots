@@ -1,17 +1,17 @@
 # $`\Delta m^2_{21}`$ measurements comparison
 
-- Version: **8**
-- Updates since v7:
+- Version: **${version_num}${beta}**
+- Updates since v${version_prev}:
     * Update to NuFIT 6
     * SK+SNO is now taking into account other solar experiments ' measurements and thus called Solar global
     * SK published new results
     * PDG 2024 was released 
     * SNO+ results with reactor neutrinos
     * Published JUNO solar sensitivity
-- [Plotting scripts](samples/dm21/dm21-v8-)
+- [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:
-    * [published](dm21_v8_published.dat)
-    * [latest](dm21_v8_latest.dat)
+    * [published](${variable}_v${version_dash}${beta}_published.dat)
+    * [latest](${variable}_v${version_dash}${beta}_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
 - Notes:
