@@ -1,16 +1,16 @@
 # $`\sin^2 \theta_{12}`$ measurements comparison
 
-- Version: **6**
-- Updates since v5.1:
+- Version: **${version_num}${beta}**
+- Updates since v${version_prev}:
     * Update to NuFIT 6
     * SK+SNO is now taking into account other solar experiments ' measurements and thus called Solar global
     * SK published new results
     * PDG 2024 was released 
     * Published JUNO solar sensitivity
-- [Plotting scripts](samples/theta12/theta12-v6-)
+- [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
 - Data tables:
-    * [published](theta12_v6_published.dat)
-    * [latest](theta12_v6_latest.dat)
+    * [published](${variable}_v${version_dash}${beta}_published.dat)
+    * [latest](${variable}_v${version_dash}${beta}_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
 - Notes:
