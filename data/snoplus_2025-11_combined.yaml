@@ -1,4 +1,4 @@
-experiment: "SNO+ reactor"
+experiment: "SNO+ reactor + constraints"
 type: reactor
 dataset: "245.78+439.43 days"
 exposure: "1.46 kton years"
@@ -10,14 +10,12 @@ reference:
 result:
     splitting_small:
         precision: 2
-        value: 7.93
-        uncertainty: 
-          left: 0.24
-          right: 0.21
+        value: 7.63
+        uncertainty: 0.17
     amplitude12:
         precision: 3
         mode: single
-        value: 0.505
-        uncertainty: 0.134
+        value: 0.310
+        uncertainty: 0.012
 crosschecks:
     - Maxim Gonchar

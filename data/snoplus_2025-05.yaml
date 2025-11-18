@@ -1,0 +1,25 @@
+experiment: "SNO+ reactor"
+type: reactor
+dataset: "134.4 days"
+exposure: "???"
+reference:
+    date: "2025.05"
+    title: "Measurement of Reactor Antineutrino Oscillation at SNO"
+    arxiv: "hep-ex/2505.04469"
+    inspire: "https://inspirehep.net/literature/2919048"
+result:
+    splitting_small:
+        precision: 2
+        value: 7.96
+        uncertainty: 
+          left: 0.48
+          right: 0.42
+    amplitude12:
+        precision: 2
+        mode: single
+        value: 0.62
+        uncertainty:
+          left: 0.40
+          right: 0.16
+crosschecks:
+    - Maxim Gonchar
