@@ -7,6 +7,7 @@ reference:
     title: "Measurement of reactor antineutrino oscillations with 1.46 ktonne-years of data at SNO+"
     arxiv: "hep-ex/2511.11856"
     inspire: "https://inspirehep.net/literature/3083970"
+    preliminary: yes
 result:
     splitting_small:
         precision: 2
