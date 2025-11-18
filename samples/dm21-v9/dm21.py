@@ -7,7 +7,7 @@ from collections.abc import Mapping
 
 import configuration as cfg
 dtype1 = np.dtype([
-    ('id', 'U20'), ('exp', 'U20'), ('type', 'U50'),
+    ('id', 'U20'), ('exp', 'U30'), ('type', 'U50'),
     ('measurement', 'U20'), ('dataset', 'U20'), ('notes', 'U20'),
     ('digits', 'i1'),
     ('value', 'f8'), ('left', 'f8'), ('right', 'f8'), ('span', 'f8'),
