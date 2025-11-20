@@ -2,10 +2,10 @@ from itertools import product
 from pathlib import Path
 
 variable = "theta13"
-version_num = "13"
+version_num = "14"
 suffix = ""
 beta = ""
-version_prev = "12"
+version_prev = "13"
 version_dash = version_num.replace(".", "-")
 version = f"v{version_dash}{beta}"
 

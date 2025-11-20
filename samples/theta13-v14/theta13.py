@@ -4,9 +4,6 @@ from argparse import ArgumentParser
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-from matplotlib.patches import Arc, Rectangle
-from scipy.interpolate import interp1d
 from matplotlib.colors import to_rgb
 
 import configuration as cfg
@@ -69,7 +66,7 @@ def main(args):
         zip(
             *np.unique(
                 # np.core.defchararray.add(result["exp"], result["notes"]), # deprecated
-                result["exp"]+result["notes"],
+                result["exp"] + result["notes"],
                 return_counts=True,
             )
         )
@@ -178,7 +175,9 @@ def main(args):
         if ordering == "IO":
             ekwargs["alpha"] = 0.4
 
-            pkwargs["color"] = to_rgb(pkwargs["color"])+(0.4,) # add transparencly to lines only
+            pkwargs["color"] = to_rgb(pkwargs["color"]) + (
+                0.4,
+            )  # add transparencly to lines only
             pkwargs["markeredgecolor"] = pkwargs["color"]
             pkwargs["markerfacecolor"] = "white"
 
@@ -299,7 +298,7 @@ def main(args):
         )
 
     if args.output:
-        plt.savefig(args.output, dpi=300)
+        plt.savefig(args.output, dpi=300, metadata={"CreationDate": None})
         print("Write output file", args.output)
 
     if args.show:
