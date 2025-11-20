@@ -19,5 +19,5 @@ reno          RENO             reactor      nH       {}             {}         {
 t2k           T2K              accelerator  {}       {}             {}         NO                    4  0.1003   0.0124   0.0123   0.0247                  0  hep-ex/2510.19888                 {}
 novat2k       NOvA+T2K         accelerator  {}       {}             {}         NO                    4  0.0892   0.0125   0.0158   0.0283                  0  hep-ex/2510.19888                 {}
 novat2k       NOvA+T2K         accelerator  {}       {}             {}         IO                    4  0.1008   0.0125   0.0162   0.0287                  0  hep-ex/2510.19888                 {}
-nova_1d_rc    NOvA_1D_RC       accelerator  {}       {}             {}         IO                    3  0.096    0.013    0.016    0.029                   1  {}                                Neutrino2024
-nova_1d_rc    NOvA_1D_RC       accelerator  {}       {}             {}         NO                    3  0.086    0.016    0.014    0.03                    1  {}                                Neutrino2024
+nova          NOvA             accelerator  {}       {}             {}         NO                    3  0.084    0.016    0.019    0.035                   0  hep-ex/2510.19888                 {}
+nova          NOvA             accelerator  {}       {}             {}         IO                    3  0.092    0.014    0.023    0.037                   0  hep-ex/2510.19888                 {}
