@@ -16,6 +16,10 @@
 
 ## Plots
 
+### Experiments only
+
+![Δm²₂₁](png/latest/dm21_v9_latest.png)
+
 ### Including global analyses and future experiments
 
 ![Δm²₂₁](png/latest/dm21_v9_latest_global_future.png)
@@ -23,10 +27,6 @@
 ### Including global analyses
 
 ![Δm²₂₁](png/latest/dm21_v9_latest_global.png)
-
-### Experiments only
-
-![Δm²₂₁](png/latest/dm21_v9_latest.png)
 
 ## References
 
