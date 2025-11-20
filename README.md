@@ -14,7 +14,7 @@ Page content:
 | $`\sin^2 \theta_{12}`$                            | [v7](samples/theta12-v7/plots)   | 2025-11 | SNO+, JUNO                              |
 | $`\sin^22\theta_{13}`$                            | [v13](samples/theta13-v13/plots) | 2024-10 | NuFIT 6, PDG 2024, Daya Bay, RENO, NOvA |
 | $`\sin^2 \theta_{23}`$                            | [v6](samples/theta23-v6/plots)   | 2023-10 | NuFIT 6, PDG 2024, NOvA                 |
-| $`\Delta m^2_{21}`$                               | [v8](samples/dm21-v9/plots)      | 2025-11 | SNO+, JUNO                              |
+| $`\Delta m^2_{21}`$                               | [v9](samples/dm21-v9/plots)      | 2025-11 | SNO+, JUNO                              |
 | $`\|\Delta m^2_{31/32}\|`$                        | [v14](samples/dm32-v14/plots)    | 2024-06 | NuFIT 6, PDG 2024, NOvA, Daya Bay, RENO |
 | Mass ordering                                     | [v1.2](samples/mo-v1.2)          | 2023-10 |                                         |
 | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v2.1](samples/deltaCP-v2.1)     | 2023-08 |                                         |
