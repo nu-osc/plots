@@ -19,4 +19,5 @@ result:
         value: 0.310
         uncertainty: 0.012
 crosschecks:
+    - Liudmila Kolupaeva
     - Maxim Gonchar
