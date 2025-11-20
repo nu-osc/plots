@@ -48,11 +48,11 @@
 | Double CHOOZ    |                        [hep-ex/1901.09445](data/dchooz_2019-01.yaml) |                  [TAUP 2025](dchooz_2025-08-taup2025.yaml) |
 | de Salas et al. | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
 | JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
-| NOvA            |                                                                      |       [Neutrino 2024](data/nova_2024-06-neutrino2024.yaml) |
-| NOvA+T2K        |                                                                      | [Joint fit working group data](data/nova_t2k_jf_2023.yaml) |
+| NOvA            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
+| NOvA+T2K        |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
 | NuFIT           |                          [NuFIT 6](data/theor_nufit_6_2024-10.yaml). |                                                            |
 | PDG             |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
 | RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
 | RENO nH         |                       [hep-ex/1911.04601](data/reno_2019-11_nH.yaml) |    [Neutrino 2022](data/reno_2020-06-nH-neutrino2022.yaml) |
 | SuperCHOOZ      |                                                                      | [CERN seminar 2022](data/dchooz_2020-07-neutrino2020.yaml) |
-| T2K             |                                                                      | [Joint fit working group data](data/updated_t2k_2023.yaml) |
+| T2K             |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
