@@ -1,5 +1,6 @@
 style                  name                        type           measurement    dataset    notes      precision    value    left    right    span    preliminary  arxiv                             conf
 junoreactor            JUNO_reactor                reactor        estimation     6_years    {}                 3     7.53   0.024    0.024  0.048               0  hep-ex/2204.13249                 {}
+junoreactor            JUNO_reactor                reactor        {}             {}         {}                 2     7.5    0.12     0.12   0.24                1  hep-ex/2511.14593                 {}
 snoreactor             SNO+_reactor                reactor        estimation     5_years    {}                 2     7.53   0.13     0.13   0.2636              1  {}                                Neutrino_2022
 capozzietal.           Capozzi_et_al.              theory         {}             {}         {}                 2     7.36   0.15     0.16   0.31                0  hep-ph/2107.00532                 {}
 snoreactorconstraints  SNO+_reactor_+_constraints  reactor        {}             {}         {}                 2     7.63   0.17     0.17   0.34                1  hep-ex/2511.11856                 {}
