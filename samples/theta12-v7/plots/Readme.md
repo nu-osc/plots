@@ -10,6 +10,7 @@
     * [latest](theta12_v7_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
+    * @maxfl
 - Notes:
     * de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
     * $`\tan^2 \theta_{12}`$ to $`\sin^2 \theta_{12}`$ conversion:
