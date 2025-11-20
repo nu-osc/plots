@@ -266,7 +266,7 @@ def main(args):
     )
 
     if args.output:
-        plt.savefig(args.output, dpi=300)
+        plt.savefig(args.output, dpi=300, metadata={"CreationDate": None})
         print("Write output file", args.output)
 
     if args.show:
