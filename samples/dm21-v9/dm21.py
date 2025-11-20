@@ -88,7 +88,7 @@ def main(args):
         )
     else:
         plt.subplots_adjust(
-            left=0.15,
+            left=0.12,
             right=0.81,
             top=axtop,
             bottom=fracbottom * singleheight / figheight,
@@ -173,7 +173,7 @@ def main(args):
     if include_future:
         ax.tick_params(axis="y", direction="out", labelleft=True, labelright=False, pad=150)
     else:
-        ax.tick_params(axis="y", direction="out", labelleft=True, labelright=False, pad=80)
+        ax.tick_params(axis="y", direction="out", labelleft=True, labelright=False, pad=60)
     for label in ax.get_yticklabels():
         label.set_backgroundcolor("white")
         bbox = label.get_bbox_patch()
