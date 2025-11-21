@@ -23,7 +23,7 @@ result:
               uncertainty:
                   interval: [2.467, 2.531]
     amplitude13:
-        precision: 2
+        precision: 3
         mode: double
         notes: 
           - "no reactor constraint"
