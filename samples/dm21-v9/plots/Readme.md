@@ -10,6 +10,7 @@
     * [latest](dm21_v9_latest.dat)
 - Cross checks by:
   - @ldkolupaeva
+  - @maxfl
 - Notes:
   - de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
   - SNO+ central value for sensitivity is from PDG 2022

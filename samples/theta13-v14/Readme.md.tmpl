@@ -1,0 +1,58 @@
+# sin²2θ₁₃ (sin²θ₁₃) measurements comparison
+
+- Version: **${version_num}${beta}**
+- Updates since v${version_prev}:
+    * Latest Double CHOOZ results from TAUP 2025
+- [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
+- Data tables:
+    * [published](${variable}_v${version_dash}${beta}_published.dat)
+    * [latest](${variable}_v${version_dash}${beta}_latest.dat)
+- Cross checks by:
+    * @ldkolupaeva
+    * @maxfl
+- Notes:
+    * de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
+    * dashed grey bar in theoretical entry means IO
+    * only a few plots are shown below, see the subfolders for all the available plots
+
+## Latest results
+
+### sin²2θ₁₃
+
+#### Experiments only
+
+![sin²2θ₁₃](png/latest/double/${variable}_v${version_dash}${beta}_latest.png)
+
+####  Including global analyses and future experiments
+
+![sin²2θ₁₃](png/latest/double/${variable}_v${version_dash}${beta}_latest_global_future.png)
+
+### sin²θ₁₃
+
+#### Experiments only
+
+![sin²2θ₁₃](png/latest/single/s${variable}_v${version_dash}${beta}_latest.png)
+
+####  Including global analyses and future experiments
+
+![sin²2θ₁₃](png/latest/single/s${variable}_v${version_dash}${beta}_latest_global_future.png)
+
+## References
+
+| Measurement     |                                                            Published |                                                     Latest |
+|-----------------|---------------------------------------------------------------------:|-----------------------------------------------------------:|
+| Capozzi et al.  |                 [hep-ph/2107.00532](data/theor_capozzi_2021-07.yaml) |                                                            |
+| DUNE            |                  [hep-ex/2006.16043](data/dune_future_2020_acc.yaml) |                                                            |
+| Daya Bay nGd    |                   [hep-ex/2211.14988](data/dayabay_2022-11-nGd.yaml) |                                                            |
+| Daya Bay nH     |                    [hep-ex/2406.01007](data/dayabay_2024-06-nH.yaml) |                                                            |
+| Double CHOOZ    |                        [hep-ex/1901.09445](data/dchooz_2019-01.yaml) |                  [TAUP 2025](dchooz_2025-08-taup2025.yaml) |
+| de Salas et al. | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
+| JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
+| NOvA            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
+| NOvA+T2K        |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
+| NuFIT           |                          [NuFIT 6](data/theor_nufit_6_2024-10.yaml). |                                                            |
+| PDG             |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
+| RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
+| RENO nH         |                       [hep-ex/1911.04601](data/reno_2019-11_nH.yaml) |    [Neutrino 2022](data/reno_2020-06-nH-neutrino2022.yaml) |
+| SuperCHOOZ      |                                                                      | [CERN seminar 2022](data/dchooz_2020-07-neutrino2020.yaml) |
+| T2K             |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |

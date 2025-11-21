@@ -1,0 +1,80 @@
+experiment: T2K
+type: accelerator
+dataset:
+reference:
+    date: "2025.10"
+    arxiv: "hep-ex/2510.19888"
+    doi: "https://10.1038/s41586-025-09599-3"
+result:
+    # splitting_large:
+    #     precision: 2
+    #     mode: '32'
+    #     results:
+    #         - ordering: 'NO'
+    #           value: 2.43
+    #           uncertainty:
+    #               left: 0.03
+    #               right: 0.04
+    #         - ordering: IO
+    #           value: 2.48
+    #           uncertainty: 
+    #               left: 0.03
+    #               right: 0.04
+    # deltaCP:
+    #     precision: 2
+    #     mode: pi
+    #     results:
+    #         - ordering: 'NO'
+    #           value: -0.87
+    #           uncertainty:
+    #               left: 0.21
+    #               right: 0.35
+    #         - ordering: IO
+    #           value: -0.47
+    #           uncertainty:
+    #               left: 0.15
+    #               right: 0.17
+    # amplitude23:
+    #     precision: 3
+    #     mode: single
+    #     results:
+    #         - ordering: 'NO'
+    #           octant: UO
+    #           preferred: yes
+    #           value: 0.561
+    #           uncertainty:
+    #               left: 0.039
+    #               right: 0.021
+    #         - ordering: 'NO'
+    #           octant: LO
+    #           preferred: no
+    #           value: 0.470
+    #           uncertainty:
+    #               left: 0.008
+    #               right: 0.016
+    #         - ordering: IO
+    #           octant: UO
+    #           preferred: yes
+    #           value: 0.563
+    #           uncertainty:
+    #               left: 0.039
+    #               right: 0.021
+    amplitude13:
+        precision: 4
+        mode: double
+        results:
+            - ordering: 'NO'
+              value: 0.1003
+              preferred: no
+              uncertainty:
+                  left: 0.0124
+                  right: 0.0123
+            - ordering: IO
+              value: 0.1109
+              preferred: yes
+              uncertainty:
+                  left: 0.0134
+                  right: 0.0055
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

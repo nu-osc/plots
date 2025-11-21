@@ -1,12 +1,14 @@
 experiment: "SNO+ reactor + constraints"
 type: reactor
 dataset: "134.4 days"
-exposure: "???"
+exposure: "286 tonne-years"
 reference:
     date: "2025.05"
     title: "Measurement of Reactor Antineutrino Oscillation at SNO"
     arxiv: "hep-ex/2505.04469"
     inspire: "https://inspirehep.net/literature/2919048"
+    doi: "https://doi.org/10.1103/gypt-lc9v"
+    cite: "Phys.Rev.Lett. 135 (2025) 12, 121801"
 result:
     splitting_small:
         precision: 2
@@ -20,4 +22,5 @@ result:
         value: 0.308
         uncertainty: 0.013
 crosschecks:
+    - Liudmila Kolupaeva
     - Maxim Gonchar

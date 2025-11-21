@@ -4,6 +4,8 @@ dataset: 3800 days
 reference:
     date: '2024.12'
     arxiv: 'hep-ex/2412.18711'
+    doi: "10.1103/dc6j-5ky6"
+    url: "https://doi.org/10.1103/dc6j-5ky6"
 target: nGd
 result:
     amplitude13:
@@ -29,4 +31,5 @@ result:
                 right: 0.05
                 left: 0.05
 crosschecks:
+    - Liudmila Kolupaeva
     - Maxim Gonchar
