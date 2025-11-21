@@ -1,9 +1,18 @@
 # sin²2θ₁₃ (sin²θ₁₃) measurements comparison
 
-- [Latest results](<plots/Readme.md#latest-results>)
-    * [sin²2θ₁₃](<plots/Readme.md#sin%EF%B8%8F2>)
-    * [sin²θ₁₃](<plots/Readme.md#sin%EF%B8%8F>)
-- [References](<plots/Readme.md#references>)
+## Table of contents
+
+- [Summary](<#summary>)
+- [Latest results](<#latest-results>)
+    * [sin²2θ₁₃](<#sin%EF%B8%8F2>)
+        + [Experiments only](<#experiments-only>)
+        + [Including global analyses and future experiments](<#including-global-analyses-and-future-experiments>)
+    * [sin²θ₁₃](<#sin%EF%B8%8F>)
+        + [Experiments only](<#experiments-only>)
+        + [Including global analyses and future experiments](<#including-global-analyses-and-future-experiments>)
+- [References](<#references>)
+
+## Summary
 
 - Version: **14**
 - Updates since v13:
