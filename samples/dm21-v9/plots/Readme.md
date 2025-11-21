@@ -1,5 +1,16 @@
 # $`\Delta m^2_{21}`$ measurements comparison
 
+## Table of contents
+
+- [Summary](<#summary>)
+- [Plots](<#plots>)
+    * [Experiments only](<#experiments-only>)
+    * [Including global analyses and future experiments](<#including-global-analyses-and-future-experiments>)
+    * [Including global analyses](<#including-global-analyses>)
+- [References](<#references>)
+
+## Summary
+
 - Version: **9**
 - Updates since v8:
   - Add SNO+
