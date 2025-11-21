@@ -102,13 +102,13 @@ def main(args):
     for count, exp in enumerate(rev_arr):
         # Numbers
         id, name, cv, left, right = exp
-        
+
         name = names.get(name, name)
         if name not in exp_name:
             exp_name.append(name)
 
         counter=exp_name.index(name)
-        
+
         if cv<0.0:
             cv = 2+cv
         theta1=np.degrees((cv-left)*np.pi)
@@ -116,7 +116,7 @@ def main(args):
         cv_rad=cv*np.pi
         r = 0.4+step*counter
         color = colors.get(id, 'black')
-        
+
         # Arc
 
         arc = Arc(center, r, r,
@@ -173,7 +173,7 @@ def main(args):
     # Save
     #
     for out in  args.output:
-        plt.savefig(out, dpi=300)
+        plt.savefig(out, dpi=300, metadata={"CreationDate": None})
         print('Save output file:', out)
 
     if args.show:

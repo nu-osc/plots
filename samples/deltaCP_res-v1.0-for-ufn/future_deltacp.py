@@ -175,7 +175,7 @@ def main(args):
 
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.30, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
-    plt.savefig(args.output, dpi=300)
+    plt.savefig(args.output, dpi=300, metadata={"CreationDate": None})
     print('Write output file', args.output)
 
     if args.show:

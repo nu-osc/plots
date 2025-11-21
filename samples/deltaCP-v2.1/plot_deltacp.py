@@ -158,7 +158,7 @@ def main(args):
     # Save
     #
     for out in  args.output:
-        plt.savefig(out, dpi=300)
+        plt.savefig(out, dpi=300, metadata={"CreationDate": None})
         print('Save output file:', out)
 
     if args.show:

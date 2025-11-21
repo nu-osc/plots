@@ -139,7 +139,7 @@ def main(args):
     outfilename='plots/mo_exp_plot.png'
     if args.output:
         outfilename = args.output
-    plt.savefig(outfilename, dpi=300)
+    plt.savefig(outfilename, dpi=300, metadata={"CreationDate": None})
     print('Write output file', outfilename)
 
     if args.show:

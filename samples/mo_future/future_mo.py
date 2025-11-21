@@ -189,7 +189,7 @@ def main(args):
     plt.plot([2022.0, 2037.0], [5.0, 5.0], ls='--', color='black', lw=1,  alpha=0.5)
     ax.text(1.0, 0.5, reference, rotation=90, alpha=0.30, transform=fig.transFigure, ha='right', va='center', fontsize='x-small')
 
-    plt.savefig(args.output, dpi=300)
+    plt.savefig(args.output, dpi=300, metadata={"CreationDate": None})
     print('Write output file', args.output)
     if args.show:
         plt.show()

@@ -94,16 +94,16 @@ def main(args):
         digits = 3
         digits_decimal_max = 3
         sigma = 0.5*(right+left)
-        
+
         color = colors.get(id, 'black')
-        
+
         if value<-1.0:
             value = 2+value
-            
+
         if value>1.0:
             value = value - 2
-        
-            
+
+
         kwargs=dict()
         plt.errorbar(value, count+1, xerr=np.array([[left, right]]).T, color=colors[id], capsize = 2, **kwargs)
         plt.plot(value, count+1, 'o', markerfacecolor=colors[id], markeredgecolor=colors[id])
@@ -159,7 +159,7 @@ def main(args):
     ax.text(0.03, 0.05, legend, alpha=0.3, transform=fig.dpi_scale_trans, ha='left', va='bottom', fontsize='x-small')
 
     for out in  args.output:
-        plt.savefig(out, dpi=300)
+        plt.savefig(out, dpi=300, metadata={"CreationDate": None})
         print('Save output file:', out)
 
 
@@ -199,7 +199,7 @@ def format_latex(digits_decimal, value, left, right, digits_leading_max, digits_
     right = f'{right:.{digits_decimal}f}'
 
     the_value = f'{zeros_leading}{value}{zeros_decimal}'
-        
+
     if left==right:
         the_error = f'{{\\scriptstyle\\pm{left}{zeros_decimal}}}'
     else:
