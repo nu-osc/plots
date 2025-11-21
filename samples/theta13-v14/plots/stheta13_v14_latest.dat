@@ -19,5 +19,5 @@ reno          RENO             reactor      nH       {}             {}         {
 t2k           T2K              accelerator  {}       {}             {}         NO                    5  0.02574  0.00326  0.00325  0.00651008               0  hep-ex/2510.19888                 {}
 novat2k       NOvA+T2K         accelerator  {}       {}             {}         NO                    5  0.02282  0.00326  0.00416  0.00742031               0  hep-ex/2510.19888                 {}
 novat2k       NOvA+T2K         accelerator  {}       {}             {}         IO                    5  0.02587  0.00328  0.00429  0.00757452               0  hep-ex/2510.19888                 {}
-nova          NOvA             accelerator  {}       {}             {}         NO                    4  0.0215   0.0042   0.005    0.00915032               0  hep-ex/2510.19888                 {}
-nova          NOvA             accelerator  {}       {}             {}         IO                    4  0.0236   0.0037   0.0061   0.00973196               0  hep-ex/2510.19888                 {}
+nova          NOvA             accelerator  {}       {}             {}         NO                    4  0.0217   0.0036   0.0039   0.00758158               1  hep-ex/2509.04361                 {}
+nova          NOvA             accelerator  {}       {}             {}         IO                    4  0.0246   0.0034   0.0042   0.00763183               1  hep-ex/2509.04361                 {}

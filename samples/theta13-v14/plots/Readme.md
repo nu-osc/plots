@@ -1,8 +1,15 @@
 # sin²2θ₁₃ (sin²θ₁₃) measurements comparison
 
+- [Latest results](<plots/Readme.md#latest-results>)
+    * [sin²2θ₁₃](<plots/Readme.md#sin%EF%B8%8F2>)
+    * [sin²θ₁₃](<plots/Readme.md#sin%EF%B8%8F>)
+- [References](<plots/Readme.md#references>)
+
 - Version: **14**
 - Updates since v13:
     * Latest Double CHOOZ results from TAUP 2025
+    * NOvA preprint
+    * NOvA+T2K joint analysis publication
 - [Plotting scripts](samples/theta13/theta13-v14-)
 - Data tables:
     * [published](theta13_v14_published.dat)
@@ -48,7 +55,7 @@
 | Double CHOOZ    |                        [hep-ex/1901.09445](data/dchooz_2019-01.yaml) |                  [TAUP 2025](dchooz_2025-08-taup2025.yaml) |
 | de Salas et al. | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
 | JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
-| NOvA            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
+| NOvA            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                [hep-ex/2509.04361](data/nova_2025-09.yaml) |
 | NOvA+T2K        |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
 | NuFIT           |                          [NuFIT 6](data/theor_nufit_6_2024-10.yaml). |                                                            |
 | PDG             |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
