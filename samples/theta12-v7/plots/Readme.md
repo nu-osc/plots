@@ -1,5 +1,16 @@
 # $`\sin^2 \theta_{12}`$ measurements comparison
 
+## Table of contents
+
+- [Summary](<#summary>)
+- [Plots](<#plots>)
+    * [Experiments only](<#experiments-only>)
+    * [Including global analyses and future experiments](<#including-global-analyses-and-future-experiments>)
+    * [Including global analyses](<#including-global-analyses>)
+- [References](<#references>)
+
+## Summary
+
 - Version: **7**
 - Updates since v6:
   - Add SNO+
