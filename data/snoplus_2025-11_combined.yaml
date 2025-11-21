@@ -1,7 +1,7 @@
 experiment: "SNO+ reactor + constraints"
 type: reactor
 dataset: "245.78+439.43 days"
-exposure: "1.46 kton years"
+exposure: "1.46 ktonne-years"
 reference:
     date: "2025.11"
     title: "Measurement of reactor antineutrino oscillations with 1.46 ktonne-years of data at SNO+"
