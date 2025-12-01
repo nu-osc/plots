@@ -1,11 +1,11 @@
 # |Δm²₃₂|/|Δm²₃₁| measurements comparison
 
-- Version: **14**
-- Updates since v13:
-    * IceCube, SuperK and Daya Bay results are published
-    * T2K and NOvA presented new results at Neutrino 2024
-    * Latest RENO results
-- [Plotting scripts](samples/dm32/dm32-v14-none)
+- Version: **15**
+- Updates since v14:
+    * NOvA+T2K
+    * NOvA
+    * T2K
+- [Plotting scripts](samples/dm32/dm32-v15-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
@@ -32,41 +32,41 @@
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v14_NO_latest_global_future.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest_global_future.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v14_IO_latest_global_future.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest_global_future.png)
 
 #### Including global analyses
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v14_NO_latest_global.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest_global.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v14_IO_latest_global.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest_global.png)
 
 #### Experiments only
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v14_NO_latest.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v14_IO_latest.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest.png)
 
 ### |Δm²₃₁|
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v14_NO_latest_global_future.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest_global_future.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v14_IO_latest_global_future.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest_global_future.png)
 
 #### Including global analyses
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v14_NO_latest_global.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest_global.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v14_IO_latest_global.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest_global.png)
 
 #### Experiments only
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v14_NO_latest.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v14_IO_latest.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest.png)
 
 ## References
 
@@ -84,11 +84,12 @@
 | INO             |              [physics.ins-det/1505.07380](data/ino_future_2015.yaml) |                                                            |
 | JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
 | MINOS+          |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                            |
-| NOvA            |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |       [Neutrino 2024](data/nova_2024-06-neutrino2024.yaml) |
+| NOvA            |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |                [hep-ex/2509.04361](data/nova_2025-09.yaml) |
+| NOvA+T2K        |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
 | NuFIT           |                           [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |                                                            |
 | PDG             |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
 | ORCA            |                      [hep-ex/2103.09885](data/orca_future_2021.yaml) |                                                            |
-| RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                             |
+| RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
 | SuperCHOOZ      |                                                                      | [CERN seminar 2022](https://indico.cern.ch/event/1215214/) |
-| SuperK          |                       [hep-ex/2311.05105](data/superk_2023-011.yaml) |                                                            |
-| T2K             |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) |        [Neutrino 2024](data/t2k_2024-06-neutrino2024.yaml) |
+| SuperK          |              [hep-ex/2311.05105](data/superk_2023-011_prd.yaml.yaml) |                                                            |
+| T2K             |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) |                 [hep-ex/2506.05889](data/t2k_2025-06.yaml) |
