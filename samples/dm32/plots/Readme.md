@@ -4,7 +4,7 @@
 - Updates since v14:
     * NOvA+T2K
     * NOvA
-    * T2K
+    * T2K from Neutel 2025
 - [Plotting scripts](samples/dm32/dm32-v15-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
@@ -92,4 +92,4 @@
 | RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
 | SuperCHOOZ      |                                                                      | [CERN seminar 2022](https://indico.cern.ch/event/1215214/) |
 | SuperK          |              [hep-ex/2311.05105](data/superk_2023-011_prd.yaml.yaml) |                                                            |
-| T2K             |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) |                 [hep-ex/2506.05889](data/t2k_2025-06.yaml) |
+| T2K             |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) |                [NeuTel 2025](data/t2k_2025-09-neutel.yaml) |
