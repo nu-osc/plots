@@ -30,11 +30,11 @@
 
 ### |Δm²₃₂|
 
-#### Including global analyses and future experiments
+#### Experiments only
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest_global_future.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest_global_future.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest.png)
 
 #### Including global analyses
 
@@ -42,19 +42,19 @@
 
 ![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest_global.png)
 
-#### Experiments only
+#### Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest_global_future.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest_global_future.png)
 
 ### |Δm²₃₁|
 
-#### Including global analyses and future experiments
+#### Experiments only
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest_global_future.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest_global_future.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest.png)
 
 #### Including global analyses
 
@@ -62,11 +62,11 @@
 
 ![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest_global.png)
 
-#### Experiments only
+#### Including global analyses and future experiments
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest_global_future.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest_global_future.png)
 
 ## References
 
