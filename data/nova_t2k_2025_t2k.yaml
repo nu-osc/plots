@@ -5,6 +5,7 @@ reference:
     date: "2025.10"
     arxiv: "hep-ex/2510.19888"
     doi: "https://10.1038/s41586-025-09599-3"
+    preliminary: yes
 result:
     amplitude13:
         precision: 4
