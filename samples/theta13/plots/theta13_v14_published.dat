@@ -11,12 +11,12 @@ pdg2024       PDG_2024         theory       {}       {}             {}         {
 dayabay       Daya_Bay         reactor      nH       {}             {}         {}                    4  0.0759   0.0049   0.005    0.0099                  0  hep-ex/2406.01007                 {}
 dune          DUNE             accelerator  {}       estimation     7_years    {}                    4  0.0873   0.005    0.005    0.01                    0  hep-ex/2006.16043                 {}
 reno          RENO             reactor      nGd      {}             {}         {}                    4  0.092    0.0059   0.006    0.0118836               0  hep-ex/2412.18711                 {}
-t2k           T2K              accelerator  {}       {}             {}         IO                    4  0.1109   0.0134   0.0055   0.0189                  0  hep-ex/2510.19888                 {}
 junoreactor   JUNO_reactor     reactor      {}       estimation     6_years    {}                    4  0.0853   0.01     0.0099   0.0198931               0  hep-ex/2204.13249                 {}
-t2k           T2K              accelerator  {}       {}             {}         NO                    4  0.1003   0.0124   0.0123   0.0247                  0  hep-ex/2510.19888                 {}
 doublechooz   Double_CHOOZ     reactor      {}       {}             {}         {}                    3  0.105    0.014    0.014    0.028                   0  hep-ex/1901.09445                 {}
 novat2k       NOvA+T2K         accelerator  {}       {}             {}         NO                    4  0.0892   0.0125   0.0158   0.0283                  0  hep-ex/2510.19888                 {}
 novat2k       NOvA+T2K         accelerator  {}       {}             {}         IO                    4  0.1008   0.0125   0.0162   0.0287                  0  hep-ex/2510.19888                 {}
 reno          RENO             reactor      nH       {}             {}         {}                    3  0.086    0.016    0.016    0.032249                0  hep-ex/1911.04601                 Neutrino2020
 nova          NOvA             accelerator  {}       {}             {}         NO                    3  0.084    0.016    0.019    0.035                   0  hep-ex/2510.19888                 {}
+t2k           T2K              accelerator  {}       {}             {}         NO                    4  0.1089   0.0247   0.0105   0.0352544               0  hep-ex/2303.03222                 {}
 nova          NOvA             accelerator  {}       {}             {}         IO                    3  0.092    0.014    0.023    0.037                   0  hep-ex/2510.19888                 {}
+t2k           T2K              accelerator  {}       {}             {}         IO                    4  0.1202   0.0261   0.0112   0.0372992               0  hep-ex/2303.03222                 {}

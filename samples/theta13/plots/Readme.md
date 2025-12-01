@@ -1,17 +1,5 @@
 # sin²2θ₁₃ (sin²θ₁₃) measurements comparison
 
-## Table of contents
-
-- [Summary](<#summary>)
-- [Latest results](<#latest-results>)
-    * [sin²2θ₁₃](<#sin%EF%B8%8F2>)
-        + [Experiments only](<#experiments-only>)
-        + [Including global analyses and future experiments](<#including-global-analyses-and-future-experiments>)
-    * [sin²θ₁₃](<#sin%EF%B8%8F>)
-        + [Experiments only](<#experiments-only>)
-        + [Including global analyses and future experiments](<#including-global-analyses-and-future-experiments>)
-- [References](<#references>)
-
 ## Summary
 
 - Version: **14**
@@ -19,6 +7,7 @@
     * Latest Double CHOOZ results from TAUP 2025
     * NOvA preprint
     * NOvA+T2K joint analysis publication
+    * T2K from Neutel 2025
 - [Plotting scripts](samples/theta13/theta13-v14-)
 - Data tables:
     * [published](theta13_v14_published.dat)
@@ -30,6 +19,8 @@
     * de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
     * dashed grey bar in theoretical entry means IO
     * only a few plots are shown below, see the subfolders for all the available plots
+
+[TOC]
 
 ## Latest results
 
@@ -71,4 +62,4 @@
 | RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
 | RENO nH         |                       [hep-ex/1911.04601](data/reno_2019-11_nH.yaml) |    [Neutrino 2022](data/reno_2020-06-nH-neutrino2022.yaml) |
 | SuperCHOOZ      |                                                                      | [CERN seminar 2022](data/dchooz_2020-07-neutrino2020.yaml) |
-| T2K             |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
+| T2K             |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) |                [NeuTel 2025](data/t2k_2025-09-neutel.yaml) |
