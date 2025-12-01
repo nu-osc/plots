@@ -1,14 +1,14 @@
-version='14'
+version='15'
 url='git.jinr.ru/nu/osc'
-date='2024.10'
+date='2025.11'
 
 axis_label={
 	'dm31': r'$|\Delta m^2_{31}|$, $10^{-3}$ eV$^2$',
 	'dm32': r'$|\Delta m^2_{32}|$, $10^{-3}$ eV$^2$'
 	}
 lims={
-	'dm32': { 'NO': (2.11, 2.87), 'IO': (2.03, 2.98) },
-	'dm31': { 'NO': (2.18, 2.95), 'IO': (1.96, 2.90) }
+	'dm32': { 'NO': (2.11, 2.87), 'IO': (2.20, 2.98) },
+	'dm31': { 'NO': (2.18, 2.95), 'IO': (2.15, 2.90) }
 	}
 
 reference = f'v{version} {date}: {url}'
@@ -32,10 +32,10 @@ colors = {
     'dchooz':          colors['reactor'],
     'kamlandsksno':    colors['reacsolar'],
     'nova':            colors['acc'],
-    'nova_1d_rc':      colors['acc'],   
+    'nova_1d_rc':      colors['acc'],
     't2k':             colors['acc'],
     'novat2k':         colors['special'],
-    'superkt2k':       colors['special'], 
+    'superkt2k':       colors['special'],
     'minos':           colors['acc'],
     'superkamiokande': colors['atm'],
     'superksno':       colors['solar'],

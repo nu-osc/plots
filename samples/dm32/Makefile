@@ -1,9 +1,9 @@
 variables=dm31 dm32
 variable=dm32
-version_num=14
+version_num=15
 suffix=none
 beta=
-version_prev=13
+version_prev=14
 version_dash=$(subst .,-,${version_num})
 version=v${version_dash}${beta}
 
@@ -52,7 +52,7 @@ plots:
 
 .PHONY: readme
 readme: plots/Readme.md
-plots/Readme.md: Readme.md Makefile | plots
+plots/Readme.md: Readme.md.tmpl Makefile | plots
 	cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
 
 $(targets_plots): $(variable).py configuration.py $(tables) | plots
