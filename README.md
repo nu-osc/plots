@@ -9,15 +9,15 @@ Page content:
 
 ### Parameters
 
-| Plot                                              | Version                      | Date    | What's new                              |
-| -------------                                     | ------:                      | ----    | ------:                                 |
-| $`\sin^2 \theta_{12}`$                            | [v7](samples/theta12/plots)  | 2025-11 | SNO+, JUNO                              |
-| $`\sin^22\theta_{13}`$                            | [v14](samples/theta13/plots) | 2025-11 | Double CHOOZ, NOvA+T2K, NOvA            |
-| $`\sin^2 \theta_{23}`$                            | [v6](samples/theta23/plots)  | 2023-10 | NuFIT 6, PDG 2024, NOvA                 |
-| $`\Delta m^2_{21}`$                               | [v9](samples/dm21/plots)     | 2025-11 | SNO+, JUNO                              |
-| $`\|\Delta m^2_{31/32}\|`$                        | [v15](samples/dm32/plots)    | 2025-11 | NOVA+T2K, NOvA, T2K, ORCA               |
-| Mass ordering                                     | [v1.2](samples/mo)           | 2023-10 |                                         |
-| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v3](samples/deltaCP)        | 2025-02 |                                         |
+| Plot                                              | Version                      | Date    | What's new                                     |
+| -------------                                     | ------:                      | ----    | ------:                                        |
+| $`\sin^2 \theta_{12}`$                            | [v7](samples/theta12/plots)  | 2025-11 | SNO+, JUNO                                     |
+| $`\sin^22\theta_{13}`$                            | [v14](samples/theta13/plots) | 2025-11 | Double CHOOZ, NOvA+T2K, NOvA                   |
+| $`\sin^2 \theta_{23}`$                            | [v6](samples/theta23/plots)  | 2023-10 | NuFIT 6, PDG 2024, NOvA                        |
+| $`\Delta m^2_{21}`$                               | [v9](samples/dm21/plots)     | 2025-11 | SNO+, JUNO                                     |
+| $`\|\Delta m^2_{31/32}\|`$                        | [v15](samples/dm32/plots)    | 2025-11 | NOVA+T2K, NOvA, T2K, ORCA, IceCube sensitivity |
+| Mass ordering                                     | [v1.2](samples/mo)           | 2023-10 |                                                |
+| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v3](samples/deltaCP)        | 2025-02 |                                                |
 
 
 ### Future projections
