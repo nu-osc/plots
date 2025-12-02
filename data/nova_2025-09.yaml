@@ -11,17 +11,17 @@ result:
         precision: 3
         mode: '32'
         notes: 
-          - "with 2D reactor constraint"
+          - "with 1D reactor constraint (official)"
           - "conditional (frequentist)"
         results:
             - ordering: 'NO'
-              value: 2.439
+              value: 2.431
               uncertainty: 
-                 interval: [2.408, 2.472]
+                 interval: [2.397, 2.467]
             - ordering: IO
-              value: 2.497
+              value: 2.479
               uncertainty:
-                  interval: [2.467, 2.531]
+                  interval: [2.443, 2.515]
     amplitude13:
         precision: 3
         mode: double
