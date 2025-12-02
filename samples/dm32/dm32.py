@@ -4,6 +4,7 @@ from argparse import ArgumentParser
 
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import numpy as np
 
 import configuration as cfg
@@ -38,6 +39,8 @@ def main(args):
     #
     # RC params
     #
+    mpl.use("pgf")
+
     plt.rc("text", usetex=True)
     plt.rcParams["grid.alpha"] = 0.1
     plt.rcParams["grid.linewidth"] = 2
@@ -46,6 +49,9 @@ def main(args):
     plt.rcParams["axes.spines.left"] = False
     plt.rcParams["axes.spines.right"] = False
     plt.rcParams["text.latex.preamble"] += cfg.preamble
+    plt.rcParams["pgf.preamble"] += rf"{cfg.preamble}"
+    plt.rcParams["pgf.texsystem"]="pdflatex"
+    plt.rcParams["pgf.rcfonts"] = False
 
     #
     # Load
@@ -94,7 +100,8 @@ def main(args):
     ax.xaxis.grid(True)
     padleft = 95
     # namewidth = '40mm'
-    namewidth = "37mm"
+    namewidth_est = "50mm"
+    namewidth = "34mm"
     plt.subplots_adjust(
         left=0.16, right=0.795, top=axtop, bottom=fracbottom * singleheight / figheight
     )
@@ -175,14 +182,15 @@ def main(args):
             font = r"\slshape{}"
 
         if measurement == "estimation":
-            name = f"\\makebox[{namewidth}]{{{{{font}{name}}} {{\\relsize{{-1}}({dataset}) {notes}}}"
+            name = rf"\makebox[{namewidth_est}]{{{{{font}{name}}} {{\relsize{{-1}}({dataset}) \hfill{{}}{notes}}}}}"
         else:
-            name = f"\\makebox[{namewidth}]{{{{{font}{name}}} \\hfill{{}}{notes}}}"
+            name = rf"\makebox[{namewidth}]{{{{{font}{name}}} \hfill{{}}{notes}}}"
 
         exp_name.append(name)
 
         latex = format_latex(
-            digits, value, left, right, digits_leading_max, digits_decimal_max
+            digits, value, left, right, digits_leading_max, digits_decimal_max,
+            no_central_value=no_central_value
         )
         latex_text.append(latex)
 
@@ -231,6 +239,7 @@ def main(args):
     if haspreliminary:
         legend += r"{\slshape{}Preliminary}"
     legend += r"\\Published"
+    legend = rf"\parbox{{5cm}}{{{legend}}}"
     ax.text(
         0.03,
         0.05,
@@ -273,7 +282,8 @@ def phantom_zeros(num, num_max):
 
 
 def format_latex(
-    digits_decimal, value, left, right, digits_leading_max, digits_decimal_max
+    digits_decimal, value, left, right, digits_leading_max, digits_decimal_max,
+    no_central_value: bool = False
 ):
     digits_leading = int(ceil_from_zero(np.log10(value)))
 
@@ -289,7 +299,11 @@ def format_latex(
     left = f"{left:.{digits_decimal}f}"
     right = f"{right:.{digits_decimal}f}"
 
+    if no_central_value:
+        value = rf"{{\color{{black!30}}{{{value}}}}}"
+
     the_value = f"{zeros_leading}{value}{zeros_decimal}"
+
     if left == right:
         the_error = f"{{\\scriptstyle\\pm{left}{zeros_decimal}}}"
     else:

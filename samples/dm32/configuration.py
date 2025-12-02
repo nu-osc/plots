@@ -66,7 +66,7 @@ names = {
         'NOvA 1D RC': 'NOvA',
         }
 
-preamble = r'\usepackage{marvosym}\usepackage{relsize}'
+preamble = r'\usepackage{marvosym}\usepackage{relsize}\usepackage{xcolor}'
 
 def dayabay():
 	colors['dayabay_nh'] = 'xkcd:blue'
