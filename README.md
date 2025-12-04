@@ -7,7 +7,7 @@ Page content:
 
 ## Recent plots
 
-The **most recent** versions of the plots being under review may be found in [development branch](https://git.jinr.ru/nu/osc/-/tree/feature/snoplus-others).
+<!-- The **most recent** versions of the plots being under review may be found in [development branch](https://git.jinr.ru/nu/osc/-/tree/feature/branchname). -->
 
 ### Parameters
 
