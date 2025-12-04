@@ -10,21 +10,6 @@ reference:
     talk: "https://agenda.infn.it/event/44606/contributions/273385/attachments/140569/212331/2025_09_30_T2K_SKing_nuTeleScope.pdf"
     slides: [12, 42]
 result:
-    splitting_large:
-        precision: 3
-        mode: '32NO/31IO'
-        note: "with reactor constraints"
-        results:
-            - ordering: 'NO'
-              value: 2.521
-              uncertainty:
-                  left: 0.050
-                  right: 0.037
-            - ordering: 'IO'
-              value: 2.486
-              uncertainty:
-                  left: 0.043
-                  right: 0.044
     amplitude13:
         precision: 4
         mode: single
