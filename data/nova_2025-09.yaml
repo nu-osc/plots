@@ -1,0 +1,42 @@
+experiment: "NOvA"
+type: "accelerator"
+dataset: "26.61e20 POT ν, 12.5e20 POT ν-bar"
+reference:
+    date: '2025.09'
+    preliminary: yes
+    arxiv: "hep-ex/2509.04361"
+    inspire: "https://inspirehep.net/literature/2966613"
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        notes: 
+          - "with 1D reactor constraint (official)"
+          - "conditional (frequentist)"
+        results:
+            - ordering: 'NO'
+              value: 2.431
+              uncertainty: 
+                 interval: [2.397, 2.467]
+            - ordering: IO
+              value: 2.479
+              uncertainty:
+                  interval: [2.443, 2.515]
+    amplitude13:
+        precision: 3
+        mode: double
+        notes: 
+          - "no reactor constraint"
+          - "conditional (frequentist)"
+        results:
+            - ordering: 'NO'
+              value: 0.085
+              uncertainty:
+                interval: [0.071, 0.100]
+            - ordering: IO
+              value: 0.096
+              uncertainty:
+                interval: [0.083, 0.112]
+crosschecks:
+    - Maxim Gonchar
+    - Liudmila Kolupaeva

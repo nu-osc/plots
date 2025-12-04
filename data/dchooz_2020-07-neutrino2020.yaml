@@ -1,7 +1,7 @@
 experiment: Double CHOOZ
 type: reactor
 target: n(H,C,Gd)
-dataset:
+dataset: "587 near + 1276 far"
 reference:
     date: '2020.07'
     arxiv:

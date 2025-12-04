@@ -158,7 +158,7 @@ def main(args):
         plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.5)
 
     if args.output:
-        plt.savefig(args.output, dpi=300)
+        plt.savefig(args.output, dpi=300, metadata={"CreationDate": None})
         print('Write output file', args.output)
 
     if args.show:

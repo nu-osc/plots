@@ -1,0 +1,24 @@
+experiment: "SNO+ reactor"
+type: reactor
+dataset: "245.78+439.43 days"
+exposure: "1.46 ktonne-years"
+reference:
+    date: "2025.11"
+    title: "Measurement of reactor antineutrino oscillations with 1.46 ktonne-years of data at SNO+"
+    arxiv: "hep-ex/2511.11856"
+    inspire: "https://inspirehep.net/literature/3083970"
+result:
+    splitting_small:
+        precision: 2
+        value: 7.93
+        uncertainty: 
+          left: 0.24
+          right: 0.21
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.505
+        uncertainty: 0.134
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

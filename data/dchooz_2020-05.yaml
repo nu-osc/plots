@@ -1,0 +1,16 @@
+experiment: Double CHOOZ
+type: reactor
+target: n(H,C,Gd)
+dataset: "258 near + 818 far"
+reference:
+    date: "2020.05"
+    doi: "https://doi.org/10.1038/s41567-020-0831-y"
+result:
+    amplitude13:
+        mode: double
+        precision: 3
+        value: 0.105
+        uncertainty: 0.014
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

@@ -1,0 +1,20 @@
+experiment: Double CHOOZ
+type: reactor
+target: n(H,C,Gd)
+dataset: "587 near + 1276 far"
+reference:
+    date: "2025.11"
+    conf: "TAUP2025"
+    talk: "https://indico-cdex.ep.tsinghua.edu.cn/event/175/contributions/2481/attachments/875/1291/TAUP2025_Soldin_DoubleChooz.pdf"
+    slides: [10, 17]
+result:
+    amplitude13:
+        mode: double
+        precision: 4
+        value: 0.0960
+        uncertainty:
+            stat: 0.0044
+            syst: 0.0086
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
