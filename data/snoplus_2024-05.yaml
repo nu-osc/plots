@@ -1,0 +1,23 @@
+experiment: "SNO+ reactor"
+type: reactor
+dataset: "125.4 days"
+exposure: "114 tonne-years"
+reference:
+    date: "2024.05"
+    title: "Initial measurement of reactor antineutrino oscillation at SNO+"
+    arxiv: "hep-ex/2405.19700"
+    inspire: "https://inspirehep.net/literature/2791608"
+    doi: 
+      - "https://doi.org/10.1140/epjc/s10052-024-13687-5"
+      - "https://doi.org/10.1140/epjc/s10052-025-13905-8"
+    cite: "Eur.Phys.J.C 85 (2025) 1, 17"
+result:
+    splitting_small:
+        precision: 2
+        value: 8.85
+        uncertainty: 
+          left: 1.33
+          right: 1.10
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

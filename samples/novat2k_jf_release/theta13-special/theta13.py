@@ -79,7 +79,7 @@ def main(args):
     #
     ordering=args.nmo
     title = cfg.titles.get(ordering)
-    
+
     singleheight = 0.3
     fracbottom = 2.3
     fractop    = 1.8
@@ -149,7 +149,7 @@ def main(args):
         elines = plt.errorbar(value, vpos, xerr=np.array([[left, right]]).T, **ekwargs)
 
         plt.plot(value, vpos, **pkwargs)
-        
+
         latex = format_latex(digits, value, left, right, digits_leading_max, digits_decimal_max)
         latex_text[count]=latex
 
@@ -212,7 +212,7 @@ def main(args):
         plt.axhline(nitems-line_place+0.5, ls='--', color='grey', linewidth=1, alpha=0.7)
 
     if args.output:
-        plt.savefig(args.output, dpi=300)
+        plt.savefig(args.output, dpi=300, metadata={"CreationDate": None})
         print('Write output file', args.output)
 
     if args.show:

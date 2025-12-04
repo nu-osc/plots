@@ -1,0 +1,22 @@
+experiment: IceCube Upgrade
+type: atmospheric
+measurement: estimation
+dataset: "3 years"
+starting_year: 2025
+status: approved
+reference:
+    date: "2019.11"
+    arxiv: "hep-ex/2509.13066"
+    preliminary: yes
+    citation:
+    note: "Digitized from figure 14, top right (without SK)"
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        value: 2.437
+        uncertainty:
+            interval: [2.412, 2.462]
+crosschecks:
+    - Maxim Gonchar
+

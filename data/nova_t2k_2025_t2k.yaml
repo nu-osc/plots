@@ -1,0 +1,26 @@
+experiment: T2K
+type: accelerator
+dataset:
+reference:
+    date: "2025.10"
+    arxiv: "hep-ex/2510.19888"
+    doi: "https://10.1038/s41586-025-09599-3"
+    preliminary: yes
+result:
+    amplitude13:
+        precision: 4
+        mode: double
+        results:
+            - ordering: 'NO'
+              value: 0.1003
+              uncertainty:
+                  left: 0.0124
+                  right: 0.0123
+            - ordering: IO
+              value: 0.1109
+              uncertainty:
+                  left: 0.0134
+                  right: 0.0055
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

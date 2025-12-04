@@ -1,0 +1,29 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - "21.4e20 POT ν"
+    - "16.3e20 POT ν-bar"
+reference:
+    conference: "NeuTel 2025"
+    date: "2025.09"
+    preliminary: yes
+    talk: "https://agenda.infn.it/event/44606/contributions/273385/attachments/140569/212331/2025_09_30_T2K_SKing_nuTeleScope.pdf"
+    slides: [12, 42]
+result:
+    amplitude13:
+        precision: 4
+        mode: single
+        note: "without reactor constraints"
+        results:
+            - ordering: 'NO'
+              value: 0.0278
+              uncertainty:
+                  left:  0.0069
+                  right: 0.0018
+            - ordering: IO
+              value: 0.0310
+              uncertainty:
+                  left:  0.0074
+                  right: 0.0018
+crosschecks:
+    - Maxim Gonchar

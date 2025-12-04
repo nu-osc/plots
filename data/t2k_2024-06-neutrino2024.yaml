@@ -1,8 +1,8 @@
 experiment: T2K
 type: accelerator
 dataset:
-    - 21.4e20 POT ν
-    - 16.4e20 POT ν-bar
+    - "21.4e20 POT ν"
+    - "16.3e20 POT ν-bar"
 reference:
     date:
     arxiv:
@@ -21,12 +21,12 @@ result:
               uncertainty:
                   left: 0.050
                   right: 0.037
-            - ordering: IO
+            - ordering: 'IO'
               mode: '31'
               value: 2.486
               uncertainty:
-                  left: 0.044
-                  right: 0.043
+                  left: 0.043
+                  right: 0.044
     amplitude13:
         precision: 4
         mode: single
