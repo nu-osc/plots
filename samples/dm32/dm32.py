@@ -2,9 +2,9 @@
 
 from argparse import ArgumentParser
 
+import matplotlib as mpl
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 import numpy as np
 
 import configuration as cfg
@@ -39,7 +39,7 @@ def main(args):
     #
     # RC params
     #
-    mpl.use("pgf")
+    # mpl.use("pgf")
 
     plt.rc("text", usetex=True)
     plt.rcParams["grid.alpha"] = 0.1
@@ -50,7 +50,7 @@ def main(args):
     plt.rcParams["axes.spines.right"] = False
     plt.rcParams["text.latex.preamble"] += cfg.preamble
     plt.rcParams["pgf.preamble"] += rf"{cfg.preamble}"
-    plt.rcParams["pgf.texsystem"]="pdflatex"
+    plt.rcParams["pgf.texsystem"] = "pdflatex"
     plt.rcParams["pgf.rcfonts"] = False
 
     #
@@ -157,7 +157,7 @@ def main(args):
             marker = "none"
             markerfacecolor = "white"
             rgb = mcolors.to_rgb(markeredgecolor)
-            markeredgecolor = rgb + (0.5,) # add alpha
+            markeredgecolor = rgb + (0.5,)  # add alpha
         if sigma / value < 0.01:
             marker = "|"
         plt.plot(
@@ -189,8 +189,13 @@ def main(args):
         exp_name.append(name)
 
         latex = format_latex(
-            digits, value, left, right, digits_leading_max, digits_decimal_max,
-            no_central_value=no_central_value
+            digits,
+            value,
+            left,
+            right,
+            digits_leading_max,
+            digits_decimal_max,
+            no_central_value=no_central_value,
         )
         latex_text.append(latex)
 
@@ -277,13 +282,17 @@ def phantom_zeros(num, num_max):
 
     extra = "0" * (num_max - num)
     # return extra
-    # return f'{{\color{{red}}{extra}}}'
     return f"\\phantom{{{extra}}}"
 
 
 def format_latex(
-    digits_decimal, value, left, right, digits_leading_max, digits_decimal_max,
-    no_central_value: bool = False
+    digits_decimal,
+    value,
+    left,
+    right,
+    digits_leading_max,
+    digits_decimal_max,
+    no_central_value: bool = False,
 ):
     digits_leading = int(ceil_from_zero(np.log10(value)))
 
@@ -295,29 +304,41 @@ def format_latex(
     span = right + left
     relsigma = 100 * 0.5 * span / value
 
-    value = f"{value:.{digits_decimal}f}"
-    left = f"{left:.{digits_decimal}f}"
-    right = f"{right:.{digits_decimal}f}"
+    value_str = f"{value:.{digits_decimal}f}"
+    left_str = f"{left:.{digits_decimal}f}"
+    right_str = f"{right:.{digits_decimal}f}"
 
-    if no_central_value:
-        value = rf"{{\color{{black!30}}{{{value}}}}}"
+    the_value = f"{zeros_leading}{value_str}{zeros_decimal}"
 
-    the_value = f"{zeros_leading}{value}{zeros_decimal}"
-
-    if left == right:
-        the_error = f"{{\\scriptstyle\\pm{left}{zeros_decimal}}}"
+    if left_str == right_str:
+        the_error = f"{{\\scriptstyle\\pm{left_str}{zeros_decimal}}}"
     else:
-        the_error = f"^{{+{right}{zeros_decimal}}}_{{-{left}{zeros_decimal}}}"
+        the_error = f"^{{+{right_str}{zeros_decimal}}}_{{-{left_str}{zeros_decimal}}}"
 
     width1_rel = "24mm"
     width2_rel = "13mm"
-    ret = [
-        f"\\makebox[{width1_rel}]{{\\hspace*{{\\fill}}${the_value}{the_error}$}}",
-        f"\\makebox[{width2_rel}]{{\\hspace*{{\\fill}}\\relsize{{-1}}{relsigma:.1f}\\%}}",
-    ]
 
-    # return ''.join(f'\\fbox{{{s}}}' for s in ret)
-    return "".join(ret)
+    if not no_central_value:
+        ret = (
+            rf"\makebox[{width1_rel}]"
+            rf"{{\hspace*{{\fill}}${the_value}{the_error}$}}"
+            rf"\makebox[{width2_rel}]"
+            rf"{{\hspace*{{\fill}}\relsize{{-1}}{relsigma:.1f}\%}}"
+        )
+    else:
+        value_left = value-left
+        value_right = value+right
+        interval_str = f"{value_left:.{digits_decimal}f}, {value_right:.{digits_decimal}f}"
+        # fmt: off
+        ret = (
+            rf"\makebox[{width1_rel}]" 
+            rf"{{\relsize{{-1}}[{interval_str}]}}"
+            rf"\makebox[{width2_rel}]"
+            rf"{{}}"
+        )
+        # fmt: on
+
+    return ret
 
 
 if __name__ == "__main__":
