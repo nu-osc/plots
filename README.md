@@ -46,6 +46,14 @@ The following plots are made for a special occasions, are not meant for the regu
 
 Please, be sure to follow the references and check the numbers before using the plots. Contact us in case of any inconsistencies or comments.
 
+## Data and plots usage statement
+
+Anyone can use any of the plots or data, collected here as long as the following conditions are met:
+
+- When the plots, shared here, are used directly, they should be used as is without modifications.
+- When the data, shared here, are used, the original data providers should be cited appropriately. 
+- When the data or scripts, shared here, are used, the reference to https://git.jinr.ru/nu/osc should be cited.
+
 ## Contacts
 
 - @maxfl: gonchar at jinr dot ru
