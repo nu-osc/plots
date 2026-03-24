@@ -74,7 +74,7 @@ def main(args):
     plt.subplots_adjust(left=0.06, right=0.96, top=0.9, bottom=0.15)
     plt.title('Future neutrino mass ordering sensitivity', pad=20)
     ax.set_xlabel('Year')
-    ax.set_ylabel('Median sensitivity, $\sigma$')
+    ax.set_ylabel(r'Median sensitivity, $\sigma$')
     ax.set_xlim(2022, 2037)
     ax.set_ylim(0, 9)
     plt.yticks([1.0, 3.0, 5.0, 7.0])
@@ -87,7 +87,7 @@ def main(args):
 
         star = ''
         if exp['status'] == 'not clear':
-            star = '$^\star$'
+            star = r'$^\star$'
         revert_max = exp['high_values'][::-1]
         size = len(revert_max) - 1
         color=colors[exp['id']]
