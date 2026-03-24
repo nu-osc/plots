@@ -10,7 +10,7 @@ import yaml
 import matplotlib.transforms as transforms
 import matplotlib.colors as cs
 
-reference =  'v4 2023.06: git.jinr.ru/nu/osc'
+reference =  'v5 2026.03: git.jinr.ru/nu/osc'
 
 def main(args):
 
