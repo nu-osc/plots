@@ -24,11 +24,11 @@ Page content:
 
 ### Future projections
 
-| Plot                                                           | Version                                              | Date    | Notes   |
-| -------------                                                  | ------:                                              | ----    | ------: |
-| Mass Ordering sensitivity                                      | [v4](samples/mo_future/plots)                        | 2023-06 |         |
-| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ resolution   | [v1](samples/deltaCP_res-v1.0-for-ufn/plots/)        | 2021-09 |         |
-| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ significance | [v1](samples/deltaCP_noCPV_future-v1-for-ufn/plots/) | 2021-09 |         |
+| Plot                                                           | Version                                              | Date    | Notes                           |
+| -------------                                                  | ------:                                              | ----    | ------:                         |
+| Mass Ordering sensitivity                                      | [v5](samples/mo_future/plots)                        | 2025-03 | JUNO sensitivity from the paper |
+| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ resolution   | [v1](samples/deltaCP_res-v1.0-for-ufn/plots/)        | 2021-09 |                                 |
+| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ significance | [v1](samples/deltaCP_noCPV_future-v1-for-ufn/plots/) | 2021-09 |                                 |
 
 ## Special plots 
 
