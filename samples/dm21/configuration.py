@@ -1,6 +1,6 @@
-version = "9"
+version = "10"
 url = "git.jinr.ru/nu/osc"
-date = "2025.11"
+date = "2025.12"
 variable = r"$\Delta m^2_{21}$, $10^{-5}$ eV$^2$"
 lims = {"left": 3.9}
 

@@ -1,8 +1,8 @@
 variable = dm21
-version_num = 9
+version_num = 10
 suffix=
 beta=
-version_prev = 8
+version_prev = 9
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
