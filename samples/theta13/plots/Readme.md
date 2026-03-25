@@ -2,16 +2,13 @@
 
 ## Summary
 
-- Version: **14**
-- Updates since v13:
-    * Latest Double CHOOZ results from TAUP 2025
-    * NOvA preprint
-    * NOvA+T2K joint analysis publication
-    * T2K from Neutel 2025
-- [Plotting scripts](samples/theta13/theta13-v14-)
+- Version: **15**
+- Updates since v14:
+    * Add NuFIT-6.1
+- [Plotting scripts](samples/theta13/theta13-v15-)
 - Data tables:
-    * [published](theta13_v14_published.dat)
-    * [latest](theta13_v14_latest.dat)
+    * [published](theta13_v15_published.dat)
+    * [latest](theta13_v15_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -28,21 +25,21 @@
 
 #### Experiments only
 
-![sin²2θ₁₃](png/latest/double/theta13_v14_latest.png)
+![sin²2θ₁₃](png/latest/double/theta13_v15_latest.png)
 
 ####  Including global analyses and future experiments
 
-![sin²2θ₁₃](png/latest/double/theta13_v14_latest_global_future.png)
+![sin²2θ₁₃](png/latest/double/theta13_v15_latest_global_future.png)
 
 ### sin²θ₁₃
 
 #### Experiments only
 
-![sin²2θ₁₃](png/latest/single/stheta13_v14_latest.png)
+![sin²2θ₁₃](png/latest/single/stheta13_v15_latest.png)
 
 ####  Including global analyses and future experiments
 
-![sin²2θ₁₃](png/latest/single/stheta13_v14_latest_global_future.png)
+![sin²2θ₁₃](png/latest/single/stheta13_v15_latest_global_future.png)
 
 ## References
 
@@ -57,7 +54,7 @@
 | JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
 | NOvA            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                [hep-ex/2509.04361](data/nova_2025-09.yaml) |
 | NOvA+T2K        |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
-| NuFIT           |                          [NuFIT 6](data/theor_nufit_6_2024-10.yaml). |                                                            |
+| NuFIT 6.1       |                       [NuFIT 6.1](data/theor_nufit_6-1_2025-12.yaml) |                                                            |
 | PDG             |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
 | RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
 | RENO nH         |                       [hep-ex/1911.04601](data/reno_2019-11_nH.yaml) |    [Neutrino 2022](data/reno_2020-06-nH-neutrino2022.yaml) |
