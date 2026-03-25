@@ -1,0 +1,20 @@
+experiment: DUNE
+type: accelerator
+starting_year: 2030
+dataset: 7 years
+status: approved
+measurement: estimation
+reference:
+    talk: https://indico-cdex.ep.tsinghua.edu.cn/event/175/contributions/2525/attachments/1115/1699/DUNE_TAUP_2025_MANZANILLASv3.pdf
+    inspire: 
+    doi: 
+    citation: 
+result:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6, 7]
+        low:
+            - [0.96, 2.0, 3.2, 4.12, 5.0, 5.67, 6.27]
+        high:
+            - [5.84, 8.13, 9.9, 14.58, 16.46, 18.26, 21.16]
+
