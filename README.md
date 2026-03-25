@@ -13,11 +13,11 @@ Page content:
 
 | Plot                                              | Version                      | Date    | What's new                                |
 | -------------                                     | ------:                      | ----    | ------:                                   |
-| $`\sin^2 \theta_{12}`$                            | [v7](samples/theta12/plots)  | 2025-11 | SNO+, JUNO                                |
-| $`\sin^22\theta_{13}`$                            | [v14](samples/theta13/plots) | 2025-11 | Double CHOOZ, NOvA+T2K, NOvA              |
-| $`\sin^2 \theta_{23}`$                            | [v6](samples/theta23/plots)  | 2023-10 | NuFIT 6, PDG 2024, NOvA                   |
-| $`\Delta m^2_{21}`$                               | [v9](samples/dm21/plots)     | 2025-11 | SNO+, JUNO                                |
-| $`\|\Delta m^2_{31/32}\|`$                        | [v15](samples/dm32/plots)    | 2025-11 | NOVA+T2K, NOvA, ORCA, IceCube sensitivity |
+| $`\sin^2 \theta_{12}`$                            | [v8](samples/theta12/plots)  | 2025-12 | NuFIT 6.1 (after the first JUNO result)   |
+| $`\sin^22\theta_{13}`$                            | [v15](samples/theta13/plots) | 2025-12 | NuFIT 6.1 (after the first JUNO result)   |
+| $`\sin^2 \theta_{23}`$                            | [v7](samples/theta23/plots)  | 2025-12 | NuFIT 6.1 (after the first JUNO result)   |
+| $`\Delta m^2_{21}`$                               | [v10](samples/dm21/plots)    | 2025-12 | NuFIT 6.1 (after the first JUNO result)   |
+| $`\|\Delta m^2_{31/32}\|`$                        | [v16](samples/dm32/plots)    | 2025-12 | NuFIT 6.1 (after the first JUNO result)   |
 | Mass ordering                                     | [v1.2](samples/mo)           | 2023-10 |                                           |
 | $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v3](samples/deltaCP)        | 2025-02 |                                           |
 
