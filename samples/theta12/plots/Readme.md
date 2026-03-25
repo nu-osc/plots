@@ -13,7 +13,7 @@
 
 - Version: **8**
 - Updates since v7:
-  - Add NuFIT-6.1
+    * Add NuFIT-6.1
 - [Plotting scripts](samples/theta12/theta12-v8-)
 - Data tables:
     * [published](theta12_v8_published.dat)

@@ -1,6 +1,6 @@
 style                  name                        type           measurement    dataset    notes      precision    value    left    right       span    preliminary  arxiv                             conf
 junoreactor            JUNO_reactor                reactor        estimation     6_years    {}                 4   0.307   0.0016   0.0016  0.0032                 0  hep-ex/2204.13249                 {}
-nufit6                 NuFIT_6                     theory         {}             {}         {}                 4   0.3088  0.0066   0.0067  0.0133                 0  https://arxiv.org/pdf/2410.05380  {}
+nufit6.1               NuFIT_6.1                   theory         {}             {}         {}                 4   0.3088  0.0066   0.0067  0.0133                 0  https://arxiv.org/pdf/2410.05380  {}
 junoreactor            JUNO_reactor                reactor        {}             {}         {}                 4   0.3092  0.0087   0.0087  0.0174                 1  hep-ex/2511.14593                 {}
 dune                   DUNE                        solar          estimation     2.5_years  {}                 3   0.308   0.009    0.009   0.01848                0  hep-ph/1808.08232                 {}
 nufit6                 NuFIT_6                     theory         {}             {}         {}                 3   0.308   0.011    0.012   0.023                  0  https://arxiv.org/pdf/2410.05380  {}
