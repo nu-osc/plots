@@ -1,11 +1,9 @@
 # |Δm²₃₂|/|Δm²₃₁| measurements comparison
 
-- Version: **15**
-- Updates since v14:
-    * NOvA+T2K
-    * NOvA
-    * ORCA first result
-- [Plotting scripts](samples/dm32/dm32-v15-none)
+- Version: **16**
+- Updates since v15:
+    * Add NuFIT-6.1
+- [Plotting scripts](samples/dm32/dm32-v16-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
@@ -32,41 +30,41 @@
 
 #### Experiments only
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v16_NO_latest.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v16_IO_latest.png)
 
 #### Including global analyses
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest_global.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v16_NO_latest_global.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest_global.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v16_IO_latest_global.png)
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v15_NO_latest_global_future.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v16_NO_latest_global_future.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v15_IO_latest_global_future.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v16_IO_latest_global_future.png)
 
 ### |Δm²₃₁|
 
 #### Experiments only
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v16_NO_latest.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v16_IO_latest.png)
 
 #### Including global analyses
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest_global.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v16_NO_latest_global.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest_global.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v16_IO_latest_global.png)
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v15_NO_latest_global_future.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v16_NO_latest_global_future.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v15_IO_latest_global_future.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v16_IO_latest_global_future.png)
 
 ## References
 
@@ -86,7 +84,7 @@
 | MINOS+              |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                            |
 | NOvA                |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |                [hep-ex/2509.04361](data/nova_2025-09.yaml) |
 | NOvA+T2K            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
-| NuFIT               |                           [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |                                                            |
+| NuFIT 6.1           |                       [NuFIT 6.1](data/theor_nufit_6-1_2025-12.yaml) |                                                            |
 | PDG                 |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
 | ORCA                |                          [hep-ex/2408.07015](data/orca_2024-08.yaml) |                                                            |
 | ORCA sensitivity    |                      [hep-ex/2103.09885](data/orca_future_2021.yaml) |                                                            |
