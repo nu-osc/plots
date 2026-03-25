@@ -58,11 +58,11 @@ def main(args):
     position = {
         "nova": (2024, 3.6),
         "t2k": (2023, 2.4),
-        "icecube": (2029.9, 2.0),
+        "icecube": (2029.5, 1.8),
         "juno": (2033.55, 2.1),
         "pingu": (2031, 3.75),
         "orca": (2032.5, 4.1),
-        "hyperk": (2035.5, 4.4),
+        "hyperk": (2035.4, 4.4),
         "dune": (2030, 7.0),
         "ino": (2035, 2.5),
         "hyperkkorea": (2033, 8),
@@ -136,6 +136,9 @@ def main(args):
     text_qual_juno = dict(
         boxstyle="round, pad = 0.15", facecolor="white", alpha=0.2, edgecolor="white"
     )
+    text_qual_icecube = dict(
+        boxstyle="round, pad = 0.15", facecolor="white", alpha=0.2, edgecolor="white"
+    )
 
     for count, exp in enumerate(exps):
 
@@ -186,6 +189,8 @@ def main(args):
         # if exp['id'] != 'orca' and exp['id'] != 'icecube' and exp['id'] != 'juno' and exp['id'] != 'pingu' and exp['id'] != 'ess':
         if exp["id"] == "juno" or exp["id"] == "hyperK":
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual_juno)
+        elif exp["id"] == "icecube":
+            ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual_icecube)
         else:
             ax.text(text_place_x, text_place_y, name, color=color, bbox=text_qual)
         marker_place_x = start + marker_offset[exp["id"]]
