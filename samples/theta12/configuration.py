@@ -1,6 +1,6 @@
-version = "7"
+version = "8"
 url = "git.jinr.ru/nu/osc"
-date = "2025.11"
+date = "2025.12"
 variable = r"$\sin^2 \theta_{12}$"
 lims = (2.8, 3.505)
 scale = 10.0
@@ -23,6 +23,7 @@ colors = {
     "snoreactorconstraint": "xkcd:orange",
     "icecube": "xkcd:azure",
     "nufit6": "xkcd:steel grey",
+    "nufit6.1": "xkcd:steel grey",
     "nufit5.2": "xkcd:steel grey",
     "pdg2024": "xkcd:steel grey",
     "desalasetal.": "xkcd:steel grey",

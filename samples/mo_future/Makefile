@@ -1,8 +1,8 @@
 variable = future_nmo
-version_num = 4
+version_num = 5
 suffix =
 beta =
-version_prev = 3
+version_prev = 4
 version_dash = $(subst .,-,${version_num})
 version  = v${version_dash}${beta}
 
@@ -26,7 +26,7 @@ plots:
 
 .PHONY: readme
 readme: plots/Readme.md
-plots/Readme.md: Readme.md Makefile | plots
+plots/Readme.md: Readme.md.tmpl Makefile | plots
 	cat $< | version_num=$(version_num) beta=$(beta) version_dash=$(version_dash) version_prev=$(version_prev) variable=$(variable) suffix=$(suffix) envsubst > $@
 
 plots/$(variable)_$(version).%: $(data) future_mo.py | plots

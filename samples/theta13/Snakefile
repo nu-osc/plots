@@ -2,10 +2,10 @@ from itertools import product
 from pathlib import Path
 
 variable = "theta13"
-version_num = "14"
+version_num = "15"
 suffix = ""
 beta = ""
-version_prev = "13"
+version_prev = "14"
 version_dash = version_num.replace(".", "-")
 version = f"v{version_dash}{beta}"
 
@@ -96,8 +96,8 @@ for recency in recencies:
         angle_prefix = angle == "single" and "s" or ""
         cvariable = angle_prefix + variable
 
-        for ext, recency, globalness, futureness in product(
-            extensions, recencies, ("", "_global"), ("", "_future")
+        for ext, globalness, futureness in product(
+            extensions, ("", "_global"), ("", "_future")
         ):
             excl = ["-e"]
             if globalness == "":
@@ -106,6 +106,7 @@ for recency in recencies:
                 excl.append("estimation")
             excl = len(excl) > 1 and " ".join(excl) or ""
 
+            print(f"plot_{angle}_{recency}{globalness}{futureness}{ext}")
             rule:
                 name:
                     f"plot_{angle}_{recency}{globalness}{futureness}{ext}"

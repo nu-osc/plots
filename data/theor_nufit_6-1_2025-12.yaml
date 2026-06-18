@@ -1,0 +1,91 @@
+experiment: NuFIT 6.1
+type: theory
+reference:
+    date: '2025.12'
+    arxiv: https://arxiv.org/pdf/2410.05380
+    inspire: https://inspirehep.net/literature/2838825
+    url: http://www.nu-fit.org/?q=node/294
+    cite: Esteban:2024eli
+    preliminary: false
+result:
+    splitting_large:
+        precision: 3
+        results:
+            - ordering: 'NO'
+              mode: '31'
+              value: 2.511
+              uncertainty:
+                  left: 0.020
+                  right: 0.021
+            - ordering: IO
+              mode: '32'
+              value: 2.483
+              uncertainty: 0.020
+        notes: With SuperK data included
+    deltaCP:
+        precision: 3
+        mode: degrees
+        results:
+            - ordering: 'NO'
+              value: 212
+              uncertainty:
+                  left: 36
+                  right: 26
+            - ordering: IO
+              value: 274
+              uncertainty:
+                  left: 25
+                  right: 22
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.470
+              uncertainty:
+                  left: 0.014
+                  right: 0.017
+            - ordering: IO
+              value: 0.550
+              uncertainty:
+                  left: 0.016
+                  right: 0.013
+    amplitude13:
+        precision: 5
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.02248
+              uncertainty:
+                  left: 0.00059
+                  right: 0.00055
+            - ordering: IO
+              value: 0.02262
+              uncertainty: 
+                  left: 0.00056
+                  right: 0.00057
+    splitting_small:
+        precision: 3
+        value: 7.537
+        uncertainty: 
+            left: 0.100
+            right: 0.094
+    amplitude12:
+        precision: 4
+        mode: single
+        value: 0.3088
+        uncertainty:
+            left: 0.0066
+            right: 0.0067
+    hier:
+        precision: 2
+        mode: sigma
+        value: 2.43
+        proj:
+            max: 0
+            min: 0
+        note: 
+            - SK and IC 24 are included
+            - "square root of Δχ²=5.9082 from provided data tables"
+crosschecks:
+    - Liudmila Kolupaeva

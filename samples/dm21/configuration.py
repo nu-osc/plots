@@ -1,6 +1,6 @@
-version = "9"
+version = "10"
 url = "git.jinr.ru/nu/osc"
-date = "2025.11"
+date = "2025.12"
 variable = r"$\Delta m^2_{21}$, $10^{-5}$ eV$^2$"
 lims = {"left": 3.9}
 
@@ -23,6 +23,7 @@ colors = {
     "icecube": "xkcd:azure",
     "nufit5.2": "xkcd:steel grey",
     "nufit6": "xkcd:steel grey",
+    "nufit6.1": "xkcd:steel grey",
     "pdg2024": "xkcd:steel grey",
     "desalasetal.": "xkcd:steel grey",
     "hyperkamiokande": "xkcd:saffron",

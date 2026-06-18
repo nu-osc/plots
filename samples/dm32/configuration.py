@@ -1,6 +1,6 @@
-version='15'
+version='16'
 url='git.jinr.ru/nu/osc'
-date='2025.11'
+date='2025.12'
 
 axis_label={
 	'dm31': r'$|\Delta m^2_{31}|$, $10^{-3}$ eV$^2$',
@@ -43,6 +43,7 @@ colors = {
     'icecube':         colors['atm'],
     'nufit5.2':        colors['global'],
     'nufit6':        colors['global'],
+    'nufit6.1':        colors['global'],
     'pdg2024':         colors['global'],
     'desalasetal.':    colors['global'],
     'junoreactor':     colors['reactor'],

@@ -1,6 +1,6 @@
-version='14'
+version='15'
 url='git.jinr.ru/nu/osc'
-date='2025.11'
+date='2025.12'
 variables= {
 		"single": r'$\sin^2 \theta_{13}$',
 		"double": r'$\sin^2 2\theta_{13}$'
@@ -44,6 +44,7 @@ colors = {
     'desalasetal.':    colors['global'],
     'nufit5.2':        colors['global'],
     'nufit6':        colors['global'],
+    'nufit6.1':        colors['global'],
     'pdg2024':         colors['global'],
     'dune':            colors['acc'],
     'capozzietal.':    colors['global']

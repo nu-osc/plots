@@ -11,14 +11,13 @@
 
 ## Summary
 
-- Version: **7**
-- Updates since v6:
-  - Add SNO+
-  - Add JUNO
-- [Plotting scripts](samples/theta12/theta12-v7-)
+- Version: **8**
+- Updates since v7:
+    * Add NuFIT-6.1
+- [Plotting scripts](samples/theta12/theta12-v8-)
 - Data tables:
-    * [published](theta12_v7_published.dat)
-    * [latest](theta12_v7_latest.dat)
+    * [published](theta12_v8_published.dat)
+    * [latest](theta12_v8_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -31,15 +30,15 @@
 
 ### Experiments only
 
-![sin²θ₁₂](png/latest/theta12_v7_latest.png)
+![sin²θ₁₂](png/latest/theta12_v8_latest.png)
 
 ###  Including global analyses and future experiments
 
-![sin²θ₁₂](png/latest/theta12_v7_latest_global_future.png)
+![sin²θ₁₂](png/latest/theta12_v8_latest_global_future.png)
 
 ### Including global analyses
 
-![sin²θ₁₂](png/latest/theta12_v7_latest_global.png)
+![sin²θ₁₂](png/latest/theta12_v8_latest_global.png)
 
 ## References
 
@@ -52,7 +51,7 @@
 | JUNO              |                                                                                                                      |             [hep-ex/2511.14593](data/juno_2025-11.yaml) |
 | JUNO sensitivity  | [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml), [hep-ex/2210.08437](data/juno_future_2022-10-solar.yaml) |                                                         |
 | KamLAND           |                                                          [hep-ex/1606.07538](data/kamland_2020-07-neutrino2020.yaml) |                                                         |
-| NuFIT 6           |                                                                           [NuFIT 6](data/theor_nufit_6_2024-10.yaml) |                                                         |
+| NuFIT 6.1         |                                                                       [NuFIT 6.1](data/theor_nufit_6-1_2025-12.yaml) |                                                         |
 | PDG 2024          |                                                                                      [PDG](data/theor_pdg_2024.yaml) |                                                         |
 | SNO               |                                                               [hep-ex/1109.0763](data/sno_2020-07-neutrino2020.yaml) |                                                         |
 | SNO+, constrained |                                                              [hep-ex/2505.04469](data/snoplus_2025-05_combined.yaml) | [hep-ex/2511.11856](data/snoplus_2025-11_combined.yaml) |
