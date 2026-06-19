@@ -1,0 +1,24 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - "19.7e20 POT ν"
+    - "16.3e20 POT ν-bar"
+reference:
+    date: "2025.06"
+    arxiv: "hep-ex/2506.05889"
+    preliminary: no
+    inspire: "https://inspirehep.net/literature/2931390"
+    doi: "https://doi.org/10.1103/gh5j-5cwv"
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.506
+              uncertainty:
+                  left: 0.052
+                  right: 0.039
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
