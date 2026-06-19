@@ -331,10 +331,10 @@ def format_latex(
         interval_str = f"{value_left:.{digits_decimal}f}, {value_right:.{digits_decimal}f}"
         # fmt: off
         ret = (
-            rf"\makebox[{width1_rel}]" 
-            rf"{{\relsize{{-1}}[{interval_str}]}}"
-            rf"\makebox[{width2_rel}]"
+            rf"\makebox[{width1_rel}]"
             rf"{{}}"
+            rf"\makebox[{width2_rel}]"
+            rf"{{\relsize{{-1}}[{interval_str}]}}"
         )
         # fmt: on
 
