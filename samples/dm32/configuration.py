@@ -1,6 +1,6 @@
-version='16'
+version='17'
 url='git.jinr.ru/nu/osc'
-date='2025.12'
+date='2026.06'
 
 axis_label={
 	'dm31': r'$|\Delta m^2_{31}|$, $10^{-3}$ eV$^2$',
