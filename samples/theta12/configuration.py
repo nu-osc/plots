@@ -1,6 +1,6 @@
-version = "8"
+version = "9"
 url = "git.jinr.ru/nu/osc"
-date = "2025.12"
+date = "2026.06"
 variable = r"$\sin^2 \theta_{12}$"
 lims = (2.8, 3.505)
 scale = 10.0
