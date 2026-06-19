@@ -1,9 +1,9 @@
 # |Δm²₃₂|/|Δm²₃₁| measurements comparison
 
-- Version: **16**
-- Updates since v15:
-    * Add NuFIT-6.1
-- [Plotting scripts](samples/dm32/dm32-v16-none)
+- Version: **17**
+- Updates since v16:
+    * Add JUNO Neutrino 2026 result
+- [Plotting scripts](samples/dm32/dm32-v17-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
@@ -30,41 +30,41 @@
 
 #### Experiments only
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v16_NO_latest.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v17_NO_latest.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v16_IO_latest.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v17_IO_latest.png)
 
 #### Including global analyses
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v16_NO_latest_global.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v17_NO_latest_global.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v16_IO_latest_global.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v17_IO_latest_global.png)
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v16_NO_latest_global_future.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v17_NO_latest_global_future.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v16_IO_latest_global_future.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v17_IO_latest_global_future.png)
 
 ### |Δm²₃₁|
 
 #### Experiments only
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v16_NO_latest.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v17_NO_latest.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v16_IO_latest.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v17_IO_latest.png)
 
 #### Including global analyses
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v16_NO_latest_global.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v17_NO_latest_global.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v16_IO_latest_global.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v17_IO_latest_global.png)
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v16_NO_latest_global_future.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v17_NO_latest_global_future.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v16_IO_latest_global_future.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v17_IO_latest_global_future.png)
 
 ## References
 
@@ -80,7 +80,8 @@
 | IceCube             |                       [hep-ex/2405.02163](data/icecube_2024-05.yaml) |                                                            |
 | IceCube sensitivity |                   [hep-ex/1911.06745](data/icecube_future_2019.yaml) |      [hep-ex/2509.13066](data/icecube_future_2025-09.yaml) |
 | INO                 |              [physics.ins-det/1505.07380](data/ino_future_2015.yaml) |                                                            |
-| JUNO                |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
+| JUNO                |                                                                      |       [Neutrino 2026](data/juno_2026-06_neutrino2026.yaml) |
+| JUNO sensitivity    |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
 | MINOS+              |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                            |
 | NOvA                |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |                [hep-ex/2509.04361](data/nova_2025-09.yaml) |
 | NOvA+T2K            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
