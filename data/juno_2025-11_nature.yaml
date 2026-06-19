@@ -1,0 +1,22 @@
+experiment: JUNO reactor
+type: reactor
+dataset: "59.1 days"
+reference:
+    date: "2025.11"
+    arxiv: "hep-ex/2511.14593"
+    preliminary: no
+    doi: "https://doi.org/10.1038/s41586-026-10538-z"
+    citation: "Nature 654, 343–348 (2026)"
+result:
+    splitting_small:
+        precision: 2
+        value: 7.50
+        uncertainty: 0.12
+    amplitude12:
+        precision: 4
+        mode: single
+        value: 0.3092
+        uncertainty: 0.0087
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
