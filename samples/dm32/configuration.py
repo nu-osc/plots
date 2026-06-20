@@ -1,5 +1,5 @@
 version='17'
-url='git.jinr.ru/nu/osc'
+url = "github.com/nu-osc/plots"
 date='2026.06'
 
 axis_label={
