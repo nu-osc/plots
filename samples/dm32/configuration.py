@@ -11,7 +11,7 @@ lims={
 	'dm31': { 'NO': (1.80, 2.95), 'IO': (1.70, 2.90) }
 	}
 
-reference = f'v{version} {date}: {url}'
+reference = f'v{version} {date} {url}'
 
 colors = {
         'reactor':     'xkcd:red',
