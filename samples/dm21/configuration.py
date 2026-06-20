@@ -4,7 +4,7 @@ date = "2026.06"
 variable = r"$\Delta m^2_{21}$, $10^{-5}$ eV$^2$"
 lims = {"left": 3.9}
 
-reference = f"v{version} {date}: {url}"
+reference = f"v{version} {date} {url}"
 
 colors = {
     "junoreactor": "xkcd:red",
