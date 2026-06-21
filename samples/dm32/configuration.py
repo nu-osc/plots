@@ -46,6 +46,7 @@ colors = {
     'nufit6.1':        colors['global'],
     'pdg2024':         colors['global'],
     'desalasetal.':    colors['global'],
+    'juno(dayabay)':   colors['reactor'],
     'junoreactor':     colors['reactor'],
     'junoreactor_nh':  colors['reactor'],
     'junoreactor_ih':  colors['reactor'],
