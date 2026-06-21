@@ -3,12 +3,13 @@ type: reactor
 dataset: "207.2 days"
 reference:
     date: "2026.06"
-    arxiv: "hep-ex/2511.14593"
     preliminary: yes
+    conference: "Neutrino 2026"
 result:
     splitting_large:
         precision: 4
         mode: '31'
+        name: "JUNO (+Daya Bay)"
         results:
           - ordering: 'NO'
             value: 2.5090
