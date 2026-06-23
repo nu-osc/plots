@@ -1,0 +1,22 @@
+experiment: "NOvA+JUNO"
+type: "joint"
+dataset: "26.61e20 POT ν, 12.5e20 POT ν-bar" (NOvA) and "207.2 days" (JUNO)
+reference: 
+    date: 2026.06
+    preliminary: yes
+    arxiv: "hep-ex/2606.14121"
+    inspire: "https://inspirehep.net/literature/3168377"
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.434
+              uncertainty:
+                 interval: [2.413, 2.455]
+            - ordering: IO
+              value: 2.527
+              uncertainty:
+                  interval: [2.506, 2.553]
+    

@@ -1,9 +1,9 @@
 variables=dm31 dm32
 variable=dm32
-version_num=17
+version_num=18a
 suffix=none
 beta=
-version_prev=16
+version_prev=17
 version_dash=$(subst .,-,${version_num})
 version=v${version_dash}${beta}
 

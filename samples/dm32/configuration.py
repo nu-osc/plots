@@ -1,4 +1,4 @@
-version='17'
+version='18a'
 url = "github.com/nu-osc/plots"
 date='2026.06'
 
@@ -56,7 +56,9 @@ colors = {
     'ino':             colors['atm'],
     'icecubeupgrade':  colors['atm'],
     'essnusb':         colors['acc'],
-    'capozzietal.':    colors['global']
+    'capozzietal.':    colors['global'],
+    'juno': colors['reactor'],
+    'novajuno': colors['special']
 	}
 
 names = {
