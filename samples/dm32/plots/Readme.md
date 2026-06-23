@@ -1,9 +1,9 @@
 # |Δm²₃₂|/|Δm²₃₁| measurements comparison
 
-- Version: **17**
-- Updates since v16:
+- Version: **18a**
+- Updates since v17:
     * Add JUNO Neutrino 2026 result
-- [Plotting scripts](samples/dm32/dm32-v17-none)
+- [Plotting scripts](samples/dm32/dm32-v18a-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
@@ -30,41 +30,41 @@
 
 #### Experiments only
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v17_NO_latest.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v18a_NO_latest.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v17_IO_latest.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v18a_IO_latest.png)
 
 #### Including global analyses
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v17_NO_latest_global.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v18a_NO_latest_global.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v17_IO_latest_global.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v18a_IO_latest_global.png)
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v17_NO_latest_global_future.png)
+![\|Δm²₃₂\| NO](png/NO/latest/dm32/dm32_v18a_NO_latest_global_future.png)
 
-![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v17_IO_latest_global_future.png)
+![\|Δm²₃₂\| IO](png/IO/latest/dm32/dm32_v18a_IO_latest_global_future.png)
 
 ### |Δm²₃₁|
 
 #### Experiments only
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v17_NO_latest.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v18a_NO_latest.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v17_IO_latest.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v18a_IO_latest.png)
 
 #### Including global analyses
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v17_NO_latest_global.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v18a_NO_latest_global.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v17_IO_latest_global.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v18a_IO_latest_global.png)
 
 #### Including global analyses and future experiments
 
-![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v17_NO_latest_global_future.png)
+![\|Δm²₃₁\| NO](png/NO/latest/dm31/dm31_v18a_NO_latest_global_future.png)
 
-![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v17_IO_latest_global_future.png)
+![\|Δm²₃₁\| IO](png/IO/latest/dm31/dm31_v18a_IO_latest_global_future.png)
 
 ## References
 

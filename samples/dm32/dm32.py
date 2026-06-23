@@ -68,6 +68,9 @@ def main(args):
         result = result[mask]
     result = np.sort(result, axis=-1, kind=None, order=("measurement", "span"))
     result = result[::-1]
+    if result[-3][0] == "novat2k":
+        result[[-1, -2, -3, -4]] = result[[-1, -2, -4, -3]]
+
     nitems = len(result)
     digits_decimal_max = result["digits"].max()
     line_place = sum(item["measurement"] == "estimation" for item in result)

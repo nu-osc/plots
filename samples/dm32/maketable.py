@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-context = dict(dmSq21=7.53e-5, sinSqTheta12=0.307)  # PDG 2020 values
+context = dict(dmSq21=7.388e-5, sinSqTheta12=0.3036)  # JUNO 2026 values
 
 fields = dict(
     dm31="splitting_large",
