@@ -1,11 +1,11 @@
 experiment: "NOvA+JUNO"
 type: "joint"
-dataset:
-reference:
-    date:
+dataset: "26.61e20 POT ν, 12.5e20 POT ν-bar" (NOvA) and "207.2 days" (JUNO)
+reference: 
+    date: 2026.06
     preliminary: yes
-    arxiv:
-    inspire:
+    arxiv: "hep-ex/2606.14121"
+    inspire: "https://inspirehep.net/literature/3168377"
 result:
     splitting_large:
         precision: 3
