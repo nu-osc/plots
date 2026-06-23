@@ -1,0 +1,34 @@
+experiment: JUNO reactor
+type: reactor
+dataset: "207.2 days"
+reference:
+    date: "2026.06"
+    preliminary: yes
+    conference: "Neutrino 2026"
+result:
+    splitting_large:
+        precision: 3
+        mode: '31'
+        name: "JUNO (+Daya Bay)"
+        results:
+          - ordering: 'NO'
+            value: 2.509
+            uncertainty:
+              right: 0.027
+              left: 0.025
+          - ordering: 'IO'
+            value: 2.482
+            uncertainty:
+              right: 0.026
+              left:  0.025
+    splitting_small:
+        precision: 3
+        value: 7.388
+        uncertainty: 0.078
+    amplitude12:
+        precision: 4
+        mode: single
+        value: 0.3036
+        uncertainty: 0.0064
+crosschecks:
+    - Maxim Gonchar

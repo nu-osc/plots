@@ -1,0 +1,17 @@
+style                  name                        type           measurement    dataset    notes      precision    value    left    right    span    preliminary  arxiv                             conf
+junoreactor            JUNO_reactor                reactor        estimation     6_years    {}                 3    7.53    0.024    0.024  0.048               0  hep-ex/2204.13249                 {}
+junoreactor            JUNO_reactor                reactor        {}             {}         {}                 3    7.388   0.078    0.078  0.156               1  hep-ex/2511.14593                 {}
+nufit6.1               NuFIT_6.1                   theory         {}             {}         {}                 3    7.537   0.1      0.094  0.194               0  https://arxiv.org/pdf/2410.05380  {}
+snoreactor             SNO+_reactor                reactor        estimation     5_years    {}                 2    7.53    0.13     0.13   0.2636              1  {}                                Neutrino_2022
+capozzietal.           Capozzi_et_al.              theory         {}             {}         {}                 2    7.36    0.15     0.16   0.31                0  hep-ph/2107.00532                 {}
+snoreactorconstraints  SNO+_reactor_+_constraints  reactor        {}             {}         {}                 2    7.63    0.17     0.17   0.34                1  hep-ex/2511.11856                 {}
+pdg2024                PDG_2024                    theory         {}             {}         {}                 2    7.53    0.18     0.18   0.36                0  {}                                {}
+solarkamland           Solar+KamLAND               solar+reactor  {}             {}         {}                 2    7.5     0.18     0.19   0.37                0  2312.12907_[hep-ex]               {}
+kamland                KamLAND                     reactor        {}             {}         {}                 2    7.54    0.18     0.19   0.37                0  hep-ex/1606.07538                 {}
+desalasetal.           de_Salas_et_al.             theory         {}             {}         {}                 2    7.5     0.2      0.22   0.42                0  hep-ph/2006.11237                 {}
+snoreactor             SNO+_reactor                reactor        {}             {}         {}                 2    7.93    0.24     0.21   0.45                0  hep-ex/2511.11856                 {}
+dune                   DUNE                        solar          estimation     2.5_years  {}                 2    4.85    0.29     0.29   0.5723              0  hep-ph/1808.08232                 {}
+hyperkamiokande        Hyper-Kamiokande            solar          estimation     20_years   {}                 2    4.85    0.45     0.36   0.81                1  {}                                {}
+solarglobal            Solar_global                solar          {}             {}         {}                 2    6.1     0.81     0.95   1.76                0  2312.12907_[hep-ex]               {}
+junosolar              JUNO_solar                  solar          estimation     10_years   {}                 1    7.5     1.3      1.9    3.15                0  2210.08437                        {}
+sno                    SNO                         solar          {}             {}         {}                 2    5.6     1.4      1.9    3.3                 0  hep-ex/1109.0763                  {}
