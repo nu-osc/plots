@@ -2,7 +2,7 @@
 
 - Version: **18a**
 - Updates since v17:
-    * Add JUNO Neutrino 2026 result
+    * Add NOvA update for Neutrino 2026 
 - [Plotting scripts](samples/dm32/dm32-v18a-none)
 - Conversions:
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
@@ -15,12 +15,14 @@
         + $`\sin^2\theta_{12} = 0.307`$
         + $`\Delta m^2_{21} = 7.53\cdot10^{-5}\text{ eV}^2`$
     * Asymmetric syst/stat errors conversion: quadratically sum left and right part of each (stat/syst) contribution independently
+    * $`\Delta m^2_{21}`$ and $`\sin^2\theta_{12}`$ error bars are not taken into account in mass splitting recalculations
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
 - Notes:
     * de Salas et al. and Capozzi et al. are pre-Neutrino 2024 fits
     * [IceCube](data/icecube_2024-05.yaml): NO value and uncertainty are used for the IO
+    * T2K IO value is private communications
 
 [TOC]
 
@@ -83,8 +85,9 @@
 | JUNO                |                                                                      |       [Neutrino 2026](data/juno_2026-06_neutrino2026.yaml) |
 | JUNO sensitivity    |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
 | MINOS+              |            [hep-ex/2006.15208](data/minos_2020-07-neutrino2020.yaml) |                                                            |
-| NOvA                |             [hep-ex/2108.08219](data/nova_2020-07-neutrino2020.yaml) |                [hep-ex/2509.04361](data/nova_2025-09.yaml) |
+| NOvA                |             [hep-ex/2509.04361](data/nova_2025-09.yaml)              |                                                            |
 | NOvA+T2K            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
+| NOvA+JUNO           |                                                                      |      [hep-ex/2606.14121](data/nova_juno_2026.yaml)         |
 | NuFIT 6.1           |                       [NuFIT 6.1](data/theor_nufit_6-1_2025-12.yaml) |                                                            |
 | PDG                 |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
 | ORCA                |                          [hep-ex/2408.07015](data/orca_2024-08.yaml) |                                                            |
@@ -92,4 +95,4 @@
 | RENO nGd            |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
 | SuperCHOOZ          |                                                                      | [CERN seminar 2022](https://indico.cern.ch/event/1215214/) |
 | SuperK              |              [hep-ex/2311.05105](data/superk_2023-011_prd.yaml.yaml) |                                                            |
-| T2K                 |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) | [Neutrino 2024](data_latest/t2k_2024-06-neutrino2024.yaml) |
+| T2K                 |                       [hep-ex/2506.05889](data/t2k_2025-06_PRL.yaml) |                                                            |
