@@ -1,0 +1,22 @@
+experiment: "NOvA+JUNO"
+type: "joint"
+dataset:
+reference:
+    date:
+    preliminary: yes
+    arxiv:
+    inspire:
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.434
+              uncertainty:
+                 interval: [2.413, 2.455]
+            - ordering: IO
+              value: 2.527
+              uncertainty:
+                  interval: [2.506, 2.553]
+    
