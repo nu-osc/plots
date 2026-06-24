@@ -1,0 +1,78 @@
+experiment: T2K
+type: accelerator
+dataset:
+    - "21.4e20 POT ν"
+    - "16.3e20 POT ν-bar"
+reference:
+    date: 06.26
+    arxiv:
+    inspire:
+    url: https://indico.global/event/15740/contributions/155587/attachments/72629/140807/2026_06_04_T2K_NEUTRINO_2026.pdf
+    doi:
+    citation:
+    slides: 47
+    notes: w/ RC, Frequentist, T2K Run 1-11 v2
+result:
+    splitting_large:
+        precision: 3
+        results:
+            - ordering: 'NO'
+              mode: '32'
+              value: 2.502
+              uncertainty:
+                  left: 0.044
+                  right: 0.052
+            - ordering: 'IO'
+              mode: '31'
+              value: 2.486
+              uncertainty:
+                  left: 0.058
+                  right: 0.037
+    amplitude13:
+        precision: 4
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.0252
+              preferred: yes
+              uncertainty:
+                  left: 0.0043
+                  right: 0.0037
+            - ordering: IO
+              preferred: no
+              value: 0.028
+              uncertainty:
+                  left: 0.0048
+                  right: 0.0033
+    deltaCP:
+        precision: 3
+        mode: radians
+        results:
+            - ordering: 'NO'
+              value: -2.04
+              uncertainty:
+                  left: 0.56
+                  right: 0.81
+            - ordering: IO
+              value: -1.37
+              uncertainty:
+                  left: 0.69
+                  right: 0.58
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.539
+              uncertainty:
+                  left: 0.069
+                  right: 0.031
+            - ordering: IO
+              value: 0.543
+              uncertainty:
+                  left: 0.058
+                  right: 0.036
+  
+
+crosschecks:
+- Liudmila Kolupaeva
