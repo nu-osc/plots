@@ -1,0 +1,40 @@
+experiment: MINOS + Reactor
+type: accelerator, reactor 
+dataset: 10.71e20 POT ν, 9.69e20 POT ν (+), 3.36e20 POT ν-bar
+channel: numu + numubar
+reference:
+    date: '2020.06'
+    arxiv:
+    doi:
+    citation:
+    conf: Neutrino2026
+    talk: https://indico.global/event/15740/contributions/155586/attachments/72628/140786/2_Jenny_Thomas_Neutrino2026.pdf
+    slides: [21, 23]
+    notes: "Fixed typo (?) in uncertainty numbers for UO: 0.13 -> 0.03, uncertainty and CV for IO LO and UO NO is taken from plots"
+result:
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: UO
+              preferred: no
+              value: 0.66
+              uncertainty: 0.03
+            - ordering: 'NO'
+              octant: LO
+              preferred: yes
+              value: 0.37
+              uncertainty: 0.03
+            - ordering: IO
+              octant: UO
+              preferred: yes
+              value: 0.66
+              uncertainty: 0.03
+            - ordering: IO
+              octant: LO
+              preferred: no
+              value: 0.37
+              uncertainty:
+crosschecks:
+    - Liudmila Kolupaeva
