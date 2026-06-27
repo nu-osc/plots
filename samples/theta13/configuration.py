@@ -1,6 +1,6 @@
-version='15'
+version='16'
 url='git.jinr.ru/nu/osc'
-date='2025.12'
+date='2026.06'
 variables= {
 		"single": r'$\sin^2 \theta_{13}$',
 		"double": r'$\sin^2 2\theta_{13}$'
