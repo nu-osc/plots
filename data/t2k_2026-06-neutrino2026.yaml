@@ -12,6 +12,7 @@ reference:
     citation:
     slides: 47
     notes: w/ RC, Frequentist, T2K Run 1-11 v2
+    preliminary: yes
 result:
     splitting_large:
         precision: 3
