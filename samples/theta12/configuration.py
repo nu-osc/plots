@@ -1,4 +1,4 @@
-version = "9"
+version = "10"
 url = "github.com/nu-osc/plots"
 date = "2026.06"
 variable = r"$\sin^2 \theta_{12}$"
