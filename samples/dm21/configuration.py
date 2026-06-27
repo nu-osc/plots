@@ -1,4 +1,4 @@
-version = "11"
+version = "12"
 url = "github.com/nu-osc/plots"
 date = "2026.06"
 variable = r"$\Delta m^2_{21}$, $10^{-5}$ eV$^2$"
