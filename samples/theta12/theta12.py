@@ -15,7 +15,7 @@ import configuration as cfg
 dtype1 = np.dtype(
     [
         ("id", "U20"),
-        ("exp", "U30"),
+        ("exp", "U40"),
         ("type", "U50"),
         ("measurement", "U20"),
         ("dataset", "U20"),

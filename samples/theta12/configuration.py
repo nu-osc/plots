@@ -1,4 +1,4 @@
-version = "10"
+version = "9.1"
 url = "github.com/nu-osc/plots"
 date = "2026.06"
 variable = r"$\sin^2 \theta_{12}$"
@@ -21,6 +21,7 @@ colors = {
     "sno": "xkcd:saffron",
     "snoreactor": "xkcd:red",
     "snoreactorconstraint": "xkcd:orange",
+    "snoreactorsolarconst": "xkcd:orange",
     "icecube": "xkcd:azure",
     "nufit6": "xkcd:steel grey",
     "nufit6.1": "xkcd:steel grey",
@@ -39,6 +40,7 @@ names = {
     "JUNO reactor": r"JUNO \Radioactivity{}",
     "SNO+ reactor": r"SNO\texttt{+} \Radioactivity{}",
     "SNO+ reactor + constraints": r"SNO\texttt{+} \Radioactivity{}, constrained",
+    "SNO+ reactor + solar constraint": r"SNO\texttt{+} \Radioactivity{} + {\relscale{0.75}\SunshineOpenCircled} constraint",
     "Hyper-Kamiokande": r"HyperK\texttt{+}SNO\texttt{+}SK",
     "SuperK+SNO": r"SuperK\texttt{+}SNO",
     "KamLAND+SK+SNO": r"KamLAND\texttt{+}SK\texttt{+}SNO",
