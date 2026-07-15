@@ -1,0 +1,20 @@
+experiment: "SNO+ reactor + solar constraint"
+type: solar+reactor
+dataset: "245.78+439.43 days"
+exposure: "1.46 ktonne-years"
+note: "Dominated by solar"
+reference:
+    date: "2025.11"
+    title: "Measurement of reactor antineutrino oscillations with 1.46 ktonne-years of data at SNO+"
+    arxiv: "hep-ex/2511.11856"
+    inspire: "https://inspirehep.net/literature/3083970"
+    preliminary: yes
+result:
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.310
+        uncertainty: 0.012
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
