@@ -2,13 +2,13 @@
 
 ## Summary
 
-- Version: **15**
-- Updates since v14:
-    * Add NuFIT-6.1
-- [Plotting scripts](samples/theta13/theta13-v15-)
+- Version: **16**
+- Updates since v15:
+    * Add Neutrino 2026 results
+- [Plotting scripts](samples/theta13/theta13-v16-)
 - Data tables:
-    * [published](theta13_v15_published.dat)
-    * [latest](theta13_v15_latest.dat)
+    * [published](theta13_v16_published.dat)
+    * [latest](theta13_v16_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -17,7 +17,17 @@
     * dashed grey bar in theoretical entry means IO
     * only a few plots are shown below, see the subfolders for all the available plots
 
-[TOC]
+## Table of contents
+
+- [Summary](<plots/Readme.md#summary>)
+- [Latest results](<plots/Readme.md#latest-results>)
+    - [sin²2θ₁₃](<plots/Readme.md#sin%EF%B8%8F2>)
+        - [Experiments only](<plots/Readme.md#experiments-only>)
+        - [Including global analyses and future experiments](<plots/Readme.md#including-global-analyses-and-future-experiments>)
+    - [sin²θ₁₃](<plots/Readme.md#sin%EF%B8%8F>)
+        - [Experiments only](<plots/Readme.md#experiments-only>)
+        - [Including global analyses and future experiments](<plots/Readme.md#including-global-analyses-and-future-experiments>)
+- [References](<plots/Readme.md#references>)
 
 ## Latest results
 
@@ -25,38 +35,38 @@
 
 #### Experiments only
 
-![sin²2θ₁₃](png/latest/double/theta13_v15_latest.png)
+![sin²2θ₁₃](png/latest/double/theta13_v16_latest.png)
 
 ####  Including global analyses and future experiments
 
-![sin²2θ₁₃](png/latest/double/theta13_v15_latest_global_future.png)
+![sin²2θ₁₃](png/latest/double/theta13_v16_latest_global_future.png)
 
 ### sin²θ₁₃
 
 #### Experiments only
 
-![sin²2θ₁₃](png/latest/single/stheta13_v15_latest.png)
+![sin²2θ₁₃](png/latest/single/stheta13_v16_latest.png)
 
 ####  Including global analyses and future experiments
 
-![sin²2θ₁₃](png/latest/single/stheta13_v15_latest_global_future.png)
+![sin²2θ₁₃](png/latest/single/stheta13_v16_latest_global_future.png)
 
 ## References
 
-| Measurement     |                                                            Published |                                                     Latest |
-|-----------------|---------------------------------------------------------------------:|-----------------------------------------------------------:|
-| Capozzi et al.  |                 [hep-ph/2107.00532](data/theor_capozzi_2021-07.yaml) |                                                            |
-| DUNE            |                  [hep-ex/2006.16043](data/dune_future_2020_acc.yaml) |                                                            |
-| Daya Bay nGd    |                   [hep-ex/2211.14988](data/dayabay_2022-11-nGd.yaml) |                                                            |
-| Daya Bay nH     |                    [hep-ex/2406.01007](data/dayabay_2024-06-nH.yaml) |                                                            |
-| Double CHOOZ    |                        [hep-ex/1901.09445](data/dchooz_2019-01.yaml) |                  [TAUP 2025](dchooz_2025-08-taup2025.yaml) |
-| de Salas et al. | [hep-ph/2006.11237](data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                            |
-| JUNO            |           [hep-ex/2204.13249](data/juno_future_2022-04-reactor.yaml) |                                                            |
-| NOvA            |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                [hep-ex/2509.04361](data/nova_2025-09.yaml) |
-| NOvA+T2K        |                         [hep-ex/2510.19888](data/nova_t2k_2025.yaml) |                                                            |
-| NuFIT 6.1       |                       [NuFIT 6.1](data/theor_nufit_6-1_2025-12.yaml) |                                                            |
-| PDG             |                                      [PDG](data/theor_pdg_2024.yaml) |                                                            |
-| RENO nGd        |                 [hep-ex/2412.18711](data/reno_2024-12-nGd-full.yaml) |                                                            |
-| RENO nH         |                       [hep-ex/1911.04601](data/reno_2019-11_nH.yaml) |    [Neutrino 2022](data/reno_2020-06-nH-neutrino2022.yaml) |
-| SuperCHOOZ      |                                                                      | [CERN seminar 2022](data/dchooz_2020-07-neutrino2020.yaml) |
-| T2K             |                           [hep-ex/2303.03222](data/t2k_2023_03.yaml) |                [NeuTel 2025](data/t2k_2025-09-neutel.yaml) |
+| Measurement     |                                                                  Published |                                                           Latest |
+|-----------------|---------------------------------------------------------------------------:|-----------------------------------------------------------------:|
+| Capozzi et al.  |                 [hep-ph/2107.00532](../../data/theor_capozzi_2021-07.yaml) |                                                                  |
+| DUNE            |                  [hep-ex/2006.16043](../../data/dune_future_2020_acc.yaml) |                                                                  |
+| Daya Bay nGd    |                   [hep-ex/2211.14988](../../data/dayabay_2022-11-nGd.yaml) |                                                                  |
+| Daya Bay nH     |                    [hep-ex/2406.01007](../../data/dayabay_2024-06-nH.yaml) |                                                                  |
+| Double CHOOZ    |                        [hep-ex/1901.09445](../../data/dchooz_2019-01.yaml) |             [TAUP 2025](../../data/dchooz_2025-08-taup2025.yaml) |
+| de Salas et al. | [hep-ph/2006.11237](../../data/theor_forero_2020-06-pre-neutrino2020.yaml) |                                                                  |
+| JUNO            |           [hep-ex/2204.13249](../../data/juno_future_2022-04-reactor.yaml) |                                                                  |
+| NOvA            |                         [hep-ex/2510.19888](../../data/nova_t2k_2025.yaml) |                [hep-ex/2509.04361](../../data/nova_2025-09.yaml) |
+| NOvA+T2K        |                         [hep-ex/2510.19888](../../data/nova_t2k_2025.yaml) |                                                                  |
+| NuFIT 6.1       |                       [NuFIT 6.1](../../data/theor_nufit_6-1_2025-12.yaml) |                                                                  |
+| PDG             |                                      [PDG](../../data/theor_pdg_2024.yaml) |                                                                  |
+| RENO nGd        |                 [hep-ex/2412.18711](../../data/reno_2024-12-nGd-full.yaml) |                                                                  |
+| RENO nH         |                       [hep-ex/1911.04601](../../data/reno_2019-11_nH.yaml) |    [Neutrino 2022](../../data/reno_2020-06-nH-neutrino2022.yaml) |
+| SuperCHOOZ      |                                                                            | [CERN seminar 2022](../../data/dchooz_2020-07-neutrino2020.yaml) |
+| T2K             |                           [hep-ex/2303.03222](../../data/t2k_2023_03.yaml) |        [Neutrino 2026](../../data/t2k_2026-06-neutrino2026.yaml) |
