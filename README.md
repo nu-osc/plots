@@ -11,15 +11,15 @@ Page content:
 
 ### Parameters
 
-| Plot                                              | Version                      | Date    | What's new                              |
-| -------------                                     | ------:                      | ----    | ------:                                 |
-| $`\sin^2 \theta_{12}`$                            | [v9](samples/theta12/plots)  | 2026-06 | JUNO at Neutrino 2026                   |
-| $`\sin^22\theta_{13}`$                            | [v15](samples/theta13/plots) | 2025-12 | NuFIT 6.1 (after the first JUNO result) |
-| $`\sin^2 \theta_{23}`$                            | [v7](samples/theta23/plots)  | 2025-12 | NuFIT 6.1 (after the first JUNO result) |
-| $`\Delta m^2_{21}`$                               | [v11](samples/dm21/plots)    | 2026-06 | JUNO at Neutrino 2026                   |
-| $`\|\Delta m^2_{31/32}\|`$                        | [v18a](samples/dm32/plots)   | 2026-06 | For Day 2 of Neutrino-2026              |
-| Mass ordering                                     | [v1.2](samples/mo)           | 2023-10 |                                         |
-| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v3](samples/deltaCP)        | 2025-02 |                                         |
+| Plot                                              | Version                       | Date    | What's new                              |
+| -------------                                     | ------:                       | ----    | ------:                                 |
+| $`\sin^2 \theta_{12}`$                            | [v9.1](samples/theta12/plots) | 2026-06 | JUNO at Neutrino 2026                   |
+| $`\sin^22\theta_{13}`$                            | [v15](samples/theta13/plots)  | 2025-12 | NuFIT 6.1 (after the first JUNO result) |
+| $`\sin^2 \theta_{23}`$                            | [v7](samples/theta23/plots)   | 2025-12 | NuFIT 6.1 (after the first JUNO result) |
+| $`\Delta m^2_{21}`$                               | [v11](samples/dm21/plots)     | 2026-06 | JUNO at Neutrino 2026                   |
+| $`\|\Delta m^2_{31/32}\|`$                        | [v18a](samples/dm32/plots)    | 2026-06 | For Day 2 of Neutrino-2026              |
+| Mass ordering                                     | [v1.2](samples/mo)            | 2023-10 |                                         |
+| $`\delta_\mathrm{\scriptscriptstyle\mathrm{CP}}`$ | [v3](samples/deltaCP)         | 2025-02 |                                         |
 
 
 ### Future projections
