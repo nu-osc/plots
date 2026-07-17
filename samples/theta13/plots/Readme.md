@@ -4,7 +4,7 @@
 
 - Version: **16**
 - Updates since v15:
-    * Add Neutrino 2026 results
+    * Add Neutrino 2026 results: T2K
 - [Plotting scripts](samples/theta13/theta13-v16-)
 - Data tables:
     * [published](theta13_v16_published.dat)
