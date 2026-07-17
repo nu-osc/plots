@@ -1,4 +1,4 @@
-version='18a'
+version='18'
 url = "github.com/nu-osc/plots"
 date='2026.06'
 

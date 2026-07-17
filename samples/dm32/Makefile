@@ -1,6 +1,6 @@
 variables=dm31 dm32
 variable=dm32
-version_num=18a
+version_num=18
 suffix=none
 beta=
 version_prev=17
