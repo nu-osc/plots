@@ -11,13 +11,13 @@
 
 ## Summary
 
-- Version: **12**
-- Updates since v11:
-    * Add Neutrino 2026 results
-- [Plotting scripts](samples/dm21/dm21-v12-)
+- Version: **11**
+- Updates since v10:
+    * Add JUNO Neutrino 2026 results
+- [Plotting scripts](samples/dm21/dm21-v11-)
 - Data tables:
-    * [published](dm21_v12_published.dat)
-    * [latest](dm21_v12_latest.dat)
+    * [published](dm21_v11_published.dat)
+    * [latest](dm21_v11_latest.dat)
 - Cross checks by:
     * @ldkolupaeva
     * @maxfl
@@ -29,15 +29,15 @@
 
 ### Experiments only
 
-![Δm²₂₁](png/latest/dm21_v12_latest.png)
+![Δm²₂₁](png/latest/dm21_v11_latest.png)
 
 ### Including global analyses and future experiments
 
-![Δm²₂₁](png/latest/dm21_v12_latest_global_future.png)
+![Δm²₂₁](png/latest/dm21_v11_latest_global_future.png)
 
 ### Including global analyses
 
-![Δm²₂₁](png/latest/dm21_v12_latest_global.png)
+![Δm²₂₁](png/latest/dm21_v11_latest_global.png)
 
 ## References
 
