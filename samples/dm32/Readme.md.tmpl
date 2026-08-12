@@ -2,18 +2,22 @@
 
 - Version: **${version_num}${beta}**
 - Updates since v${version_prev}:
-    * Add JUNO Neutrino 2026 result
+    * Neutrino 2026 results:
+        * JUNO (v17)
+        * NOvA (v18)
+        * T2K (this version)
 - [Plotting scripts](samples/${variable}/${variable}-v${version_num}-${suffix})
-- Conversions:
+- Conversions between |\Delta m^2_{31}|, |\Delta m^2_{32}| and $`|\Delta m^2_\mathrm{ee}|`$, :
     * Effective mass splitting $`|\Delta m^2_\mathrm{ee}|`$ conversion (RENO):
         + $`|\Delta m^2_{31}| = |\Delta m^2_\mathrm{ee}| + \alpha \sin^2\theta_{12} \Delta m^2_{21}`$.
         + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{ee}| - \alpha \cos^2\theta_{12} \Delta m^2_{21}`$.
-    * $`|\Delta m^2_\mathrm{31}|`$ to $`|\Delta m^2_\mathrm{32}|`$ conversion:
-        + $`|\Delta m^2_{32}| = |\Delta m^2_\mathrm{31}| - \alpha |\Delta m^2_\mathrm{21}|`$.
+    * $`|\Delta m^2_{31}|`$ to $`|\Delta m^2_{32}|`$ conversion:
+        + $`|\Delta m^2_{32}| = |\Delta m^2_{31}| - \alpha |\Delta m^2_{21}|`$.
     * $`\alpha`$ is +1/-1 for NO/IO.
-    * PDG 2020 values:
-        + $`\sin^2\theta_{12} = 0.307`$
-        + $`\Delta m^2_{21} = 7.53\cdot10^{-5}\text{ eV}^2`$
+    * JUNO 2026 values are used for all the relevant conversions:
+        + $`\sin^2\theta_{12} = 0.3036`$
+        + $`\Delta m^2_{21} = 7.388\cdot10^{-5}\text{ eV}^2`$
+        + No extra uncertainty is added when doing conversions.
     * Asymmetric syst/stat errors conversion: quadratically sum left and right part of each (stat/syst) contribution independently
 - Cross checks by:
     * @ldkolupaeva
