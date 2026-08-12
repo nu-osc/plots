@@ -1,0 +1,39 @@
+experiment: JUNO reactor
+type: reactor
+dataset: 6 years
+measurement: estimation
+reference:
+    date: '2022.04'
+    arxiv: hep-ex/2204.13249
+    inspire: https://inspirehep.net/literature/2075005
+    doi:
+    citation: JUNO:2022mxj
+    reference: page 21, table 6
+result:
+    splitting_large:
+        precision: 4
+        mode: '32'
+        results:
+          - ordering: 'NO'
+            value: 2.453
+            uncertainty: 0.0047
+          - ordering: 'IO'
+            value: 2.546
+            uncertainty: 0.0047
+        note: central values are taken from table 1 on the page 6
+    splitting_small:
+        precision: 3
+        value: 7.53
+        uncertainty: 0.024
+    amplitude12:
+        precision: 4
+        mode: single
+        value: 0.307
+        uncertainty: 0.0016
+    amplitude13:
+        precision: 4
+        mode: single
+        value: 0.0218
+        uncertainty: 0.0026
+crosschecks:
+    - Maxim Gonchar

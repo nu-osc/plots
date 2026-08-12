@@ -1,0 +1,39 @@
+experiment: INO
+type: atmospheric
+dataset:
+measurement: estimation
+dataset: 10 years
+starting_year: 2025
+status: not clear
+reference:
+    date: '2015.05'
+    arxiv: physics.ins-det/1505.07380
+    inspire: https://inspirehep.net/literature/1373310
+    doi: https://doi.org/10.1007/s12043-017-1373-4
+    citation: ICAL:2015stm
+    page: 62, 70
+result:
+    amplitude23:
+        precision: 2
+        mode: degrees
+        value: 45
+        uncertainty:
+            percent: 17
+    splitting_large:
+        precision: 3
+        mode: '32'
+        value: 2.4
+        uncertainty:
+            percent: 7.4
+        notes: page 64
+    mh:
+        year:
+            - [5, 10, 15, 20]
+        low:
+            - [1.26, 1.92, 2.42, 2.81]
+        high:
+            - [2.36, 3.29, 3.99, 4.58]
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
+

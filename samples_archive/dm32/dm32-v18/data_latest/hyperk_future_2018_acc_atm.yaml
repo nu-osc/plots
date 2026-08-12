@@ -1,0 +1,59 @@
+experiment: Hyper-Kamiokande
+starting_year: 2027
+status: approved
+measurement: estimation
+type: atmospheric, accelerator
+note: sensitivity for joint atmospheric and beam neutrinos
+dataset: 10 years
+reference:
+    arxiv: hep-ex/1805.04163
+    inspire: https://inspirehep.net/literature/1672899
+    doi:
+    citation:
+    conf:
+    talk:
+    page: 219
+result:
+    amplitude23:
+        precision: 2
+        value: 0.55
+        uncertainty: 0.009
+    splitting_large:
+        precision: 3
+        mode: '32'
+        value: 2.4
+        uncertainty: 0.015
+    mh:
+        year:
+            - [1, 2, 3, 6, 10]
+        low:
+            - [1.51, 2.03, 2.39, 3.14, 3.82]
+        high:
+            - [2.31, 3.15, 3.75, 5.01, 6.17]
+    dcp:
+        year:
+            - [1, 2.5, 5, 7.5, 10]
+        low:
+            - [3.25, 4.61, 5.77, 6.45, 6.92]
+        high:
+            - [3.49, 5.24, 6.88, 7.95, 8.72]
+        line:
+            - [3.7, 5.77, 8.04, 9.76, 11.28]
+    dcp_res:
+        year:
+            - [1, 2.5, 5, 7.5, 10]
+        low_0:
+            - [16.5, 10.93, 8.36, 7.14, 6.57]
+        high_0:
+            - [17.7, 12.29, 9.86, 8.86, 8.29]
+        line_0:
+            - [15.85, 10.07, 7.07, 5.76, 5.07]
+        low_3_2:
+            - [29, 27.4, 24.6, 21.78, 19]
+        high_3_2:
+            - [30.14, 28.7, 26.4, 24.07, 21.86]
+        line_3_2:
+            - [28.57, 26.7, 23.5, 20.29, 17.14]
+crosschecks:
+    - Liudmila Kolupaeva
+
