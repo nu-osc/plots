@@ -22,7 +22,7 @@ result:
               uncertainty: 
                   left: 0.048
                   right: 0.043
-              note: " (NO)"
+              note: "NO"
               notes: "Copied from NO"
 crosschecks:
     - Liudmila Kolupaeva
