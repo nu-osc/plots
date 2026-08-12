@@ -5,6 +5,7 @@ reference:
     date: "2026.06"
     preliminary: yes
     conference: "Neutrino 2026"
+    talk: "https://indico.global/event/15740/contributions/155563/attachments/72452/141000/JUNO-Neutrino2026-Vfinal.pdf"
 result:
     splitting_large:
         precision: 3

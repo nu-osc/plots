@@ -1,0 +1,28 @@
+experiment: IceCube
+type: atmospheric
+dataset: "11 years"
+reference:
+    date: '2026.06'
+    preliminary: yes
+    conference: "Neutrino 2026"
+    talk: "https://indico.global/event/15740/contributions/155627/attachments/72870/141226/Talk_Neutrino2026_KM3NeT_PauldeJong.pdf"
+    slides: 18
+result:
+    splitting_large:
+        precision: 3
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.437
+              uncertainty: 
+                  left: 0.048
+                  right: 0.043
+            - ordering: 'IO'
+              value: 2.437
+              uncertainty: 
+                  left: 0.048
+                  right: 0.043
+              note: " (NO)"
+              notes: "Copied from NO"
+crosschecks:
+    - Liudmila Kolupaeva

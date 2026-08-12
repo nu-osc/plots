@@ -1,0 +1,28 @@
+experiment: ORCA
+type: atmospheric
+dataset: "1.4 mtonne-years"
+reference:
+    date: '2026.06'
+    preliminary: yes
+    conference: "Neutrino 2026"
+    talk: "https://indico.global/event/15740/contributions/155627/attachments/72870/141226/Talk_Neutrino2026_KM3NeT_PauldeJong.pdf"
+    slides: 19
+result:
+    splitting_large:
+        precision: 2
+        mode: '31'
+        results:
+            - ordering: 'IO'
+              value: 2.08
+              uncertainty:
+                left: 0.08
+                right: 0.09
+            - ordering: 'NO'
+              value: 2.08
+              uncertainty:
+                left: 0.08
+                right: 0.09
+              note: "IO"
+              notes: "copied from IO"
+crosschecks:
+    - Maxim Gonchar
