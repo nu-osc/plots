@@ -1,1 +1,52 @@
-../../../../data/nova_2017-01.yaml
+experiment: NOvA
+type: accelerator
+dataset: 6.05e20 POT ν
+channel: numudisap
+reference:
+    date: '2017.01'
+    arxiv: hep-ex/1701.05891
+    inspire: https://inspirehep.net/literature/1510066
+    doi: https://doi.org/10.1103/PhysRevLett.118.151802
+    citation: Adamson:2017qqn
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.67
+              uncertainty: 0.11
+            - ordering: IO
+              value: 2.72
+              uncertainty: 0.11
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: LO
+              value: 0.404
+              uncertainty:
+                  right: 0.030
+                  left: 0.022
+            - ordering: 'NO'
+              octant: UO
+              value: 0.624
+              uncertainty:
+                  right: 0.022
+                  left: 0.030
+            - ordering: IO
+              octant: LO
+              value: 0.398
+              uncertainty:
+                  right: 0.030
+                  left: 0.022
+            - ordering: IO
+              octant: UO
+              value: 0.618
+              uncertainty:
+                  right: 0.022
+                  left: 0.030
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

@@ -1,1 +1,91 @@
-../../../../data/theor_nufit_2019-07-pre-neutrino2020.yaml
+experiment: "NuFIT '19"
+type: theory
+reference:
+    date: '2019.07'
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    url: http://www.nu-fit.org/?q=node/211
+    conf:
+    talk:
+    slides:
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.528
+              uncertainty:
+                  left: 0.031
+                  right: 0.029
+            - ordering: IO
+              value: 2.510
+              uncertainty:
+                  left: 0.031
+                  right: 0.030
+        notes: This is mix of dmsq32 and dmsq31 values!
+    deltaCP:
+        precision: 2
+        mode: degrees
+        results:
+            - ordering: 'NO'
+              value: 221
+              uncertainty:
+                  left: 28
+                  right: 39
+            - ordering: IO
+              value: 282
+              uncertainty:
+                  left: 25
+                  right: 23
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.563
+              uncertainty:
+                  left: 0.024
+                  right: 0.018
+            - ordering: IO
+              value: 0.565
+              uncertainty:
+                  left: 0.022
+                  right: 0.017
+    amplitude13:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.02237
+              uncertainty:
+                  left: 0.00065
+                  right: 0.00066
+            - ordering: IO
+              value: 0.02259
+              uncertainty:
+                  left: 0.00065
+                  right: 0.00065
+    splitting_small:
+        precision: 2
+        value: 7.39
+        uncertainty:
+            left: 0.20
+            right: 0.21
+    amplitude12:
+        precision: 2
+        mode: single
+        value: 0.310
+        uncertainty:
+            left: 0.012
+            right: 0.013
+    hier:
+        precision: 2
+        mode: sigma
+        value: 3.22
+        proj: 0
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

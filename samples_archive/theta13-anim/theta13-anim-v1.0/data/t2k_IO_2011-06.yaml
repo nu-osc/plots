@@ -1,1 +1,26 @@
-../../../../data/t2k_2011-06.yaml
+experiment: T2K
+type: accelerator
+dataset:
+    - 1.43 POT ν
+reference:
+    date: '2011.06'
+    arxiv: hep-ex/1106.2822
+    inspire: https://inspirehep.net/literature/913765
+    doi: https://doi.org/10.1103/PhysRevLett.107.041801
+    citation: Abe:2011sj
+result:
+    amplitude13:
+        precision: 3
+        mode: single
+        note: Intervals are from PDG
+        url: https://pdglive.lbl.gov/DataBlock.action?node=S067P13
+        results:
+            - ordering: 'NO'
+              uncertainty:
+                  interval: [0.013, 0.056]
+            - ordering: 'IO'
+              uncertainty:
+                  interval: [0.015, 0.056]
+crosschecks:
+    - Maxim Gonchar
+    - Liudmila Kolupaeva

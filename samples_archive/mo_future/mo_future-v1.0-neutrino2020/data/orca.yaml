@@ -1,1 +1,20 @@
-../../../../data/future_mh/orca.yaml
+experiment: ORCA
+starting_year: 2024
+status: approved
+note: sensitivity is taken from the poster
+reference:
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf: Neutrino 2020
+    talk: https://nusoft.fnal.gov/nova/nu2020postersession/pdf/posterPDF-480.pdf
+    page:
+sensitivity:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        low:
+            - [1.57, 2.24, 2.76, 3.21, 3.61, 3.89, 4.21, 4.53, 4.81, 5.06]
+        high:
+            - [2.59, 3.46, 4.09, 4.52, 4.96, 5.35, 5.69, 5.98, 6.30, 6.57]

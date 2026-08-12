@@ -1,1 +1,62 @@
-../../../../data/nova_2019-06.yaml
+experiment: NOvA
+type: accelerator
+dataset: 8.85e20 POT ν, 12.33e20 POT ν-bar
+channel: joint numudisap + nueapp
+reference:
+    date: '2019.06'
+    arxiv: hep-ex/1906.04907
+    inspire: https://inspirehep.net/literature/1739571
+    doi: https://doi.org/10.1103/PhysRevLett.123.151803
+    citation: Acero:2019ksn
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.48
+              uncertainty:
+                  left: 0.06
+                  right: 0.11
+            - ordering: IO
+              value: 2.54
+              uncertainty:
+                  interval: [2.44, 2.67]
+              notes: "private communication for IO interval"
+    deltaCP:
+        precision: 3
+        mode: pi
+        results:
+            - ordering: 'NO'
+              value: 0.0
+              uncertainty:
+                  left: 0.4
+                  right: 1.3
+            - ordering: IO
+              value: 1.48
+              uncertainty:
+                  interval: [1.06, 1.88]
+              notes: "private communication for interval and IO interval"
+    amplitude23:
+        precision: 2
+        mode: single
+        results:
+            - ordering: 'NO'
+              octant: UO
+              value: 0.56
+              uncertainty:
+                  left: 0.03
+                  right: 0.04
+            - ordering: 'NO'
+              octant: LO
+              value: 0.48
+              uncertainty:
+                  interval: [0.45, 0.476]
+            - ordering: IO
+              value: 0.56
+              uncertainty:
+                  interval: [0.425, 0.61]
+        notes: "private communication for all except NO UO"
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

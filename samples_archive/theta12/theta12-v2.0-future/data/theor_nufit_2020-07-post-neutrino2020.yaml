@@ -1,1 +1,97 @@
-../../../../data/theor_nufit_2020-07-post-neutrino2020.yaml
+experiment: NuFIT 5.0
+type: theory
+reference:
+    date: '2020.07'
+    arxiv: hep-ph/2007.14792
+    inspire: https://inspirehep.net/literature/1809173
+    doi:
+    citation: Esteban:2020cvm
+    url: http://www.nu-fit.org/?q=node/228
+    conf:
+    talk:
+    slides:
+result:
+    splitting_large:
+        precision: 3
+        results:
+            - ordering: 'NO'
+              mode: '31'
+              value: 2.517
+              uncertainty:
+                  left: 0.028
+                  right: 0.026
+            - ordering: IO
+              mode: '32'
+              value: 2.498
+              uncertainty:
+                  left: 0.028
+                  right: 0.028
+        notes: With SuperK data included
+    deltaCP:
+        precision: 3
+        mode: degrees
+        results:
+            - ordering: 'NO'
+              value: 197
+              uncertainty:
+                  left: 24
+                  right: 27
+            - ordering: IO
+              value: 282
+              uncertainty:
+                  left: 30
+                  right: 26
+    amplitude23:
+        precision: 3
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.573
+              uncertainty:
+                  left: 0.020
+                  right: 0.016
+            - ordering: IO
+              value: 0.575
+              uncertainty:
+                  left: 0.019
+                  right: 0.016
+    amplitude13:
+        precision: 5
+        mode: single
+        results:
+            - ordering: 'NO'
+              value: 0.02219
+              uncertainty:
+                  left: 0.00063
+                  right: 0.00062
+            - ordering: IO
+              value: 0.02238
+              uncertainty:
+                  left: 0.00062
+                  right: 0.00063
+    splitting_small:
+        precision: 2
+        value: 7.42
+        uncertainty:
+            left: 0.20
+            right: 0.21
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.304
+        uncertainty:
+            left: 0.012
+            right: 0.012
+        notes: Using NO value. IO value is the same with slighly higher uncertainty.
+    hier:
+        precision: 1
+        mode: sigma
+        value: 2.7
+        proj:
+            max: 0
+            min: 0
+        note: SK is included
+crosschecks:
+    - Yury Malyshkin
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

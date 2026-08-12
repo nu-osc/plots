@@ -1,1 +1,29 @@
-../../../../data/kamland+sk+sno_2020-07-neutrino2020.yaml
+experiment: KamLAND+SK+SNO
+type: reactor+atmospheric+solar
+dataset:
+reference:
+    date: '2020.07'
+    arxiv:
+    inspire:
+    doi:
+    citation:
+    conf: Neutrino 2020
+    talk: https://indico.fnal.gov/event/43209/contributions/187863/attachments/129474/159089/nakajima_Neutrino2020.pdf
+    slides: 23
+result:
+    splitting_small:
+        precision: 2
+        value: 7.51
+        uncertainty:
+            left: 0.18
+            right: 0.19
+    amplitude12:
+        precision: 3
+        mode: single
+        value: 0.306
+        uncertainty:
+            left: 0.012
+            right: 0.013
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

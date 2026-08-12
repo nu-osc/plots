@@ -1,1 +1,30 @@
-../../../../data/juno_future_2021-reactor.yaml
+experiment: JUNO reactor
+type: reactor
+dataset: 6 years
+measurement: estimation
+starting_year: 2023
+status: approved
+reference:
+    date: '2021.08'
+    arxiv: 
+    inspire: 
+    doi: 
+    citation: 
+    talk:
+result:
+    amplitude13:
+        precision: 3
+        mode: single
+        value: 0.024
+        uncertainty:
+            percent: 12
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6]
+        low:
+            - [1.12, 1.59, 1.95, 2.25, 2.56, 2.76]
+        high:
+            - [1.16, 1.65, 2.06, 2.38, 2.67, 2.89]
+crosschecks:
+    - Maxim Gonchar
+

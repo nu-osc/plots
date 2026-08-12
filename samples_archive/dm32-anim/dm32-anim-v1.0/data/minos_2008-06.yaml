@@ -1,1 +1,19 @@
-../../../../data/minos_2008-06.yaml
+experiment: MINOS
+type: accelerator
+dataset: 3.36e20 POT ν
+channel: numudisap
+reference:
+    date: '2008.06'
+    arxiv: hep-ex/0806.2237
+    inspire: https://inspirehep.net/literature/788212
+    doi: https://doi.org/10.1103/PhysRevLett.101.131802
+    citation: Adamson:2008zt
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        value: 2.43
+        uncertainty: 0.13
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar

@@ -1,1 +1,19 @@
-../../../../data/future_mh/icupgr.yaml
+experiment: IceCube
+starting_year: 2023
+status: approved
+reference:
+    arxiv: hep-ex/1911.06745
+    inspire: https://inspirehep.net/literature/1765534
+    doi: https://doi.org/10.1103/PhysRevD.101.032006
+    citation:
+    conf:
+    talk:
+    page: 13
+sensitivity:
+    mh:
+        year:
+            - [1, 2, 3, 4, 5, 6]
+        low:
+            - [0.68, 1.03, 1.24, 1.41, 1.58, 1.71]
+        high:
+            - [1.55, 2.25, 2.72, 3.12, 3.47, 3.78]

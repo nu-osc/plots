@@ -1,1 +1,26 @@
-../../../../data/minos_2014-03.yaml
+experiment: MINOS
+type: accelerator
+dataset: 10.71e20 POT ν, 3.36e20 POT ν-bar, 37.88 kt-years atm
+channel: joint numudisap + nueapp
+reference:
+    date: '2014.03'
+    arxiv: hep-ex/1403.0867
+    inspire: https://inspirehep.net/literature/1283612
+    doi: https://doi.org/10.1103/PhysRevLett.112.191801
+    citation: Adamson:2014vgd
+result:
+    splitting_large:
+        precision: 2
+        mode: '32'
+        results:
+            - ordering: 'NO'
+              value: 2.37
+              uncertainty:
+                  interval: [2.28, 2.46]
+            - ordering: 'IO'
+              value: 2.41
+              uncertainty:
+                interval: [2.32, 2.53]
+crosschecks:
+    - Liudmila Kolupaeva
+    - Maxim Gonchar
