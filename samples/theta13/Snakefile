@@ -59,7 +59,7 @@ rule readme:
     output:
         target_readme,
     shell:
-        """
+        r"""
         test -d {plotsdir} || mkdir -p {plotsdir}
     cat {input} | version_num={version_num} beta={beta} \
                                     version_dash={version_dash} version_prev={version_prev} \
@@ -84,7 +84,7 @@ for recency in recencies:
             output:
                 tables[angle][recency],
             shell:
-                """
+                r"""
                 ./{input.script} -v {params.variable} \
                                              -o {output} \
                                              {input.data}
@@ -120,6 +120,6 @@ for recency in recencies:
                 output:
                     f"{plotsdir}/{ext[1:]}/{recency}/{angle}/{cvariable}_{version}_{recency}{globalness}{futureness}{ext}",
                 shell:
-                    """
+                    r"""
                     ./{input.script} {input.table} {params.exclude} -a {params.angle} -o {output}
                 """

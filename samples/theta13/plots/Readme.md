@@ -33,21 +33,21 @@
 
 ### sin²2θ₁₃
 
-#### Experiments only
+#### Experiments only ([pdf](pdf/latest/double/theta13_v16_latest.pdf))
 
 ![sin²2θ₁₃](png/latest/double/theta13_v16_latest.png)
 
-####  Including global analyses and future experiments
+####  Including global analyses and future experiments ([pdf](pdf/latest/double/theta13_v16_latest_global_future.pdf))
 
 ![sin²2θ₁₃](png/latest/double/theta13_v16_latest_global_future.png)
 
 ### sin²θ₁₃
 
-#### Experiments only
+#### Experiments only ([pdf](pdf/latest/single/stheta13_v16_latest.pdf))
 
 ![sin²2θ₁₃](png/latest/single/stheta13_v16_latest.png)
 
-####  Including global analyses and future experiments
+####  Including global analyses and future experiments ([pdf](pdf/latest/single/stheta13_v16_latest_global_future.pdf))
 
 ![sin²2θ₁₃](png/latest/single/stheta13_v16_latest_global_future.png)
 
