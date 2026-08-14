@@ -16,14 +16,13 @@
 
 ## Plots
 
-### Including global analyses and future experiments
+### Including global analyses and future experiments (pdf: [NO](pdf/NO/latest/theta23_v7_NO_latest_global_future.pdf), [IO](pdf/IO/latest/theta23_v7_IO_latest_global_future.pdf))
 
 ![sin²θ₂₃ NO](png/NO/latest/theta23_v7_NO_latest_global_future.png)
 
 ![sin²θ₂₃ IO](png/IO/latest/theta23_v7_IO_latest_global_future.png)
 
-
-### Experiments only
+### Experiments only (pdf: [NO](pdf/NO/latest/theta23_v7_NO_latest.pdf), [IO](pdf/IO/latest/theta23_v7_IO_latest.pdf))
 
 ![sin²θ₂₃ NO](png/NO/latest/theta23_v7_NO_latest.png)
 
