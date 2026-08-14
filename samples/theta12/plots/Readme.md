@@ -13,7 +13,7 @@
 
 - Version: **9.1**
 - Updates since v9:
-    * Add Neutrino 2026 results
+    * Names and labels.
 - [Plotting scripts](samples/theta12/theta12-v9.1-)
 - Data tables:
     * [published](theta12_v9-1_published.dat)
@@ -28,15 +28,15 @@
 
 ## Plots
 
-### Experiments only
+### Experiments only ([pdf](pdf/latest/theta12_v9-1_latest.pdf))
 
 ![sin²θ₁₂](png/latest/theta12_v9-1_latest.png)
 
-###  Including global analyses and future experiments
+###  Including global analyses and future experiments ([pdf](pdf/latest/theta12_v9-1_latest_global_future.pdf))
 
 ![sin²θ₁₂](png/latest/theta12_v9-1_latest_global_future.png)
 
-### Including global analyses
+### Including global analyses ([pdf](pdf/latest/theta12_v9-1_latest_global.pdf))
 
 ![sin²θ₁₂](png/latest/theta12_v9-1_latest_global.png)
 
